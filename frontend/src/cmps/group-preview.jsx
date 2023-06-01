@@ -3,7 +3,7 @@ export function GroupPreview(group) {
 
 
     return (
-        <article>
+        <article className="group-preview-container">
             <div>
                 <p>I am a group</p>
 
