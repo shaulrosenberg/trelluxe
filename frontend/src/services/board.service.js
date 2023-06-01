@@ -14,6 +14,7 @@ export const boardService = {
      getEmptyBoard,
      getDefaultFilter,
      demoUser,
+     findTaskById,
 }
 
 _createBoards()
@@ -51,7 +52,7 @@ function getEmptyBoard() {
 function getDefaultFilter() {
      return { txt: '', labels: [], sortBy: '', sortOrder: '' }
 }
-// demo user to display in header 
+// demo user to display in header
 function demoUser() {
      const user = {
           _id: 'u101',
@@ -65,6 +66,20 @@ function demoUser() {
      const initials = name.substring(0, 2).toUpperCase()
 
      return initials
+}
+
+function findTaskById(taskId) {
+     return storageService.query(STORAGE_KEY).then((boards) => {
+          for (const board of boards) {
+               for (const group of board.groups) {
+                    const task = group.tasks.find((task) => task.id === taskId)
+                    if (task) {
+                         return task
+                    }
+               }
+          }
+          return null // Task not found
+     })
 }
 
 function _createBoards() {
@@ -210,11 +225,11 @@ function _createBoards() {
                               archivedAt: 1589983468418,
                               tasks: [
                                    {
-                                        id: 'c101',
+                                        id: 'c103',
                                         title: 'Replace logo',
                                    },
                                    {
-                                        id: 'c102',
+                                        id: 'c104',
                                         title: 'Add Samples',
                                    },
                               ],

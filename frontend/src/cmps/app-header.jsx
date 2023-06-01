@@ -13,7 +13,6 @@ export function AppHeader() {
      const demoUser = boardService.demoUser()
      
      useEffect(() => {
-          console.log(demoUser)
      }, [location])
 
      async function onLogin(credentials) {

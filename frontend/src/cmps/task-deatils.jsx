@@ -1,21 +1,27 @@
-import { useEffect } from "react"
-import { useParams } from "react-router"
-import {boardService} from '../services/board.service'
+import { useEffect } from 'react'
+import { useParams } from 'react-router'
+import { boardService } from '../services/board.service'
+import { useState } from 'react'
 
-export function TaskDetails(){
+export function TaskDetails() {
+     const { taskId } = useParams()
+     const [task, setTask] = useState(null)
 
-    const { taskId } = useParams()
+     useEffect(() => {
+          boardService
+               .findTaskById(taskId)
+               .then((currTask) => setTask(currTask))
+     }, [taskId])
 
-    useEffect(() => {
-        console.log(taskId)
-        console.log(currTask())
-   }, [])
-
-   async function currTask(taskId){
-    return await boardService.getById(taskId)
-   }
-
-    return <section>
-        <h1>hello task</h1>
-    </section>
+     return (
+          <section className='section-task-deatils'>
+               <div className='div-task-deatils'>
+                    {task ? <h2>{task.title}</h2> : 'Loading'}
+                    <p>Description</p>
+                    <a>Add a more detailed description...</a>
+                    <p>Activity</p>
+                    <input placeholder='Write a comment...'></input>
+               </div>
+          </section>
+     )
 }
