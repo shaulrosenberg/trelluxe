@@ -8,6 +8,7 @@ import { UserDetails } from './pages/user-details'
 import { LoginSignup } from './pages/login-signup'
 import { BoardIndex } from './pages/board-index'
 import { Workspace } from './pages/workspace'
+import { TaskDetails } from './cmps/task-deatils'
 
 export function RootCmp() {
 
@@ -17,7 +18,9 @@ export function RootCmp() {
             <main>
                 <Routes>
                     <Route path='/' element={<HomePage />} />
-                    <Route path='/board/:boardId' element={<BoardIndex />} />
+                    <Route path='/board/:boardId' element={<BoardIndex />}>
+                        <Route path='task/:taskId' element={<TaskDetails/>}/>
+                    </Route>
                     <Route path='/workspace' element={<Workspace />} />
                     <Route path='/login' element={<LoginSignup />} />
                 </Routes>

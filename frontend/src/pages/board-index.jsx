@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { Outlet, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { GroupList } from "../cmps/group-list"
 
@@ -35,6 +35,7 @@ export function BoardIndex() {
         // in each group -> render a list of tasks
         <section className="board-index">
             {board && <GroupList groups={board.groups}/>}
+            <Outlet/>
         </section>
     )
 }
