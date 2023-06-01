@@ -8,20 +8,18 @@
 }
 
 html {
-    font-family: montserrat;
+    font-family: sans-serif;
     line-height: 1.6;
-    color: $clr2;
 }
 
 body {
     font-size: rem(18px);
     margin: 0;
-    max-width: 1024px;
     margin: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: caveat;
+    font-family: sans-serif;
     margin: 0 0 0.6em;
     line-height: 1;
 }

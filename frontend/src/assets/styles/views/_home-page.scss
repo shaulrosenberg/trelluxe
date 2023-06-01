@@ -1,7 +1,7 @@
-// homepage layout
-.home-page-layout{
-    display: grid;
-    grid-template-columns: minmax(20px 1fr) minmax(auto 1fr), minmax(20px 1fr);
+
+.div-hero-section{
+    display: flex;
+    align-items: center;
 }
 
 .btn-signup{
