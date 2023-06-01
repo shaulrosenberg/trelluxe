@@ -1,40 +1,84 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation, Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from '../pages/login-signup.jsx'
+import { boardService } from "../services/board.service"
+import { useEffect, useState } from 'react'
 
 export function AppHeader() {
-     //  const user = useSelector((storeState) => storeState.userModule.user)
+     const user = useSelector((storeState) => storeState.userModule.user)
+     const location = useLocation()
+     const demoUser = boardService.demoUser()
+     
+     useEffect(() => {
+          console.log(demoUser)
+     }, [location])
 
-     //  async function onLogin(credentials) {
-     //       try {
-     //            const user = await login(credentials)
-     //            showSuccessMsg(`Welcome: ${user.fullname}`)
-     //       } catch (err) {
-     //            showErrorMsg('Cannot login')
-     //       }
-     //  }
-     //  async function onSignup(credentials) {
-     //       try {
-     //            const user = await signup(credentials)
-     //            showSuccessMsg(`Welcome new user: ${user.fullname}`)
-     //       } catch (err) {
-     //            showErrorMsg('Cannot signup')
-     //       }
-     //  }
-     //  async function onLogout() {
-     //       try {
-     //            await logout()
-     //            showSuccessMsg(`Bye now`)
-     //       } catch (err) {
-     //            showErrorMsg('Cannot logout')
-     //       }
-     //  }
+     async function onLogin(credentials) {
+          try {
+               const user = await login(credentials)
+               showSuccessMsg(`Welcome: ${user.fullname}`)
+          } catch (err) {
+               showErrorMsg('Cannot login')
+          }
+     }
+     async function onSignup(credentials) {
+          try {
+               const user = await signup(credentials)
+               showSuccessMsg(`Welcome new user: ${user.fullname}`)
+          } catch (err) {
+               showErrorMsg('Cannot signup')
+          }
+     }
+     async function onLogout() {
+          try {
+               await logout()
+               showSuccessMsg(`Bye now`)
+          } catch (err) {
+               showErrorMsg('Cannot logout')
+          }
+     }
 
-     return (
-          <header className='app-header'>
+     return location.pathname !== '/' ? (
+          <header className='app-header-work'>
+               <nav className='main-nav-bar-work'>
+                    <div className='nav-dropdown-work'>
+                         <div>
+                              <Link to='/'>
+                                   <div>
+                                        {' '}
+                                        <h2 className='logo-work'>Trelux </h2>
+                                   </div>
+                              </Link>
+                         </div>
+                         <button>
+                              <NavLink to='/recent' >
+                                   Recent
+                              </NavLink>
+                         </button>
+                         <button>
+                              <NavLink to='/starred'>
+                                   Starred
+                              </NavLink>
+                         </button>
+                         <button>
+                              <NavLink to='/workspace'>
+                                   Workspace
+                              </NavLink>
+                         </button>
+                    </div>
+
+                    <div className='div-user'>
+                         {!user &&
+                         <h2>{demoUser}</h2>
+                         }
+                    </div>
+               </nav>
+          </header>
+     ) : (
+          <header className='app-header-homepage'>
                <nav className='main-nav-bar'>
                     <div className='nav-dropdown'>
                          <Link to='/'>
@@ -116,10 +160,9 @@ export function AppHeader() {
 // was inside the nav
 {
      /* {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */
-}
 
-{
-     /* {user && (
+     {
+          /* {user && (
                          <span className='user-info'>
                               <Link to={`user/${user._id}`}>
                                    {user.imgUrl && <img src={user.imgUrl} />}
@@ -138,5 +181,6 @@ export function AppHeader() {
                                    onSignup={onSignup}
                               />
                          </section>
-                    )} */
+                    )}  */
+     }
 }
