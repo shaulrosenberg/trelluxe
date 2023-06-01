@@ -1,6 +1,6 @@
 import { HomePage } from './pages/home-page.jsx';
 import { Workspace } from './pages/workspace.jsx';
-import { Board } from './pages/board.jsx';
+import { BoardIndex } from './pages/board-index.jsx';
 import { TaskDetails } from './pages/task-details.jsx';
 import { LoginSignup } from './pages/login-signup.jsx';
 
@@ -29,7 +29,7 @@ const routes = [
     {
         path: '/board/:id',
         label: 'Board',
-        component: Board,
+        component: BoardIndex,
     },
 ];
 
