@@ -21,16 +21,17 @@
      }
 }
 
-.div-hero-img{
-    padding: 128px 16px
+.div-hero-img {
+     padding: 128px 16px;
 }
 
-.btn-signup {
+.btn-style-cta {
      background-color: rgb(0, 101, 255);
      border-radius: 0.3rem;
      padding: 0.7rem 1rem 0.8rem;
      color: rgb(255, 255, 255);
      transition: all 250ms ease-out 0s;
+     font-size: 1rem;
      appearance: none;
 
      &:hover {

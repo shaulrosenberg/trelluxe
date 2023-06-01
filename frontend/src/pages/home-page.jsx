@@ -17,13 +17,15 @@ export function HomePage() {
                               Keep everything in the same place—even if your
                               team isn’t.
                          </p>
-                         <button className='btn-signup'>Sign Up</button>
-                         <button className='btn-signup'>Try Demo</button>
+                         <button className='btn-style-cta'>Sign Up</button>
+                         <button className='btn-style-cta'>Try Demo</button>
                     </div>
                     <div className='div-hero-img'>
                         <img src={heroImg} className='hero-img'/>
                     </div>
+                    
                </div>
+               
           </section>
      )
 }
