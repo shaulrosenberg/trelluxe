@@ -116,7 +116,7 @@ function _createBoards() {
             {
                 _id: 't102',
                 title: 'Board 2',
-                isStarred: false,
+                isStarred: true,
                 members: [
                     {
                         _id: "u101",
