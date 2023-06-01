@@ -107,6 +107,42 @@ function _createBoards() {
                         "style": {
                             backgroundColor: "yellow"
                         }
+                    },
+                    {
+                        "id": "g102",
+                        "title": "Group 1",
+                        "archivedAt": 1589983468418,
+                        "tasks": [
+                            {
+                                "id": "c101",
+                                "title": "Replace logo"
+                            },
+                            {
+                                "id": "c102",
+                                "title": "Add Samples"
+                            }
+                        ],
+                        "style": {
+                            backgroundColor: "yellow"
+                        }
+                    },
+                    {
+                        "id": "g103",
+                        "title": "Group 1",
+                        "archivedAt": 1589983468418,
+                        "tasks": [
+                            {
+                                "id": "c101",
+                                "title": "Replace logo"
+                            },
+                            {
+                                "id": "c102",
+                                "title": "Add Samples"
+                            }
+                        ],
+                        "style": {
+                            backgroundColor: "yellow"
+                        }
                     }
                 ],
 

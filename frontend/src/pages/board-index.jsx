@@ -17,7 +17,7 @@ export function BoardIndex() {
         return () => {
             // remove listeners
         }
-    })
+    }, [])
 
     async function loadBoard() {
         try {
@@ -27,7 +27,6 @@ export function BoardIndex() {
         } catch (err) {
             console.log("cannot load board", err)
         }
-
     }
     
     return (

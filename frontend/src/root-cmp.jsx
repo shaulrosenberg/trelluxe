@@ -22,7 +22,7 @@ export function RootCmp() {
                     <Route path='/login' element={<LoginSignup />} />
                 </Routes>
             </main>
-            <AppFooter />
+            {/* <AppFooter /> */}
         </div>
     )
 }
