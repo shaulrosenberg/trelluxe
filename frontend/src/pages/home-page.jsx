@@ -6,20 +6,22 @@ import heroImg from '../assets/img/hero-trello.png';
 
 export function HomePage() {
      return (
-          <section className='home-page-layout'>
+          <section className='home-page-layout background-hero '>
                <div className='div-hero-section'>
-                    <div>
+                    <div className='div-hero-details'>
                          <h1>
                               Trello brings all your tasks, teammates, and tools
                               together
                          </h1>
-                         <h2>
+                         <p>
                               Keep everything in the same place—even if your
                               team isn’t.
-                         </h2>
+                         </p>
+                         <button className='btn-signup'>Sign Up</button>
+                         <button className='btn-signup'>Try Demo</button>
                     </div>
-                    <div>
-                        <img src={heroImg}/>
+                    <div className='div-hero-img'>
+                        <img src={heroImg} className='hero-img'/>
                     </div>
                </div>
           </section>
