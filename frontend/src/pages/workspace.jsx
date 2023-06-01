@@ -38,7 +38,7 @@ export function Workspace() {
 
     if (!boards) return <h1>Loading boards...</h1>
     return (
-        <section>
+        <section className='workspace-container'>
             <main>
                 <button onClick={onAddBoard}>Create new board</button>
                 <h2>Starred boards</h2>
