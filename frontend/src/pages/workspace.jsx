@@ -8,13 +8,21 @@ import { BoardList } from '../cmps/board-list.jsx'
 import { boardService } from '../services/board.service.js'
 
 export function Workspace() {
-
     const boards = useSelector(storeState => storeState.boardModule.boards)
     const { isLoading } = useSelector(storeState => storeState.systemModule)
 
     useEffect(() => {
         loadBoards()
     }, [])
+
+
+
+    // const onToggleStarred = (ev, boardId) => {
+    //     ev.preventDefault()
+    //     const board = boards.find(board => board._id === boardId)
+    //     board.isStarred = !board.isStarred
+    //     dispatch(onSaveBoard(board))
+    // }
 
 
     async function onAddBoard(board) {

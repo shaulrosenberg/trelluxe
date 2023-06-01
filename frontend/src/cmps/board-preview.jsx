@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom"
-
+import { AiOutlineStar } from 'react-icons/ai'
+import { useState } from "react"
 
 export function BoardPreview({ board, onUpdateBoard }) {
     const navigate = useNavigate()
+    const [isHovered, setIsHovered] = useState(false)
 
-    function onToggleStarred() {
-
+    function onToggleStarred(ev) {
+        ev.stopPropagation()
+        const boardToUpdate = { ...board }
+        boardToUpdate.isStarred = !boardToUpdate.isStarred
+        onUpdateBoard(boardToUpdate)
     }
 
     function onSelectBoard(boardId) {
@@ -13,10 +18,19 @@ export function BoardPreview({ board, onUpdateBoard }) {
     }
 
     return (
-        <article style={board.style} onClick={() => onSelectBoard(board._id)} >
-            <span className="board-title">{board.title}</span>
-            <div>
-                <span className={board.isStarred ? 'starred' : ''} onClick={() => { onUpdateBoard(board._id) }}>⭐</span>
+        <article
+            className="board-preview"
+            style={board.style}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={() => onSelectBoard(board._id)}
+        >
+            {isHovered && <span className="darken-background"></span>}
+            <h2 className="board-title">{board.title}</h2>
+            <div className="starred-container" onClick={onToggleStarred}>
+                <span className={board.isStarred ? 'starred' : ''} >
+                    <AiOutlineStar className="star-icon" />
+                </span>
             </div>
         </article>
     )

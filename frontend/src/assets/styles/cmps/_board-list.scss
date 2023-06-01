@@ -1,22 +1,82 @@
 .board-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
-    grid-auto-rows: 140px;
-    gap: 1rem;
-
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
     list-style-type: none;
+    padding: 0;
 
     .board-preview {
+        background-color: $secondaryColor;
+        border-radius: 0.3rem;
         cursor: pointer;
-        height: 100%;
-        border-radius: 5px;
-        position: relative;
 
-        &:hover {
-            .starred-container .star-icon {
-                opacity: 1;
-                stroke-width: 20px;
+
+        article {
+            position: relative;
+            padding: 1rem;
+            padding-block: 2.4rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            &:hover {
+                background-color: #dfe1e6;
             }
+
+
+        }
+
+        .darken-background {
+            opacity: 0.7;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: black;
+            transition: 0.3s ease;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        .starred-container {
+            position: absolute;
+            bottom: 0.1rem;
+            right: -2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease, right 0.3s ease;
+            z-index: 9999;
+
+            .star-icon {
+                // font-size: 0.875rem;
+                font-size: 1.4rem;
+                color: #f2d600;
+
+                &:hover {
+                    scale: 1.1;
+                }
+            }
+        }
+
+        &:hover .starred-container {
+            opacity: 1;
+            right: 1.2rem;
+
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: absolute;
+            z-index: 9999;
+            top: 0.8rem;
+            left: 0.8rem;
         }
     }
 }
