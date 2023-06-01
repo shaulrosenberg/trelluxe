@@ -6,7 +6,6 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from '../pages/login-signup.jsx'
 
 export function AppHeader() {
-
      //  const user = useSelector((storeState) => storeState.userModule.user)
 
      //  async function onLogin(credentials) {
@@ -93,16 +92,20 @@ export function AppHeader() {
                                    </g>
                               </svg>
                          </Link>
-                         <NavLink to='/board' className='nav-link'>
-                              Boards
-                         </NavLink>
-                         <NavLink to='/workspace' className='nav-link'>
-                              Workshop
-                         </NavLink>
+                         <button>
+                              <NavLink to='/board' className='nav-link'>
+                                   Boards
+                              </NavLink>
+                         </button>
+                         <button>
+                              <NavLink to='/workspace' className='nav-link'>
+                                   Workshop
+                              </NavLink>
+                         </button>
                     </div>
 
                     <div className='nav-buttons'>
-                         <button className='btn-login'>Login</button>
+                         <a className='a-login'>Log in</a>
                          <button className='btn-demo'>Try Demo</button>
                     </div>
                </nav>

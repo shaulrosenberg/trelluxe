@@ -6,6 +6,10 @@
      transition: background-color 0.5s ease 0s, box-shadow 0.5s ease 0s;
      width: 100vw;
      z-index: 100;
+
+     &:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+     }
 }
 
 .main-nav-bar {
@@ -14,22 +18,37 @@
      justify-content: space-around;
 }
 
-.nav-dropdown{
-    display: flex;
-    align-items: center;
-    gap:22px;
-    min-width: 35%;
+.nav-dropdown {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     min-width: 35%;
+
+     button {
+          background-color: transparent;
+     }
+
+     .nav-link {
+          font-size: 1rem;
+          background-color: $clr6;
+          color: rgb(23, 43, 77);
+
+          &:hover {
+               color: $clr1;
+          }
+     }
 }
 
-.btn-login{
-    font-size: 1.2rem;
-    padding: 0.5rem 1.5rem;
+.a-login {
+     font-size: 1.2rem;
+     padding: 0.5rem 1.5rem;
+     cursor: pointer;
 }
 
 .btn-demo {
-    height: 60px;
-    margin:0;
-    font-size:1.2rem;
-    padding: 0.5rem 1.5rem;
-    text-decoration: none;
+     height: 60px;
+     margin: 0;
+     font-size: 1.2rem;
+     padding: 0.5rem 1.5rem;
+     text-decoration: none;
 }
