@@ -1,5 +1,5 @@
 
-export function GroupPreview(group) {
+export function GroupPreview({group}) {
 
 
     return (

@@ -6,7 +6,7 @@ export const UNDO_REMOVE_BOARD = 'UNDO_REMOVE_BOARD'
 
 
 const initialState = {
-    board: null,
+    selectedBoard: null,
     boards: [],
     lastRemovedBoard: null
 }

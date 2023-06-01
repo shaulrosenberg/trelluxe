@@ -37,7 +37,7 @@ function remove(boardId) {
 function save(board) {
     const method = (board._id) ? 'put' : 'post'
     // return httpService[method](BASE_URL, board)
-    return storageService[method](BASE_URL, board)
+    return storageService[method](STORAGE_KEY, board)
 }
 
 
