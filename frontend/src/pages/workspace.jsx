@@ -10,6 +10,7 @@ import { boardService } from '../services/board.service.js'
 export function Workspace() {
 
     const boards = useSelector(storeState => storeState.boardModule.boards)
+    const { isLoading } = useSelector(storeState => storeState.systemModule)
 
     useEffect(() => {
         loadBoards()
@@ -35,7 +36,7 @@ export function Workspace() {
     }
 
 
-    if(!boards) return <h1>Loading boards...</h1>
+    if (!boards) return <h1>Loading boards...</h1>
     return (
         <section>
             <main>

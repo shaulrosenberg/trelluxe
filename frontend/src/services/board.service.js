@@ -62,6 +62,16 @@ function _createBoards() {
                 _id: 't101',
                 title: 'Boardman',
                 isStarred: false,
+                createdBy: {
+                    "_id": "u101",
+                    "fullname": "Abi Abambi",
+                    "imgUrl": "http://some-img"
+                },
+                style: {
+                    backgroundImage: "",
+                    color: "",
+                    backgroundColor: "red"
+                },
                 members: [
                     {
                         _id: "u101",
@@ -117,6 +127,16 @@ function _createBoards() {
                 _id: 't102',
                 title: 'Board 2',
                 isStarred: true,
+                createdBy: {
+                    "_id": "u101",
+                    "fullname": "Abi Abambi",
+                    "imgUrl": "http://some-img"
+                },
+                style: {
+                    backgroundImage: "",
+                    color: "",
+                    backgroundColor: "blue"
+                },
                 members: [
                     {
                         _id: "u101",
@@ -172,6 +192,16 @@ function _createBoards() {
                 _id: 't103',
                 title: 'Board 3',
                 isStarred: false,
+                createdBy: {
+                    "_id": "u101",
+                    "fullname": "Abi Abambi",
+                    "imgUrl": "http://some-img"
+                },
+                style: {
+                    backgroundImage: "",
+                    color: "",
+                    backgroundColor: "yellow"
+                },
                 members: [
                     {
                         _id: "u101",

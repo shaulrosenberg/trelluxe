@@ -1,20 +1,22 @@
 import { useNavigate } from "react-router-dom"
 
 
-export function BoardPreview() {
+export function BoardPreview({ board, onUpdateBoard }) {
 
-    function onCheckStarred() {
+    function onToggleStarred() {
 
     }
 
     function onSelectBoard() {
-        
+
     }
 
     return (
-        <article className="board-preview">
-            <span className="board-title"></span>
-            <span className="board-starred"></span>
+        <article style={board.style}>
+            <span className="board-title">{board.title}</span>
+            <div>
+                <span className={board.isStarred ? 'starred' : ''} onClick={() => { onUpdateBoard(board._id) }}>⭐</span>
+            </div>
         </article>
     )
 }
