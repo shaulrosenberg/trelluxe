@@ -60,46 +60,170 @@ function _createBoards() {
         boards = [
             {
                 _id: 't101',
-                name: 'Talking Doll',
-                price: 123,
-                labels: ['Doll', 'Battery Powered', 'Baby'],
-                createdAt: 1631031801011,
-                inStock: true,
+                title: 'Boardman',
+                isStarred: false,
+                members: [
+                    {
+                        _id: "u101",
+                        fullname: "Adam",
+                        imgUrl: "http://https://robohash.org/adam"
+                    },
+                    {
+                        _id: "u102",
+                        fullname: "Shaul",
+                        imgUrl: "http://https://robohash.org/shaul"
+                    },
+                    {
+                        _id: "u103",
+                        fullname: "Dor",
+                        imgUrl: "http://https://robohash.org/dor"
+                    }
+                ],
+                groups: [
+                    {
+                        "id": "g101",
+                        "title": "Group 1",
+                        "archivedAt": 1589983468418,
+                        "tasks": [
+                            {
+                                "id": "c101",
+                                "title": "Replace logo"
+                            },
+                            {
+                                "id": "c102",
+                                "title": "Add Samples"
+                            }
+                        ],
+                        "style": {
+                            backgroundColor: "yellow"
+                        }
+                    }
+                ],
+
+                labels: [
+                    {
+                        "id": "l101",
+                        "title": "Done",
+                        "color": "#61bd4f"
+                    },
+                    {
+                        "id": "l102",
+                        "title": "Progress",
+                        "color": "#61bd33"
+                    }
+                ],
             },
             {
                 _id: 't102',
-                name: 'Talking Oshri',
-                price: 200,
-                labels: ['Doll', 'Battery Powered', 'Baby'],
-                createdAt: 1631031801011,
-                inStock: true,
+                title: 'Board 2',
+                isStarred: false,
+                members: [
+                    {
+                        _id: "u101",
+                        fullname: "Adam",
+                        imgUrl: "http://https://robohash.org/adam"
+                    },
+                    {
+                        _id: "u102",
+                        fullname: "Shaul",
+                        imgUrl: "http://https://robohash.org/shaul"
+                    },
+                    {
+                        _id: "u103",
+                        fullname: "Dor",
+                        imgUrl: "http://https://robohash.org/dor"
+                    }
+                ],
+                groups: [
+                    {
+                        "id": "g101",
+                        "title": "Group 1",
+                        "archivedAt": 1589983468418,
+                        "tasks": [
+                            {
+                                "id": "c101",
+                                "title": "Replace logo"
+                            },
+                            {
+                                "id": "c102",
+                                "title": "Add Samples"
+                            }
+                        ],
+                        "style": {
+                            backgroundColor: "lightgray"
+                        }
+                    }
+                ],
+
+                labels: [
+                    {
+                        "id": "l101",
+                        "title": "Done",
+                        "color": "#61bd4f"
+                    },
+                    {
+                        "id": "l102",
+                        "title": "Progress",
+                        "color": "#61bd33"
+                    }
+                ],
             },
             {
                 _id: 't103',
-                name: 'Talking Hemos',
-                price: 199,
-                labels: ['Doll', 'Battery Powered', 'Baby'],
-                createdAt: 1631031801011,
-                inStock: true,
-            },
-            {
-                _id: 't104',
-                name: 'Talking Puki',
-                price: 90,
-                labels: ['Doll', 'Battery Powered', 'Baby'],
-                createdAt: 1631031801011,
-                inStock: true,
-            },
-            {
-                _id: 't105',
-                name: 'Talking Muki',
-                price: 150,
-                labels: ['Doll', 'Battery Powered', 'Baby'],
-                createdAt: 1631031801011,
-                inStock: true,
-            }
-        ]
+                title: 'Board 3',
+                isStarred: false,
+                members: [
+                    {
+                        _id: "u101",
+                        fullname: "Adam",
+                        imgUrl: "http://https://robohash.org/adam"
+                    },
+                    {
+                        _id: "u102",
+                        fullname: "Shaul",
+                        imgUrl: "http://https://robohash.org/shaul"
+                    },
+                    {
+                        _id: "u103",
+                        fullname: "Dor",
+                        imgUrl: "http://https://robohash.org/dor"
+                    }
+                ],
+                groups: [
+                    {
+                        "id": "g101",
+                        "title": "Group 1",
+                        "archivedAt": 1589983468418,
+                        "tasks": [
+                            {
+                                "id": "c101",
+                                "title": "Replace logo"
+                            },
+                            {
+                                "id": "c102",
+                                "title": "Add Samples"
+                            }
+                        ],
+                        "style": {
+                            backgroundColor: "red"
+                        }
+                    }
+                ],
 
+                labels: [
+                    {
+                        "id": "l101",
+                        "title": "Done",
+                        "color": "#61bd4f"
+                    },
+                    {
+                        "id": "l102",
+                        "title": "Progress",
+                        "color": "#61bd33"
+                    }
+                ],
+            },
+        ]
         utilService.saveToStorage(STORAGE_KEY, boards)
     }
 }

@@ -1,6 +1,6 @@
 
 
-export function Board() {
+export function BoardIndex() {
     
     
 
