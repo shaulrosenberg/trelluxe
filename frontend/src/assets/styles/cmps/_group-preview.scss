@@ -1,3 +1,5 @@
-.group-preview-container{
-    border: 1px solid black
+.group-preview{
+    display: flex;
+    flex-direction: column;
+    min-width: 17rem;
 }

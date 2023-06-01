@@ -8,9 +8,9 @@ export function GroupPreview({ group }) {
     // TaskPreview
 
     return (
-        <article className="group-preview-container">
-            <h1 className="group-title" contentEditable={true}>{group.title}</h1>
-            <section className="task-list"></section>
+        <article className="group-preview">
+            <h1 className="group-title">{group.title}</h1>
+            <TaskList tasks={group.tasks} />
             <AddTask group={group} />
 
         </article>
