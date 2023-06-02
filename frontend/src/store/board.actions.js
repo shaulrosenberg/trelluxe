@@ -3,7 +3,7 @@ import { boardService } from "../services/board.service.js";
 import { userService } from "../services/user.service.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_BOARD, REMOVE_BOARD,  SET_BOARDS, UNDO_REMOVE_BOARD, UPDATE_BOARD } from "./board.reducer.js";
+import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, UNDO_REMOVE_BOARD, UPDATE_BOARD } from "./board.reducer.js";
 import { SET_SCORE } from "./user.reducer.js";
 
 // Action Creators:
@@ -60,6 +60,16 @@ export async function addBoard(board) {
     } catch (err) {
         console.log('Cannot add board', err)
         throw err
+    }
+}
+
+export async function updateTask(task, boardId, groupId) {
+    try {
+        const updatedBoard = await boardService.updateTask(task, boardId, groupId)
+        store.dispatch(getActionUpdateBoard(updatedBoard))
+        return updatedBoard
+    } catch (err) {
+        console.log('failed to update task', err)
     }
 }
 
