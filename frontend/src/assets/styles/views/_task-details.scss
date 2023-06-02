@@ -1,19 +1,125 @@
-.section-task-deatils{
-    display: flex;
-    justify-content: center;
+.section-task-deatils {
+     display: flex;
+     justify-content: center;
+     position: absolute;
+     z-index: 5;
+     top: 20%;
+     left: 25%;
+         
 }
 
-.div-task-deatils{
-    display: grid;
-    grid-template-columns: 50px 600px 300px;
-    grid-template-rows: 160px 1fr;
-    background-color: #F4F5F7;
+.btn-exit-task {
+     position: absolute;
+     right: 5px;
+     top: 5px;
+     width: 30px;
+     height: 20px;
+     background-color: transparent;
+     &:hover {
+          background-color: #e2e4e9;
+          border-radius: 50%;
+          cursor: pointer;
+     }
+}
 
-    > * {
-        grid-column: 2;
-    }
+.div-task-deatils {
+    position: relative;
+    border-radius: 0.3rem;
+     background-color: #f4f5f7;
+     display: grid;
+     grid-template-columns: minmax(50px, 1fr) minmax(auto, 500px) minmax(
+               300px,
+               auto
+          );
+     grid-template-rows: minmax(60px 1fr) minmax(93px 1fr) 1fr;
+     h2 {
+          font-size: rem(20px);
+          font-weight: 600;
+          margin-top: 0.4rem;
+     }
 
-    h3{
-        font-size: rem(16px);
+     .icon-title {
+          align-self: flex-start;
+          justify-self: center;
+          margin-top: 0.4rem;
+     }
+
+     .icon-desc {
+          grid-column: 1;
+          align-self: flex-start;
+          justify-self: center;
+          margin-top: 2.8rem;
+     }
+     .div-desc {
+          grid-column: 2;
+          grid-row: 2;
+     }
+     .icon-activitiy {
+          grid-column: 1;
+          align-self: flex-start;
+          justify-self: center;
+          margin-top: 0.4rem;
+          position: relative;
+     }
+
+     .div-activity {
+          grid-column: 2;
+          grid-row: 3;
+     }
+     // the icon of the user in the activity
+     .task-details-user {
+          display: flex;
+          align-self: center;
+          justify-content: center;
+          position: relative;
+          bottom: 25px;
+     }
+}
+
+.div-task-title{
+    
+    p{
+        font-size: rem(14px);
     }
+}
+
+.div-desc {
+     margin: 2.5rem 0;
+     p {
+          font-weight: 600;
+          font-size: rem(16px);
+     }
+     a {
+          background-color: #ededef;
+          min-height: 60px;
+          padding: 8px 12px;
+          text-decoration: none;
+          box-shadow: none;
+          display: block;
+          border-radius: 0.2rem;
+          font-size: rem(14px);
+          &:hover {
+               background-color: #ebebeb;
+          }
+     }
+}
+
+.div-activity {
+     p {
+          margin-top: 0.2rem;
+          font-weight: 600;
+          font-size: rem(16px);
+     }
+
+     .input-task-activity {
+          padding: 0.5rem 0.7rem;
+          width: 100%;
+          border: none;
+          text-decoration: none;
+          border-radius: 0.2rem;
+
+          &:hover {
+               background-color: #ebebeb;
+          }
+     }
 }
