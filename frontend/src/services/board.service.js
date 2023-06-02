@@ -126,48 +126,57 @@ function _createBoards() {
                                    {
                                         id: 'c101',
                                         title: 'Replace logo',
+                                        desc: '',
                                    },
                                    {
                                         id: 'c102',
                                         title: 'Add Samples',
+                                        desc: '',
                                    },
                               ],
+
                               style: {
                                    backgroundColor: 'yellow',
                               },
                          },
                          {
                               id: 'g102',
-                              title: 'Group 1',
+                              title: 'Group 2',
                               archivedAt: 1589983468418,
                               tasks: [
                                    {
                                         id: 'c101',
                                         title: 'Replace logo',
+                                        desc: '',
                                    },
                                    {
                                         id: 'c102',
                                         title: 'Add Samples',
+                                        desc: '',
                                    },
                               ],
+
                               style: {
                                    backgroundColor: 'yellow',
                               },
                          },
                          {
                               id: 'g103',
-                              title: 'Group 1',
+                              title: 'Group 3',
                               archivedAt: 1589983468418,
                               tasks: [
                                    {
                                         id: 'c101',
                                         title: 'Replace logo',
+                                        desc: '',
                                    },
                                    {
                                         id: 'c102',
                                         title: 'Add Samples',
+                                        desc: '',
                                    },
                               ],
+
                               style: {
                                    backgroundColor: 'yellow',
                               },

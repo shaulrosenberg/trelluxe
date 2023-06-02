@@ -8,8 +8,8 @@ import { UserDetails } from './pages/user-details'
 import { LoginSignup } from './pages/login-signup'
 import { BoardIndex } from './pages/board-index'
 import { Workspace } from './pages/workspace'
-import { TaskDetails } from './cmps/task-deatils'
-
+import { TaskDetails } from './pages/task-details'
+    
 export function RootCmp() {
 
     return (
