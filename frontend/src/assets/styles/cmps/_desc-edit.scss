@@ -1,0 +1,58 @@
+
+
+.div-desc-edit {
+     display: flex;
+     align-items: center;
+     background-color: white;
+     padding: 0.5rem;
+     border-radius: 4px;
+     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+     
+}
+
+.div-desc-edit-icons {
+     display: flex;
+     align-items: center;
+
+     .desc-edit-icon {
+          margin-right: 0.5rem;
+          font-size: 1.5rem;
+          color: gray;
+          cursor: pointer;
+
+          &:hover {
+               color: black;
+          }
+     }
+}
+
+.desc-textarea {
+     width: 100%;
+     min-height: 150px;
+     border: none;
+     outline: none;
+     resize: none;
+     padding: 0.5rem;
+     margin-top: 0.1rem;
+     border-radius: 4px;
+     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.desc-btn-save {
+     background-color: #0079bf;
+     color: $clr6;
+     padding: 0.5rem 0.7rem;
+     border-radius: 0.2rem;
+     &:hover {
+          background-color: darken($color: #0079bf, $amount: 10);
+     }
+}
+
+.desc-btn-cancel {
+     padding: 0.5rem 0.7rem;
+     border-radius: 0.2rem;
+     background-color: #f4f5f7;
+     &:hover {
+          background-color: darken($color: #f4f5f7, $amount: 10);
+     }
+}

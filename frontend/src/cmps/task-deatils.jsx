@@ -10,10 +10,15 @@ import { TfiAlignLeft } from 'react-icons/tfi'
 import { TfiMenuAlt } from 'react-icons/tfi'
 import { AiOutlineClose } from 'react-icons/ai'
 
+// dynamic cmps
+import { DescEdit } from './task-desc'
+
 export function TaskDetails() {
      const { taskId } = useParams()
      const [task, setTask] = useState(null)
-     const navigate = useNavigate();
+     const navigate = useNavigate()
+
+     const [isDescEdit, setIsDescEdit] = useState(false)
 
      useEffect(() => {
           boardService
@@ -22,7 +27,7 @@ export function TaskDetails() {
      }, [taskId])
 
      function onTaskExit() {
-        navigate(-1);
+          navigate(-1)
      }
 
      return (
@@ -41,9 +46,13 @@ export function TaskDetails() {
                     <TfiAlignLeft className='icon-desc' />
                     <div className='div-desc'>
                          <p>Description</p>
-                         <a className='a-desc'>
-                              Add a more detailed description...
-                         </a>
+                         {isDescEdit ? (
+                              <DescEdit />
+                         ) : (
+                              <a className='a-desc' onClick={() => setIsDescEdit(true)}>
+                                   Add a more detailed description...
+                              </a>
+                         )}
                     </div>
                     <TfiMenuAlt className='icon-activitiy' />
                     <div className='a'></div>
@@ -52,7 +61,7 @@ export function TaskDetails() {
                          <p>Activity</p>
                          <input
                               className='input-task-activity'
-                              placeholder='Write a comment...'
+                              placeholder='Write a comment...' 
                          ></input>
                     </div>
                </div>
