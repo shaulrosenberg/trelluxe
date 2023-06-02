@@ -15,6 +15,7 @@ export const boardService = {
      getDefaultFilter,
      demoUser,
      findTaskById,
+     updateTask
 }
 
 _createBoards()
@@ -38,6 +39,20 @@ function save(board) {
      const method = board._id ? 'put' : 'post'
      // return httpService[method](BASE_URL, board)
      return storageService[method](STORAGE_KEY, board)
+}
+
+async function updateTask(taskToUpdate, boardId, groupId) {
+     try {
+          const board = await getById(boardId)
+          const groupIdx = board.groups.findIndex(group => group.id === groupId)
+          const taskIdx = board.groups[groupIdx].tasks.findIndex(currTask => currTask.id === taskToUpdate.id)
+          // const updatedTask = { ...currTask, ...task }
+          board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
+     } catch (err) {
+          console.log('could not update task', err)
+     }
+
+     return save(board)
 }
 
 function getEmptyBoard() {
