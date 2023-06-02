@@ -47,7 +47,7 @@ export function TaskDetails() {
                     <div className='div-desc'>
                          <p>Description</p>
                          {isDescEdit ? (
-                              <DescEdit task={task} />
+                              <DescEdit task={task} setIsDescEdit={setIsDescEdit} />
                          ) : (
                               <a className='a-desc' onClick={() => setIsDescEdit(true)}>
                                    Add a more detailed description...
@@ -61,7 +61,7 @@ export function TaskDetails() {
                          <p>Activity</p>
                          <input
                               className='input-task-activity'
-                              placeholder='Write a comment...' 
+                              placeholder='Write a comment...'
                          ></input>
                     </div>
                </div>
