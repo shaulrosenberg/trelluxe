@@ -1,6 +1,6 @@
 import { useLocation, useParams } from 'react-router'
 import { boardService } from '../services/board.service'
-import { updateBoard } from '../store/board.actions'
+import { updateTask } from '../store/board.actions'
 // icons
 import { IoText } from 'react-icons/io5'
 import { BsTypeBold } from 'react-icons/bs'
@@ -13,15 +13,20 @@ import { useEffect, useState } from 'react'
 export function DescEdit({ task }) {
      const [newDesc, setNewDesc] = useState('')
      const location = useLocation()
-     const [currBoard, setCurrBoard] = useState(null)
+     const [boardId, setBoardId] = useState(null)
 
      async function onSaveDesc() {
           const taskToUpdate = { ...task }
           taskToUpdate.desc = newDesc
-
           console.log('after save', task)
-          const board = await boardService.getById(currBoard)
-          console.log('board from desc', board)
+
+          const board = await boardService.getById(boardId)
+          try {
+               await updateTask(taskToUpdate, board, 'g101')
+               console.log('description saved')
+          } catch (err) {
+               console.log('err saving description', err)
+          }
      }
 
      function getBoardIdFromURL() {
@@ -34,7 +39,7 @@ export function DescEdit({ task }) {
      }
 
      useEffect(() => {
-          setCurrBoard(getBoardIdFromURL())
+          setBoardId(getBoardIdFromURL())
      }, [])
 
      return (
