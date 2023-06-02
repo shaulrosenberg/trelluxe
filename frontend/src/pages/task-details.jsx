@@ -47,7 +47,7 @@ export function TaskDetails() {
                     <div className='div-desc'>
                          <p>Description</p>
                          {isDescEdit ? (
-                              <DescEdit />
+                              <DescEdit task={task} />
                          ) : (
                               <a className='a-desc' onClick={() => setIsDescEdit(true)}>
                                    Add a more detailed description...

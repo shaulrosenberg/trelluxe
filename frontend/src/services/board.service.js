@@ -68,6 +68,7 @@ function demoUser() {
      return initials
 }
 
+
 function findTaskById(taskId) {
      return storageService.query(STORAGE_KEY).then((boards) => {
           for (const board of boards) {
@@ -236,10 +237,12 @@ function _createBoards() {
                                    {
                                         id: 'c103',
                                         title: 'Replace logo',
+                                        desc: '',
                                    },
                                    {
                                         id: 'c104',
                                         title: 'Add Samples',
+                                        desc: '',
                                    },
                               ],
                               style: {
@@ -301,10 +304,12 @@ function _createBoards() {
                                    {
                                         id: 'c101',
                                         title: 'Replace logo',
+                                        desc: '',
                                    },
                                    {
                                         id: 'c102',
                                         title: 'Add Samples',
+                                        desc: '',
                                    },
                               ],
                               style: {
