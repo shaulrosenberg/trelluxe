@@ -16,15 +16,6 @@ export function Workspace() {
     }, [])
 
 
-
-    // const onToggleStarred = (ev, boardId) => {
-    //     ev.preventDefault()
-    //     const board = boards.find(board => board._id === boardId)
-    //     board.isStarred = !board.isStarred
-    //     dispatch(onSaveBoard(board))
-    // }
-
-
     async function onAddBoard(board) {
         try {
             const savedBoard = await addBoard(board)
