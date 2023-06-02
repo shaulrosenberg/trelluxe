@@ -48,11 +48,10 @@ async function updateTask(taskToUpdate, boardId, groupId) {
           const taskIdx = board.groups[groupIdx].tasks.findIndex(currTask => currTask.id === taskToUpdate.id)
           // const updatedTask = { ...currTask, ...task }
           board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
+          return save(board)
      } catch (err) {
           console.log('could not update task', err)
      }
-
-     return save(board)
 }
 
 function getEmptyBoard() {
