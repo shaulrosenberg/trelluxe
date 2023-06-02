@@ -18,7 +18,7 @@ export function GroupPreview({ group }) {
           <article className='group-preview'>
                <h1 className='group-title'>{group.title}</h1>
                <TaskList tasks={group.tasks} />
-               <AddTask group={group} />
+               <AddTask group={group} boardId={boardId} />
                {group.tasks.map((task) => (
                     <Link
                          key={task.id}

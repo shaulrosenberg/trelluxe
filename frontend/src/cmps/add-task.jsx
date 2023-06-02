@@ -1,30 +1,31 @@
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
 import { boardService } from "../services/board.service";
-import { updateBoard } from "../store/board.actions";
-
-export function AddTask({ groups }) {
-    const dispatch = useDispatch();
+import { addTask } from "../store/board.actions";
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { useSelector } from 'react-redux'
+export function AddTask({ group, boardId }) {
     const [isEditable, setIsEditable] = useState(false)
-    const [cardTitle, setCardTitle] = useState('Enter a title for this card...')
+    const [cardTitle, setCardTitle] = useState('')
 
     function handleInputChange(ev) {
         ev.preventDefault()
         setCardTitle(ev.target.value)
     }
 
-    async function handleSubmit(ev) {
+
+    async function onAddTask(ev) {
         ev.preventDefault()
-
-    }
-
-    async function onAddTask(boardId, groupId) {
-        const newTask = boardService.getEmptyTask()
+        if (!cardTitle) return
+        let newTask = boardService.getEmptyTask()
         newTask.title = cardTitle
-        const updatedBoard = await boardService.getById(boardId)
-        const group = updatedBoard.groups.find(group => group.id === groupId)
-        group.push(newTask)
-        updatedBoard(updatedBoard)
+        try {
+            newTask = await addTask(newTask, boardId, group.id)
+            setCardTitle('')
+            showSuccessMsg(`Task added (id: ${newTask.id})`)
+        } catch (err) {
+            showErrorMsg('Cannot add car')
+        }
+
     }
 
     return (
@@ -32,13 +33,14 @@ export function AddTask({ groups }) {
             {
                 isEditable ? (
                     <div className="add-task-opened">
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={onAddTask}>
                             <input
                                 type="text"
-                                placeholder="Enter the card title"
+                                placeholder="Enter a card title..."
                                 value={cardTitle}
                                 onChange={handleInputChange}
                             />
+                            <button>Add card</button>
                         </form>
                     </div>
                 ) : (
