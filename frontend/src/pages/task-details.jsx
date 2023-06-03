@@ -29,7 +29,7 @@ export function TaskDetails() {
      }, [isDescEdit])
 
      function onTaskExit() {
-          navigate(-1)
+          navigate(`/board/${boardId}`)
      }
 
      console.log('task:', task) // Check the value of task
