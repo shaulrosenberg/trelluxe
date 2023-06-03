@@ -158,7 +158,7 @@ function _createBoards() {
         style: {
           backgroundImage: '',
           color: '',
-          backgroundColor: 'red',
+          backgroundColor: '#FFB6C1',
         },
         members: [
           {
@@ -268,7 +268,7 @@ function _createBoards() {
         style: {
           backgroundImage: '',
           color: '',
-          backgroundColor: 'blue',
+          backgroundColor: '#ADD8E6',
         },
         members: [
           {
@@ -335,7 +335,7 @@ function _createBoards() {
         style: {
           backgroundImage: '',
           color: '',
-          backgroundColor: 'yellow',
+          backgroundColor: '#E0BBE4',
         },
         members: [
           {
