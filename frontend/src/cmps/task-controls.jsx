@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import DynamicActionModal from './DynamicActionModal'
 
 // Import your icons here...
@@ -11,8 +11,10 @@ import { IoMdRefresh } from "react-icons/io"
 
 export function TaskControls() {
     const [modalType, setModalType] = useState(null)
+    const eventRef = useRef(null)
 
-    function onToggleModal(type = null) {
+    function onToggleModal(type = null, ev = null) {
+        eventRef.current = ev
         setModalType(type)
     }
 
@@ -35,12 +37,12 @@ export function TaskControls() {
             <section className='add-to-card'>
                 <h3 className="controls-title">Add to card</h3>
                 <section className='btn-container'>
-                    <button className='btn-task-control' onClick={() => onToggleModal('members')}><BsPersonPlus />Members</button>
-                    <button className='btn-task-control' onClick={() => onToggleModal('labels')}><AiOutlineTags />Labels</button>
-                    <button className='btn-task-control' onClick={() => onToggleModal('checklist')}><AiOutlineCheckSquare />Checklist</button>
-                    <button className='btn-task-control' onClick={() => onToggleModal('dates')}><AiOutlineFieldTime />Dates</button>
-                    <button className='btn-task-control' onClick={() => onToggleModal('attachment')}><MdOutlineAttachment />Attachment</button>
-                    <button className='btn-task-control' onClick={() => onToggleModal('archive')}><BsArchive />Archive</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('members', ev)}><BsPersonPlus />Members</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('labels', ev)}><AiOutlineTags />Labels</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('checklist', ev)}><AiOutlineCheckSquare />Checklist</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('dates', ev)}><AiOutlineFieldTime />Dates</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('attachment', ev)}><MdOutlineAttachment />Attachment</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('archive', ev)}><BsArchive />Archive</button>
                 </section>
             </section>
             {modalType &&
@@ -48,6 +50,8 @@ export function TaskControls() {
                     cmpType={modalType}
                     modalTitle={modalTitles[modalType]}
                     onClose={() => onToggleModal(null)}
+                    // send click event
+                    event={eventRef.current}
                     isDetails={true}
                 />}
         </section>

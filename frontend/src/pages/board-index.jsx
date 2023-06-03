@@ -7,6 +7,7 @@ import { boardService } from "../services/board.service"
 
 export function BoardIndex() {
 
+    const { boards } = useSelector(storeState => storeState.boardModule)
     const [board, setBoard] = useState(null)
     const { boardId } = useParams()
 
@@ -17,7 +18,7 @@ export function BoardIndex() {
         return () => {
             // remove listeners
         }
-    }, [])
+    }, [boards])
 
     async function loadBoard() {
         try {
@@ -28,14 +29,14 @@ export function BoardIndex() {
             console.log("cannot load board", err)
         }
     }
-    
+
     return (
-        
+
         // render a list of groups
         // in each group -> render a list of tasks
         <section className="board-index">
-            {board && <GroupList groups={board.groups}/>}
-            <Outlet/>
+            {board && <GroupList groups={board.groups} />}
+            <Outlet />
         </section>
     )
 }
