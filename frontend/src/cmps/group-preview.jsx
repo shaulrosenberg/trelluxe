@@ -10,7 +10,6 @@ export function GroupPreview({ group }) {
      const { boardId } = useParams()
 
      useEffect(() => {
-          console.log('from front', boardId)
           console.log('group', group)
      }, [])
 

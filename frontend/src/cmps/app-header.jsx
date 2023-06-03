@@ -4,75 +4,100 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from '../pages/login-signup.jsx'
-import { boardService } from "../services/board.service"
+
+import { boardService } from '../services/board.service'
 import { useEffect, useState } from 'react'
+
+//img
+import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
 
 export function AppHeader() {
      const user = useSelector((storeState) => storeState.userModule.user)
      const location = useLocation()
      const demoUser = boardService.demoUser()
      
+     const [navColor, setNavColor] = useState(null);
+     const boardId = location.pathname.split('/board/')[1];
      useEffect(() => {
+          fetchBoardStyle()
      }, [location])
 
-     async function onLogin(credentials) {
-          try {
-               const user = await login(credentials)
-               showSuccessMsg(`Welcome: ${user.fullname}`)
-          } catch (err) {
-               showErrorMsg('Cannot login')
-          }
-     }
-     async function onSignup(credentials) {
-          try {
-               const user = await signup(credentials)
-               showSuccessMsg(`Welcome new user: ${user.fullname}`)
-          } catch (err) {
-               showErrorMsg('Cannot signup')
-          }
-     }
-     async function onLogout() {
-          try {
-               await logout()
-               showSuccessMsg(`Bye now`)
-          } catch (err) {
-               showErrorMsg('Cannot logout')
+     function fetchBoardStyle(){
+          if (boardId){
+               boardService.getById(boardId)
+               .then((board) => {
+                    const boardStyleColor = board.style.backgroundColor
+                    setNavColor(boardStyleColor)
+               })
+               .catch((err) => console.log('failed to change nav color', err))
+          }else{
+               setNavColor('#026AA7')
           }
      }
 
+     // async function onLogin(credentials) {
+     //      try {
+     //           const user = await login(credentials)
+     //           showSuccessMsg(`Welcome: ${user.fullname}`)
+     //      } catch (err) {
+     //           showErrorMsg('Cannot login')
+     //      }
+     // }
+     // async function onSignup(credentials) {
+     //      try {
+     //           const user = await signup(credentials)
+     //           showSuccessMsg(`Welcome new user: ${user.fullname}`)
+     //      } catch (err) {
+     //           showErrorMsg('Cannot signup')
+     //      }
+     // }
+     // async function onLogout() {
+     //      try {
+     //           await logout()
+     //           showSuccessMsg(`Bye now`)
+     //      } catch (err) {
+     //           showErrorMsg('Cannot logout')
+     //      }
+     // }
+
+     
      return location.pathname !== '/' ? (
-          <header className='app-header-work'>
+          <header
+               className='app-header-work'
+               style={{ backgroundColor: navColor }}
+          >
                <nav className='main-nav-bar-work'>
                     <div className='nav-dropdown-work'>
                          <div>
                               <Link to='/'>
-                                   <div>
+                                   <div className='div-workspace'>
                                         {' '}
+                                        <img
+                                             src={TrelloIconWork}
+                                             alt='trello-workspace'
+                                             className='logo-workspace'
+                                        />
                                         <h2 className='logo-work'>Trelux </h2>
                                    </div>
                               </Link>
                          </div>
-                         <button>
-                              <NavLink to='/recent' >
-                                   Recent
-                              </NavLink>
-                         </button>
-                         <button>
-                              <NavLink to='/starred'>
-                                   Starred
-                              </NavLink>
-                         </button>
-                         <button>
-                              <NavLink to='/workspace'>
-                                   Workspace
-                              </NavLink>
-                         </button>
+
+                         <NavLink className='nav-link-work' to='/workspace'>
+                              {' '}
+                              Workspace
+                         </NavLink>
+
+                         <NavLink className='nav-link-work' to='/recent'>
+                              Recent
+                         </NavLink>
+
+                         <NavLink className='nav-link-work' to='/starred'>
+                              Starred
+                         </NavLink>
                     </div>
 
                     <div className='div-user'>
-                         {!user &&
-                         <h2>{demoUser}</h2>
-                         }
+                         {!user && <h2>{demoUser}</h2>}
                     </div>
                </nav>
           </header>
@@ -80,7 +105,7 @@ export function AppHeader() {
           <header className='app-header-homepage'>
                <nav className='main-nav-bar'>
                     <div className='nav-dropdown'>
-                         <Link to='/'>
+                         <Link to='/' className='homepage-logo'>
                               <svg
                                    aria-label='Atlassian Trello'
                                    height='37.5'
@@ -135,16 +160,14 @@ export function AppHeader() {
                                    </g>
                               </svg>
                          </Link>
-                         <button>
-                              <NavLink to='/board' className='nav-link'>
-                                   Boards
-                              </NavLink>
-                         </button>
-                         <button>
-                              <NavLink to='/workspace' className='nav-link'>
-                                   Workshop
-                              </NavLink>
-                         </button>
+
+                         <NavLink to='/board' className='nav-link'>
+                              Boards
+                         </NavLink>
+
+                         <NavLink to='/workspace' className='nav-link'>
+                              Workshop
+                         </NavLink>
                     </div>
 
                     <div className='nav-buttons'>

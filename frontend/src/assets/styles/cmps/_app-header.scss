@@ -32,10 +32,14 @@
           font-size: 1rem;
           background-color: $clr6;
           color: rgb(23, 43, 77);
-
+          padding: 0 1rem;
           &:hover {
                color: $clr1;
           }
+     }
+
+     .homepage-logo{
+          margin-right: 0.8rem;
      }
 }
 
@@ -55,35 +59,3 @@
      color: $clr6;
 }
 
-// this header will display while in other pages not in Homepage
-.app-header-work {
-     position: static;
-}
-
-.main-nav-bar-work {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 0 0.5rem;
-}
-
-.nav-dropdown-work {
-     display: flex;
-     align-items: center;
-}
-
-// display the user in header
-.div-user{
-     background-color: rgb(99, 69, 137);
-     color: white;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 50%;
-     width: 24px;
-     height: 24px;
-     
-     h2{
-          font-size: 0.7rem;
-     }
-}

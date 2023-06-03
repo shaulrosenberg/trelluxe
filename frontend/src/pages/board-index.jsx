@@ -8,6 +8,7 @@ import { setSelectedBoard } from "../store/board.actions"
 
 export function BoardIndex() {
 
+    const { boards } = useSelector(storeState => storeState.boardModule)
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     const { boardId } = useParams()
@@ -31,7 +32,9 @@ export function BoardIndex() {
         }
     }
 
+
     return (
+
 
         // render a list of groups
         // in each group -> render a list of tasks

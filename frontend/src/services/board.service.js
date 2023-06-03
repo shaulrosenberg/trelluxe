@@ -158,7 +158,7 @@ function _createBoards() {
         style: {
           backgroundImage: '',
           color: '',
-          backgroundColor: 'red',
+          backgroundColor: '#FFB6C1',
         },
         members: [
           {
@@ -184,12 +184,12 @@ function _createBoards() {
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c341341101',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c1151502',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -205,12 +205,12 @@ function _createBoards() {
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c1678401',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c102274572',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -226,12 +226,12 @@ function _createBoards() {
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c1346301',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c12341502',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -268,7 +268,7 @@ function _createBoards() {
         style: {
           backgroundImage: '',
           color: '',
-          backgroundColor: 'blue',
+          backgroundColor: '#ADD8E6',
         },
         members: [
           {
@@ -289,17 +289,17 @@ function _createBoards() {
         ],
         groups: [
           {
-            id: 'g101',
+            id: 'g104',
             title: 'Group 1',
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c103',
+                id: 'c1032135',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c104',
+                id: 'c1141404',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -335,7 +335,7 @@ function _createBoards() {
         style: {
           backgroundImage: '',
           color: '',
-          backgroundColor: 'yellow',
+          backgroundColor: '#E0BBE4',
         },
         members: [
           {
@@ -356,17 +356,17 @@ function _createBoards() {
         ],
         groups: [
           {
-            id: 'g101',
+            id: 'g105',
             title: 'Group 1',
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c1015125',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c102863',
                 title: 'Add Samples',
                 desc: '',
               },
