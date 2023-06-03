@@ -3,6 +3,10 @@ import { boardService } from "../services/board.service";
 import { addTask } from "../store/board.actions";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { GrAdd, GrClose } from 'react-icons/gr';
+
+
+
+
 export function AddTask({ group, boardId }) {
     const [isEditable, setIsEditable] = useState(false)
     const [cardTitle, setCardTitle] = useState('')
