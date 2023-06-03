@@ -6,6 +6,7 @@ export function MembersContent(props) {
     // initial state should be task.members
     const [members, setMembers] = useState([])
 
+
     useEffect(() => {
 
     }, [])
@@ -18,12 +19,25 @@ export function MembersContent(props) {
     }
 
     return (
-        <section>
-            <select onChange={handleChange}>
-                <option>Shaul</option>
-                <option>Adam</option>
-                <option>Dor</option>
-            </select>
+        <section className='members-modal'>
+            <div className='members-modal-search'>
+                <input
+                    placeholder={`Search members`}
+                    type="text"
+                    className="modal-main-input"
+                    onChange={ev => {
+                        // setSearchedMemberText(ev.target.value);
+                    }}
+                    autoFocus
+                />
+            </div>
+            <div className='members-modal-body'>
+                <div className="task-members">
+
+
+                </div>
+            </div>
+
         </section>
     )
 }
