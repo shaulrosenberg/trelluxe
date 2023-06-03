@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { Outlet, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { GroupList } from "../cmps/group-list"
+import { BoardMiniHeader } from "../cmps/board-mini-header"
 
 import { boardService } from "../services/board.service"
 import { setSelectedBoard } from "../store/board.actions"
@@ -39,6 +40,7 @@ export function BoardIndex() {
         // render a list of groups
         // in each group -> render a list of tasks
         <section className="board-index">
+            <BoardMiniHeader board={board} />
             {board && <GroupList groups={board.groups} boardId={boardId} />}
             <Outlet />
         </section>
