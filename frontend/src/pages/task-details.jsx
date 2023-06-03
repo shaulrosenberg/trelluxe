@@ -24,12 +24,13 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-     }, [taskId, isDescEdit])
+     }, [ isDescEdit])
 
      function onTaskExit() {
           navigate(-1)
      }
      console.log('task:', task); // Check the value of task
+     if (!task) return <div>Loading...</div>
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
@@ -52,8 +53,8 @@ export function TaskDetails() {
                               <DescEdit task={task} setIsDescEdit={setIsDescEdit} />
                          ) : (
                               <a className='a-desc' onClick={() => setIsDescEdit(true)}>
+                                   {task.desc === '' && 'Add a more detailed description...'}
                                    {task !== null && task.desc}
-                                   {!task.desc && 'Add a more detailed description...'}
                               </a>
                          )}
                     </div>

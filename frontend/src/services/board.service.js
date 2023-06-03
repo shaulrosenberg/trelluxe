@@ -129,7 +129,6 @@ function demoUser() {
 }
 
 function findTaskById(taskId) {
-  console.log('from findTask', taskId)
   return storageService.query(STORAGE_KEY).then(boards => {
     for (const board of boards) {
       for (const group of board.groups) {
@@ -185,12 +184,12 @@ function _createBoards() {
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c341341101',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c1151502',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -206,12 +205,12 @@ function _createBoards() {
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c1678401',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c102274572',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -227,12 +226,12 @@ function _createBoards() {
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c1346301',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c12341502',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -290,17 +289,17 @@ function _createBoards() {
         ],
         groups: [
           {
-            id: 'g101',
+            id: 'g104',
             title: 'Group 1',
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c103',
+                id: 'c1032135',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c104',
+                id: 'c1141404',
                 title: 'Add Samples',
                 desc: '',
               },
@@ -357,17 +356,17 @@ function _createBoards() {
         ],
         groups: [
           {
-            id: 'g101',
+            id: 'g105',
             title: 'Group 1',
             archivedAt: 1589983468418,
             tasks: [
               {
-                id: 'c101',
+                id: 'c1015125',
                 title: 'Replace logo',
                 desc: '',
               },
               {
-                id: 'c102',
+                id: 'c102863',
                 title: 'Add Samples',
                 desc: '',
               },
