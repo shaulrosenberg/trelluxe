@@ -74,6 +74,7 @@ export async function updateTask(task, boardId, groupId) {
   try {
     const updatedBoard = await boardService.updateTask(task, boardId, groupId)
     store.dispatch(getActionUpdateBoard(updatedBoard))
+    store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
     return updatedBoard
   } catch (err) {
     console.log('failed to update task', err)
@@ -84,6 +85,7 @@ export async function addTask(task, boardId, groupId) {
   try {
     const updatedBoard = await boardService.addTask(task, boardId, groupId)
     store.dispatch(getActionUpdateBoard(updatedBoard))
+    store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
     return updatedBoard
   } catch (err) {
     console.log('failed to add task', err)

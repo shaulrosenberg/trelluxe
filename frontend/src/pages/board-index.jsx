@@ -4,10 +4,12 @@ import { useState, useEffect } from "react"
 import { GroupList } from "../cmps/group-list"
 
 import { boardService } from "../services/board.service"
+import { setSelectedBoard } from "../store/board.actions"
 
 export function BoardIndex() {
 
-    const [board, setBoard] = useState(null)
+    const board = useSelector(storeState => storeState.boardModule.selectedBoard)
+
     const { boardId } = useParams()
 
     useEffect(() => {
@@ -23,19 +25,19 @@ export function BoardIndex() {
         try {
             const board = await boardService.getById(boardId)
             console.log(board.groups)
-            setBoard(board)
+            setSelectedBoard(board)
         } catch (err) {
             console.log("cannot load board", err)
         }
     }
-    
+
     return (
-        
+
         // render a list of groups
         // in each group -> render a list of tasks
         <section className="board-index">
-            {board && <GroupList groups={board.groups}/>}
-            <Outlet/>
+            {board && <GroupList groups={board.groups} />}
+            <Outlet />
         </section>
     )
 }
