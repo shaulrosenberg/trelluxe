@@ -204,11 +204,13 @@ function _createBoards() {
                 id: 'c341341101',
                 title: 'Replace logo',
                 desc: '',
+                imgAttachment: '',
               },
               {
                 id: 'c1151502',
                 title: 'Add Samples',
                 desc: '',
+                imgAttachment: '',
               },
             ],
 
@@ -225,11 +227,13 @@ function _createBoards() {
                 id: 'c1678401',
                 title: 'Replace logo',
                 desc: '',
+                imgAttachment: '',
               },
               {
                 id: 'c102274572',
                 title: 'Add Samples',
                 desc: '',
+                imgAttachment: '',
               },
             ],
 
@@ -246,11 +250,13 @@ function _createBoards() {
                 id: 'c1346301',
                 title: 'Replace logo',
                 desc: '',
+                imgAttachment: '',
               },
               {
                 id: 'c12341502',
                 title: 'Add Samples',
                 desc: '',
+                imgAttachment: '',
               },
             ],
 
@@ -314,11 +320,13 @@ function _createBoards() {
                 id: 'c1032135',
                 title: 'Replace logo',
                 desc: '',
+                imgAttachment: '',
               },
               {
                 id: 'c1141404',
                 title: 'Add Samples',
                 desc: '',
+                imgAttachment: '',
               },
             ],
             style: {
@@ -381,11 +389,13 @@ function _createBoards() {
                 id: 'c1015125',
                 title: 'Replace logo',
                 desc: '',
+                imgAttachment: '',
               },
               {
                 id: 'c102863',
                 title: 'Add Samples',
                 desc: '',
+                imgAttachment: '',
               },
             ],
             style: {
