@@ -5,16 +5,18 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from '../pages/login-signup.jsx'
 
-import { boardService } from "../services/board.service"
+import { boardService } from '../services/board.service'
 import { useEffect, useState } from 'react'
+
+//img
+import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
 
 export function AppHeader() {
      const user = useSelector((storeState) => storeState.userModule.user)
      const location = useLocation()
      const demoUser = boardService.demoUser()
-     
-     useEffect(() => {
-     }, [location])
+
+     useEffect(() => {}, [location])
 
      // async function onLogin(credentials) {
      //      try {
@@ -42,38 +44,39 @@ export function AppHeader() {
      // }
 
      return location.pathname !== '/' ? (
-          <header className='app-header-work'>
+          <header
+               className='app-header-work'
+               style={{ backgroundColor: '#026AA7' }}
+          >
                <nav className='main-nav-bar-work'>
                     <div className='nav-dropdown-work'>
                          <div>
                               <Link to='/'>
-                                   <div>
+                                   <div className='div-workspace'>
                                         {' '}
+                                        <img src={TrelloIconWork} alt='trello-workspace' className='logo-workspace' />
                                         <h2 className='logo-work'>Trelux </h2>
+
                                    </div>
                               </Link>
                          </div>
+
                          <button>
-                              <NavLink to='/recent' >
-                                   Recent
-                              </NavLink>
+                              <NavLink className="nav-link-work" to='/workspace'>Workspace</NavLink>
                          </button>
+
                          <button>
-                              <NavLink to='/starred'>
-                                   Starred
-                              </NavLink>
+                              <NavLink className="nav-link-work" to='/recent'>Recent</NavLink>
                          </button>
+                         
                          <button>
-                              <NavLink to='/workspace'>
-                                   Workspace
-                              </NavLink>
+                              <NavLink className="nav-link-work" to='/starred'>Starred</NavLink>
                          </button>
+                         
                     </div>
 
                     <div className='div-user'>
-                         {!user &&
-                         <h2>{demoUser}</h2>
-                         }
+                         {!user && <h2>{demoUser}</h2>}
                     </div>
                </nav>
           </header>
@@ -81,6 +84,7 @@ export function AppHeader() {
           <header className='app-header-homepage'>
                <nav className='main-nav-bar'>
                     <div className='nav-dropdown'>
+                         
                          <Link to='/'>
                               <svg
                                    aria-label='Atlassian Trello'
@@ -136,16 +140,19 @@ export function AppHeader() {
                                    </g>
                               </svg>
                          </Link>
+
                          <button>
                               <NavLink to='/board' className='nav-link'>
                                    Boards
                               </NavLink>
                          </button>
+
                          <button>
                               <NavLink to='/workspace' className='nav-link'>
                                    Workshop
                               </NavLink>
                          </button>
+
                     </div>
 
                     <div className='nav-buttons'>

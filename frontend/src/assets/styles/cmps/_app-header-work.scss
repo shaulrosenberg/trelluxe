@@ -1,0 +1,61 @@
+// this header will display while in other pages not in Homepage
+.app-header-work {
+     position: static;
+}
+
+.main-nav-bar-work {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 0.5rem;
+}
+
+.nav-dropdown-work {
+     display: flex;
+     align-items: center;
+
+     .logo-work {
+          color: white;
+          font-weight: bold;
+     }
+
+     > button {
+          background-color: transparent;
+          color: white;
+          padding: 0.5rem 1rem;
+          &:hover{
+            background-color: #014A75;
+            border-radius: 0.2rem;
+          }
+     }
+
+     .nav-link-work {
+          color: white;
+          font-size: rem(14px);
+     }
+
+     .logo-workspace {
+          width: 25px;
+     }
+
+     .div-workspace {
+          display: flex;
+          gap: 5px;
+     }
+}
+
+// display the user in header
+.div-user {
+     background-color: rgb(99, 69, 137);
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+     width: 24px;
+     height: 24px;
+
+     h2 {
+          font-size: 0.7rem;
+     }
+}
