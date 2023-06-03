@@ -24,12 +24,12 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-     }, [ isDescEdit])
+     }, [isDescEdit])
 
      function onTaskExit() {
           navigate(-1)
      }
-     console.log('task:', task); // Check the value of task
+     console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
      return (
           <section className='section-task-deatils'>
@@ -50,10 +50,17 @@ export function TaskDetails() {
                     <div className='div-desc'>
                          <p>Description</p>
                          {isDescEdit ? (
-                              <DescEdit task={task} setIsDescEdit={setIsDescEdit} />
+                              <DescEdit
+                                   task={task}
+                                   setIsDescEdit={setIsDescEdit}
+                              />
                          ) : (
-                              <a className='a-desc' onClick={() => setIsDescEdit(true)}>
-                                   {task.desc === '' && 'Add a more detailed description...'}
+                              <a
+                                   className='a-desc'
+                                   onClick={() => setIsDescEdit(true)}
+                              >
+                                   {task.desc === '' &&
+                                        'Add a more detailed description...'}
                                    {task !== null && task.desc}
                               </a>
                          )}
@@ -69,8 +76,9 @@ export function TaskDetails() {
                               placeholder='Write a comment...'
                          ></input>
                     </div>
-
                </div>
+               {/* Overlay element */}
+               <div className='overlay' />
           </section>
      )
 }
