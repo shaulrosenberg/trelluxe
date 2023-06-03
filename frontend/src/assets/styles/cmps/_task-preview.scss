@@ -1,0 +1,29 @@
+.task-preview-container{
+border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 0 #091e4240;
+  margin: 0 4px;
+  flex-shrink: 0;
+  color: #172b4d;
+  position: relative;
+  
+    .title-container{
+        color:#172B4D;
+        padding:8px 8px 4px 12px;
+        word-wrap: break-word;
+        clear: both;
+        display: block;
+        margin: 0 0 4px;
+        overflow: hidden;
+        text-decoration: none;
+        
+    }
+
+
+
+    &:hover{
+        cursor: pointer;
+    }
+
+
+}

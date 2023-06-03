@@ -1,6 +1,10 @@
 .group-preview{
     display: flex;
+    margin: 10px;// temporary till we design it
     flex-direction: column;
     min-width: 17rem;
     background-color: $clr30;
+    padding: 0 4px;
+    height: fit-content;
+    width: rem(270px);
 }

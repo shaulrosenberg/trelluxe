@@ -2,7 +2,7 @@ import { useState } from "react";
 import { boardService } from "../services/board.service";
 import { addTask } from "../store/board.actions";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
-import { useSelector } from 'react-redux'
+import { GrAdd, GrClose } from 'react-icons/gr';
 export function AddTask({ group, boardId }) {
     const [isEditable, setIsEditable] = useState(false)
     const [cardTitle, setCardTitle] = useState('')
@@ -40,7 +40,8 @@ export function AddTask({ group, boardId }) {
                                 value={cardTitle}
                                 onChange={handleInputChange}
                             />
-                            <button>Add card</button>
+                            <button><GrAdd />Add card</button>
+                            <button onClick={() => setIsEditable(false)} ><GrClose /></button>
                         </form>
                     </div>
                 ) : (
