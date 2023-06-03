@@ -129,6 +129,7 @@ function demoUser() {
 }
 
 function findTaskById(taskId) {
+  console.log('from findTask', taskId)
   return storageService.query(STORAGE_KEY).then(boards => {
     for (const board of boards) {
       for (const group of board.groups) {

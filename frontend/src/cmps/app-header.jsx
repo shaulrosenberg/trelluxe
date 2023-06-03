@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from '../pages/login-signup.jsx'
+
 import { boardService } from "../services/board.service"
 import { useEffect, useState } from 'react'
 
@@ -15,30 +16,30 @@ export function AppHeader() {
      useEffect(() => {
      }, [location])
 
-     async function onLogin(credentials) {
-          try {
-               const user = await login(credentials)
-               showSuccessMsg(`Welcome: ${user.fullname}`)
-          } catch (err) {
-               showErrorMsg('Cannot login')
-          }
-     }
-     async function onSignup(credentials) {
-          try {
-               const user = await signup(credentials)
-               showSuccessMsg(`Welcome new user: ${user.fullname}`)
-          } catch (err) {
-               showErrorMsg('Cannot signup')
-          }
-     }
-     async function onLogout() {
-          try {
-               await logout()
-               showSuccessMsg(`Bye now`)
-          } catch (err) {
-               showErrorMsg('Cannot logout')
-          }
-     }
+     // async function onLogin(credentials) {
+     //      try {
+     //           const user = await login(credentials)
+     //           showSuccessMsg(`Welcome: ${user.fullname}`)
+     //      } catch (err) {
+     //           showErrorMsg('Cannot login')
+     //      }
+     // }
+     // async function onSignup(credentials) {
+     //      try {
+     //           const user = await signup(credentials)
+     //           showSuccessMsg(`Welcome new user: ${user.fullname}`)
+     //      } catch (err) {
+     //           showErrorMsg('Cannot signup')
+     //      }
+     // }
+     // async function onLogout() {
+     //      try {
+     //           await logout()
+     //           showSuccessMsg(`Bye now`)
+     //      } catch (err) {
+     //           showErrorMsg('Cannot logout')
+     //      }
+     // }
 
      return location.pathname !== '/' ? (
           <header className='app-header-work'>

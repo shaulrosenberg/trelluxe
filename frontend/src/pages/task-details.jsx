@@ -24,12 +24,12 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-     }, [taskId])
+     }, [taskId, isDescEdit])
 
      function onTaskExit() {
           navigate(-1)
      }
-
+     console.log('task:', task); // Check the value of task
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
@@ -38,11 +38,13 @@ export function TaskDetails() {
                          className='btn-exit-task'
                          onClick={() => onTaskExit()}
                     />
+
                     <IoIosCard className='icon-title' />
                     <div className='div-task-title'>
                          {task ? <h2>{task.title}</h2> : 'Loading'}
                          <p>in list group 1</p>
                     </div>
+
                     <TfiAlignLeft className='icon-desc' />
                     <div className='div-desc'>
                          <p>Description</p>
@@ -50,10 +52,12 @@ export function TaskDetails() {
                               <DescEdit task={task} setIsDescEdit={setIsDescEdit} />
                          ) : (
                               <a className='a-desc' onClick={() => setIsDescEdit(true)}>
-                                   Add a more detailed description...
+                                   {task !== null && task.desc}
+                                   {!task.desc && 'Add a more detailed description...'}
                               </a>
                          )}
                     </div>
+
                     <TfiMenuAlt className='icon-activitiy' />
                     <div className='a'></div>
                     <h5 className='task-details-user'>User</h5>
@@ -64,6 +68,7 @@ export function TaskDetails() {
                               placeholder='Write a comment...'
                          ></input>
                     </div>
+
                </div>
           </section>
      )
