@@ -66,7 +66,9 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
                 <span>{modalTitle}</span>
                 <button onClick={handleClose}><GrClose className='btn-content' /></button>
             </section>
-            {ComponentToRender && <ComponentToRender {...props} />}
+            <section className="modal-content">
+                {ComponentToRender && <ComponentToRender {...props} />}
+            </section>
         </section>
     )
 }

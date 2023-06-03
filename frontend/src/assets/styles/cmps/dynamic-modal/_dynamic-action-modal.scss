@@ -36,9 +36,8 @@
         }
     }
 
-    // Assuming there's a div that wraps the dynamic content.
-    // Adjust the selector as necessary.
-    section {
+    // dynamic content
+    .modal-content {
         flex-grow: 1; // Takes up the rest of the space in the modal.
     }
 }
