@@ -7,6 +7,7 @@ import {
   ADD_BOARD,
   REMOVE_BOARD,
   SET_BOARDS,
+  SET_SELECTED_BOARD,
   UNDO_REMOVE_BOARD,
   UPDATE_BOARD,
 } from './board.reducer.js'
@@ -19,6 +20,7 @@ export function getActionRemoveBoard(boardId) {
     boardId,
   }
 }
+
 export function getActionAddBoard(board) {
   return {
     type: ADD_BOARD,
@@ -123,4 +125,9 @@ export function onRemoveBoardOptimistic(boardId) {
         type: UNDO_REMOVE_BOARD,
       })
     })
+}
+
+//selectedBoard
+export function setSelectedBoard(board) {
+  return store.dispatch({ type: SET_SELECTED_BOARD, board })
 }
