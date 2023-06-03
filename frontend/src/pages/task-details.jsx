@@ -12,6 +12,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { ImAttachment } from 'react-icons/im'
 
 // dynamic cmps
+import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 
 export function TaskDetails() {
@@ -48,6 +49,9 @@ export function TaskDetails() {
                     </div>
 
                     <TfiAlignLeft className='icon-desc' />
+                    <div className='div-task-controls'>
+                         <TaskControls />
+                    </div>
                     <div className='div-desc'>
                          <p>Description</p>
                          {isDescEdit ? (
@@ -68,7 +72,7 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                              
+
                     <TfiMenuAlt className='icon-activitiy' />
                     <div className='a'></div>
                     <h5 className='task-details-user'>User</h5>

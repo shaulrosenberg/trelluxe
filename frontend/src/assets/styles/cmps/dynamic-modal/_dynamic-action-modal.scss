@@ -1,0 +1,44 @@
+.dynamic-action-modal {
+    position: absolute;
+    z-index: 100;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1), 0 0.1rem 0.2rem rgba(0, 0, 0, 0.06);
+    width: 20rem;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+
+    .dynamic-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc; // The thin gray line separating header from content.
+        padding-bottom: 0.5rem; // Some padding to give space above the line.
+        margin-bottom: 1rem; // Margin to give space below the line.
+
+        span {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .btn-content {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1.25rem;
+            color: #5e6c84;
+
+            &:hover {
+                color: #172b4d;
+            }
+        }
+    }
+
+    // Assuming there's a div that wraps the dynamic content.
+    // Adjust the selector as necessary.
+    section {
+        flex-grow: 1; // Takes up the rest of the space in the modal.
+    }
+}

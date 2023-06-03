@@ -39,6 +39,11 @@
           margin-top: 0.4rem;
      }
 
+     .div-task-controls {
+          grid-column: 3;
+          grid-row: 1 / span 3;
+     }
+
      .icon-title {
           align-self: flex-start;
           justify-self: center;

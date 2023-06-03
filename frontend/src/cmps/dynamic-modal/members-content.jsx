@@ -6,7 +6,9 @@ export function MembersContent(props) {
     // initial state should be task.members
     const [members, setMembers] = useState([])
 
-    useEffect
+    useEffect(() => {
+
+    }, [])
 
     function handleChange({ target }) {
         // pseudo

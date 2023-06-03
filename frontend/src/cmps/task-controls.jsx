@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import DynamicActionModal from './DynamicActionModal'
+import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 
 // Import your icons here...
 import { AiOutlineTags, AiOutlineMinus, AiOutlineCheckSquare, AiOutlineFieldTime, AiOutlineCopy } from "react-icons/ai"
@@ -33,7 +33,7 @@ export function TaskControls() {
     }
 
     return (
-        <section className='task-controls'>
+        <section className="task-controls">
             <section className='add-to-card'>
                 <h3 className="controls-title">Add to card</h3>
                 <section className='btn-container'>
@@ -49,7 +49,7 @@ export function TaskControls() {
                 <DynamicActionModal
                     cmpType={modalType}
                     modalTitle={modalTitles[modalType]}
-                    onClose={() => onToggleModal(null)}
+                    onCloseModal={() => onToggleModal(null)}
                     // send click event
                     event={eventRef.current}
                     isDetails={true}

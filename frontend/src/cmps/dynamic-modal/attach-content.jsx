@@ -4,7 +4,6 @@
 
 export function AttachContent() {
 
-
     return(
         <section>
             <p>Attach Pic</p>

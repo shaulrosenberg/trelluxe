@@ -26,7 +26,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         labels: LabelsContent,
         checklist: ChecklistContent,
         members: MembersContent,
-        attach: AttachContent
+        attachment: AttachContent
     }
 
     // Get the component from the map
@@ -65,8 +65,8 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
             <section className="dynamic-modal-header">
                 <span>{modalTitle}</span>
                 <button onClick={handleClose}><GrClose className='btn-content' /></button>
-                {ComponentToRender && <ComponentToRender {...props} />}
             </section>
+            {ComponentToRender && <ComponentToRender {...props} />}
         </section>
     )
 }
