@@ -54,25 +54,28 @@ export function AppHeader() {
                               <Link to='/'>
                                    <div className='div-workspace'>
                                         {' '}
-                                        <img src={TrelloIconWork} alt='trello-workspace' className='logo-workspace' />
+                                        <img
+                                             src={TrelloIconWork}
+                                             alt='trello-workspace'
+                                             className='logo-workspace'
+                                        />
                                         <h2 className='logo-work'>Trelux </h2>
-
                                    </div>
                               </Link>
                          </div>
 
-                         <button>
-                              <NavLink className="nav-link-work" to='/workspace'>Workspace</NavLink>
-                         </button>
+                         <NavLink className='nav-link-work' to='/workspace'>
+                              {' '}
+                              Workspace
+                         </NavLink>
 
-                         <button>
-                              <NavLink className="nav-link-work" to='/recent'>Recent</NavLink>
-                         </button>
-                         
-                         <button>
-                              <NavLink className="nav-link-work" to='/starred'>Starred</NavLink>
-                         </button>
-                         
+                         <NavLink className='nav-link-work' to='/recent'>
+                              Recent
+                         </NavLink>
+
+                         <NavLink className='nav-link-work' to='/starred'>
+                              Starred
+                         </NavLink>
                     </div>
 
                     <div className='div-user'>
@@ -84,8 +87,7 @@ export function AppHeader() {
           <header className='app-header-homepage'>
                <nav className='main-nav-bar'>
                     <div className='nav-dropdown'>
-                         
-                         <Link to='/'>
+                         <Link to='/' className='homepage-logo'>
                               <svg
                                    aria-label='Atlassian Trello'
                                    height='37.5'
@@ -141,18 +143,13 @@ export function AppHeader() {
                               </svg>
                          </Link>
 
-                         <button>
-                              <NavLink to='/board' className='nav-link'>
-                                   Boards
-                              </NavLink>
-                         </button>
+                         <NavLink to='/board' className='nav-link'>
+                              Boards
+                         </NavLink>
 
-                         <button>
-                              <NavLink to='/workspace' className='nav-link'>
-                                   Workshop
-                              </NavLink>
-                         </button>
-
+                         <NavLink to='/workspace' className='nav-link'>
+                              Workshop
+                         </NavLink>
                     </div>
 
                     <div className='nav-buttons'>

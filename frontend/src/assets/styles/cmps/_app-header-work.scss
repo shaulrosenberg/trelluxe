@@ -19,10 +19,11 @@
           font-weight: bold;
      }
 
-     > button {
+     > .nav-link-work {
           background-color: transparent;
           color: white;
           padding: 0.5rem 1rem;
+
           &:hover{
             background-color: #014A75;
             border-radius: 0.2rem;
