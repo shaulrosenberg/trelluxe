@@ -24,9 +24,9 @@
           color: white;
           padding: 0.5rem 1rem;
 
-          &:hover{
-            background-color: #014A75;
-            border-radius: 0.2rem;
+          &:hover {
+               background-color: #014a75;
+               border-radius: 0.2rem;
           }
      }
 
@@ -49,6 +49,7 @@
 // display the user in header
 .div-user {
      background-color: rgb(99, 69, 137);
+     padding: 15px;
      color: white;
      display: flex;
      align-items: center;
@@ -56,8 +57,17 @@
      border-radius: 50%;
      width: 24px;
      height: 24px;
-
-     h2 {
-          font-size: 0.7rem;
+     transition: border-color 0.3s;
+     box-sizing: border-box;
+     border: 2px solid transparent; 
+ 
+     &:hover {
+         cursor: pointer;
+         border-color: rgba(255, 255, 255, 0.878); 
      }
-}
+ 
+     h2 {
+         font-size: 0.7rem;
+     }
+ }
+ 

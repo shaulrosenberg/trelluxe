@@ -2,7 +2,7 @@
      display: flex;
      justify-content: center;
      position: absolute;
-     z-index: 5;
+     z-index: 9999;
      top: 20%;
      left: 25%;
 }
@@ -31,6 +31,8 @@
                auto
           );
      grid-template-rows: minmax(60px 1fr) minmax(93px 1fr) 1fr;
+     padding: 1rem;
+     z-index: 10000;
      h2 {
           font-size: rem(20px);
           font-weight: 600;
@@ -55,6 +57,7 @@
 
           a {
                cursor: pointer;
+               color: #606d85;
           }
      }
      .icon-activitiy {
@@ -86,11 +89,12 @@
 .div-task-title {
      p {
           font-size: rem(14px);
-          color: #172b4d;
+          color: #172B4D;
+          margin-top: 0.3rem;
      }
 
      h2 {
-          color: #172b4d;
+          color: #172B4D;
      }
 }
 
@@ -111,7 +115,7 @@
           border-radius: 0.2rem;
           font-size: rem(14px);
           &:hover {
-               background-color: #ebebeb;
+               background-color: #e4e5e6;
           }
      }
 }
@@ -125,14 +129,23 @@
      }
 
      .input-task-activity {
-          padding: 0.5rem 0.7rem;
+          padding: 0.7rem 0.7rem;
           width: 100%;
           border: none;
           text-decoration: none;
           border-radius: 0.2rem;
 
           &:hover {
-               background-color: #ebebeb;
+               background-color: #e4e5e6;
           }
      }
+}
+
+.overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
 }

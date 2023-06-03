@@ -5,10 +5,11 @@ import { boardService } from '../services/board.service'
 import { useState } from 'react'
 
 // icons
-import { IoIosCard } from 'react-icons/io'
+import { MdSubtitles } from 'react-icons/md'
 import { TfiAlignLeft } from 'react-icons/tfi'
 import { TfiMenuAlt } from 'react-icons/tfi'
 import { AiOutlineClose } from 'react-icons/ai'
+import { ImAttachment } from 'react-icons/im'
 
 // dynamic cmps
 import { DescEdit } from '../cmps/task-desc'
@@ -24,23 +25,23 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-     }, [ isDescEdit])
+     }, [isDescEdit])
 
      function onTaskExit() {
           navigate(-1)
      }
-     console.log('task:', task); // Check the value of task
+
+     console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
-                    {/* <button className='btn-exit-task'>X</button> */}
                     <AiOutlineClose
                          className='btn-exit-task'
                          onClick={() => onTaskExit()}
                     />
 
-                    <IoIosCard className='icon-title' />
+                    <MdSubtitles className='icon-title' />
                     <div className='div-task-title'>
                          {task ? <h2>{task.title}</h2> : 'Loading'}
                          <p>in list group 1</p>
@@ -50,15 +51,24 @@ export function TaskDetails() {
                     <div className='div-desc'>
                          <p>Description</p>
                          {isDescEdit ? (
-                              <DescEdit task={task} setIsDescEdit={setIsDescEdit} />
+                              <DescEdit
+                                   task={task}
+                                   setIsDescEdit={setIsDescEdit}
+                              />
                          ) : (
-                              <a className='a-desc' onClick={() => setIsDescEdit(true)}>
-                                   {task.desc === '' && 'Add a more detailed description...'}
+                              <a
+                                   className='a-desc'
+                                   onClick={() => setIsDescEdit(true)}
+                              >
+                                   {!task.desc &&
+                                        'Add a more detailed description...'}
                                    {task !== null && task.desc}
                               </a>
                          )}
                     </div>
 
+                    {/* need to render Attachment cmp here */}
+                              
                     <TfiMenuAlt className='icon-activitiy' />
                     <div className='a'></div>
                     <h5 className='task-details-user'>User</h5>
@@ -69,8 +79,10 @@ export function TaskDetails() {
                               placeholder='Write a comment...'
                          ></input>
                     </div>
-
                </div>
+
+               {/* Overlay element */}
+               <div className='overlay' onClick={() => onTaskExit()} />
           </section>
      )
 }
