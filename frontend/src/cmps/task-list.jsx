@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { useNavigate } from "react-router-dom"
 import { TaskPreview } from './task-preview'
@@ -11,17 +11,26 @@ export function TaskList({ tasks, groupId, boardId }) {
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
     const [taskList, setTaskList] = useState(tasks)
 
-    const onDragEnd = async (result) => {
+    useEffect(() => {
+        const group = board.groups.find(group => group.id === groupId)
+        if (group) setTaskList(group.tasks)
+        // eslint-disable-next-line
+    }, [board])
+
+
+    async function onDragEnd(result) {
         if (!result.destination) return
         const items = Array.from(taskList)
         const [reorderedItem] = items.splice(result.source.index, 1)
         items.splice(result.destination.index, 0, reorderedItem)
-        const newBoard = {...board}
+
+        const newBoard = JSON.parse(JSON.stringify(board))
         const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
         newBoard.groups[groupIdx].tasks = items
         setTaskList(items)
         await updateBoard(newBoard)
     }
+
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
