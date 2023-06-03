@@ -39,7 +39,7 @@ export function BoardIndex() {
         // render a list of groups
         // in each group -> render a list of tasks
         <section className="board-index">
-            {board && <GroupList groups={board.groups} />}
+            {board && <GroupList groups={board.groups} boardId={boardId} />}
             <Outlet />
         </section>
     )

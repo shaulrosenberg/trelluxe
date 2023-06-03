@@ -69,7 +69,18 @@ export async function addBoard(board) {
     throw err
   }
 }
+//groups
+export async function addGroup(groupTitle, boardId) {
+  try {
+    const updatedBoard = await boardService.addGroup(groupTitle, boardId)
+    store.dispatch(getActionUpdateBoard(updatedBoard))
+    store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
+  } catch (err) {
+    console.log('failed to add group', err)
+  }
+}
 
+//tasks
 export async function updateTask(task, boardId, groupId) {
   try {
     const updatedBoard = await boardService.updateTask(task, boardId, groupId)

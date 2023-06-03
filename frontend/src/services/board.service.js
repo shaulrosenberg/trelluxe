@@ -18,6 +18,7 @@ export const boardService = {
   updateTask,
   getEmptyTask,
   addTask,
+  addGroup,
 }
 
 _createBoards()
@@ -43,6 +44,22 @@ function save(board) {
   return storageService[method](STORAGE_KEY, board)
 }
 
+//groups
+async function addGroup(title, boardId) {
+  const newGroup = {
+    id: utilService.makeId(),
+    title,
+    tasks: [],
+  }
+  try {
+    const board = await getById(boardId)
+    board.groups.push(newGroup)
+    return save(board)
+  } catch (err) {
+    console.log('could not add group', err)
+  }
+}
+//tasks
 function getEmptyTask() {
   return {
     id: utilService.makeId(),
