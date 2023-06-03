@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
 import { boardService } from '../services/board.service'
@@ -16,7 +16,7 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 
 export function TaskDetails() {
-     const { taskId } = useParams()
+     const { taskId, groupId, boardId } = useParams()
      const [task, setTask] = useState(null)
      const navigate = useNavigate()
 
@@ -50,7 +50,7 @@ export function TaskDetails() {
 
                     <TfiAlignLeft className='icon-desc' />
                     <div className='div-task-controls'>
-                         <TaskControls />
+                         <TaskControls task={task} boardId={boardId} groupId={groupId} />
                     </div>
                     <div className='div-desc'>
                          <p>Description</p>

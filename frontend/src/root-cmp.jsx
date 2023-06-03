@@ -9,7 +9,7 @@ import { LoginSignup } from './pages/login-signup'
 import { BoardIndex } from './pages/board-index'
 import { Workspace } from './pages/workspace'
 import { TaskDetails } from './pages/task-details'
-    
+
 export function RootCmp() {
 
     return (
@@ -19,7 +19,7 @@ export function RootCmp() {
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/board/:boardId' element={<BoardIndex />}>
-                        <Route path='task/:taskId' element={<TaskDetails/>}/>
+                        <Route path='group/:groupId/task/:taskId' element={<TaskDetails />} />
                     </Route>
                     <Route path='/workspace' element={<Workspace />} />
                     <Route path='/login' element={<LoginSignup />} />

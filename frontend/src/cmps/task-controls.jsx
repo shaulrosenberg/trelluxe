@@ -9,7 +9,7 @@ import { MdOutlineAttachment } from "react-icons/md"
 import { IoMdRefresh } from "react-icons/io"
 // ...
 
-export function TaskControls() {
+export function TaskControls({ task, boardId, groupId }) {
     const [modalType, setModalType] = useState(null)
     const eventRef = useRef(null)
 
@@ -53,6 +53,9 @@ export function TaskControls() {
                     // send click event
                     event={eventRef.current}
                     isDetails={true}
+                    task={task}
+                    groupId={groupId}
+                    boardId={boardId}
                 />}
         </section>
     )

@@ -38,9 +38,8 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
     }
 
     function getModalPositionStyle(event, type, isDetails, width) {
-        // const typesWithSpecialPositioning = ['dates', 'labels', 'checklist', 'members', 'attachment', 'archive']
+        const typesWithSpecialPositioning = ['activity']
         const padding = 10
-        const typesWithSpecialPositioning = []
         const { top, left, height, right } = event.target.getBoundingClientRect()
         const startSideValueDesktop = (width / left < 2) ? 30 : left
         const startSideValueMobile = (width - left > 320) ? left : 20

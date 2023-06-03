@@ -1,16 +1,18 @@
 import { useState, useRef, useEffect } from "react"
 
+
 import { updateTask } from "../../store/board.actions"
 
 
 // pass task, groupId & boardId to these cmps from dynamic action modal
-export function ChecklistContent(props) {
+export function ChecklistContent({task, boardId, groupId}) {
 
     const [title, setTitle] = useState('Checklist')
     const inputRef = useRef()
 
     useEffect(() => {
         inputRef.current.focus()
+        console.log(groupId, boardId)
     }, [])
 
     function handleChange({ target }) {
@@ -21,6 +23,10 @@ export function ChecklistContent(props) {
 
     function onAddChecklist(ev) {
         ev.preventDefault()
+        const checklist = {
+            title,
+            todos: []
+        }
         // create checklist data + add to task data
         // task = getTask()
         // task.checklist = {}

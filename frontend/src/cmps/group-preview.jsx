@@ -16,16 +16,16 @@ export function GroupPreview({ group }) {
      return (
           <article className='group-preview'>
                <h1 className='group-title'>{group.title}</h1>
-               <TaskList tasks={group.tasks} />
+               <TaskList tasks={group.tasks} groupId={group.id} boardId={boardId}/>
                <AddTask group={group} boardId={boardId} />
-               {group.tasks.map((task) => (
+               {/* {group.tasks.map((task) => (
                     <Link
                          key={task.id}
-                         to={`/board/${boardId}/task/${task.id}`}
+                         to={`/board/${boardId}/group/${group.id}/task/${task.id}`}
                     >
                          View Task: {task.title}
                     </Link>
-               ))}
+               ))} */}
           </article>
      )
 }
