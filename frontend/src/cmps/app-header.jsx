@@ -19,16 +19,13 @@ export function AppHeader() {
      const [navColor, setNavColor] = useState(null);
      const boardId = location.pathname.split('/board/')[1];
      useEffect(() => {
-          console.log('from header', boardId)
           fetchBoardStyle()
-          console.log(navColor)
      }, [location])
 
      function fetchBoardStyle(){
           if (boardId){
                boardService.getById(boardId)
                .then((board) => {
-                    console.log('board from header', board)
                     const boardStyleColor = board.style.backgroundColor
                     setNavColor(boardStyleColor)
                })
