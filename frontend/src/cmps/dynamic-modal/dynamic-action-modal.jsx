@@ -37,8 +37,10 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         if (props.onCloseModal) props.onCloseModal()
     }
 
-    function getModalPositionStyle(event, type, isDetails) {
-        const typesWithSpecialPositioning = ['dates', 'labels', 'checklist', 'members', 'attachment', 'archive']
+    function getModalPositionStyle(event, type, isDetails, width) {
+        // const typesWithSpecialPositioning = ['dates', 'labels', 'checklist', 'members', 'attachment', 'archive']
+        const padding = 10
+        const typesWithSpecialPositioning = []
         const { top, left, height, right } = event.target.getBoundingClientRect()
         const startSideValueDesktop = (width / left < 2) ? 30 : left
         const startSideValueMobile = (width - left > 320) ? left : 20
@@ -50,12 +52,13 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         }
 
         if (width > 980) {
-            return { top: top + height, [startSideDesktop]: startSideValueDesktop + 'px' }
+            return { top: top + height + padding, [startSideDesktop]: startSideValueDesktop + 'px' }
         } else if (width > 768) {
-            return { top: top + height, left: left }
+            return { top: top + height + padding, left: left }
         } else {
-            return { top: top + height, [startSideMobile]: startSideValueMobile + 'px' }
+            return { top: top + height + padding, [startSideMobile]: startSideValueMobile + 'px' }
         }
+
     }
 
     const modalStyle = getModalPositionStyle(event, cmpType, isDetails, width)
