@@ -39,9 +39,32 @@ p {
     margin: 0 0 1em;
 }
 
-a {
-    text-decoration: none;
-}
-a:hover {
-}
 
+//links
+//  TODO add after i explain to dor and shaul
+// a {
+//     text-decoration: none;
+//     &.active {
+//         background-color: $clr4;
+//         font-weight: bold;
+//         color: $clr3;
+//     }
+// }
+// a:hover {
+
+// }
+
+// buttons 
+  //TODO: customize to my needs with asi
+
+.btn {
+    @include btn;
+    
+    &-dark {
+        @include btn($type: dark);
+    }
+  
+    &-round {
+      @include btn($type: round)
+    }
+  }
