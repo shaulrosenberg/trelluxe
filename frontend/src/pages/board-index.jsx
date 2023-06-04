@@ -16,7 +16,7 @@ export function BoardIndex() {
     useEffect(() => {
         loadBoard()
         // add listeners
-        
+
         return () => {
             // remove listeners
         }
@@ -37,6 +37,7 @@ export function BoardIndex() {
         // render a list of groups
         // in each group -> render a list of tasks
         <section style={board.style} className="board-index">
+
             <BoardMiniHeader board={board} />
             {board && <GroupList groups={board.groups} boardId={boardId} />}
             <Outlet />

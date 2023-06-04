@@ -1,13 +1,10 @@
 import { useState, useRef } from 'react'
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 
-// Import your icons here...
 import { AiOutlineTags, AiOutlineMinus, AiOutlineCheckSquare, AiOutlineFieldTime, AiOutlineCopy } from "react-icons/ai"
-import { IoPersonOutline } from "react-icons/io5"
 import { BsPersonPlus, BsArrowRight, BsArchive, BsSquareHalf } from "react-icons/bs"
 import { MdOutlineAttachment } from "react-icons/md"
-import { IoMdRefresh } from "react-icons/io"
-// ...
+
 
 export function TaskControls({ task, boardId, groupId }) {
     const [modalType, setModalType] = useState(null)
@@ -50,7 +47,6 @@ export function TaskControls({ task, boardId, groupId }) {
                     cmpType={modalType}
                     modalTitle={modalTitles[modalType]}
                     onCloseModal={() => onToggleModal(null)}
-                    // send click event
                     event={eventRef.current}
                     isDetails={true}
                     task={task}
