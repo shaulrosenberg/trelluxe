@@ -1,6 +1,7 @@
 .group-list-container {
      display: flex;
      min-height: 100vh;
+     overflow-y: auto;
 }
 
 .add-group-btn {
@@ -9,22 +10,29 @@
      width: rem(260px);
      max-height: rem(32px);
      background-color: rgba(240, 248, 255, 0.317);
-     padding: 6px 8px;
+     padding: 19px 15px;
      transition: color 85ms ease-in;
-     margin-top: 0.6rem;
+     margin-top: 0.4rem;
+     margin-left: 0.5rem;
      border-radius: 0.3rem;
-     
+     color: white;
      cursor: pointer;
+
      &:hover {
           background-color: rgba(213, 217, 220, 0.317);
      }
+
      p {
           margin: 0;
           padding: 0 0.5rem;
           font-size: rem(14px);
      }
 
-     .icon {
+     .icon-add-group {
           font-size: rem(14px);
+     }
+     .icon-add-group path,
+     .icon-add-group svg {
+          fill: white;
      }
 }
