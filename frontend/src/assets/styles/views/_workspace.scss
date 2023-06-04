@@ -1,39 +1,52 @@
 // Variables
-$primaryColor: #0079bf;
+
+
 $secondaryColor: #dfe3e6;
 $starColorActive: yellow;
 $starColorInactive: gray;
 
 .workspace-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 2rem;
-  
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 2rem;
 
-  main {
-    flex-grow: 1;
-    max-width: rem(825px);
 
-    button {
-      background-color: $primaryColor;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 0.3rem;
-      margin-bottom: 1rem;
-      cursor: pointer;
+	main {
+		flex-grow: 1;
+		max-width: rem(825px);
 
-      &:hover {
-        background-color: darken($primaryColor, 10%);
-      }
-    }
+		button {
+			background-color: $primaryColor;
+			color: white;
+			padding: 0.5rem 1rem;
+			border: none;
+			border-radius: 0.3rem;
+			margin-bottom: 1rem;
+			cursor: pointer;
 
-    h2 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: $primaryColor;
-      margin-block: 1rem;
-    }
-  }
+			&:hover {
+				background-color: darken($primaryColor, 10%);
+			}
+		}
+
+		.header-with-icon {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;  /* Adjust this value to create more or less space between the icon and the text */
+
+			.header-icon {
+				width: rem(24px);
+				height: rem(24px);
+				color: $primaryColor;
+			}
+		}
+
+		h2 {
+			font-size: rem(16px);
+			font-weight: bold;
+			color: $primaryColor;
+			margin-block: 1rem;
+		}
+	}
 }

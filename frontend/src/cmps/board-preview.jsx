@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { AiOutlineStar } from 'react-icons/ai'
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 import { useState } from "react"
 
 export function BoardPreview({ board, onUpdateBoard }) {
@@ -28,7 +28,7 @@ export function BoardPreview({ board, onUpdateBoard }) {
             <h2 className="board-title">{board.title}</h2>
             <div className="starred-container" onClick={onToggleStarred}>
                 <span className={board.isStarred ? 'starred' : ''} >
-                    <AiOutlineStar className="star-icon" />
+                    {board.isStarred ? <AiFillStar className="star-icon" /> : <AiOutlineStar className="star-icon" />}
                 </span>
             </div>
         </article>

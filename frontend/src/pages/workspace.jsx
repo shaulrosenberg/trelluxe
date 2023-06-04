@@ -5,9 +5,8 @@ import { loadBoards, addBoard, updateBoard } from '../store/board.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BoardList } from '../cmps/board-list.jsx'
+import { AiOutlineClockCircle, AiOutlineStar } from 'react-icons/ai'
 
-import { BoardPreviewAdd } from '../cmps/board-preview-add.jsx'
-import { boardService } from '../services/board.service.js'
 
 
 export function Workspace() {
@@ -19,6 +18,8 @@ export function Workspace() {
     }, [])
 
 
+    // this function should open the dynamic modal, and dynamic modal
+    // will handle the content for adding a board
     async function onAddBoard(board) {
         try {
             const savedBoard = await addBoard(board)
@@ -42,17 +43,26 @@ export function Workspace() {
     return (
         <section className='workspace-container'>
             <main>
-                <button onClick={onAddBoard}>Create new board</button>
-                <h2>Starred boards</h2>
+                <div className="header-with-icon">
+                    <AiOutlineStar className="header-icon star-icon" />
+                    <h2>Starred boards</h2>
+                </div>
+
                 <BoardList
                     boards={boards.filter(board => board.isStarred)}
                     onUpdateBoard={onUpdateBoard}
                 />
-                <h2>Recently viewed</h2>
-                <BoardPreviewAdd />
+
+                <div className='header-with-icon'>
+                    <AiOutlineClockCircle className="header-icon recent-icon" />
+                    <h2>Recently viewed</h2>
+                </div>
+
                 <BoardList
                     boards={boards}
                     onUpdateBoard={onUpdateBoard}
+                    onAddBoard={onAddBoard}
+                    includeAdd={true}
                 />
             </main>
         </section>
