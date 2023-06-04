@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation, Route } from 'react-router-dom'
+import { Link, NavLink, useLocation, Route, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -11,25 +11,35 @@ import { useEffect, useState } from 'react'
 //img
 import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
 
+// icons
+import { MdDarkMode } from 'react-icons/md'
+import { WiMoonAltWaningCrescent4 } from 'react-icons/wi'
+import { GrCircleInformation } from 'react-icons/gr'
+import { FaRocket } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
+
 export function AppHeader() {
      const user = useSelector((storeState) => storeState.userModule.user)
      const location = useLocation()
      const demoUser = boardService.demoUser()
 
-     const [navColor, setNavColor] = useState(null);
-     const boardId = location.pathname.split('/board/')[1];
+     const [navColor, setNavColor] = useState(null)
+     const boardId = location.pathname.split('/board/')[1]
      useEffect(() => {
           fetchBoardStyle()
      }, [location])
 
      function fetchBoardStyle() {
           if (boardId) {
-               boardService.getById(boardId)
+               boardService
+                    .getById(boardId)
                     .then((board) => {
                          const boardStyleColor = board.style.backgroundColor
                          setNavColor(boardStyleColor)
                     })
-                    .catch((err) => console.log('failed to change nav color', err))
+                    .catch((err) =>
+                         console.log('failed to change nav color', err)
+                    )
           } else {
                setNavColor('#026AA7')
           }
@@ -59,7 +69,6 @@ export function AppHeader() {
      //           showErrorMsg('Cannot logout')
      //      }
      // }
-
 
      return location.pathname !== '/' ? (
           <header
@@ -94,10 +103,17 @@ export function AppHeader() {
                          <NavLink className='nav-link-work' to='/starred'>
                               Starred
                          </NavLink>
+                         <NavLink className='nav-link-work' to='/templates'>
+                         Templates
+                         </NavLink>
                     </div>
 
                     <div className='div-user'>
-                         {!user && <h2>{demoUser}</h2>}
+                         <input type='search' placeholder='search' />
+                         <FaRocket className='hover' />
+                         <GrCircleInformation className='hover' />
+                         <WiMoonAltWaningCrescent4 className='dark-theme hover' />
+                         <div>{!user && <h2>{demoUser}</h2>}</div>
                     </div>
                </nav>
           </header>
@@ -161,12 +177,12 @@ export function AppHeader() {
                               </svg>
                          </Link>
 
-                         <NavLink to='/board' className='nav-link'>
-                              Boards
+                         <NavLink to='/workspace' className='nav-link'>
+                              Workspace
                          </NavLink>
 
-                         <NavLink to='/workspace' className='nav-link'>
-                              Workshop
+                         <NavLink to='/board' className='nav-link'>
+                              Boards
                          </NavLink>
                     </div>
 
