@@ -1,48 +1,56 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
 }
 
 ::selection {
-    background-color: $clr1;
-    color: $clr6;
+     background-color: $clr1;
+     color: $clr6;
 }
 
 html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", sans-serif;
-    line-height: 1.6;
-    
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Noto Sans', Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+     line-height: 1.6;
 }
 
 body {
-    font-size: rem(18px);
-    margin: 0;
-    margin: auto;
-    
+     font-size: rem(18px);
+     margin: 0;
+     margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", sans-serif;
-    line-height: 1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Noto Sans', Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+     line-height: 1;
 }
 
-a{
-    text-decoration: none;
+a {
+     text-decoration: none;
 }
 
-
-section, main, footer {
+section,
+main,
+footer {
 }
 
 img {
-    width: 100%;
+     width: 100%;
+     height: 100%;
+     // object-fit: cover;
+     // aspect-ratio: 1/1;
 }
 
 p {
-    margin: 0 0 1em;
+     margin: 0 0 1em;
 }
-
 
 //links
 //  TODO add after i explain to dor and shaul
@@ -58,17 +66,17 @@ p {
 
 // }
 
-// buttons 
-  //TODO: customize to my needs with asi
+// buttons
+//TODO: customize to my needs with asi
 
 .btn {
-    @include btn;
-    
-    &-dark {
-        @include btn($type: dark);
-    }
-  
-    &-round {
-      @include btn($type: round)
-    }
-  }
+     @include btn;
+
+     &-dark {
+          @include btn($type: dark);
+     }
+
+     &-round {
+          @include btn($type: round);
+     }
+}

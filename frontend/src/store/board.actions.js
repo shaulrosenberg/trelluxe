@@ -77,6 +77,7 @@ export async function addGroup(groupTitle, boardId) {
     store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
   } catch (err) {
     console.log('failed to add group', err)
+    throw err
   }
 }
 
@@ -89,6 +90,7 @@ export async function updateTask(task, boardId, groupId) {
     return updatedBoard
   } catch (err) {
     console.log('failed to update task', err)
+    throw new Error(err)
   }
 }
 
@@ -100,6 +102,7 @@ export async function addTask(task, boardId, groupId) {
     return updatedBoard
   } catch (err) {
     console.log('failed to add task', err)
+    throw err
   }
 }
 

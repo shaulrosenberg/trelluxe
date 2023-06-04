@@ -173,7 +173,8 @@ function _createBoards() {
           imgUrl: 'http://some-img',
         },
         style: {
-          backgroundImage: '',
+          backgroundImage:
+            'https://images.unsplash.com/photo-1682685795557-976f03aca7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80',
           color: '',
           backgroundColor: '#FFB6C1',
         },
@@ -289,7 +290,8 @@ function _createBoards() {
           imgUrl: 'http://some-img',
         },
         style: {
-          backgroundImage: '',
+          backgroundImage:
+            'https://images.unsplash.com/photo-1680287327539-9467451a8b81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
           color: '',
           backgroundColor: '#ADD8E6',
         },
