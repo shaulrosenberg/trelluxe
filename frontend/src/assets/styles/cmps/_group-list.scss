@@ -11,19 +11,19 @@
      padding: 6px 8px;
      transition: color 85ms ease-in;
      margin-top: 0.6rem;
+     border-radius: 0.3rem;
+     
      cursor: pointer;
-    border-radius: 0.3rem;
-     &:hover{
-        background-color: rgba(213, 217, 220, 0.317);
+     &:hover {
+          background-color: rgba(213, 217, 220, 0.317);
      }
      p {
           margin: 0;
           padding: 0 0.5rem;
           font-size: rem(14px);
-          
      }
 
-     .icon{
-        font-size: rem(14px);
+     .icon {
+          font-size: rem(14px);
      }
 }

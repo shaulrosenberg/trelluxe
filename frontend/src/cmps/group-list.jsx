@@ -35,7 +35,7 @@ export function GroupList({ groups, boardId }) {
                         value={groupTitle}
 
                     ></input>
-                    <div className="flex align-center">
+                    <div className="add-new-list flex align-center">
                         <button onClick={onAddGroup}>
                             Add list
                         </button>

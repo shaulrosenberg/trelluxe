@@ -32,12 +32,6 @@ export function AddTask({ group, boardId }) {
                {isEditable ? (
                     <div className='add-task-opened'>
                          <form onSubmit={onAddTask}>
-                              {/* <input
-                                   type='text'
-                                   placeholder='Enter a title for this card...'
-                                   value={cardTitle}
-                                   onChange={handleInputChange}
-                              /> */}
                               <textarea
                                    type='text'
                                    placeholder='Enter a title for this card...'
@@ -46,9 +40,11 @@ export function AddTask({ group, boardId }) {
                               />
 
                               <div className='add-task-btns'>
-                                   <button className='add-card-btn'>Add card</button>
-                                   <button  onClick={() => setIsEditable(false)}>
-                                        <GrClose style={{fontSize: '17px'}} />
+                                   <button className='add-card-btn'>
+                                        Add card
+                                   </button>
+                                   <button onClick={() => setIsEditable(false)}>
+                                        <GrClose style={{ fontSize: '17px' }} />
                                    </button>
                               </div>
                          </form>
@@ -56,7 +52,7 @@ export function AddTask({ group, boardId }) {
                ) : (
                     <div className='add-new-task'>
                          <button onClick={() => setIsEditable(true)}>
-                         <GrAdd className='add-task-icon' />
+                              <GrAdd className='add-task-icon' />
                               Add a card
                          </button>
                     </div>
