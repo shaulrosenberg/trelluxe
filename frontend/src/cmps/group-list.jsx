@@ -52,7 +52,7 @@ export function GroupList({ groups, boardId }) {
                 </div>
             ) : (
                 <div className='add-group-btn' onClick={() => { setIsGroupOpen(true) }}>
-                    <GrAdd className="icon-add-group" fill='white' />
+                    <GrAdd className="icon-add-group"  />
                     <p>Add another list</p>
                 </div>
             )

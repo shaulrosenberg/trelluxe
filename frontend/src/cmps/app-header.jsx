@@ -7,6 +7,7 @@ import { LoginSignup } from '../pages/login-signup.jsx'
 
 import { boardService } from '../services/board.service'
 import { useEffect, useState } from 'react'
+import { darken } from 'polished'
 
 //img
 // import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
@@ -17,7 +18,7 @@ import { MdDarkMode } from 'react-icons/md'
 import { WiMoonAltWaningCrescent4 } from 'react-icons/wi'
 import { GrCircleInformation } from 'react-icons/gr'
 import { FaRocket } from 'react-icons/fa'
-import { FaSearch } from 'react-icons/fa'
+import { BsTrello } from 'react-icons/bs'
 
 export function AppHeader() {
      const user = useSelector((storeState) => storeState.userModule.user)
@@ -35,7 +36,9 @@ export function AppHeader() {
                boardService
                     .getById(boardId)
                     .then((board) => {
-                         const boardStyleColor = board.style.backgroundColor
+                         let boardStyleColor = board.style.backgroundColor
+                         boardStyleColor = darken(0.2, boardStyleColor)
+
                          setNavColor(boardStyleColor)
                     })
                     .catch((err) =>
@@ -81,12 +84,7 @@ export function AppHeader() {
                          <div>
                               <Link to='/'>
                                    <div className='div-workspace'>
-                                        {' '}
-                                        <img
-                                             src={TrelloIconWork}
-                                             alt='trello-workspace'
-                                             className='logo-workspace'
-                                        />
+                                        <BsTrello className='logo-workspace' />
                                         <h2 className='logo-work'>Trelux </h2>
                                    </div>
                               </Link>
