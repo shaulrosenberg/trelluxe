@@ -38,26 +38,9 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
     }
 
     function getModalPositionStyle(event, type, isDetails, width) {
-        const typesWithSpecialPositioning = ['activity']
         const padding = 10
         const { top, left, height, right } = event.target.getBoundingClientRect()
-        const startSideValueDesktop = (width / left < 2) ? 30 : left
-        const startSideValueMobile = (width - left > 320) ? left : 20
-        const startSideDesktop = (width / left < 2) ? 'right' : 'left'
-        const startSideMobile = (width - left > 320) ? 'left' : 'right'
-
-        if (typesWithSpecialPositioning.includes(type) && isDetails) {
-            return { top: top / 2, right: 15 }
-        }
-
-        if (width > 980) {
-            return { top: top + height + padding, [startSideDesktop]: startSideValueDesktop + 'px' }
-        } else if (width > 768) {
-            return { top: top + height + padding, left: left }
-        } else {
-            return { top: top + height + padding, [startSideMobile]: startSideValueMobile + 'px' }
-        }
-
+        return { top: top + height + padding, left: left }
     }
 
     const modalStyle = getModalPositionStyle(event, cmpType, isDetails, width)
