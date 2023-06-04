@@ -5,7 +5,6 @@ import { loadBoards, addBoard, updateBoard } from '../store/board.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BoardList } from '../cmps/board-list.jsx'
-import { boardService } from '../services/board.service.js'
 
 export function Workspace() {
     const boards = useSelector(storeState => storeState.boardModule.boards)

@@ -3,9 +3,6 @@ import { addGroup } from '../store/board.actions.js';
 import { GrAdd, GrClose } from 'react-icons/gr';
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 
-
-
-//components imports
 import { GroupPreview } from './group-preview.jsx'
 
 export function GroupList({ groups, boardId }) {

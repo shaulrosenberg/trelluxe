@@ -1,10 +1,8 @@
 
-
-
 export function LabelsContent() {
 
 
-    return(
+    return (
         <section className="labels-content">
             <p>Label1</p>
             <p>Label2</p>

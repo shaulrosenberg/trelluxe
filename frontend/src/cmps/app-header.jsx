@@ -15,22 +15,22 @@ export function AppHeader() {
      const user = useSelector((storeState) => storeState.userModule.user)
      const location = useLocation()
      const demoUser = boardService.demoUser()
-     
+
      const [navColor, setNavColor] = useState(null);
      const boardId = location.pathname.split('/board/')[1];
      useEffect(() => {
           fetchBoardStyle()
      }, [location])
 
-     function fetchBoardStyle(){
-          if (boardId){
+     function fetchBoardStyle() {
+          if (boardId) {
                boardService.getById(boardId)
-               .then((board) => {
-                    const boardStyleColor = board.style.backgroundColor
-                    setNavColor(boardStyleColor)
-               })
-               .catch((err) => console.log('failed to change nav color', err))
-          }else{
+                    .then((board) => {
+                         const boardStyleColor = board.style.backgroundColor
+                         setNavColor(boardStyleColor)
+                    })
+                    .catch((err) => console.log('failed to change nav color', err))
+          } else {
                setNavColor('#026AA7')
           }
      }
@@ -60,7 +60,7 @@ export function AppHeader() {
      //      }
      // }
 
-     
+
      return location.pathname !== '/' ? (
           <header
                className='app-header-work'
