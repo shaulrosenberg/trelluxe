@@ -13,54 +13,26 @@ import { BiImageAlt } from 'react-icons/bi'
 import { useEffect, useState } from 'react'
 
 export function DescEdit({ task, setIsDescEdit }) {
-     const location = useLocation()
+     const params = useParams()
      const navigate = useNavigate()
 
      const [newDesc, setNewDesc] = useState('')
-     const [boardId, setBoardId] = useState(null) // board id
-     const [groupId, setGroupId] = useState(null) // group id
 
      async function onSaveDesc() {
           const taskToUpdate = { ...task }
           taskToUpdate.desc = newDesc
 
           try {
-               await getGroupId()
-               await updateTask(taskToUpdate, boardId, groupId)
+               await updateTask(taskToUpdate, params.boardId, params.groupId)
                console.log('description saved')
           } catch (err) {
                console.log('err saving description', err)
           }
      }
 
-     // find the specific group id
-     async function getGroupId() {
-          try {
-               const board = await boardService.getById(boardId)
-               const group = board.groups.find((group) =>
-                    group.tasks.find((t) => t.id === task.id)
-               )
-               if (group) {
-                    setGroupId(group.id) // Set the group ID in the state
-                    console.log('group id is', groupId)
-               }
-          } catch (err) {
-               console.log('failed to get groupId', err)
-          }
-     }
-
-     // get the board id from the url
-     function getBoardIdFromURL() {
-          const boardIdRegex = /\/board\/(t\d+)/
-          const match = location.pathname.match(boardIdRegex)
-          if (match && match[1]) {
-               return match[1]
-          }
-          return null
-     }
-
      useEffect(() => {
-          setBoardId(getBoardIdFromURL())
+          // setBoardId(getBoardIdFromURL())
+          console.log('params from desc', params)
      }, [])
 
      return (

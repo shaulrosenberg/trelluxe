@@ -82,13 +82,13 @@
                cursor: pointer;
           }
      }
-     // the icon of the user in the activity
-     .task-details-user {
-          display: flex;
-          align-self: center;
-          justify-content: center;
+     .task-details-user{
           position: relative;
-          bottom: 25px;
+          bottom: 1.7rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
      }
 }
 
