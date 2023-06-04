@@ -17,9 +17,24 @@ export function BoardPreview({ board, onUpdateBoard }) {
         navigate(`/board/${boardId}`)
     }
 
+    function getBoardStyle() {
+        let articleStyle = { ...board.style }
+
+        // Check if backgroundImage exists, if not fallback to backgroundColor
+        if (board.style.backgroundImage) {
+            articleStyle.backgroundImage = `url(${board.style.backgroundImage})`
+            articleStyle.backgroundSize = 'cover'
+            articleStyle.backgroundPosition = 'center'
+        } else {
+            articleStyle.backgroundColor = board.style.backgroundColor
+        }
+
+        return articleStyle
+    }
+
     return (
         <article
-            style={board.style}
+            style={getBoardStyle()}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={() => onSelectBoard(board._id)}

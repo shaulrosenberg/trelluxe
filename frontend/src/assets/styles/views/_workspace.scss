@@ -33,20 +33,21 @@ $starColorInactive: gray;
 		.header-with-icon {
 			display: flex;
 			align-items: center;
-			gap: 0.5rem;  /* Adjust this value to create more or less space between the icon and the text */
+			gap: 0.5rem;
+			/* Adjust this value to create more or less space between the icon and the text */
 
 			.header-icon {
 				width: rem(24px);
 				height: rem(24px);
 				color: $primaryColor;
 			}
-		}
 
-		h2 {
-			font-size: rem(16px);
-			font-weight: bold;
-			color: $primaryColor;
-			margin-block: 1rem;
+			>h2 {
+				font-size: rem(16px);
+				font-weight: bold;
+				color: $primaryColor;
+				margin-block: 1rem;
+			}
 		}
 	}
 }
