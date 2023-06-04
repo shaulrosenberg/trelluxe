@@ -19,7 +19,6 @@ export function BoardPreview({ board, onUpdateBoard }) {
 
     return (
         <article
-            className="board-preview"
             style={board.style}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

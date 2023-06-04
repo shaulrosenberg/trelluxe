@@ -7,10 +7,13 @@ $starColorInactive: gray;
 .workspace-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 2rem;
+  
 
   main {
     flex-grow: 1;
+    max-width: rem(825px);
 
     button {
       background-color: $primaryColor;

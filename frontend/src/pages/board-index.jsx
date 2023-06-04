@@ -32,13 +32,11 @@ export function BoardIndex() {
         }
     }
 
-
+    if(!board) return <h1>Loading...</h1>
     return (
-
-
         // render a list of groups
         // in each group -> render a list of tasks
-        <section className="board-index">
+        <section style={board.style} className="board-index">
             <BoardMiniHeader board={board} />
             {board && <GroupList groups={board.groups} boardId={boardId} />}
             <Outlet />
