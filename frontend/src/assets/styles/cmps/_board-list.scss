@@ -68,21 +68,18 @@
         &:hover .starred-container {
             opacity: 1;
             right: 1.2rem;
-
         }
 
         h2 {
             margin-inline-start: 1rem;
+            margin-block-start: rem(10px);
             font-size: rem(16px);
             font-weight: 700;
             color: white;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            // position: absolute;
             z-index: 9999;
-            // top: 0.8rem;
-            // left: 0.8rem;
         }
 
 
@@ -92,7 +89,7 @@
                 align-items: center;
 
                 h2 {
-                    color: #172b4d;
+                    color: $primaryColor;
                     position: static;
                     font-weight: 400;
                     margin: 0;

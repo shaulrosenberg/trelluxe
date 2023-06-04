@@ -32,11 +32,26 @@ export function BoardIndex() {
         }
     }
 
-    if(!board) return <h1>Loading...</h1>
+    function getBoardStyle() {
+        let articleStyle = { ...board.style }
+
+        // Check if backgroundImage exists, if not fallback to backgroundColor
+        if (board.style.backgroundImage) {
+            articleStyle.backgroundImage = `url(${board.style.backgroundImage})`
+            articleStyle.backgroundSize = 'cover'
+            articleStyle.backgroundPosition = 'center'
+        } else {
+            articleStyle.backgroundColor = board.style.backgroundColor
+        }
+
+        return articleStyle
+    }
+
+    if (!board) return <h1>Loading...</h1>
     return (
         // render a list of groups
         // in each group -> render a list of tasks
-        <section style={board.style} className="board-index">
+        <section style={getBoardStyle()} className="board-index">
 
             <BoardMiniHeader board={board} />
             {board && <GroupList groups={board.groups} boardId={boardId} />}
