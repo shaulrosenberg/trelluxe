@@ -58,4 +58,67 @@
      background-color: $clr1;
      color: $clr6;
 }
+$box-size: 15;
+$duration: .4s;
+$height-limit: #{$box-size - 5}px; 
 
+.trello {
+  display: inline-block;
+  width: #{$box-size}px;
+  height: #{$box-size}px;
+  border-radius: 3px;
+  position: relative;
+  margin: 5px;
+  
+  &:after, &:before {    
+    content: '';
+    position: absolute;
+    top: 2px;
+    width: #{$box-size / 2 - 2}px;
+    background: #fff;
+    border-radius: 2px;
+  }
+  
+  &:before { 
+    left: 2px;
+    height: $height-limit;
+  }
+  &:after { 
+    right: 2px; 
+    height: 5px;
+  }
+  
+  &:hover:before {
+    animation: first-animation $duration infinite linear alternate;
+  }
+
+  &:hover:after {
+    animation: second-animation $duration infinite linear alternate;
+  }
+
+  &.default { background-color: transparent; }
+  &.gray { background-color: #ccc; }
+  &.black { background-color: #000; }    
+}
+
+
+@keyframes first-animation {
+  from {
+    height: $height-limit;  
+  }
+
+  to {
+    height: 2px;
+  }
+}
+
+
+@keyframes second-animation {
+  from {
+    height: 1px;
+  }
+
+  to {
+    height: $height-limit;
+  }
+}

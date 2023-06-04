@@ -82,11 +82,13 @@ export function AppHeader() {
                               <Link to='/'>
                                    <div className='div-workspace'>
                                         {' '}
-                                        <img
+                                        {/* <img
                                              src={TrelloIconWork}
                                              alt='trello-workspace'
                                              className='logo-workspace'
-                                        />
+                                        /> */}
+                                        <div className='trello default'></div>
+
                                         <h2 className='logo-work'>Trelux </h2>
                                    </div>
                               </Link>
@@ -105,7 +107,7 @@ export function AppHeader() {
                               Starred
                          </NavLink>
                          <NavLink className='nav-link-work' to='/templates'>
-                         Templates
+                              Templates
                          </NavLink>
                     </div>
 
