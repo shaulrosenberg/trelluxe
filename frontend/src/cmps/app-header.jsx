@@ -85,6 +85,7 @@ export function AppHeader() {
                               <Link to='/'>
                                    <div className='div-workspace'>
                                         <BsTrello className='logo-workspace' />
+
                                         <h2 className='logo-work'>Trelux </h2>
                                    </div>
                               </Link>
