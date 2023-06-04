@@ -105,7 +105,7 @@ export function AppHeader() {
                               Starred
                          </NavLink>
                          <NavLink className='nav-link-work' to='/templates'>
-                         Templates
+                              Templates
                          </NavLink>
                     </div>
 
