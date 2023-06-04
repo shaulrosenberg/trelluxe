@@ -1,5 +1,29 @@
-
 .group-list-container {
-    display: flex;
-    margin-block-start: 5rem;
+     display: flex;
+}
+
+.add-group-btn {
+     display: flex;
+     align-items: center;
+     width: rem(260px);
+     max-height: rem(32px);
+     background-color: rgba(240, 248, 255, 0.317);
+     padding: 6px 8px;
+     transition: color 85ms ease-in;
+     margin-top: 0.6rem;
+     cursor: pointer;
+    border-radius: 0.3rem;
+     &:hover{
+        background-color: rgba(213, 217, 220, 0.317);
+     }
+     p {
+          margin: 0;
+          padding: 0 0.5rem;
+          font-size: rem(14px);
+          
+     }
+
+     .icon{
+        font-size: rem(14px);
+     }
 }

@@ -27,7 +27,7 @@ export function GroupList({ groups, boardId }) {
                 <GroupPreview key={group.id} group={group} />
             )}
             {isAddGroupOpen ? (
-                <div className={'add-group'}>
+                <div className='add-group'>
                     <input
                         autoFocus
                         placeholder="Enter list title..."
@@ -51,7 +51,7 @@ export function GroupList({ groups, boardId }) {
                     </div>
                 </div>
             ) : (
-                <div className={`flex`} onClick={() => { setIsGroupOpen(true) }}>
+                <div className='add-group-btn' onClick={() => { setIsGroupOpen(true) }}>
                     <GrAdd className="icon" />
                     <p>Add another list</p>
                 </div>
