@@ -1,6 +1,5 @@
 import { useLocation, useParams } from 'react-router'
-import { useNavigate } from 'react-router-dom'
-import { boardService } from '../services/board.service'
+
 import { updateTask } from '../store/board.actions'
 
 // icons
@@ -10,11 +9,10 @@ import { BiItalic } from 'react-icons/bi'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { AiOutlineLink } from 'react-icons/ai'
 import { BiImageAlt } from 'react-icons/bi'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export function DescEdit({ task, setIsDescEdit }) {
      const params = useParams()
-     const navigate = useNavigate()
 
      const [newDesc, setNewDesc] = useState('')
 
@@ -29,11 +27,6 @@ export function DescEdit({ task, setIsDescEdit }) {
                console.log('err saving description', err)
           }
      }
-
-     useEffect(() => {
-          // setBoardId(getBoardIdFromURL())
-          console.log('params from desc', params)
-     }, [])
 
      return (
           <section className='section-edit-desc'>

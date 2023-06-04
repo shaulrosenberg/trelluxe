@@ -15,35 +15,23 @@ import { ImAttachment } from 'react-icons/im'
 import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
+import { useSelector } from 'react-redux'
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
      const [task, setTask] = useState(null)
      const navigate = useNavigate()
-
      const [isDescEdit, setIsDescEdit] = useState(false)
+     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
      useEffect(() => {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-     }, [isDescEdit])
+     }, [isDescEdit, board])
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
-     }
-
-     const renderImageAttachment = () => {
-          if (task.imgAttachment !== '') {
-               return (
-                    <div className='div-img-attachment'>
-                         <ImAttachment className='icon-attachment' />
-                         <img src={task.imgAttachment} alt='Attachment' />
-                    </div>
-               )
-          } else {
-               return null
-          }
      }
 
      console.log('task:', task) // Check the value of task
@@ -90,7 +78,9 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                    {task.imgAttachment !== '' && <ImAttachment className='icon-attachment' />}
+                    {task.imgAttachment !== '' && (
+                         <ImAttachment className='icon-attachment' />
+                    )}
                     <div className='div-img'>
                          <AttachImage task={task} />
                     </div>
