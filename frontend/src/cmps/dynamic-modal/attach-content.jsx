@@ -7,8 +7,6 @@ import { useParams } from 'react-router-dom'
 
 export function AttachContent() {
      const params = useParams()
-     const [taskId, setTaskId] = useState(null)
-     const [boardId, setBoardId] = useState(null)
      const [currTask, setCurrTask] = useState(null)
 
      // get the curr task by the url task id
@@ -21,19 +19,18 @@ export function AttachContent() {
                console.log(imgUrl)
                console.log('currTask', currTask)
                currTask.imgAttachment = imgUrl
-
-               await updateTask(currTask, params.boardId, 'g104')
+               await updateTask(currTask, params.boardId, params.groupId)
           } catch (err) {
                console.log('err saving img', err)
           }
      }
 
      useEffect(() => {
-         //   setTaskId(params.taskId)
-         //   setBoardId(params.boardId)
+          //   setTaskId(params.taskId)
+          //   setBoardId(params.boardId)
           console.log('cool params', params)
           boardService.findTaskById(params.taskId).then((task) => {
-            setCurrTask(task)
+               setCurrTask(task)
           })
      }, [])
 

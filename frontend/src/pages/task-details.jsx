@@ -72,7 +72,8 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-
+                    
+                    
                     <TfiMenuAlt className='icon-activitiy' />
                     <h5 className='task-details-user'>User</h5>
                     <div className='a'></div>

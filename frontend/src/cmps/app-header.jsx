@@ -9,7 +9,8 @@ import { boardService } from '../services/board.service'
 import { useEffect, useState } from 'react'
 
 //img
-import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
+// import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
+import TrelloIconWork from '../assets/img/trello-ic.png'
 
 // icons
 import { MdDarkMode } from 'react-icons/md'

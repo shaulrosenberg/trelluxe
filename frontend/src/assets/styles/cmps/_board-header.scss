@@ -1,0 +1,35 @@
+.board-header {
+     .board-header-nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: $clr6;
+          .board-title {
+               background: transparent;
+               font-size: rem(18px);
+               line-height: rem(32px);
+               overflow: hidden;
+               white-space: nowrap;
+               height: 100%;
+               padding: rem(8px) rem(5px);
+               font-family: 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu',
+                    'Droid Sans', 'Helvetica Neue', sans-serif;
+          }
+
+          .board-header-btn {
+               padding: 5px;
+               display: flex;
+               cursor: pointer;
+          }
+
+          .nav-inline-start {
+               display: flex;
+               align-items: center;
+          }
+
+          .nav-inline-end {
+               border: 1px solid green;
+               display: flex;
+          }
+     }
+}
