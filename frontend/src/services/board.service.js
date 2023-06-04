@@ -350,7 +350,7 @@ function _createBoards() {
       },
       {
         _id: 't103',
-        title: 'Board 3',
+        title: 'Board to mess with',
         isStarred: false,
         createdBy: {
           _id: 'u101',

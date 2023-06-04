@@ -16,19 +16,68 @@
                     'Droid Sans', 'Helvetica Neue', sans-serif;
           }
 
-          .board-header-btn {
-               padding: 5px;
+          .share-board-btn {
+               padding-left: 8px;
+               margin-right: 4px;
+               text-decoration: none;
+               text-overflow: ellipsis;
+               height: 32px;
+               margin-bottom: 0px;
+               white-space: nowrap;
+               background-color: #DFE1E6;
+               color: #172B4D;
+
                display: flex;
-               cursor: pointer;
+               align-items: center;
+               justify-items: center;
+               border-radius: 3px;
+
+               .btn-txt{
+               margin: 0px 0px 0px 4px;
+               font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+               font-size: 14px;
+               font-weight:400;
+
+
+               }
+
+               svg{
+                   margin-left: 4px;
+                   width: 16px;
+                   height: 16px;
+               }
+               &:hover {
+                    background-color: #FFFFFF;
+                }
+
           }
+
+          .show-menu-btn {
+               color: white;
+               background-color: transparent;
+               font-weight: 400;
+               height: 20px;
+               width: 20px;
+               display: flex;
+               justify-content: center;
+               justify-items: center;
+               
+          }
+
+          .filter-btn{
+               
+          }
+
+          
 
           .nav-inline-start {
                display: flex;
                align-items: center;
+               
           }
 
           .nav-inline-end {
-               border: 1px solid green;
+               
                display: flex;
           }
      }
