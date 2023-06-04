@@ -14,6 +14,7 @@ import { ImAttachment } from 'react-icons/im'
 // dynamic cmps
 import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
+import { AttachImage } from '../cmps/task-attachment'
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
@@ -32,6 +33,19 @@ export function TaskDetails() {
           navigate(`/board/${boardId}`)
      }
 
+     const renderImageAttachment = () => {
+          if (task.imgAttachment !== '') {
+               return (
+                    <div className='div-img-attachment'>
+                         <ImAttachment className='icon-attachment' />
+                         <img src={task.imgAttachment} alt='Attachment' />
+                    </div>
+               )
+          } else {
+               return null
+          }
+     }
+
      console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
      return (
@@ -48,10 +62,14 @@ export function TaskDetails() {
                          <p>in list group 1</p>
                     </div>
 
-                    <TfiAlignLeft className='icon-desc' />
                     <div className='div-task-controls'>
-                         <TaskControls task={task} boardId={boardId} groupId={groupId} />
+                         <TaskControls
+                              task={task}
+                              boardId={boardId}
+                              groupId={groupId}
+                         />
                     </div>
+                    <TfiAlignLeft className='icon-desc' />
                     <div className='div-desc'>
                          <p>Description</p>
                          {isDescEdit ? (
@@ -72,10 +90,13 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                    
-                    
+                    {task.imgAttachment !== '' && <ImAttachment className='icon-attachment' />}
+                    <div className='div-img'>
+                         <AttachImage task={task} />
+                    </div>
+
                     <TfiMenuAlt className='icon-activitiy' />
-                    <h5 className='task-details-user'>User</h5>
+                    {/* <h5 className='task-details-user'>User</h5> */}
                     <div className='a'></div>
                     <div className='div-activity'>
                          <p>Activity</p>
