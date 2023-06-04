@@ -10,7 +10,7 @@
   .title-container {
     display: flex;
     align-items: start;
-    padding: 6px 8px 2px;
+    padding: rem(6px) rem(8px) rem(6px);
     border-radius: 0.2rem;
 
     p{
