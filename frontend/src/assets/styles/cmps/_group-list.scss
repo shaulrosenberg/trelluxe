@@ -1,6 +1,7 @@
 .group-list-container {
      display: flex;
      min-height: 100vh;
+     overflow-y: auto;
 }
 
 .add-group-btn {
