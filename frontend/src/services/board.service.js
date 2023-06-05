@@ -213,8 +213,10 @@ function _createBoards() {
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
-                  attachments: [{ bla: 'an attachment' }],
                 },
+                description: 'life is good',
+                comments: ['bla', 'no'],
+                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't102',
