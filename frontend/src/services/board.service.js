@@ -224,6 +224,9 @@ function _createBoards() {
                 style: {
                   backgroundColor: '#9370DB',
                 },
+                description: 'life is good',
+                comments: ['bla', 'no'],
+                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't103',
@@ -260,7 +263,11 @@ function _createBoards() {
                 style: {
                   backgroundColor: '#FFD700',
                 },
+
                 labelIds: ['l105', 'l107'],
+                description: 'life is good',
+                comments: ['bla', 'no'],
+                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't203',
@@ -282,6 +289,9 @@ function _createBoards() {
                 style: {
                   backgroundColor: '#FF4500',
                 },
+                description: 'life is good',
+                comments: ['bla', 'no'],
+                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't302',
@@ -428,6 +438,229 @@ function _createBoards() {
             id: 'l108',
             title: 'New Feature',
             color: '#4BCE97',
+          },
+        ],
+      },
+      {
+        _id: 't102',
+        title: 'Board Leader',
+        isStarred: false,
+        createdBy: {
+          _id: 'u104',
+          fullname: 'John Doe',
+          imgUrl: 'http://another-img-url',
+        },
+        style: {
+          backgroundImage:
+            'https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60',
+          color: '',
+          backgroundColor: '#ADFF2F',
+        },
+        members: [
+          {
+            _id: 'u104',
+            fullname: 'Steve',
+            imgUrl: 'http://https://robohash.org/steve',
+          },
+          {
+            _id: 'u105',
+            fullname: 'Jennifer',
+            imgUrl: 'http://https://robohash.org/jennifer',
+          },
+          {
+            _id: 'u106',
+            fullname: 'David',
+            imgUrl: 'http://https://robohash.org/david',
+          },
+        ],
+        groups: [
+          {
+            id: 'g201',
+            title: 'Product Planning',
+            tasks: [
+              {
+                id: 't101',
+                title: 'Product Ideation',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+                description: 'brainstorm new product ideas',
+                comments: ['I think...', 'Perhaps we could...'],
+                attachments: [
+                  {
+                    name: 'Brainstorming Notes',
+                    link: 'http://some-link-to-document',
+                  },
+                ],
+              },
+              {
+                id: 't102',
+                title: 'Market Research',
+                style: {
+                  backgroundColor: '#9370DB',
+                },
+              },
+              {
+                id: 't103',
+                title: 'Prototyping',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+                description: 'brainstorm new product ideas',
+                comments: ['I think...', 'Perhaps we could...'],
+                attachments: [
+                  {
+                    name: 'Brainstorming Notes',
+                  },
+                ],
+              },
+              {
+                id: 't104',
+                title: 'User testing',
+                style: {
+                  backgroundColor: '#6A5ACD',
+                },
+                description: 'brainstorm new product ideas',
+                comments: ['I think...', 'Perhaps we could...'],
+              },
+            ],
+          },
+          {
+            id: 'g202',
+            title: 'Marketing Strategy',
+            tasks: [
+              {
+                id: 't201',
+                title: 'Product Launch Planning',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+              },
+              {
+                id: 't202',
+                title: 'Brand Development',
+                style: {
+                  backgroundColor: '#FFD700',
+                },
+                labelIds: ['l105', 'l107'],
+              },
+              {
+                id: 't203',
+                title: 'Advertisement Design',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+                },
+              },
+            ],
+          },
+          {
+            id: 'g203',
+            title: 'Sales Department',
+            tasks: [
+              {
+                id: 't301',
+                title: 'Sales Training',
+                style: {
+                  backgroundColor: '#FF4500',
+                },
+              },
+              {
+                id: 't302',
+                title: 'Lead Generation',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+              },
+              {
+                id: 't303',
+                title: 'Customer Relations',
+                style: {
+                  backgroundColor: '#DC143C',
+                },
+                labelIds: ['l108', 'l102'],
+              },
+            ],
+          },
+          {
+            id: 'g204',
+            title: 'Customer Support',
+            tasks: [
+              {
+                id: 't401',
+                title: 'Technical Support',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg',
+                },
+              },
+              {
+                id: 't402',
+                title: 'Customer Service Training',
+                style: {
+                  backgroundColor: '#228B22',
+                },
+                labelIds: ['l107', 'l105', 'l103'],
+              },
+              {
+                id: 't403',
+                title: 'Customer Satisfaction Survey',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg',
+                },
+                labelIds: ['l104', 'l106'],
+              },
+              {
+                id: 't404',
+                title: 'FAQs Update',
+                style: {
+                  backgroundColor: '#7B68EE',
+                },
+              },
+            ],
+          },
+        ],
+        activities: [
+          {
+            id: 'a201',
+            txt: 'Changed Background',
+            createdAt: 158210,
+            byMember: {
+              _id: 'u104',
+              fullname: 'John Doe',
+              imgUrl: 'http://another-img-url',
+            },
+            task: {
+              id: 'c102',
+              title: 'Update Product Design',
+            },
+          },
+        ],
+        labels: [
+          {
+            id: 'l201',
+            title: 'Started',
+            color: '#8FBC8F',
+          },
+          {
+            id: 'l202',
+            title: 'In Progress',
+            color: '#CD5C5C',
+          },
+          {
+            id: 'l203',
+            title: 'Stalled',
+            color: '#8B4513',
+          },
+          {
+            id: 'l204',
+            title: 'Completed',
+            color: '#2E8B57',
           },
         ],
       },
