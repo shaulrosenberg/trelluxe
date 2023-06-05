@@ -204,13 +204,57 @@ function _createBoards() {
               {
                 id: 'c341341101',
                 title: 'Replace logo',
-                desc: '',
+                description: '',
                 imgAttachment: '',
+              },
+              {
+                id: 'c1054354352344',
+                title: 'Help me learn to fly',
+                description: 'life is good ',
+                comments: [
+                  {
+                    id: 'ZdPnm',
+                    txt: 'also @yaronb please CR this',
+                    createdAt: 1590999817436,
+                    byMember: {
+                      _id: 'u101',
+                      fullname: 'Tal Tarablus',
+                      imgUrl:
+                        'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+                    },
+                  },
+                ],
+                checklists: [
+                  {
+                    id: 'YEhmF',
+                    title: 'Checklist',
+                    todos: [
+                      {
+                        id: '212jX',
+                        title: 'To Do 1',
+                        isDone: false,
+                      },
+                    ],
+                  },
+                ],
+                memberIds: ['u101'],
+                labelIds: ['l101', 'l102'],
+                dueDate: 16156215211,
+                byMember: {
+                  _id: 'u101',
+                  username: 'Tal',
+                  fullname: 'Tal Tarablus',
+                  imgUrl:
+                    'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
+                },
+                style: {
+                  bgColor: '#26de81',
+                },
               },
               {
                 id: 'c1151502',
                 title: 'Add Samples',
-                desc: '',
+                description: '',
                 imgAttachment: '',
               },
             ],
@@ -250,19 +294,37 @@ function _createBoards() {
               {
                 id: 'c1346301',
                 title: 'Replace logo',
-                desc: '',
+                description: '',
                 imgAttachment: '',
               },
               {
                 id: 'c12341502',
                 title: 'Add Samples',
-                desc: '',
+                description: '',
                 imgAttachment: '',
               },
             ],
 
             style: {
               backgroundColor: 'yellow',
+              backgroundImage:
+                'https://images.unsplash.com/photo-1683752590938-e3b687c1f344?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2664&q=80',
+            },
+          },
+        ],
+        activities: [
+          {
+            id: 'a101',
+            txt: 'Changed Color',
+            createdAt: 154514,
+            byMember: {
+              _id: 'u101',
+              fullname: 'Abi Abambi',
+              imgUrl: 'http://some-img',
+            },
+            task: {
+              id: 'c101',
+              title: 'Replace Logo',
             },
           },
         ],
@@ -280,7 +342,12 @@ function _createBoards() {
           },
         ],
       },
-      {
+    ]
+    utilService.saveToStorage(STORAGE_KEY, boards)
+  }
+}
+
+/*   {
         _id: 't102',
         title: 'Board 2',
         isStarred: true,
@@ -321,13 +388,13 @@ function _createBoards() {
               {
                 id: 'c1032135',
                 title: 'Replace logo',
-                desc: '',
+                description: '',
                 imgAttachment: '',
               },
               {
                 id: 'c1141404',
                 title: 'Add Samples',
-                desc: '',
+                description: '',
                 imgAttachment: '',
               },
             ],
@@ -418,8 +485,4 @@ function _createBoards() {
             color: '#61bd33',
           },
         ],
-      },
-    ]
-    utilService.saveToStorage(STORAGE_KEY, boards)
-  }
-}
+      },*/

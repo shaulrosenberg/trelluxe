@@ -18,7 +18,7 @@ export function DescEdit({ task, setIsDescEdit }) {
 
      async function onSaveDesc() {
           const taskToUpdate = { ...task }
-          taskToUpdate.desc = newDesc
+          taskToUpdate.description = newDesc
 
           try {
                await updateTask(taskToUpdate, params.boardId, params.groupId)
