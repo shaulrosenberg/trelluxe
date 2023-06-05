@@ -22,7 +22,9 @@ export function TaskDetails() {
      const [task, setTask] = useState(null)
      const navigate = useNavigate()
      const [isDescEdit, setIsDescEdit] = useState(false)
-     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
+     const board = useSelector(
+          (storeState) => storeState.boardModule.selectedBoard
+     )
 
      useEffect(() => {
           boardService
@@ -78,12 +80,14 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                    {task.imgAttachment !== '' && (
-                         <ImAttachment className='icon-attachment' />
+                    {task.imgAttachment && (
+                         <>
+                              <ImAttachment className='icon-attachment' />
+                              <div className='div-img'>
+                                   <AttachImage task={task} />
+                              </div>
+                         </>
                     )}
-                    <div className='div-img'>
-                         <AttachImage task={task} />
-                    </div>
 
                     <TfiMenuAlt className='icon-activitiy' />
                     {/* <h5 className='task-details-user'>User</h5> */}
