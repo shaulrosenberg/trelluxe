@@ -11,7 +11,7 @@ export function TaskPreview(props) {
 
     return (
         <div className="task-preview-container">
-             {task.style &&
+            {task.style &&
                 <section
                     className='task-preview-cover'
                     style={{ backgroundColor: hasBackgroundImage ? null : hasBackgroundColor }}
@@ -20,10 +20,13 @@ export function TaskPreview(props) {
                 </section>
             }
             {!task.style && task.imgAttachment && <section
-                    className='task-preview-cover'><img src={task.imgAttachment} alt="Task Cover" /></section>}
+                className='task-preview-cover'><img src={task.imgAttachment} alt="Task Cover" /></section>}
             <section className='task-preview-body'>
                 <div className="task-preview-labels">
-                    
+                    {task.labelIds && task.labelIds.map(labelId => {
+                        const label = boardService.findLabelStyleById(labelId, board)
+                        return <div key={labelId} className="label" style={{ backgroundColor: label.color }}></div>;
+                    })}
                 </div>
                 <div className="title-container"><p>{task.title}</p></div>
                 <div className="task-preview-badges"></div>
