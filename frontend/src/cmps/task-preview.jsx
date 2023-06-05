@@ -6,10 +6,7 @@ export function TaskPreview(props) {
     const { task } = props
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
-    useEffect(() => {
-        console.log('curr task',task)
-        console.log('label', task.labelIds)
-    })
+    
     return (
         <div className="task-preview-container">
             {/* {task.style.backgroundColor &&
