@@ -1,0 +1,24 @@
+.create-board-content {
+    .color-selector {
+        display: flex;
+        gap: 10px;
+    }
+
+    .color-option {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .board-preview {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        color: #ffffff;
+    }
+
+}
