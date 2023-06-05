@@ -1,24 +1,33 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addBoard } from '../../store/board.actions'
+import boardPreview from '../../assets/img/board-preview.svg'
 
 export function CreateBoardContent({ onCloseModal }) {
     const [boardTitle, setBoardTitle] = useState('')
-    const [boardColor, setBoardColor] = useState('#0079bf')  // default Trello board color
+    const [boardBackground, setBoardBackground] = useState('#0079bf')  // default Trello board color
     const navigate = useNavigate()
 
-    const colors = ['#0079bf', '#d29034', '#519839', '#b04632', '#89609e', '#cd5a91', '#4bbf6b', '#00aecc', '#838c91']
+    const backgrounds = [
+        '#0079bf', 
+        '#d29034', 
+        'linear-gradient(to right, #519839, #b04632)', 
+        '#89609e', 
+        'linear-gradient(to right, #cd5a91, #4bbf6b)', 
+        '#00aecc', 
+        '#838c91',
+        'linear-gradient(to right, #0079bf, #d29034)',
+        'linear-gradient(to right, #89609e, #838c91)'
+    ]
 
     async function handleSubmit(event) {
         event.preventDefault()
         const newBoard = await addBoard({
             title: boardTitle,
-            style: { backgroundColor: boardColor },
+            style: { background: boardBackground },
             isStarred: false,
-            // PROBLEM: with groups addGroup -> doesn't add new tasks array
             groups: [],
             activities: []
-            // add more fields
         })
         onCloseModal()
         navigate(`/board/${newBoard._id}`)
@@ -27,7 +36,7 @@ export function CreateBoardContent({ onCloseModal }) {
     return (
         <section className="create-board-content">
             {/* Board Preview */}
-            <div className="board-preview" style={{ backgroundColor: boardColor }}>
+            <div className="board-preview" style={{ background: boardBackground }}>
                 <h3>{boardTitle || 'Untitled Board'}</h3>
             </div>
 
@@ -36,14 +45,14 @@ export function CreateBoardContent({ onCloseModal }) {
                 <label htmlFor="boardTitle">Title</label>
                 <input id="boardTitle" type="text" value={boardTitle} onChange={(e) => setBoardTitle(e.target.value)} required />
 
-                <label htmlFor="boardColor">Color</label>
-                <div id="boardColor" className="color-selector">
-                    {colors.map(color => (
+                <label htmlFor="boardBackground">Background</label>
+                <div id="boardBackground" className="color-selector">
+                    {backgrounds.map(background => (
                         <div
-                            key={color}
+                            key={background}
                             className="color-option"
-                            style={{ backgroundColor: color }}
-                            onClick={() => setBoardColor(color)}
+                            style={{ background: background }}
+                            onClick={() => setBoardBackground(background)}
                         ></div>
                     ))}
                 </div>
