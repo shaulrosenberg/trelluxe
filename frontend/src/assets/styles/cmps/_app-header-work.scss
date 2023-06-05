@@ -39,8 +39,6 @@
      .logo-workspace {
           color: white;
           align-self: center;
-
-          
      }
 
      .div-workspace {
@@ -55,13 +53,17 @@
      align-items: center;
      gap: rem(10px);
 
-     .dark-theme path {
-          fill: 'dark';
-     }
-
      .dark-theme {
           cursor: pointer;
-          font-size: rem(25px);
+          font-size: rem(18px);
+          color: white;
+     }
+     .icon-rocket {
+          color: white;
+     }
+
+     .icon-info path {
+          fill: white;
      }
 
      .hover {
@@ -94,6 +96,9 @@
                font-size: 0.6rem;
           }
      }
+     .search-bar-header {
+          margin-right: 55rem;
+     }
 
      input {
           color: black;
@@ -102,7 +107,10 @@
           border-radius: 0.3rem;
           border: none;
           outline: none;
+          background-color: rgba(245, 245, 245, 0.261);
+          caret-color: white;
+          &::placeholder {
+               color: white;
+          }
      }
 }
-
-

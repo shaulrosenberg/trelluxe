@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { addGroup } from '../store/board.actions.js';
-import { GrAdd, GrClose } from 'react-icons/gr';
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
-
 import { GroupPreview } from './group-preview.jsx'
+
+//icons
+import { GrClose } from 'react-icons/gr';
+import { FaPlus } from "react-icons/fa";
+
 
 export function GroupList({ groups, boardId }) {
     const [isAddGroupOpen, setIsGroupOpen] = useState(false)
@@ -52,7 +55,7 @@ export function GroupList({ groups, boardId }) {
                 </div>
             ) : (
                 <div className='add-group-btn' onClick={() => { setIsGroupOpen(true) }}>
-                    <GrAdd className="icon-add-group"  />
+                    <FaPlus className="icon-add-group"  />
                     <p>Add another list</p>
                 </div>
             )

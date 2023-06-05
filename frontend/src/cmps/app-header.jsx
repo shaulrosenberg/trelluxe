@@ -16,7 +16,8 @@ import TrelloIconWork from '../assets/img/trello-ic.png'
 // icons
 import { MdDarkMode } from 'react-icons/md'
 import { WiMoonAltWaningCrescent4 } from 'react-icons/wi'
-import { GrCircleInformation } from 'react-icons/gr'
+import {FaAdjust} from "react-icons/fa";
+import { FaInfoCircle } from 'react-icons/fa'
 import { FaRocket } from 'react-icons/fa'
 import { BsTrello } from 'react-icons/bs'
 
@@ -109,10 +110,10 @@ export function AppHeader() {
                     </div>
 
                     <div className='div-user'>
-                         <input type='search' placeholder='search' />
-                         <FaRocket className='hover' />
-                         <GrCircleInformation className='hover' />
-                         <WiMoonAltWaningCrescent4 className='dark-theme hover' />
+                         <input type='text' placeholder='Search' />
+                         <FaRocket className='icon-rocket hover' />
+                         <FaInfoCircle className='icon-info hover' />
+                         <FaAdjust className='dark-theme hover' />
                          <div>{!user && <h2>{demoUser}</h2>}</div>
                     </div>
                </nav>
