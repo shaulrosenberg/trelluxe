@@ -70,9 +70,9 @@ export function TaskDetails() {
                                    className='a-desc'
                                    onClick={() => setIsDescEdit(true)}
                               >
-                                   {!task.desc &&
+                                   {!task.description &&
                                         'Add a more detailed description...'}
-                                   {task !== null && task.desc}
+                                   {task !== null && task.description}
                               </a>
                          )}
                     </div>

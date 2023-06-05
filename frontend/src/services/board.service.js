@@ -19,6 +19,7 @@ export const boardService = {
   getEmptyTask,
   addTask,
   addGroup,
+  findLabelStyleById,
 }
 
 _createBoards()
@@ -145,6 +146,12 @@ function demoUser() {
   return initials
 }
 
+function findLabelStyleById(labelId, board){
+  // const labels = board.labels
+  const currLabel = board.labels.find((label) => label.id === labelId)
+  return currLabel
+}
+
 function findTaskById(taskId) {
   return storageService.query(STORAGE_KEY).then(boards => {
     for (const board of boards) {
@@ -211,6 +218,7 @@ function _createBoards() {
                 id: 'c1054354352344',
                 title: 'Help me learn to fly',
                 description: 'life is good ',
+                imgAttachment: '',
                 comments: [
                   {
                     id: 'ZdPnm',
@@ -333,12 +341,12 @@ function _createBoards() {
           {
             id: 'l101',
             title: 'Done',
-            color: '#61bd4f',
+            color: '#98FB98',
           },
           {
             id: 'l102',
             title: 'Progress',
-            color: '#61bd33',
+            color: '#FFDAB9',
           },
         ],
       },

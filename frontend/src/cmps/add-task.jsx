@@ -46,7 +46,7 @@ export function AddTask({ group, boardId }) {
                                    <button className='add-card-btn'>
                                         Add card
                                    </button>
-                                   <button onClick={() => setIsEditable(false)}>
+                                   <button className='close-card-btn' onClick={() => setIsEditable(false)}>
                                         <GrClose style={{ fontSize: '17px' }} />
                                    </button>
                               </div>
