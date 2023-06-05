@@ -1,8 +1,29 @@
 .group-list-container {
      display: flex;
-     height: calc(100vh - rem(104px));
+     height: calc(100vh - 6.3rem);
      overflow-y: hidden;
+     overflow-x: auto;
      margin-top: 0.5rem;
+
+     scrollbar-width: thin;
+     scrollbar-color: transparent transparent;
+
+     &::-webkit-scrollbar {
+          height: rem(20px);
+     }
+
+     &::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.126);
+     }
+
+     &::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.126);
+          border-radius: 4px;
+     }
+
+     &::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.126);
+     }
 }
 
 .add-group-btn {
@@ -19,7 +40,7 @@
      color: white;
      min-width: rem(272px);
      cursor: pointer;
-     
+
      &:hover {
           background-color: rgba(213, 217, 220, 0.317);
      }
