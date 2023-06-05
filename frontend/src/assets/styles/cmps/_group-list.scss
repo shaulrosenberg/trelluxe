@@ -1,6 +1,6 @@
 .group-list-container {
      display: flex;
-     min-height: 100vh;
+     height: calc(100vh - rem(101px));
      overflow-y: auto;
      margin-top: 0.5rem;
 }
