@@ -1,5 +1,24 @@
+import { GrTextAlignFull, GrAttachment } from 'react-icons/gr';
+import { SlBubble } from 'react-icons/sl';
+import { IoMdCheckboxOutline } from 'react-icons/io';
+
+
 export function TaskPreview(props) {
     const { task } = props
+    function getTodosRatio() {
+        let todos = 0;
+        let done = 0;
+        let checklists = task.checklists;
+
+        for (let checklist of checklists) {
+            todos += checklist.todos.length
+            for (let todo of checklist) {
+                if (todo.isDone) done++
+            }
+        }
+        return `${done}/${todos}`;
+
+    };
     return (
         <div className="task-preview-container">
             {/* {task.style.backgroundColor &&
@@ -7,7 +26,46 @@ export function TaskPreview(props) {
             <section className='task-preview-body'>
                 <div className="task-preview-labels"></div>
                 <div className="title-container"><p>{task.title}</p></div>
-                <div className="task-preview-badges"></div>
+                <div className="task-preview-badges">
+                    {/* due date badge */}
+                    {/* description badge */}
+                    {task.description?.length > 0 && (
+
+                        <div title="This task has a description" className="badge-btn description">
+                            <div className="icon" > <GrTextAlignFull /></div>
+                        </div>
+
+                    )}
+                    {/* comments badge */}
+
+                    {task.comments?.length > 0 && (<div title="comments" className="badge-btn">
+                        <div className="icon" > <SlBubble /></div>
+                        <div className="btn-txt">{task.comments.length}</div>
+
+                    </div>)}
+
+
+                    {/* attachments badge */}
+                    {task.attachments?.length > 0 && (<div
+                        title="Attachments"
+                        className="badge-btn">
+                        <div className="icon"> <GrAttachment /></div>
+                        <div className="btn-txt">{task.attachments.length}</div>
+                    </div>)}
+
+                    {/* check list badge */}
+                    {task.checklists?.length > 0 && (
+
+
+                        <div className="badge-btn">
+                            <div className="icon"> <IoMdCheckboxOutline /></div>
+                            {/* <div className="btn-txt">{getTodosRatio()}</div> */}
+
+                        </div>)}
+
+                    {/* members badge */}
+
+                </div>
             </section>
             <div className="quick-edit"></div>
 

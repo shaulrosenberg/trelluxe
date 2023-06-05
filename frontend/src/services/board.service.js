@@ -205,6 +205,7 @@ function _createBoards() {
                 id: 'c341341101',
                 title: 'Replace logo',
                 description: '',
+                attachments: [{ bla: 'an attachment' }],
                 imgAttachment: '',
               },
               {
