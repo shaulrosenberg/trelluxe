@@ -1,6 +1,6 @@
 .group-list-container {
      display: flex;
-     min-height: 100vh;
+     height: calc(100vh - rem(109px));
      overflow-y: auto;
      margin-top: 0.5rem;
 }
@@ -17,6 +17,7 @@
      margin-left: 0.5rem;
      border-radius: 0.6rem;
      color: white;
+     min-width: fit-content;
      cursor: pointer;
      
      &:hover {

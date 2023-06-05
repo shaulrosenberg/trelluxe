@@ -16,7 +16,7 @@ export function BoardPreviewAdd({ onAddBoard }) {
             onClick={onAdd}
         >
             {isHovered && <span className="darken-background"></span>}
-            <h2 className="board-title">Add a new board</h2>
+            <h2 className="board-title">Create new board</h2>
             {/* additional elements here */}
         </article>
     )

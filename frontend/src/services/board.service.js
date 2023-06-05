@@ -66,16 +66,8 @@ function getEmptyTask() {
     id: utilService.makeId(),
     createdAt: Date.now(),
     title: '',
-    style: {
-      backgroundColor: null,
-      backgroundImage: {
-        title: null,
-        url: null,
-      },
-    },
     description: '',
     dueDate: null,
-    isDone: false,
     archiveAt: null,
     byMember: {
       _id: 'u101',
