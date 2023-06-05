@@ -300,6 +300,9 @@ function _createBoards() {
                   backgroundColor: '#DC143C',
                 },
                 labelIds: ['l108', 'l102'],
+                description: 'life is good',
+
+                attachments: [{ bla: 'an attachment' }],
               },
             ],
           },
@@ -322,6 +325,9 @@ function _createBoards() {
                   backgroundColor: '#228B22',
                 },
                 labelIds: ['l107', 'l105', 'l103'],
+                description: 'life is good',
+                comments: ['bla', 'no'],
+                attachments: [{ bla: 'an attachment' }, { fsdaf: 'bibibib' }],
               },
               {
                 id: 't403',
@@ -341,6 +347,7 @@ function _createBoards() {
               },
             ],
           },
+
           {
             id: 'g105',
             title: 'Operations',

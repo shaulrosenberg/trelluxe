@@ -1,9 +1,36 @@
 .group-list-container {
      display: flex;
-     height: calc(100vh - rem(101px));
-     overflow-y: auto;
+     height: calc(100vh - 6.3rem);
+     overflow-y: hidden;
+     overflow-x: auto;
      margin-top: 0.5rem;
-}
+   
+     /* Custom scrollbar styles */
+     scrollbar-width: thin;
+     scrollbar-color: transparent transparent;
+   
+     &::-webkit-scrollbar {
+       height: rem(15px);
+     }
+   
+     &::-webkit-scrollbar-track {
+       background: rgba(0, 0, 0, 0.2); /* Adjust the transparency as desired */
+       max-width: 50%;
+     }
+   
+     &::-webkit-scrollbar-thumb {
+       background: rgba(0, 0, 0, 0.4); /* Adjust the transparency as desired */
+       border-radius: rem(52px);
+       max-width: 50%;
+     }
+   
+     &::-webkit-scrollbar-thumb:hover {
+       background: rgba(0, 0, 0, 0.6); /* Adjust the transparency as desired */
+       max-width: 50%;
+     }
+   }
+   
+   
 
 .add-group-btn {
      display: flex;
@@ -17,9 +44,9 @@
      margin-left: 0.5rem;
      border-radius: 0.6rem;
      color: white;
-     min-width: fit-content;
+     min-width: rem(272px);
      cursor: pointer;
-     
+
      &:hover {
           background-color: rgba(213, 217, 220, 0.317);
      }
