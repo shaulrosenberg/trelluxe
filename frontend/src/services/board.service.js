@@ -146,9 +146,9 @@ function demoUser() {
   return initials
 }
 
-function findLabelStyleById(labelId, board){
+function findLabelStyleById(labelId, board) {
   // const labels = board.labels
-  const currLabel = board.labels.find((label) => label.id === labelId)
+  const currLabel = board.labels.find(label => label.id === labelId)
   return currLabel
 }
 
@@ -205,122 +205,168 @@ function _createBoards() {
         groups: [
           {
             id: 'g101',
-            title: 'Group 1',
-            archivedAt: 1589983468418,
+            title: 'Product Development',
             tasks: [
               {
-                id: 'c341341101',
-                title: 'Replace logo',
-                description: '',
-                attachments: [{ bla: 'an attachment' }],
-                imgAttachment: '',
-              },
-              {
-                id: 'c1054354352344',
-                title: 'Help me learn to fly',
-                description: 'life is good ',
-                imgAttachment: '',
-                comments: [
-                  {
-                    id: 'ZdPnm',
-                    txt: 'also @yaronb please CR this',
-                    createdAt: 1590999817436,
-                    byMember: {
-                      _id: 'u101',
-                      fullname: 'Tal Tarablus',
-                      imgUrl:
-                        'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
-                    },
-                  },
-                ],
-                checklists: [
-                  {
-                    id: 'YEhmF',
-                    title: 'Checklist',
-                    todos: [
-                      {
-                        id: '212jX',
-                        title: 'To Do 1',
-                        isDone: false,
-                      },
-                    ],
-                  },
-                ],
-                memberIds: ['u101'],
-                labelIds: ['l101', 'l102'],
-                dueDate: 16156215211,
-                byMember: {
-                  _id: 'u101',
-                  username: 'Tal',
-                  fullname: 'Tal Tarablus',
-                  imgUrl:
-                    'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
-                },
+                id: 't101',
+                title: 'Feature brainstorming',
                 style: {
-                  backgroundColor: '#26de81',
                   backgroundImage:
-                    'https://images.unsplash.com/photo-1683752590938-e3b687c1f344?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2664&q=80',
+                    'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                  attachments: [{ bla: 'an attachment' }],
                 },
               },
               {
-                id: 'c1151502',
-                title: 'Add Samples',
-                description: '',
-                imgAttachment: '',
+                id: 't102',
+                title: 'Market analysis',
+                style: {
+                  backgroundColor: '#9370DB',
+                },
+              },
+              {
+                id: 't103',
+                title: 'Prototyping',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+              },
+              {
+                id: 't104',
+                title: 'User testing',
+                style: {
+                  backgroundColor: '#6A5ACD',
+                },
               },
             ],
-
-            style: {
-              backgroundColor: 'yellow',
-            },
           },
           {
             id: 'g102',
-            title: 'Group 2',
-            archivedAt: 1589983468418,
+            title: 'Marketing',
             tasks: [
               {
-                id: 'c1678401',
-                title: 'Replace logo',
-                desc: '',
-                imgAttachment: '',
+                id: 't201',
+                title: 'Social media planning',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
               },
               {
-                id: 'c102274572',
-                title: 'Add Samples',
-                desc: '',
-                imgAttachment: '',
+                id: 't202',
+                title: 'Brand strategy',
+                style: {
+                  backgroundColor: '#FFD700',
+                },
+                labelIds: ['l105', 'l107'],
+              },
+              {
+                id: 't203',
+                title: 'Press release creation',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+                },
               },
             ],
-
-            style: {
-              backgroundColor: 'yellow',
-            },
           },
           {
             id: 'g103',
-            title: 'Group 3',
-            archivedAt: 1589983468418,
+            title: 'Sales',
             tasks: [
               {
-                id: 'c1346301',
-                title: 'Replace logo',
-                description: '',
-                imgAttachment: '',
+                id: 't301',
+                title: 'Prospecting',
+                style: {
+                  backgroundColor: '#FF4500',
+                },
               },
               {
-                id: 'c12341502',
-                title: 'Add Samples',
-                description: '',
-                imgAttachment: '',
+                id: 't302',
+                title: 'Client meetings',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+              },
+              {
+                id: 't303',
+                title: 'Sales strategy planning',
+                style: {
+                  backgroundColor: '#DC143C',
+                },
+                labelIds: ['l108', 'l102'],
               },
             ],
-
-            style: {
-              backgroundColor: 'yellow',
-              backgroundImage:
-                'https://images.unsplash.com/photo-1683752590938-e3b687c1f344?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2664&q=80',
-            },
+          },
+          {
+            id: 'g104',
+            title: 'Human Resources',
+            tasks: [
+              {
+                id: 't401',
+                title: 'Interview coordination',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg',
+                },
+              },
+              {
+                id: 't402',
+                title: 'Employee onboarding',
+                style: {
+                  backgroundColor: '#228B22',
+                },
+                labelIds: ['l107', 'l105', 'l103'],
+              },
+              {
+                id: 't403',
+                title: 'Team building activities',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg',
+                },
+                labelIds: ['l104', 'l106'],
+              },
+              {
+                id: 't404',
+                title: 'Policy updates',
+                style: {
+                  backgroundColor: '#7B68EE',
+                },
+              },
+            ],
+          },
+          {
+            id: 'g105',
+            title: 'Operations',
+            tasks: [
+              {
+                id: 't501',
+                title: 'Inventory check',
+                style: {
+                  backgroundImage:
+                    'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+                },
+                labelIds: ['l101', 'l102', 'l103'],
+              },
+              {
+                id: 't502',
+                title: 'Maintenance scheduling',
+                style: {
+                  backgroundColor: '#8B4513',
+                },
+              },
+              {
+                id: 't503',
+                title: 'Vendor negotiation',
+                style: {
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1556742393-d75f468bfcb0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
+                },
+                labelIds: ['l105', 'l107', 'l108'],
+              },
+            ],
           },
         ],
         activities: [
@@ -344,12 +390,42 @@ function _createBoards() {
           {
             id: 'l101',
             title: 'Done',
-            color: '#98FB98',
+            color: '#61bd4f',
           },
           {
             id: 'l102',
             title: 'Progress',
-            color: '#FFDAB9',
+            color: '#61bd33',
+          },
+          {
+            id: 'l103',
+            title: 'High Priority',
+            color: '#FF4500',
+          },
+          {
+            id: 'l104',
+            title: 'Low Priority',
+            color: '#40E0D0',
+          },
+          {
+            id: 'l105',
+            title: 'Review Needed',
+            color: '#FFD700',
+          },
+          {
+            id: 'l106',
+            title: 'Bug',
+            color: '#FF0000',
+          },
+          {
+            id: 'l107',
+            title: 'Improvement',
+            color: '#4B0082',
+          },
+          {
+            id: 'l108',
+            title: 'New Feature',
+            color: '#7CFC00',
           },
         ],
       },
@@ -357,143 +433,3 @@ function _createBoards() {
     utilService.saveToStorage(STORAGE_KEY, boards)
   }
 }
-
-/*   {
-        _id: 't102',
-        title: 'Board 2',
-        isStarred: true,
-        createdBy: {
-          _id: 'u101',
-          fullname: 'Abi Abambi',
-          imgUrl: 'http://some-img',
-        },
-        style: {
-          backgroundImage:
-            'https://images.unsplash.com/photo-1680287327539-9467451a8b81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-          color: '',
-          backgroundColor: '#ADD8E6',
-        },
-        members: [
-          {
-            _id: 'u101',
-            fullname: 'Adam',
-            imgUrl: 'http://https://robohash.org/adam',
-          },
-          {
-            _id: 'u102',
-            fullname: 'Shaul',
-            imgUrl: 'http://https://robohash.org/shaul',
-          },
-          {
-            _id: 'u103',
-            fullname: 'Dor',
-            imgUrl: 'http://https://robohash.org/dor',
-          },
-        ],
-        groups: [
-          {
-            id: 'g104',
-            title: 'Group 1',
-            archivedAt: 1589983468418,
-            tasks: [
-              {
-                id: 'c1032135',
-                title: 'Replace logo',
-                description: '',
-                imgAttachment: '',
-              },
-              {
-                id: 'c1141404',
-                title: 'Add Samples',
-                description: '',
-                imgAttachment: '',
-              },
-            ],
-            style: {
-              backgroundColor: 'lightgray',
-            },
-          },
-        ],
-
-        labels: [
-          {
-            id: 'l101',
-            title: 'Done',
-            color: '#61bd4f',
-          },
-          {
-            id: 'l102',
-            title: 'Progress',
-            color: '#61bd33',
-          },
-        ],
-      },
-      {
-        _id: 't103',
-        title: 'Board to mess with',
-        isStarred: false,
-        createdBy: {
-          _id: 'u101',
-          fullname: 'Abi Abambi',
-          imgUrl: 'http://some-img',
-        },
-        style: {
-          backgroundImage: '',
-          color: '',
-          backgroundColor: '#E0BBE4',
-        },
-        members: [
-          {
-            _id: 'u101',
-            fullname: 'Adam',
-            imgUrl: 'http://https://robohash.org/adam',
-          },
-          {
-            _id: 'u102',
-            fullname: 'Shaul',
-            imgUrl: 'http://https://robohash.org/shaul',
-          },
-          {
-            _id: 'u103',
-            fullname: 'Dor',
-            imgUrl: 'http://https://robohash.org/dor',
-          },
-        ],
-        groups: [
-          {
-            id: 'g105',
-            title: 'Group 1',
-            archivedAt: 1589983468418,
-            tasks: [
-              {
-                id: 'c1015125',
-                title: 'Replace logo',
-                desc: '',
-                imgAttachment: '',
-              },
-              {
-                id: 'c102863',
-                title: 'Add Samples',
-                desc: '',
-                imgAttachment: '',
-              },
-            ],
-            style: {
-              backgroundColor: 'red',
-            },
-          },
-        ],
-
-        labels: [
-          {
-            id: 'l101',
-            title: 'Done',
-            color: '#61bd4f',
-          },
-          {
-            id: 'l102',
-            title: 'Progress',
-            color: '#61bd33',
-          },
-        ],
-      },*/

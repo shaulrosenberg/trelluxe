@@ -25,11 +25,21 @@ export function TaskPreview(props) {
     };
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
+    const hasBackgroundImage = task.style?.backgroundImage
+    const hasBackgroundColor = task.style?.backgroundColor
 
     return (
         <div className="task-preview-container">
-            {/* {task.style.backgroundColor &&
-                <section className='task-preview-cover'></section>} */}
+            {task.style &&
+                <section
+                    className='task-preview-cover'
+                    style={{ backgroundColor: hasBackgroundImage ? null : hasBackgroundColor }}
+                >
+                    {hasBackgroundImage && <img src={task.style.backgroundImage} alt="Task Cover" />}
+                </section>
+            }
+            {!task.style && task.imgAttachment && <section
+                className='task-preview-cover'><img src={task.imgAttachment} alt="Task Cover" /></section>}
             <section className='task-preview-body'>
                 <div className="task-preview-labels">
                     {task.labelIds && task.labelIds.map(labelId => {
