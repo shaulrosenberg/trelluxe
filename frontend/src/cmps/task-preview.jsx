@@ -1,5 +1,10 @@
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { boardService } from "../services/board.service"
+
 export function TaskPreview(props) {
     const { task } = props
+    const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     const hasBackgroundImage = task.style?.backgroundImage
     const hasBackgroundColor = task.style?.backgroundColor

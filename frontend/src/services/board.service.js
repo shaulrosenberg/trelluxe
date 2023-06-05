@@ -19,6 +19,7 @@ export const boardService = {
   getEmptyTask,
   addTask,
   addGroup,
+  findLabelStyleById,
 }
 
 _createBoards()
@@ -143,6 +144,12 @@ function demoUser() {
   const initials = name.substring(0, 2).toUpperCase()
 
   return initials
+}
+
+function findLabelStyleById(labelId, board){
+  // const labels = board.labels
+  const currLabel = board.labels.find((label) => label.id === labelId)
+  return currLabel
 }
 
 function findTaskById(taskId) {

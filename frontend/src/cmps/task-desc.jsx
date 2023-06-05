@@ -23,6 +23,7 @@ export function DescEdit({ task, setIsDescEdit }) {
           try {
                await updateTask(taskToUpdate, params.boardId, params.groupId)
                console.log('description saved')
+               setIsDescEdit(false)
           } catch (err) {
                console.log('err saving description', err)
           }

@@ -43,3 +43,33 @@
 .title-container p {
   margin: 0;
 }
+
+
+
+.task-preview-labels {
+  display: flex;
+
+  .label {
+    width: rem(40px);
+    height: rem(8px);
+    border-radius: 0.5rem;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+  }
+}
+
+
+.title-container {
+  display: flex;
+  align-items: start;
+  padding: rem(6px) rem(8px) rem(6px);
+  border-radius: 0.2rem;
+
+  p {
+    font-size: rem(14px);
+  }
+}
+
+.title-container p {
+  margin: 0;
+}
