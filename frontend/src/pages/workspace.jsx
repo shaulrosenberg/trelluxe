@@ -1,10 +1,11 @@
 // WORKSPACE
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { loadBoards, addBoard, updateBoard } from '../store/board.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BoardList } from '../cmps/board-list.jsx'
+import { DynamicActionModal } from '../cmps/dynamic-modal/dynamic-action-modal.jsx'
 import { AiOutlineClockCircle, AiOutlineStar } from 'react-icons/ai'
 
 
@@ -12,6 +13,9 @@ import { AiOutlineClockCircle, AiOutlineStar } from 'react-icons/ai'
 export function Workspace() {
     const boards = useSelector(storeState => storeState.boardModule.boards)
     const { isLoading } = useSelector(storeState => storeState.systemModule)
+    const [modalEvent, setModalEvent] = useState(null)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
 
     useEffect(() => {
         loadBoards()
@@ -20,13 +24,13 @@ export function Workspace() {
 
     // this function should open the dynamic modal, and dynamic modal
     // will handle the content for adding a board
-    async function onAddBoard(board) {
-        try {
-            const savedBoard = await addBoard(board)
-            showSuccessMsg(`Board added (id: ${savedBoard._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add board')
-        }
+    function onAddBoard(event) {
+        setModalEvent(event)
+        setIsModalOpen(true)
+    }
+
+    function closeModal() {
+        setIsModalOpen(false)
     }
 
     async function onUpdateBoard(board) {
@@ -65,6 +69,15 @@ export function Workspace() {
                     includeAdd={true}
                 />
             </main>
+            {isModalOpen &&
+                <DynamicActionModal
+                    cmpType='createBoard'
+                    modalTitle='Create board'
+                    event={modalEvent}
+                    isDetails={false}
+                    onCloseModal={closeModal}
+                    onAddBoard={onAddBoard}
+                />}
         </section>
     )
 }

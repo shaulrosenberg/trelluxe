@@ -4,9 +4,8 @@ import { useState } from "react"
 export function BoardPreviewAdd({ onAddBoard }) {
     const [isHovered, setIsHovered] = useState(false)
 
-    // Handle your add logic here...
-    function onAdd(board) {
-        onAddBoard(board)
+    function onAdd(event) {
+        onAddBoard(event)
     }
 
     return (
