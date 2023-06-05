@@ -1,20 +1,7 @@
 .board-header {
-     .board-header-nav {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          color: $clr6;
-          .board-title {
-               background: transparent;
-               font-size: rem(18px);
-               line-height: rem(32px);
-               overflow: hidden;
-               white-space: nowrap;
-               height: 100%;
-               padding: rem(8px) rem(5px);
-               font-family: 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu',
-                    'Droid Sans', 'Helvetica Neue', sans-serif;
-          }
+    display: grid;
+     grid-template-columns: repeat(2, 1fr);
+        
 
           .share-board-btn {
                padding-left: 8px;
@@ -33,10 +20,10 @@
                border-radius: 3px;
 
                .btn-txt{
-               margin: 0px 0px 0px 4px;
-               font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
-               font-size: 14px;
-               font-weight:400;
+               // margin: 0px 0px 0px 4px;
+               // font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+               // font-size: 14px;
+               // font-weight:400;
 
 
                }
@@ -52,33 +39,68 @@
 
           }
 
-          .show-menu-btn {
-               color: white;
+         
+       
+
+          .svg-btn{
+              
+               padding: 10px;
                background-color: transparent;
-               font-weight: 400;
-               height: 20px;
-               width: 20px;
-               display: flex;
-               justify-content: center;
-               justify-items: center;
-               
-          }
-
-          .filter-btn{
-               
-          }
-
-          
-
-          .nav-inline-start {
+               color: #FFFFFF;
+               border: none;
+               border-radius: 4px;
+               cursor: pointer;
                display: flex;
                align-items: center;
+               justify-content: center;
+               font-size: 16px;
+               &:hover{
+                    background-color: #a6c5e229;
+               }
+
+          }
+          
+
+          .left {
+               display: grid;
+               grid-template-columns: repeat(4, max-content);
+               grid-gap: 10px;
+               justify-self: left;
                
           }
 
-          .nav-inline-end {
+          .right {
                
-               display: flex;
+               display: grid;
+               grid-template-columns: repeat(3, max-content);
+               grid-gap: 10px;
+               justify-self: right;
+              
           }
-     }
+          // .button {
+          //      color: white;
+          //      background-color: rgba(255, 255, 255, 0.3);
+          //      border-radius: 5px;
+          //      padding: 5px;
+          //    }
+
+             .board-title {
+               background: transparent;
+               font-size: rem(18px);
+               line-height: rem(32px);
+               overflow: hidden;
+               margin-left:rem(13px);
+               white-space: nowrap;
+               height: 100%;
+               padding: rem(8px) rem(5px);
+               font-family: 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu',
+                    'Droid Sans', 'Helvetica Neue', sans-serif;
+                    color: $clr6;
+                    cursor: pointer;
+
+
+               &:hover{
+                    background-color: #a6c5e229;
+               }
+          }
 }
