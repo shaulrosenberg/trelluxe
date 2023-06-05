@@ -248,7 +248,9 @@ function _createBoards() {
                     'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
                 },
                 style: {
-                  bgColor: '#26de81',
+                  backgroundColor: '#26de81',
+                  backgroundImage:
+                    'https://images.unsplash.com/photo-1683752590938-e3b687c1f344?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2664&q=80',
                 },
               },
               {

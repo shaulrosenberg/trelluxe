@@ -1,5 +1,8 @@
 export function TaskPreview(props) {
     const { task } = props
+
+    
+
     return (
         <div className="task-preview-container">
             {/* {task.style.backgroundColor &&
