@@ -44,7 +44,7 @@ export function TaskPreview(props) {
                 <div className="task-preview-labels">
                     {task.labelIds && task.labelIds.map(labelId => {
                         const label = boardService.findLabelStyleById(labelId, board)
-                        return <div key={labelId} className="label" style={{ backgroundColor: label.color }}></div>;
+                        return <div key={labelId} className="label" style={{ backgroundColor: label?.color }}></div>;
                     })}
                 </div>
                 <div className="title-container"><p>{task.title}</p></div>
