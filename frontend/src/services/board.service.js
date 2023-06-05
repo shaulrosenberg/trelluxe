@@ -381,42 +381,42 @@ function _createBoards() {
           {
             "id": "l101",
             "title": "Done",
-            "color": "#61bd4f"
+            "color": "#FFB6C1"
           },
           {
             "id": "l102",
             "title": "Progress",
-            "color": "#61bd33"
+            "color": "#579DFF"
           },
           {
             "id": "l103",
             "title": "High Priority",
-            "color": "#FF4500"
+            "color": "#AE4787"
           },
           {
             "id": "l104",
             "title": "Low Priority",
-            "color": "#40E0D0"
+            "color": "#F87462"
           },
           {
             "id": "l105",
             "title": "Review Needed",
-            "color": "#FFD700"
+            "color": "#9F8FEF"
           },
           {
             "id": "l106",
             "title": "Bug",
-            "color": "#FF0000"
+            "color": "#0C66E4"
           },
           {
             "id": "l107",
             "title": "Improvement",
-            "color": "#4B0082"
+            "color": "#E2B203"
           },
           {
             "id": "l108",
             "title": "New Feature",
-            "color": "#7CFC00"
+            "color": "#4BCE97"
           }
         ]
         ,
