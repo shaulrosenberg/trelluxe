@@ -40,6 +40,7 @@ export function BoardIndex() {
             articleStyle.backgroundImage = `url(${board.style.backgroundImage})`
             articleStyle.backgroundSize = 'cover'
             articleStyle.backgroundPosition = 'center'
+            // articleStyle.backgroundRepeat = 'no-repeat'
         } else {
             articleStyle.backgroundColor = board.style.backgroundColor
         }
