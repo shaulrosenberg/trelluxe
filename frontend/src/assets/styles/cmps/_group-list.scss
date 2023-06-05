@@ -11,14 +11,14 @@
      width: rem(260px);
      max-height: rem(32px);
      background-color: rgba(240, 248, 255, 0.317);
-     padding: 22px 15px;
+     padding: 23px 15px;
      transition: color 85ms ease-in;
      margin-top: 0.4rem;
      margin-left: 0.5rem;
      border-radius: 0.6rem;
      color: white;
      cursor: pointer;
-
+     
      &:hover {
           background-color: rgba(213, 217, 220, 0.317);
      }
@@ -27,6 +27,7 @@
           margin: 0;
           padding: 0 0.5rem;
           font-size: rem(14px);
+          font-weight: 600;
      }
 
      .icon-add-group {

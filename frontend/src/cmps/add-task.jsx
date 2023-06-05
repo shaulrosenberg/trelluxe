@@ -2,7 +2,10 @@ import { useState } from 'react'
 import { boardService } from '../services/board.service'
 import { addTask } from '../store/board.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+
+// icons
 import { GrAdd, GrClose } from 'react-icons/gr'
+import { AiOutlinePlus } from "react-icons/ai";
 
 export function AddTask({ group, boardId }) {
      const [isEditable, setIsEditable] = useState(false)
@@ -52,7 +55,7 @@ export function AddTask({ group, boardId }) {
                ) : (
                     <div className='add-new-task'>
                          <button onClick={() => setIsEditable(true)}>
-                              <GrAdd className='add-task-icon' />
+                              <AiOutlinePlus className='add-task-icon' />
                               Add a card
                          </button>
                     </div>

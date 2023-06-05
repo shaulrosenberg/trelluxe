@@ -12,7 +12,7 @@
 
      h1 {
           font-size: rem(14px);
-          margin-left: 1.6rem;
+          margin-left: 1.2rem;
           margin-top: 0.8rem;
           color: #172b4d;
           font-weight: 500;
@@ -21,13 +21,13 @@
 
 .add-new-task {
      display: flex;
-     margin: 0rem 0.3rem;
+     // margin: 0rem 0.3rem;
 
      button {
           display: flex;
           align-items: center;
           font-size: rem(14px);
-          margin-left: 0.9rem;
+          margin-left: 0.7rem;
           padding: 0.5rem 0.4rem;
           color: rgb(68, 84, 111);
           width: rem(234px);
@@ -42,9 +42,9 @@
           }
      }
 
-     .add-task-icon path {
+     .add-task-icon  {
           font-size: rem(14px);
-          fill: #6f7c91;
+          color: rgb(68, 84, 111);
      }
 }
 
@@ -85,9 +85,9 @@
      margin-left: 0.5rem;
      padding: 0.3rem;
      background-color: #ebecf0;
-     height: rem(106px);
+     height: rem(95px);
      border-radius: 0.5rem;
-     transition: 0.2s ease;
+     // transition: 0.2s ease;
 
      input {
           width: rem(264px);
