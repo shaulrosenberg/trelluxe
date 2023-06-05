@@ -49,6 +49,7 @@
           align-self: flex-start;
           justify-self: center;
           margin-top: 0.4rem;
+          color: #172b4d;
      }
 
      .icon-desc {
@@ -56,6 +57,7 @@
           align-self: flex-start;
           justify-self: center;
           margin-top: 2.8rem;
+          color: #172b4d;
      }
      
 
@@ -81,6 +83,7 @@
           justify-self: center;
           margin-top: 0.4rem;
           position: relative;
+          color: #172b4d;
      }
 
      .icon-attachment{
@@ -88,6 +91,7 @@
           align-self: flex-start;
           justify-self: center;
           margin-top: 0.4rem;
+          color: #172b4d;
      }
 
      .div-activity {
@@ -169,6 +173,9 @@
      .img-attachment {
           height: rem(80px);
           width: auto;
+     }
+     p{
+          color: #172b4d;
      }
 }
 
