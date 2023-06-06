@@ -1,28 +1,29 @@
-import { useState } from "react";
-import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
-import DateFnsUtils from '@date-io/date-fns'
+import { useState, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-export function DatesContent({ task, boardId, groupId, updateTask }) {
-    const [selectedDate, setSelectedDate] = useState(task?.dueDate || new Date())
+export function DatesContent({ task, updateTask }) {
+  const [selectedDate, setSelectedDate] = useState(task?.dueDate);
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-        updateTask({ ...task, dueDate: date })
-    }
+  useEffect(() => {
+    setSelectedDate(task?.dueDate ? new Date(task.dueDate) : new Date());
+  }, [task]);
 
-    return (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <section className="dates-content">
-                <DatePicker
-                    label="Due date"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    disablePast
-                    format="MM/dd/yyyy"
-                    inputVariant="outlined"
-                    fullWidth
-                />
-            </section>
-        </MuiPickersUtilsProvider>
-    )
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    updateTask({ ...task, dueDate: date });
+  };
+
+  return (
+    <section className="dates-content">
+      <DatePicker
+        selected={selectedDate}
+        onChange={handleDateChange}
+        dateFormat="MM/dd/yyyy"
+        inline
+        minDate={new Date()}
+        highlightDates={[new Date()]}
+      />
+    </section>
+  );
 }
