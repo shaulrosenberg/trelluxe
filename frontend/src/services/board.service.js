@@ -224,7 +224,7 @@ function _createBoards() {
                           {
                               "id": "212jX",
                               "title": "To Do 1",
-                              "isDone": false
+                              "isDone": true
                           }
                       ]
                   }

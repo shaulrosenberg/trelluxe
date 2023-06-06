@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-export function AttachContent() {
+export function AttachContent(props) {
      const params = useParams()
      const [currTask, setCurrTask] = useState(null)
      
@@ -16,6 +16,7 @@ export function AttachContent() {
                const imgUrl = await uploadService.uploadImg(ev)
                currTask.imgAttachment = imgUrl
                await updateTask(currTask, params.boardId, params.groupId)
+               props.onCloseModal()
           } catch (err) {
                console.log('err saving img', err)
           }
