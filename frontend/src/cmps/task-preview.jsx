@@ -14,17 +14,18 @@ export function TaskPreview(props) {
         let todos = 0;
         let done = 0;
         let checklists = task.checklists;
-      
-        for (let checklist of checklists) {
-          todos += checklist.todos.length;
-          for (let todo of checklist.todos) { 
-            if (todo.isDone) done++;
-          }
-        }
 
-        return {txt: `${done}/${todos}`, status: (done/todos) === 1 ? 'checklistDone' : ''};
-      }
-      
+        for (let checklist of checklists) {
+            todos += checklist.todos.length;
+            for (let todo of checklist.todos) {
+                if (todo.isDone) done++;
+            }
+        }
+        const ans = { txt: `${done}/${todos}`, status: (done / todos) === 1 ? 'check-list-done' : '' }
+        return ans
+        // return { txt: `${done}/${todos}`, status: (done / todos) === 1 ? 'checklistDone' : '' };
+    }
+
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     const hasBackgroundImage = task.style?.backgroundImage
@@ -78,10 +79,10 @@ export function TaskPreview(props) {
                     </div>)}
 
                     {/* check list badge */}
-                    {task.checklists?.todos?.length > 0 && (
+                    {task.checklists?.length > 0 && (
 
 
-                        <div className={`badge-btn ${getTodosRatio.status}`}>
+                        <div className={`badge-btn ${getTodosRatio().status}`}>
                             <div className="icon"> <IoMdCheckboxOutline /></div>
                             <div className="btn-txt">{getTodosRatio().txt}</div>
                         </div>)}
@@ -94,6 +95,6 @@ export function TaskPreview(props) {
 
 
 
-        </div>
-    )
+        </div>)
+
 }
