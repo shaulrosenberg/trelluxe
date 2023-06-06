@@ -34,7 +34,7 @@
      grid-template-rows: minmax(60px 1fr) minmax(93px 1fr) 1fr;
      padding: 1rem;
      z-index: 10000;
-     .group-title-task-details{
+     .group-title-task-details {
           text-decoration: underline;
      }
      h2 {
@@ -62,7 +62,6 @@
           margin-top: 2.8rem;
           color: #172b4d;
      }
-     
 
      .div-desc {
           grid-column: 2;
@@ -74,9 +73,9 @@
           }
      }
 
-     .div-img{
+     .div-img {
           grid-column: 2;
-          grid-row: 3; 
+          grid-row: 3;
      }
 
      .icon-activitiy {
@@ -89,7 +88,7 @@
           color: #172b4d;
      }
 
-     .icon-attachment{
+     .icon-attachment {
           grid-column: 1;
           align-self: flex-start;
           justify-self: center;
@@ -171,33 +170,43 @@
 }
 
 .img-attachment-container {
-
-     .attachment-container{
+     .attachment-container {
           display: flex;
-          
-          .img-attach-actions{
+
+          .attachment-underline {
+               text-decoration: underline;
+          }
+
+          .attachment-bold {
+               font-weight: bold;
+          }
+
+          .img-attach-actions {
                justify-content: space-between;
-               div:first-child{
+               .attachment-name {
+                    margin-bottom: 0.2rem;
+               }
+
+               div:nth-child(2) {
                     display: flex;
                }
-               div:last-child{
+
+               div:last-child {
                     position: relative;
-                    bottom: rem(-43px);
-                    
+                    bottom: -35%;
                }
           }
-          h3{
+          h3 {
                font-size: rem(14px);
                margin-left: rem(5px);
                margin-bottom: rem(2px);
                color: $primaryColor;
                font-weight: 400;
-               text-decoration: underline;
                align-self: end;
                cursor: pointer;
           }
 
-          .cover-icon{
+          .cover-icon {
                position: relative;
                top: 2px;
           }
@@ -207,8 +216,27 @@
           height: rem(80px);
           width: auto;
      }
-     p{
+     p {
           color: #172b4d;
+     }
+}
+
+.edit-attachment-container {
+     button {
+          background-color: $clr1;
+          color: #fff;
+          padding: 0.5rem 1.3rem;
+          border-radius: 0.5rem;
+          align-self: flex-start;
+     }
+     input {
+          padding: 0.5rem;
+          margin-top: 0.3rem;
+     }
+
+     .edit-attachment-area {
+          display: flex;
+          flex-direction: column;
      }
 }
 

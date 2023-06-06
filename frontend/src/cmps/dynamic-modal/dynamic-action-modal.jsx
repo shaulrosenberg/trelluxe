@@ -8,6 +8,7 @@ import { ChecklistContent } from "./checklist-content"
 import { MembersContent } from "./members-content"
 import { AttachContent } from "./attach-content"
 import { CreateBoardContent } from "./create-board-content"
+import { EditAttachment } from './edit-attachment'
 
 export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...props }) {
     // Get window width
@@ -28,7 +29,8 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         checklist: ChecklistContent,
         members: MembersContent,
         attachment: AttachContent,
-        createBoard: CreateBoardContent
+        createBoard: CreateBoardContent,
+        editAttach: EditAttachment,
     }
 
     // Get the component from the map
