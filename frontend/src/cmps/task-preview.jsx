@@ -9,20 +9,22 @@ import { boardService } from "../services/board.service"
 
 export function TaskPreview(props) {
     const { task } = props
+
     function getTodosRatio() {
         let todos = 0;
         let done = 0;
         let checklists = task.checklists;
-
+      
         for (let checklist of checklists) {
-            todos += checklist.todos.length
-            for (let todo of checklist) {
-                if (todo.isDone) done++
-            }
+          todos += checklist.todos.length;
+          for (let todo of checklist.todos) { 
+            if (todo.isDone) done++;
+          }
         }
-        return `${done}/${todos}`;
 
-    };
+        return {txt: `${done}/${todos}`, status: (done/todos) === 1 ? 'checklistDone' : ''};
+      }
+      
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     const hasBackgroundImage = task.style?.backgroundImage
@@ -76,13 +78,12 @@ export function TaskPreview(props) {
                     </div>)}
 
                     {/* check list badge */}
-                    {task.checklists?.length > 0 && (
+                    {task.checklists?.todos?.length > 0 && (
 
 
-                        <div className="badge-btn">
+                        <div className={`badge-btn ${getTodosRatio.status}`}>
                             <div className="icon"> <IoMdCheckboxOutline /></div>
-                            {/* <div className="btn-txt">{getTodosRatio()}</div> */}
-
+                            <div className="btn-txt">{getTodosRatio().txt}</div>
                         </div>)}
 
                     {/* members badge */}
