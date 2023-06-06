@@ -229,6 +229,7 @@ function _createBoards() {
                     ],
                   },
                 ],
+                memberIds: ['u101'],
               },
               {
                 id: 't102',

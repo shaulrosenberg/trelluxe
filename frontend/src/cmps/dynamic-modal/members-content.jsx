@@ -1,20 +1,32 @@
 import { useState, useEffect, useRef } from 'react'
+import { BiCheck } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
+import { updateTask } from '../../store/board.actions'
 
-
-export function MembersContent({ task }) {
+export function MembersContent({ task, boardId, groupId }) {
     // initial state should be task.members
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
-    const memberIds = task.memberIds
+    const taskMembersIds = task.memberIds
 
-    const [boardMembers, setBoardMembers] = useState(board.members)
+    const [displayedMembers, setDisplayedMembers] = useState(board.members)
 
-    function handleChange({ target }) {
-        // pseudo
-        // if(!members.includes(member) return)
-        // else addMemberToTask()
-        // updateTask(task, boardId, groupId)
+    async function onMemberToggle(ev, id) {
+        let updatedMembersIds = []
+        let updatedTask
+        if (taskMembersIds?.includes(id)) {
+            updatedMembersIds = taskMembersIds.filter(currId => currId !== id)
+            updatedTask = { ...task, memberIds: updatedMembersIds }
+        } else {
+            let newIds = taskMembersIds ? [...taskMembersIds, id] : [id]
+            updatedTask = { ...task, memberIds: newIds }
+        }
+        try {
+            updateTask(updatedTask, boardId, groupId)
+        } catch (error) {
+            console.error(error)
+        }
     }
+
     return (
         <>
             <section className='members-modal'>
@@ -24,21 +36,27 @@ export function MembersContent({ task }) {
                         type="text"
                         className="modal-main-input"
                         onChange={ev => {
-                            // setSearchedMemberText(ev.target.value);
+                            const regex = new RegExp(ev.target.value, 'i')
+                            setDisplayedMembers(board.members.filter(member => regex.test(member.fullname)))
                         }}
                         autoFocus
                     />
                 </div>
+                <h4 className=''>Board members</h4>
                 <div className='members-modal-body'>
                     <ul className="task-members clean-list">
-                        {boardMembers && boardMembers.map(member =>
-                            <li key={member._id} className=''>
-                                <img className='board-member' src={member.imgUrl} alt='a member icon. when clicked on members is added to the task' />
-                                <span>{member.fullname}</span>
-
+                        {displayedMembers && displayedMembers.map(memberToDisplay =>
+                            <li key={memberToDisplay._id} className='flex member-to-display' title={`${memberToDisplay.fullname}`} onClick={ev => { onMemberToggle(ev, memberToDisplay._id) }} >
+                                <img className='board-member-icon' src={memberToDisplay.imgUrl} alt='a member icon. when clicked on members is added to the task' />
+                                <span className='board-member-name'>{memberToDisplay.fullname}</span>
+                                {taskMembersIds?.includes(memberToDisplay._id) && (
+                                    <span className='checked-icon' > <BiCheck /></span>
+                                )}
                             </li>
 
                         )}
+                        {displayedMembers.length ? null : <li className="">Looks like that person isn't a member yet. </li>}
+
 
                     </ul>
                 </div>

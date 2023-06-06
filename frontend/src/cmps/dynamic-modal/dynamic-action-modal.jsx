@@ -8,10 +8,15 @@ import { ChecklistContent } from "./checklist-content"
 import { MembersContent } from "./members-content"
 import { AttachContent } from "./attach-content"
 import { CreateBoardContent } from "./create-board-content"
+import { useSelector } from "react-redux"
 
 export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...props }) {
     // Get window width
     const [width, setWidth] = useState(window.innerWidth)
+
+    useSelector(storeState => storeState.boardModule.selectedBoard)
+
+
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth)

@@ -4,11 +4,13 @@ import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 import { AiOutlineTags, AiOutlineMinus, AiOutlineCheckSquare, AiOutlineFieldTime, AiOutlineCopy } from "react-icons/ai"
 import { BsPersonPlus, BsArrowRight, BsArchive, BsSquareHalf } from "react-icons/bs"
 import { MdOutlineAttachment } from "react-icons/md"
+import { useSelector } from 'react-redux'
 
 
 export function TaskControls({ task, boardId, groupId }) {
     const [modalType, setModalType] = useState(null)
     const eventRef = useRef(null)
+    const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     function onToggleModal(type = null, ev = null) {
         eventRef.current = ev

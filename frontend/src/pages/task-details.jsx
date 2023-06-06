@@ -31,18 +31,18 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-               
+
      }, [isDescEdit, board])
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
      }
 
-     function getGroup(){
+     function getGroup() {
           const groupTitle = boardService.findGroupById(params.groupId, board)
           setGTitle(groupTitle)
      }
-     
+
 
      console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
