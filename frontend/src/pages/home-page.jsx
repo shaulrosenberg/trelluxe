@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImg from '../assets/img/hero-trello-2.png'
+import heroImg from '../assets/img/hero-trello.jpg'
 
 export function HomePage() {
      return (
