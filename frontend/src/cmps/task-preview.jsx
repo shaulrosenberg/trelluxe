@@ -81,7 +81,7 @@ export function TaskPreview(props) {
 
                         <div className="badge-btn">
                             <div className="icon"> <IoMdCheckboxOutline /></div>
-                            {/* <div className="btn-txt">{getTodosRatio()}</div> */}
+                            <div className="btn-txt">{getTodosRatio()}</div>
 
                         </div>)}
 
