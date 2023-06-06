@@ -16,8 +16,8 @@ async function uploadImg(ev) {
                method: 'POST',
                body: formData,
           })
-          const { url } = await res.json()
-          return url
+          const {url, created_at, original_filename, format} = await res.json()
+          return {url, created_at, original_filename, format}
      } catch (err) {
           console.error('Failed to upload', err)
           throw err
