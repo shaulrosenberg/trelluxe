@@ -55,7 +55,7 @@ export function BoardIndex() {
         <section style={getBoardStyle()} className="board-index">
 
             <BoardHeader board={board} />
-            {board && <GroupList groups={board.groups} boardId={boardId} />}
+            {board && <GroupList board={board} groups={board.groups} boardId={boardId} />}
             <Outlet />
         </section>
     )

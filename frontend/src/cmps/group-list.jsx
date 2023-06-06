@@ -8,7 +8,7 @@ import { GrClose } from 'react-icons/gr';
 import { FaPlus } from "react-icons/fa";
 
 
-export function GroupList({ groups, boardId }) {
+export function GroupList({ board, groups, boardId }) {
     const [isAddGroupOpen, setIsGroupOpen] = useState(false)
     const [groupTitle, setGroupTitle] = useState('')
 
@@ -27,7 +27,7 @@ export function GroupList({ groups, boardId }) {
     return (
         <section className="group-list-container">
             {groups.map(group =>
-                <GroupPreview key={group.id} group={group} />
+                <GroupPreview board={board} key={group.id} group={group} />
             )}
             {isAddGroupOpen ? (
                 <div className='add-group'>
@@ -55,7 +55,7 @@ export function GroupList({ groups, boardId }) {
                 </div>
             ) : (
                 <div className='add-group-btn' onClick={() => { setIsGroupOpen(true) }}>
-                    <FaPlus className="icon-add-group"  />
+                    <FaPlus className="icon-add-group" />
                     <p>Add another list</p>
                 </div>
             )
