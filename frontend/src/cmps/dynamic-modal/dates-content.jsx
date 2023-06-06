@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 
-export function DatesContent({ task, updateTask }) {
+export function DatesContent({ task, boardId, groupId, updateTask }) {
     const [selectedDate, setSelectedDate] = useState(task?.dueDate || new Date())
 
     const handleDateChange = (date) => {
