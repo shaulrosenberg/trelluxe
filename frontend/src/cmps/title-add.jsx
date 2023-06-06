@@ -7,14 +7,21 @@ export default function TitleAdd({ board, group }) {
         setGroupTitle(group.title)
     }, [group.title])
 
+
     function handleChange({ target }) {
         const groupTitle = target.value;
         setGroupTitle(groupTitle)
     }
 
-    function handleSubmit(ev) {
-        ev.preventDefault()
-        saveNewTitle()
+    const handleFocus = (event) => {
+        event.target.select();
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            event.target.blur(); // Trigger the onBlur event
+        }
     }
 
     async function saveNewTitle(ev) {
@@ -25,7 +32,7 @@ export default function TitleAdd({ board, group }) {
         try {
             await updateBoard(board)
         } catch (err) {
-            console.log('Could not save board:', err)
+            console.log('Could not update board:', err)
         }
 
     }
@@ -40,6 +47,11 @@ export default function TitleAdd({ board, group }) {
                 onChange={handleChange}
                 type="text"
                 onBlur={saveNewTitle}
+                onFocus={handleFocus}
+                onKeyDown={handleKeyDown}
+
+
+
 
             />
         </form>
