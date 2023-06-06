@@ -34,6 +34,9 @@
      grid-template-rows: minmax(60px 1fr) minmax(93px 1fr) 1fr;
      padding: 1rem;
      z-index: 10000;
+     .group-title-task-details{
+          text-decoration: underline;
+     }
      h2 {
           font-size: rem(20px);
           font-weight: 600;
@@ -168,10 +171,21 @@
 }
 
 .img-attachment-container {
-     
+
      .attachment-container{
           display: flex;
           
+          .img-attach-actions{
+               justify-content: space-between;
+               div:first-child{
+                    display: flex;
+               }
+               div:last-child{
+                    position: relative;
+                    bottom: rem(-43px);
+                    
+               }
+          }
           h3{
                font-size: rem(14px);
                margin-left: rem(5px);

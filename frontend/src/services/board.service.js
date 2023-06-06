@@ -20,6 +20,7 @@ export const boardService = {
   addTask,
   addGroup,
   findLabelStyleById,
+  findGroupById,
 }
 
 _createBoards()
@@ -158,6 +159,12 @@ function findTaskById(taskId) {
   })
 }
 
+function findGroupById(groupId, board){
+  const currGroup = board.groups.find((group) => group.id === groupId)
+  const groupTitle = currGroup.title
+  return groupTitle
+}
+
 function _createBoards() {
   let boards = utilService.loadFromStorage(STORAGE_KEY)
   if (!boards || !boards.length) {
@@ -209,6 +216,19 @@ function _createBoards() {
                 description: 'life is good',
                 comments: ['bla', 'no'],
                 attachments: [{ bla: 'an attachment' }],
+                checklists: [
+                  {
+                      "id": "YEhmF",
+                      "title": "Checklist",
+                      "todos": [
+                          {
+                              "id": "212jX",
+                              "title": "To Do 1",
+                              "isDone": false
+                          }
+                      ]
+                  }
+              ],
               },
               {
                 id: 't102',

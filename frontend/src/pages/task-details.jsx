@@ -20,21 +20,29 @@ import { useSelector } from 'react-redux'
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
      const [task, setTask] = useState(null)
-     const navigate = useNavigate()
      const [isDescEdit, setIsDescEdit] = useState(false)
-     const board = useSelector(
-          (storeState) => storeState.boardModule.selectedBoard
-     )
+     const [gTitle, setGTitle] = useState('')
+     const board = useSelector((storeState) => storeState.boardModule.selectedBoard)
+     const navigate = useNavigate()
+     const params = useParams()
 
      useEffect(() => {
+          getGroup()
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
+               
      }, [isDescEdit, board])
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
      }
+
+     function getGroup(){
+          const groupTitle = boardService.findGroupById(params.groupId, board)
+          setGTitle(groupTitle)
+     }
+     
 
      console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
@@ -49,7 +57,7 @@ export function TaskDetails() {
                     <MdSubtitles className='icon-title' />
                     <div className='div-task-title'>
                          {task ? <h2>{task.title}</h2> : 'Loading'}
-                         <p>in list group 1</p>
+                         <p>in list <span className='group-title-task-details'>{gTitle}</span></p>
                     </div>
 
                     <div className='div-task-controls'>
