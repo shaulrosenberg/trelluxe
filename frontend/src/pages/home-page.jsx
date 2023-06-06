@@ -7,7 +7,7 @@ export function HomePage() {
                <div className='div-hero-section'>
                     <div className='div-hero-details'>
                          <h1>
-                              Trello brings all your tasks, teammates, and tools
+                              Trelux brings all your tasks, teammates, and tools
                               together
                          </h1>
                          <p>

@@ -169,6 +169,25 @@
 
 .img-attachment-container {
      
+     .attachment-container{
+          display: flex;
+          
+          h3{
+               font-size: rem(14px);
+               margin-left: rem(5px);
+               margin-bottom: rem(2px);
+               color: $primaryColor;
+               font-weight: 400;
+               text-decoration: underline;
+               align-self: end;
+               cursor: pointer;
+          }
+
+          .cover-icon{
+               position: relative;
+               top: 2px;
+          }
+     }
 
      .img-attachment {
           height: rem(80px);

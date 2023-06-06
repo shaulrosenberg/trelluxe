@@ -17,20 +17,28 @@ export function BoardHeader({ board }) {
 
      useEffect(() => {
           fetchBoardStyle()
-     })
+     },[])
 
      function fetchBoardStyle() {
-          boardService
-               .getById(params.boardId)
-               .then((board) => {
-                    let boardStyleColor = board.style.backgroundColor
-                    boardStyleColor = darken(0.1, boardStyleColor)
-                    // const transparentColor = `rgba(${boardStyleColor}, 0.2)`
-                    const transparentColor = transparentize(0.7, boardStyleColor);
+          if (params.boardId){
 
-                    setNavColor(transparentColor)
-               })
-               .catch((err) => console.log('failed to change nav color', err))
+               boardService
+                    .getById(params.boardId)
+                    .then((board) => {
+                         let boardStyleColor = board.style.backgroundColor
+                         if (!boardStyleColor) return
+                         
+                         console.log('board style', boardStyleColor)
+                         boardStyleColor = darken(0.1, boardStyleColor)
+                         // const transparentColor = `rgba(${boardStyleColor}, 0.2)`
+                         const transparentColor = transparentize(0.7, boardStyleColor);
+     
+                         setNavColor(transparentColor)
+                    })
+                    .catch((err) => console.log('failed to change nav color', err))
+          }else{
+               setNavColor('#026AA7')
+          }
      }
 
      return (
