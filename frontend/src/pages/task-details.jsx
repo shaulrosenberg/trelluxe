@@ -27,7 +27,7 @@ export function TaskDetails() {
      const params = useParams()
 
      useEffect(() => {
-          getGroup()
+          getGroupTitle()
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
@@ -38,7 +38,7 @@ export function TaskDetails() {
           navigate(`/board/${boardId}`)
      }
 
-     function getGroup() {
+     function getGroupTitle() {
           const groupTitle = boardService.findGroupById(params.groupId, board)
           setGTitle(groupTitle)
      }
@@ -88,7 +88,7 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                    {task.imgAttachment && (
+                    {task.attachments.length >= 1 && (
                          <>
                               <ImAttachment className='icon-attachment' />
                               <div className='div-img'>

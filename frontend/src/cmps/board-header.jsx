@@ -1,43 +1,59 @@
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
+import { darken, transparentize } from 'polished'
+import { boardService } from '../services/board.service'
+import { updateBoard } from '../store/board.actions'
+//icons
+import { BsFilter } from 'react-icons/bs'
 import {
      IoStarOutline,
      IoPersonAddOutline,
      IoEllipsisHorizontalSharp,
 } from 'react-icons/io5'
-import { BsFilter } from 'react-icons/bs'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import { useEffect, useState } from 'react'
-import { darken, transparentize} from 'polished'
-import { boardService } from '../services/board.service'
-import { Link, NavLink, useLocation, Route, useParams } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import PropTypes, { func } from 'prop-types'
 
 export function BoardHeader({ board }) {
      const params = useParams()
      const [navColor, setNavColor] = useState(null)
+     const [currBoard, setCurrboard] = useState(null)
 
      useEffect(() => {
           fetchBoardStyle()
-     },[])
+     }, [])
 
-     function fetchBoardStyle() {
-          if (params.boardId){
+     async function fetchBoardStyle() {
+          if (params.boardId) {
+               try {
+                    const board = await boardService.getById(params.boardId)
+                    setCurrboard(board)
+                    let boardStyleColor = board.style.backgroundColor
+                    if (!boardStyleColor) return
 
-               boardService
-                    .getById(params.boardId)
-                    .then((board) => {
-                         let boardStyleColor = board.style.backgroundColor
-                         if (!boardStyleColor) return
-                         
-                         console.log('board style', boardStyleColor)
-                         boardStyleColor = darken(0.1, boardStyleColor)
-                         // const transparentColor = `rgba(${boardStyleColor}, 0.2)`
-                         const transparentColor = transparentize(0.7, boardStyleColor);
-     
-                         setNavColor(transparentColor)
-                    })
-                    .catch((err) => console.log('failed to change nav color', err))
-          }else{
+                    boardStyleColor = darken(0.1, boardStyleColor)
+                    const transparentColor = transparentize(
+                         0.7,
+                         boardStyleColor
+                    )
+
+                    setNavColor(transparentColor)
+               } catch (err) {
+                    console.log('failed to change nav color', err)
+               }
+          } else {
                setNavColor('#026AA7')
+          }
+     }
+
+     async function onStarredClick() {
+          console.log('cloneTask', currBoard)
+          const boardCopy = { ...currBoard }
+          boardCopy.isStarred = true
+          try {
+               await updateBoard(boardCopy)
+          } catch (err) {
+               console.log('failed to starred board', err)
           }
      }
 
@@ -59,7 +75,7 @@ export function BoardHeader({ board }) {
                          <IconButton
                               Icon={AiOutlineStar}
                               text=''
-                              onClick={() => console.log('Clicked!')}
+                              onClick={() => onStarredClick()}
                          />
                     )}
                </div>

@@ -215,7 +215,7 @@ function _createBoards() {
                 },
                 description: 'life is good',
                 comments: ['bla', 'no'],
-                attachments: [{ bla: 'an attachment' }],
+                attachments: [],
                 checklists: [
                   {
                     id: 'YEhmF',

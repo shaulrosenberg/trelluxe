@@ -1,0 +1,102 @@
+.dates-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+    width: 100%;
+
+    .date-picker {
+        margin-bottom: 2rem;
+        color: #4a4a4a;
+    }
+
+    .date-inputs {
+        display: flex;
+        flex-direction: column;
+
+        .checkbox-input-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .date-checkbox-input {
+                margin-right: 0.5rem;
+            }
+
+            .date-input {
+                flex: 1;
+                margin-left: 0.5rem;
+            }
+        }
+
+        .date-input-group,
+        .reminder-input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+
+            label {
+                margin-bottom: 0.5rem;
+                font-size: rem(12px);
+                font-weight: 600;
+            }
+
+            .date-checkbox-input {
+                margin-right: 0.5rem;
+            }
+
+            .date-input,
+            .reminder-select {
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                border: 1px solid #ced4da;
+                color: #495057;
+            }
+
+            .reminder-description {
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+                color: #6c757d;
+            }
+        }
+
+        .buttons-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: flex-start;
+
+            .save-button,
+            .remove-button {
+                margin-block-end: rem(3px);
+                width: 100%;
+                border: none;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+            .save-button {
+                color: white;
+                background-color: #007bff;
+
+                &:hover {
+                    background-color: #0069d9;
+                }
+            }
+
+            .remove-button {
+                color: #dc3545;
+                background-color: white;
+                border: 1px solid #dc3545;
+
+                &:hover {
+                    color: white;
+                    background-color: #dc3545;
+                }
+            }
+        }
+    }
+}
