@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
+import { updateTask } from '../store/board.actions'
 
 import { AiOutlineTags, AiOutlineMinus, AiOutlineCheckSquare, AiOutlineFieldTime, AiOutlineCopy } from "react-icons/ai"
 import { BsPersonPlus, BsArrowRight, BsArchive, BsSquareHalf } from "react-icons/bs"
@@ -52,6 +53,7 @@ export function TaskControls({ task, boardId, groupId }) {
                     task={task}
                     groupId={groupId}
                     boardId={boardId}
+                    updateTask={updateTask}
                 />}
         </section>
     )
