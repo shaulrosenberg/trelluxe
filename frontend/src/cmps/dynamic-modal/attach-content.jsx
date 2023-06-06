@@ -4,16 +4,13 @@ import { updateTask } from '../../store/board.actions'
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
-export function AttachContent({task, onCloseModal}) {
+export function AttachContent({onCloseModal}) {
      const params = useParams()
      const [currTask, setCurrTask] = useState(null)
-     // const attachment = task?.attachment ?? []
 
      async function saveImg(ev) {
           try {
-               // const imgUrl = await uploadService.uploadImg(ev)
                const data = await uploadService.uploadImg(ev)
                console.log('data', data)
                if (currTask.attachments){
