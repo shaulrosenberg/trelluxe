@@ -159,8 +159,8 @@ function findTaskById(taskId) {
   })
 }
 
-function findGroupById(groupId, board){
-  const currGroup = board.groups.find((group) => group.id === groupId)
+function findGroupById(groupId, board) {
+  const currGroup = board.groups.find(group => group.id === groupId)
   const groupTitle = currGroup.title
   return groupTitle
 }
@@ -187,18 +187,18 @@ function _createBoards() {
         members: [
           {
             _id: 'u101',
-            fullname: 'Adam',
-            imgUrl: 'http://https://robohash.org/adam',
+            fullname: 'Adam Gertzkin',
+            imgUrl: 'https://robohash.org/adam',
           },
           {
             _id: 'u102',
-            fullname: 'Shaul',
-            imgUrl: 'http://https://robohash.org/shaul',
+            fullname: 'Shaul Rosenberg',
+            imgUrl: 'https://robohash.org/shaul',
           },
           {
             _id: 'u103',
-            fullname: 'Dor',
-            imgUrl: 'http://https://robohash.org/dor',
+            fullname: 'Dor Cohen',
+            imgUrl: 'https://robohash.org/dor',
           },
         ],
         groups: [
@@ -218,17 +218,17 @@ function _createBoards() {
                 attachments: [],
                 checklists: [
                   {
-                      "id": "YEhmF",
-                      "title": "Checklist",
-                      "todos": [
-                          {
-                              "id": "212jX",
-                              "title": "To Do 1",
-                              "isDone": true
-                          }
-                      ]
-                  }
-              ],
+                    id: 'YEhmF',
+                    title: 'Checklist',
+                    todos: [
+                      {
+                        id: '212jX',
+                        title: 'To Do 1',
+                        isDone: true,
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 id: 't102',

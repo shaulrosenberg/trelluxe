@@ -1,16 +1,29 @@
-import { useState } from "react"
-// import MuiDatePicker
-import { updateTask } from "../../store/board.actions"
+import { useState, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-export function DatesContent() {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+export function DatesContent({ task, updateTask }) {
+  const [selectedDate, setSelectedDate] = useState(task?.dueDate);
 
-    return(
-        <section>
-            <p>Date1</p>
-            <p>Date2</p>
-            <p>Date3</p>
-            <p>Date4</p>
-        </section>
-    )
+  useEffect(() => {
+    setSelectedDate(task?.dueDate ? new Date(task.dueDate) : new Date());
+  }, [task]);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    updateTask({ ...task, dueDate: date });
+  };
+
+  return (
+    <section className="dates-content">
+      <DatePicker
+        selected={selectedDate}
+        onChange={handleDateChange}
+        dateFormat="MM/dd/yyyy"
+        inline
+        minDate={new Date()}
+        highlightDates={[new Date()]}
+      />
+    </section>
+  );
 }
