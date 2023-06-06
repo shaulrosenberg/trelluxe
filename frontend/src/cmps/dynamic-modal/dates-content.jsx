@@ -1,16 +1,28 @@
-import { useState } from "react"
-// import MuiDatePicker
-import { updateTask } from "../../store/board.actions"
+import { useState } from "react";
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
 
-export function DatesContent() {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+export function DatesContent({ task, updateTask }) {
+    const [selectedDate, setSelectedDate] = useState(task?.dueDate || new Date())
 
-    return(
-        <section>
-            <p>Date1</p>
-            <p>Date2</p>
-            <p>Date3</p>
-            <p>Date4</p>
-        </section>
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+        updateTask({ ...task, dueDate: date })
+    }
+
+    return (
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <section className="dates-content">
+                <DatePicker
+                    label="Due date"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    disablePast
+                    format="MM/dd/yyyy"
+                    inputVariant="outlined"
+                    fullWidth
+                />
+            </section>
+        </MuiPickersUtilsProvider>
     )
 }

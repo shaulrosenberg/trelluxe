@@ -11,20 +11,20 @@ export function CreateBoardContent({ onCloseModal }) {
     const backgrounds = [
         '#0079bf', 
         '#d29034', 
-        'linear-gradient(to right, #519839, #b04632)', 
+        // 'linear-gradient(to right, #519839, #b04632)', 
         '#89609e', 
-        'linear-gradient(to right, #cd5a91, #4bbf6b)', 
+        // 'linear-gradient(to right, #cd5a91, #4bbf6b)', 
         '#00aecc', 
         '#838c91',
-        'linear-gradient(to right, #0079bf, #d29034)',
-        'linear-gradient(to right, #89609e, #838c91)'
+        // 'linear-gradient(to right, #0079bf, #d29034)',
+        // 'linear-gradient(to right, #89609e, #838c91)'
     ]
 
     async function handleSubmit(event) {
         event.preventDefault()
         const newBoard = await addBoard({
             title: boardTitle,
-            style: { background: boardBackground },
+            style: { backgroundColor: boardBackground },
             isStarred: false,
             groups: [],
             activities: []
@@ -36,7 +36,7 @@ export function CreateBoardContent({ onCloseModal }) {
     return (
         <section className="create-board-content">
             {/* Board Preview */}
-            <div className="board-preview" style={{ background: boardBackground }}>
+            <div className="board-preview" style={{ backgroundColor: boardBackground }}>
                 <h3>{boardTitle || 'Untitled Board'}</h3>
             </div>
 
@@ -51,7 +51,7 @@ export function CreateBoardContent({ onCloseModal }) {
                         <div
                             key={background}
                             className="color-option"
-                            style={{ background: background }}
+                            style={{ backgroundColor: background }}
                             onClick={() => setBoardBackground(background)}
                         ></div>
                     ))}
