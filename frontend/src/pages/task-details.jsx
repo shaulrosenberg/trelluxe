@@ -53,7 +53,7 @@ export function TaskDetails() {
           } else return
           return coverStyle
      }
-     
+
      console.log('task:', task) // Check the value of task
      if (!task) return <div className='loading-bar'>Loading...</div>
      return (
@@ -124,7 +124,6 @@ export function TaskDetails() {
                     )}
 
                     <TfiMenuAlt className='icon-activitiy' />
-                    <div className='a'></div>
                     <div className='div-activity'>
                          <p>Activity</p>
                          <input
