@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { updateTask } from '../../store/board.actions'
 
 export function MembersContent({ task, boardId, groupId }) {
-    // initial state should be task.members
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
     const taskMembersIds = task.memberIds
 

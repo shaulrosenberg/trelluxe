@@ -95,7 +95,7 @@ export function TaskDetails() {
                                    <AttachImage task={task} />
                               </div>
                          </>
-                    )}
+                    )} 
 
                     <TfiMenuAlt className='icon-activitiy' />
                     {/* <h5 className='task-details-user'>User</h5> */}
