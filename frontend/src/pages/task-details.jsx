@@ -16,11 +16,8 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
-<<<<<<< HEAD
 import { TaskOverview } from '../cmps/task-overview'
-=======
 import { TaskChecklists } from '../cmps/task-checklists'
->>>>>>> refs/remotes/origin/main
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
@@ -59,11 +56,11 @@ export function TaskDetails() {
 
      function checkStyle() {
           let coverStyle = null
-          
+
           if (task.style.backgroundImage) {
-               coverStyle = {backgroundImage: `url(${task.style.backgroundImage})`}
+               coverStyle = { backgroundImage: `url(${task.style.backgroundImage})` }
           } else if (task.style.backgroundColor) {
-               coverStyle = {backgroundColor: task.style.backgroundColor}
+               coverStyle = { backgroundColor: task.style.backgroundColor }
           }
           return coverStyle
      }
@@ -127,10 +124,10 @@ export function TaskDetails() {
                          )}
                     </div>
 
-                    
-                    {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId}/>}
-                    
-                    
+
+                    {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId} />}
+
+
 
                     {/* need to render Attachment cmp here */}
                     {task.attachments && (
