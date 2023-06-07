@@ -8,27 +8,30 @@ export function EditAttachment() {
      const [cloneTask, setCloneTask] = useState({})
      const [inputVal, setInputVal] = useState('')
      const [imageName, setImageName] = useState('')
-     function currTask() {
-          boardService.findTaskById(params.taskId).then((task) => {
-               setCloneTask({ ...task })
-          })
-     }
 
      useEffect(() => {
-          console.log('from edit', params)
-          console.log(cloneTask)
-          currTask()
-     }, [])
+          async function fetchTask() {
+               const task = await boardService.findTaskById(params.taskId)
+               setCloneTask({ ...task })
+          }
+
+          fetchTask()
+     }, [params.taskId])
 
      async function onUpdateTitle() {
-          const imgIdx = cloneTask.imgAttachment.findIndex(
-               (imgObj) =>
-                    imgObj.original_filename ===
-                    cloneTask.imgAttachment.find((img) => img.original_filename)
-          )
+          if (!cloneTask.imgAttachment || cloneTask.imgAttachment.length === 0) {
+               return
+          }
 
-          cloneTask.imgAttachment[0].original_filename = inputVal
-          await updateTask(cloneTask, params.boardId, params.groupId)
+          const updatedCloneTask = {
+               ...cloneTask,
+               imgAttachment: cloneTask.imgAttachment.map((img, idx) =>
+                    idx === 0 ? { ...img, original_filename: inputVal } : img
+               )
+          }
+
+          await updateTask(updatedCloneTask, params.boardId, params.groupId)
+          setCloneTask(updatedCloneTask)
      }
 
      return (
@@ -42,7 +45,7 @@ export function EditAttachment() {
                          placeholder='Enter name name'
                          onChange={(ev) => setInputVal(ev.target.value)}
                     />
-                    <button onClick={() => onUpdateTitle()}>Update</button>
+                    <button onClick={onUpdateTitle}>Update</button>
                </div>
           </section>
      )

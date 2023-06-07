@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { boardService } from '../services/board.service'
 
 // icon
 import { ImAttachment } from 'react-icons/im'
@@ -15,10 +14,10 @@ export function AttachImage({ task }) {
      const [modalType, setModalType] = useState(null)
      const eventRef = useRef(null)
 
-     function onDeleteAttachment(index) {
+     async function onDeleteAttachment(index) {
           const taskClone = { ...task }
           taskClone.attachments.splice(index, 1)
-          updateTask(taskClone, params.boardId, params.groupId)
+          await updateTask(taskClone, params.boardId, params.groupId)
      }
 
      function onToggleModal(type = null, ev = null) {

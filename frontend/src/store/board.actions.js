@@ -84,6 +84,7 @@ export async function addGroup(groupTitle, boardId) {
 //tasks
 export async function updateTask(task, boardId, groupId) {
   try {
+    console.log(task)
     const updatedBoard = await boardService.updateTask(task, boardId, groupId)
     store.dispatch(getActionUpdateBoard(updatedBoard))
     store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })

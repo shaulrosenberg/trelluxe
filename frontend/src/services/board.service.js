@@ -317,6 +317,8 @@ function _createBoards() {
                 id: 't302',
                 title: 'Client meetings',
                 attachments: [],
+                dueDate: null,
+                checklists: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',

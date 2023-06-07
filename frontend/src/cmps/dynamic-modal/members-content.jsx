@@ -20,7 +20,7 @@ export function MembersContent({ task, boardId, groupId }) {
             updatedTask = { ...task, memberIds: newIds }
         }
         try {
-            updateTask(updatedTask, boardId, groupId)
+            await updateTask(updatedTask, boardId, groupId)
         } catch (error) {
             console.error(error)
         }
