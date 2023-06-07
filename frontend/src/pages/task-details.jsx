@@ -16,13 +16,16 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
+import { TaskDetailsCover } from '../cmps/task-cover'
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
      const [task, setTask] = useState(null)
      const [isDescEdit, setIsDescEdit] = useState(false)
      const [gTitle, setGTitle] = useState('')
-     const board = useSelector((storeState) => storeState.boardModule.selectedBoard)
+     const board = useSelector(
+          (storeState) => storeState.boardModule.selectedBoard
+     )
      const navigate = useNavigate()
      const params = useParams()
 
@@ -31,7 +34,6 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-
      }, [isDescEdit, board])
 
      function onTaskExit() {
@@ -43,6 +45,7 @@ export function TaskDetails() {
           setGTitle(groupTitle)
      }
 
+     
 
      console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
@@ -54,10 +57,22 @@ export function TaskDetails() {
                          onClick={() => onTaskExit()}
                     />
 
+                    <div
+                         className='task-cover-container'
+                         style={{backgroundColor: task.style.backgroundColor || task.style.backgroundImage}}
+                    >
+                         <TaskDetailsCover />
+                    </div>
+
                     <MdSubtitles className='icon-title' />
                     <div className='div-task-title'>
                          {task ? <h2>{task.title}</h2> : 'Loading'}
-                         <p>in list <span className='group-title-task-details'>{gTitle}</span></p>
+                         <p>
+                              in list{' '}
+                              <span className='group-title-task-details'>
+                                   {gTitle}
+                              </span>
+                         </p>
                     </div>
 
                     <div className='div-task-controls'>
@@ -95,10 +110,9 @@ export function TaskDetails() {
                                    <AttachImage task={task} />
                               </div>
                          </>
-                    )} 
+                    )}
 
                     <TfiMenuAlt className='icon-activitiy' />
-                    {/* <h5 className='task-details-user'>User</h5> */}
                     <div className='a'></div>
                     <div className='div-activity'>
                          <p>Activity</p>
