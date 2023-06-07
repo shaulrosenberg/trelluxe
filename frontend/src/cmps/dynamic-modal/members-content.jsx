@@ -9,7 +9,7 @@ export function MembersContent({ task, boardId, groupId }) {
 
     const [displayedMembers, setDisplayedMembers] = useState(board.members)
 
-    async function onMemberToggle(ev, id) {
+    async function onMemberToggle(id) {
         let updatedMembersIds = []
         let updatedTask
         if (taskMembersIds?.includes(id)) {
@@ -20,7 +20,7 @@ export function MembersContent({ task, boardId, groupId }) {
             updatedTask = { ...task, memberIds: newIds }
         }
         try {
-            updateTask(updatedTask, boardId, groupId)
+            await updateTask(updatedTask, boardId, groupId)
         } catch (error) {
             console.error(error)
         }
@@ -45,7 +45,7 @@ export function MembersContent({ task, boardId, groupId }) {
                 <div className='members-modal-body'>
                     <ul className="task-members clean-list">
                         {displayedMembers && displayedMembers.map(memberToDisplay =>
-                            <li key={memberToDisplay._id} className='flex member-to-display' title={`${memberToDisplay.fullname}`} onClick={ev => { onMemberToggle(ev, memberToDisplay._id) }} >
+                            <li key={memberToDisplay._id} className='flex member-to-display' title={`${memberToDisplay.fullname}`} onClick={() => { onMemberToggle(memberToDisplay._id) }} >
                                 <img className='board-member-icon' src={memberToDisplay.imgUrl} alt='a member icon. when clicked on members is added to the task' />
                                 <span className='board-member-name'>{memberToDisplay.fullname}</span>
                                 {taskMembersIds?.includes(memberToDisplay._id) && (

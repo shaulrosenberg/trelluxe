@@ -329,7 +329,7 @@ function _createBoards() {
                 style: {
                   backgroundColor: '#DC143C',
                 },
-                labelIds: ['l108', 'l102'],
+                labelIds: ['l108', 'l10ffdsfsaf432'],
                 description: 'life is good',
 
                 attachments: [{ bla: 'an attachment' }],
@@ -394,7 +394,7 @@ function _createBoards() {
                   backgroundImage:
                     'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
                 },
-                labelIds: ['l101', 'l102', 'l103'],
+                labelIds: ['l101', 'l3423453fdsd102', 'l103'],
               },
               {
                 id: 't502',
@@ -441,7 +441,7 @@ function _createBoards() {
             color: '#FFB6C1',
           },
           {
-            id: 'l102',
+            id: 'l1jfsdfsd02',
             title: 'Progress',
             color: '#579DFF',
           },
@@ -630,7 +630,7 @@ function _createBoards() {
                 style: {
                   backgroundColor: '#DC143C',
                 },
-                labelIds: ['l108', 'l102'],
+                labelIds: ['l108', 'l1444402'],
               },
             ],
           },
