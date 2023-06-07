@@ -16,7 +16,11 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
+<<<<<<< HEAD
 import { TaskOverview } from '../cmps/task-overview'
+=======
+import { TaskChecklists } from '../cmps/task-checklists'
+>>>>>>> refs/remotes/origin/main
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
@@ -30,11 +34,19 @@ export function TaskDetails() {
      const params = useParams()
 
      useEffect(() => {
-          getGroupTitle()
-          boardService
-               .findTaskById(taskId)
-               .then((currTask) => setTask(currTask))
+          loadTask()
      }, [board])
+
+
+     const loadTask = async () => {
+          try {
+               getGroupTitle()
+               const currTask = await boardService.findTaskById(taskId)
+               setTask(currTask)
+          } catch (err) {
+               console.log('cannot load task in task-details', err)
+          }
+     }
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
@@ -47,11 +59,12 @@ export function TaskDetails() {
 
      function checkStyle() {
           let coverStyle = null
-          if (task.style.backgroundColor) {
-               coverStyle = task.style.backgroundColor
-          } else if (task.style.backgroundImage) {
-               coverStyle = task.style.backgroundImage
-          } else return
+          
+          if (task.style.backgroundImage) {
+               coverStyle = {backgroundImage: `url(${task.style.backgroundImage})`}
+          } else if (task.style.backgroundColor) {
+               coverStyle = {backgroundColor: task.style.backgroundColor}
+          }
           return coverStyle
      }
 
@@ -65,13 +78,10 @@ export function TaskDetails() {
                          onClick={() => onTaskExit()}
                     />
 
-                    {task && task.style && (
+                    {task.style && (
                          <div
                               className='task-cover-container'
-                              style={{
-                                   // backgroundColor: task.style.backgroundColor,
-                                   backgroundColor: checkStyle()
-                              }}
+                              style={checkStyle()}
                          ></div>
                     )}
 
@@ -116,7 +126,11 @@ export function TaskDetails() {
                               </a>
                          )}
                     </div>
-                    {/* Need to render checklist here */}
+
+                    
+                    {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId}/>}
+                    
+                    
 
                     {/* need to render Attachment cmp here */}
                     {task.attachments && (

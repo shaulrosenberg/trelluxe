@@ -1,36 +1,29 @@
-import { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useState, useEffect } from "react"
+import DatePicker from "react-datepicker"
+import { parseISO, format, isValid } from 'date-fns'
+import "react-datepicker/dist/react-datepicker.css"
 
 export function DatesContent({ task, boardId, groupId, updateTask }) {
-    const [selectedDate, setSelectedDate] = useState(task?.dueDate)
-    const [startDate, setStartDate] = useState(task?.startDate || "")
-    const [dueDate, setDueDate] = useState(task?.dueDate || "")
-    const [startCheckbox, setStartCheckbox] = useState(false)
+    const [selectedDate, setSelectedDate] = useState(new Date())
+    const [dueDate, setDueDate] = useState("")
     const [dueCheckbox, setDueCheckbox] = useState(false)
     const [reminder, setReminder] = useState('None')
 
     useEffect(() => {
-        setSelectedDate(task?.dueDate ? new Date(task.dueDate) : new Date())
+        if(task?.dueDate && isValid(parseISO(task.dueDate))) {
+            setSelectedDate(parseISO(task.dueDate))
+        } else {
+            setSelectedDate(new Date())
+        }
     }, [task])
 
     const handleDateChange = (date) => {
         setSelectedDate(date)
     }
 
-    const handleStartChange = (event) => {
-        setStartDate(event.target.value)
-        // update start date in your task
-    }
-
     const handleDueChange = (event) => {
         setDueDate(event.target.value)
         // update due date in your task
-    }
-
-    const handleStartCheckboxChange = (event) => {
-        setStartCheckbox(event.target.checked)
-        // perform action when start checkbox is changed
     }
 
     const handleDueCheckboxChange = (event) => {
@@ -51,9 +44,9 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
         await updateTask(updatedTask, boardId, groupId)
     }
 
-    const handleRemove = () => {
+    async function handleRemove() {
         // Remove due date
-        updateTask({ ...task, dueDate: null }, boardId, groupId)
+        await updateTask({ ...task, dueDate: null }, boardId, groupId)
     }
 
     return (
@@ -68,26 +61,6 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
                 className="date-picker"
             />
             <div className="date-inputs">
-                <div className="date-input-group">
-                    <label className="date-checkbox-label">
-                        Start Date
-                    </label>
-                    <div className="checkbox-input-wrapper">
-                        <input
-                            type="checkbox"
-                            checked={startCheckbox}
-                            onChange={handleStartCheckboxChange}
-                            className="date-checkbox-input"
-                        />
-                        <input
-                            type="date"
-                            value={startDate}
-                            onChange={handleStartChange}
-                            disabled={!startCheckbox}
-                            className="date-input"
-                        />
-                    </div>
-                </div>
                 <div className="date-input-group">
                     <label className="date-checkbox-label">
                         Due Date
@@ -125,5 +98,5 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
                 </div>
             </div>
         </section>
-    );
+    )
 }

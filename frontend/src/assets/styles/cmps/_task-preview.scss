@@ -82,6 +82,7 @@
 
 .task-preview-labels {
   display: flex;
+  flex-wrap: wrap;
 
   .label {
     width: rem(40px);
