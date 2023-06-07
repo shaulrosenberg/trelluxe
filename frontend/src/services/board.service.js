@@ -169,7 +169,7 @@ function findGroupById(groupId, board) {
 function getTaskMembers(boardMembers, taskIds) {
   // This is a service for the front so understand it is only updated as long as the front is updated which we should insure by always working through the store which updates the back
 
-  if (!taskIds.length) return null
+  if (!taskIds?.length) return null
 
   return taskIds.reduce((result, taskId) => {
     const matchingMember = boardMembers.find(member => member._id === taskId)
