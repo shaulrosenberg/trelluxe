@@ -34,12 +34,8 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-<<<<<<< HEAD
 
      }, [board])
-=======
-     }, [isDescEdit, board])
->>>>>>> 6e715ecd58ffc3a7446ebd5c4969b58f878ea12c
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
