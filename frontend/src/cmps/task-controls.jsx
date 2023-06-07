@@ -60,6 +60,7 @@ export function TaskControls({ task, boardId, groupId }) {
                     groupId={groupId}
                     boardId={boardId}
                     updateTask={updateTask}
+                    onToggleModal={onToggleModal}
                 />}
         </section>
     )

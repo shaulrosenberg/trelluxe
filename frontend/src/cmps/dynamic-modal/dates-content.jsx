@@ -43,12 +43,12 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
         // perform action when reminder is changed
     }
 
-    const handleSave = () => {
+    async function handleSave() {
         // Save changes
         const updatedTask = JSON.parse(JSON.stringify(task))
         updatedTask.dueDate = selectedDate
 
-        updateTask(updatedTask, boardId, groupId)
+        await updateTask(updatedTask, boardId, groupId)
     }
 
     const handleRemove = () => {
