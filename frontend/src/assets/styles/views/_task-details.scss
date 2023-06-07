@@ -135,7 +135,6 @@
 
 // description section
 .div-desc {
-     margin: 2.5rem 0;
      p {
           font-weight: 600;
           font-size: rem(16px);
@@ -167,6 +166,7 @@
 
      .input-task-activity {
           padding: 0.7rem 0.7rem;
+          margin-bottom: 15px;
           width: 100%;
           border: none;
           text-decoration: none;
