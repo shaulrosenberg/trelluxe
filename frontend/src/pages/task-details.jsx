@@ -16,6 +16,7 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
+import { TaskChecklists } from '../cmps/task-checklists'
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
@@ -29,11 +30,19 @@ export function TaskDetails() {
      const params = useParams()
 
      useEffect(() => {
-          getGroupTitle()
-          boardService
-               .findTaskById(taskId)
-               .then((currTask) => setTask(currTask))
+          loadTask()
      }, [board])
+
+
+     const loadTask = async () => {
+          try {
+               getGroupTitle()
+               const currTask = await boardService.findTaskById(taskId)
+               setTask(currTask)
+          } catch (err) {
+               console.log('cannot load task in task-details', err)
+          }
+     }
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
@@ -111,7 +120,7 @@ export function TaskDetails() {
                               </a>
                          )}
                     </div>
-                    {/* Need to render checklist here */}
+                    {task && <TaskChecklists task={task} boardId={boardId} groupId={groupId}/>}
 
                     {/* need to render Attachment cmp here */}
                     {task.attachments && (
