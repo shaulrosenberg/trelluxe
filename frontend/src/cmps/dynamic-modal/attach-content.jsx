@@ -5,19 +5,20 @@ import { updateTask } from '../../store/board.actions'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-export function AttachContent({onCloseModal}) {
+export function AttachContent({ onCloseModal }) {
      const params = useParams()
      const [currTask, setCurrTask] = useState(null)
 
      async function saveImg(ev) {
           try {
                const data = await uploadService.uploadImg(ev)
-               console.log('data', data)
-               if (currTask.attachments){
-                    currTask.attachments.push(data)
+               let updatedTask = { ...currTask }
+               if (updatedTask.attachments) {
+                    updatedTask.attachments = [...updatedTask.attachments, data]
+               } else {
+                    updatedTask.attachments = [data]
                }
-
-               await updateTask(currTask, params.boardId, params.groupId)
+               await updateTask(updatedTask, params.boardId, params.groupId)
                onCloseModal()
           } catch (err) {
                console.log('err saving img', err)

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
 import { boardService } from '../services/board.service'
@@ -33,7 +33,8 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-     }, [isDescEdit, board])
+
+     }, [board])
 
      function onTaskExit() {
           navigate(`/board/${boardId}`)
