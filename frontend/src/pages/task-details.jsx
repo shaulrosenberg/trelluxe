@@ -55,11 +55,12 @@ export function TaskDetails() {
 
      function checkStyle() {
           let coverStyle = null
-          if (task.style.backgroundColor) {
-               coverStyle = task.style.backgroundColor
-          } else if (task.style.backgroundImage) {
-               coverStyle = task.style.backgroundImage
-          } else return
+          
+          if (task.style.backgroundImage) {
+               coverStyle = {backgroundImage: `url(${task.style.backgroundImage})`}
+          } else if (task.style.backgroundColor) {
+               coverStyle = {backgroundColor: task.style.backgroundColor}
+          }
           return coverStyle
      }
 
@@ -76,9 +77,7 @@ export function TaskDetails() {
                     {task.style && (
                          <div
                               className='task-cover-container'
-                              style={{
-                                   backgroundColor: checkStyle(),
-                              }}
+                              style={checkStyle()}
                          ></div>
                     )}
 

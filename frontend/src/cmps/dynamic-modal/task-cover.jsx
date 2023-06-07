@@ -36,7 +36,7 @@ export function CoverContent({ task }) {
      async function onRemoveCover(){
           const updatedTask = {
                ...task,
-               style: {...task.style, backgroundColor: ''}
+               style: null
           }
           await updateTask(updatedTask, boardId, groupId)
      }
@@ -56,7 +56,7 @@ export function CoverContent({ task }) {
           }
           await updateTask(updatedTask, boardId, groupId)
      }
-     
+
      // while clicked the card preview style change to half cover
      async function onHalfCoverClick(){
           console.log('full click')
