@@ -1,9 +1,9 @@
 .group-list-container {
      display: flex;
-     height: calc(100vh - 6.3rem);
      overflow-y: hidden;
      overflow-x: auto;
      margin-top: 0.5rem;
+     padding-inline-end: 40px;
    
      /* Custom scrollbar styles */
      scrollbar-width: thin;

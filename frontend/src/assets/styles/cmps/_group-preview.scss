@@ -1,6 +1,6 @@
 .group-preview {
      display: flex;
-     justify-content: start;
+     justify-content: flex-start;
      margin: 5px 0px 1px 15px;
      flex-direction: column;
      min-width: 17rem;
@@ -8,7 +8,6 @@
      width: 256px;
      background-color: $clr30;
      border-radius: rem(12px);
-     overflow-y: auto;
      max-height: 100%;
 
      overflow-y: auto;

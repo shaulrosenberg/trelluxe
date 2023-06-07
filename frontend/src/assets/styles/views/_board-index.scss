@@ -1,3 +1,18 @@
 .board-index {
     overflow-y: hidden;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.main-container{
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-component{
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
 }

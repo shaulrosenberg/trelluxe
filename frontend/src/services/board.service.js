@@ -254,6 +254,7 @@ function _createBoards() {
               {
                 id: 't104',
                 title: 'User testing',
+                attachments: [],
                 style: {
                   backgroundColor: '#6A5ACD',
                 },

@@ -13,9 +13,9 @@ import { TaskDetails } from './pages/task-details'
 export function RootCmp() {
 
     return (
-        <div>
+        <div className='main-component'>
             <AppHeader />
-            <main>
+            <main className='main-container'>
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/board/:boardId' element={<BoardIndex />}>
