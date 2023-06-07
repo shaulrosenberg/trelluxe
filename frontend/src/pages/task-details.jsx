@@ -119,7 +119,10 @@ export function TaskDetails() {
                          )}
                     </div>
 
+                    
                     {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId}/>}
+                    
+                    
 
                     {/* need to render Attachment cmp here */}
                     {task.attachments && (
