@@ -15,42 +15,46 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
     }, [task])
 
     const handleDateChange = (date) => {
-        setSelectedDate(date);
-        updateTask({ ...task, dueDate: date }, boardId, groupId);
+        setSelectedDate(date)
     }
 
     const handleStartChange = (event) => {
-        setStartDate(event.target.value);
+        setStartDate(event.target.value)
         // update start date in your task
     }
 
     const handleDueChange = (event) => {
-        setDueDate(event.target.value);
+        setDueDate(event.target.value)
         // update due date in your task
-    };
+    }
 
     const handleStartCheckboxChange = (event) => {
-        setStartCheckbox(event.target.checked);
+        setStartCheckbox(event.target.checked)
         // perform action when start checkbox is changed
-    };
+    }
 
     const handleDueCheckboxChange = (event) => {
-        setDueCheckbox(event.target.checked);
+        setDueCheckbox(event.target.checked)
         // perform action when due checkbox is changed
-    };
+    }
 
     const handleReminderChange = (event) => {
-        setReminder(event.target.value);
+        setReminder(event.target.value)
         // perform action when reminder is changed
-    };
+    }
 
     const handleSave = () => {
         // Save changes
-    };
+        const updatedTask = JSON.parse(JSON.stringify(task))
+        updatedTask.dueDate = selectedDate
+
+        updateTask(updatedTask, boardId, groupId)
+    }
 
     const handleRemove = () => {
         // Remove due date
-    };
+        updateTask({ ...task, dueDate: null }, boardId, groupId)
+    }
 
     return (
         <section className="dates-content">
