@@ -6,6 +6,8 @@ import { AiOutlineTags, AiOutlineMinus, AiOutlineCheckSquare, AiOutlineFieldTime
 import { BsPersonPlus, BsArrowRight, BsArchive, BsSquareHalf } from "react-icons/bs"
 import { MdOutlineAttachment } from "react-icons/md"
 import { useSelector } from 'react-redux'
+import { BsWindowDesktop } from "react-icons/bs";
+
 
 
 export function TaskControls({ task, boardId, groupId }) {
@@ -30,6 +32,7 @@ export function TaskControls({ task, boardId, groupId }) {
         'dates': 'Dates',
         'attachment': 'Attachment',
         'archive': 'Archive',
+        'cover': 'Cover',
     }
 
     return (
@@ -43,6 +46,7 @@ export function TaskControls({ task, boardId, groupId }) {
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('dates', ev)}><AiOutlineFieldTime />Dates</button>
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('attachment', ev)}><MdOutlineAttachment />Attachment</button>
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('archive', ev)}><BsArchive />Archive</button>
+                    <button className='btn-task-control' onClick={(ev) => onToggleModal('cover', ev)}><BsWindowDesktop />Cover</button>
                 </section>
             </section>
             {modalType &&

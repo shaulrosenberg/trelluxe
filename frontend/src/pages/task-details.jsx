@@ -16,7 +16,6 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
-import { TaskDetailsCover } from '../cmps/task-cover'
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
@@ -46,8 +45,6 @@ export function TaskDetails() {
           setGTitle(groupTitle)
      }
 
-     
-
      console.log('task:', task) // Check the value of task
      if (!task) return <div>Loading...</div>
      return (
@@ -58,12 +55,14 @@ export function TaskDetails() {
                          onClick={() => onTaskExit()}
                     />
 
-                    <div
-                         className='task-cover-container'
-                         style={{backgroundColor: task.style.backgroundColor || task.style.backgroundImage}}
-                    >
-                         <TaskDetailsCover />
-                    </div>
+                    {/* {task.style.backgroundColor && (
+                         <div
+                              className='task-cover-container'
+                              style={{
+                                   backgroundColor: task.style.backgroundColor,
+                              }}
+                         ></div>
+                    )} */}
 
                     <MdSubtitles className='icon-title' />
                     <div className='div-task-title'>

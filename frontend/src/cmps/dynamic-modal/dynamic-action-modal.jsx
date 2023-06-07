@@ -11,6 +11,7 @@ import { CreateBoardContent } from "./create-board-content"
 import { useSelector } from "react-redux"
 import { EditAttachment } from './edit-attachment'
 // import {EditLabelsContent} from './'
+import { CoverContent } from "./task-cover"
 
 export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...props }) {
     // Get window width
@@ -38,6 +39,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         createBoard: CreateBoardContent,
         editAttach: EditAttachment,
         // editLabels: editLabels
+        cover: CoverContent
     }
 
     // Get the component from the map

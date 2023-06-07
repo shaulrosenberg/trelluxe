@@ -1,0 +1,20 @@
+.task-cover-section {
+    
+     h5 {
+          margin-block-end: 5px;
+          font-size: rem(12px);
+          color: #44546F;
+     }
+}
+
+.colors-container {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.25rem;
+}
+
+.cover-colors-section {
+     width: 50px;
+     height: 32px;
+     cursor: pointer;
+}
