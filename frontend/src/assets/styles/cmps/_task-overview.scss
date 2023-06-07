@@ -1,0 +1,29 @@
+.task-overview{
+    
+.subscribe-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #e1e1e1;
+    }
+  
+    .svg-icon {
+      margin-right: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  
+    .btn-txt {
+      font-size: 16px;
+      color: #333;
+    }
+  }
+}

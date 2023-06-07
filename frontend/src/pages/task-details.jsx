@@ -16,6 +16,7 @@ import { TaskControls } from '../cmps/task-controls'
 import { DescEdit } from '../cmps/task-desc'
 import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
+import { TaskOverview } from '../cmps/task-overview'
 
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
@@ -84,7 +85,11 @@ export function TaskDetails() {
                               </span>
                          </p>
                     </div>
-
+                    <div className="task-details-overview-container">
+                         <TaskOverview task={task}
+                              boardId={boardId}
+                              groupId={groupId} />
+                    </div>
                     <div className='div-task-controls'>
                          <TaskControls
                               task={task}
