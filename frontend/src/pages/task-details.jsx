@@ -33,7 +33,6 @@ export function TaskDetails() {
           boardService
                .findTaskById(taskId)
                .then((currTask) => setTask(currTask))
-
      }, [board])
 
      function onTaskExit() {
@@ -45,8 +44,18 @@ export function TaskDetails() {
           setGTitle(groupTitle)
      }
 
+     function checkStyle() {
+          let coverStyle = null
+          if (task.style.backgroundColor) {
+               coverStyle = task.style.backgroundColor
+          } else if (task.style.backgroundImage) {
+               coverStyle = task.style.backgroundImage
+          } else return
+          return coverStyle
+     }
+     
      console.log('task:', task) // Check the value of task
-     if (!task) return <div>Loading...</div>
+     if (!task) return <div className='loading-bar'>Loading...</div>
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
@@ -55,14 +64,15 @@ export function TaskDetails() {
                          onClick={() => onTaskExit()}
                     />
 
-                    {/* {task.style.backgroundColor && (
+                    {task && task.style && (
                          <div
                               className='task-cover-container'
                               style={{
-                                   backgroundColor: task.style.backgroundColor,
+                                   // backgroundColor: task.style.backgroundColor,
+                                   backgroundColor: checkStyle()
                               }}
                          ></div>
-                    )} */}
+                    )}
 
                     <MdSubtitles className='icon-title' />
                     <div className='div-task-title'>
@@ -101,6 +111,7 @@ export function TaskDetails() {
                               </a>
                          )}
                     </div>
+                    {/* Need to render checklist here */}
 
                     {/* need to render Attachment cmp here */}
                     {task.attachments && (

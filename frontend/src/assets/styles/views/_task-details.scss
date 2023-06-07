@@ -27,6 +27,11 @@
      }
 }
 
+.loading-bar{
+     position: fixed;
+     left: 50%;
+}
+
 .div-task-deatils {
      position: relative;
      border-radius: 0.3rem;
@@ -101,7 +106,6 @@
 
      .div-activity {
           grid-column: 2;
-          grid-row: 5;
           input {
                cursor: pointer;
           }
@@ -122,6 +126,7 @@
           font-size: rem(14px);
           color: #172b4d;
           margin-top: 0.3rem;
+          
      }
 
      h2 {
