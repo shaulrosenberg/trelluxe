@@ -4,20 +4,19 @@ import { updateTask } from '../store/board.actions'
 
 // renders the todos + add , toggle todo
 export function TaskSublist({ checklist, task, boardId, groupId }) {
-    
     const [isEditable, setIsEditable] = useState(true)
     const inputRef = useRef()
 
     useEffect(() => {
-        if(inputRef.current) inputRef.current.focus()
+        if (inputRef.current) inputRef.current.focus()
     }, [])
 
-    
-    
+
     function handleSubmit(ev) {
         ev.preventDefault()
         // add todo
         // const todo = {id: makeId(), isDone: false, }
+
 
     }
 
@@ -42,7 +41,7 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
             {isEditable &&
                 <section>
                     <form onSubmit={handleSubmit}>
-                        <input type="text" ref={inputRef}/>
+                        <input type="text" ref={inputRef} />
                         <button>Add</button>
                         <button onClick={() => setIsEditable(false)}>Cancel</button>
                     </form>

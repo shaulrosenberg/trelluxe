@@ -2,7 +2,7 @@ import { TaskSublist } from "./task-sublist"
 
 export function TaskChecklists({task, boardId, groupId}) {
     // task.checklists (array)
-    if(!task.checklists) return
+    if(!task.checklists) return <></>
     return(
         <section className="task-details-checklists">
             {task.checklists.length && task.checklists.map(checklist => 
