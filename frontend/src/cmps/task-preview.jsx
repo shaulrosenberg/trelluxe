@@ -23,7 +23,7 @@ export function TaskPreview(props) {
         }
         const ans = { txt: `${done}/${todos}`, status: (done / todos) === 1 ? 'check-list-done' : '' }
         return ans
-        // return { txt: `${done}/${todos}`, status: (done / todos) === 1 ? 'checklistDone' : '' };
+
     }
 
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)

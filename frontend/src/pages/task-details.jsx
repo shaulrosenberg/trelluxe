@@ -88,14 +88,14 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                    {task.attachments.length >= 1 && (
+                    {/* {task.attachments.length >= 1 && (
                          <>
                               <ImAttachment className='icon-attachment' />
                               <div className='div-img'>
                                    <AttachImage task={task} />
                               </div>
                          </>
-                    )}
+                    )} */}
 
                     <TfiMenuAlt className='icon-activitiy' />
                     {/* <h5 className='task-details-user'>User</h5> */}
