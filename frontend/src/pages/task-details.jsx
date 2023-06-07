@@ -120,7 +120,7 @@ export function TaskDetails() {
                          )}
                     </div>
 
-                    {task.checklists.length && <TaskChecklists task={task} boardId={boardId} groupId={groupId}/>}
+                    {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId}/>}
 
                     {/* need to render Attachment cmp here */}
                     {task.attachments && (
