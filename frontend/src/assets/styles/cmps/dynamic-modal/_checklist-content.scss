@@ -1,0 +1,121 @@
+.task-details-checklists {
+    grid-column: 1/3;
+
+    .task-checklist {
+        width: 100%;
+
+        .task-details-sublist {
+            width: 100%;
+        }
+    }
+}
+
+
+.sublist-progress-bar {
+    width: 100%;
+    height: 20px;
+    margin-block-end: 7px;
+    background-color: #ddd;
+}
+
+.progress-bar-foreground {
+    height: 100%;
+}
+
+
+.task-details-sublist {
+    border-radius: 0.2rem;
+    background-color: inherit;
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+
+    .checklist-progress {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .sublist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            color: #5e6c84;
+            display: flex;
+            align-items: center;
+
+            svg {
+                margin-right: 0.3rem;
+            }
+        }
+
+        button {
+            padding: 0.3rem;
+            border: none;
+            background-color: transparent;
+            color: #5e6c84;
+            cursor: pointer;
+        }
+    }
+
+    .progress-percent {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .sublist-progress-bar {
+        height: 0.5rem;
+        background-color: #ddd;
+
+        .progress-bar-foreground {
+            height: 100%;
+        }
+    }
+
+    .sublist-todos {
+        margin-top: 0.6rem;
+
+        div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.4rem;
+
+            input[type="checkbox"] {
+                margin-right: 0.5rem;
+            }
+
+            button {
+                margin-left: auto;
+                padding: 0.3rem;
+                border: none;
+                background-color: transparent;
+                color: #5e6c84;
+                cursor: pointer;
+            }
+        }
+    }
+
+    form {
+        display: flex;
+        margin-top: 0.6rem;
+
+        input[type="text"] {
+            flex-grow: 1;
+            margin-right: 0.6rem;
+        }
+
+        button {
+            padding: 0.3rem 0.6rem;
+            border: none;
+            background-color: #5aac44;
+            color: #fff;
+            cursor: pointer;
+
+            &:last-child {
+                background-color: #ea2525;
+            }
+        }
+    }
+}
