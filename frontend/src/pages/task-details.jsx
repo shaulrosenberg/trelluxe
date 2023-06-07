@@ -64,12 +64,11 @@ export function TaskDetails() {
                          onClick={() => onTaskExit()}
                     />
 
-                    {task && task.style && (
+                    {task.style && (
                          <div
                               className='task-cover-container'
                               style={{
-                                   // backgroundColor: task.style.backgroundColor,
-                                   backgroundColor: checkStyle()
+                                   backgroundColor: checkStyle(),
                               }}
                          ></div>
                     )}
