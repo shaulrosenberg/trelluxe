@@ -237,6 +237,7 @@ function _createBoards() {
                 style: {
                   backgroundColor: '#9370DB',
                 },
+                attachments: [],
                 description: 'life is good',
                 comments: ['bla', 'no'],
                 attachments: [{ bla: 'an attachment' }],
@@ -244,6 +245,7 @@ function _createBoards() {
               {
                 id: 't103',
                 title: 'Prototyping',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -265,6 +267,7 @@ function _createBoards() {
               {
                 id: 't201',
                 title: 'Social media planning',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -273,6 +276,7 @@ function _createBoards() {
               {
                 id: 't202',
                 title: 'Brand strategy',
+                attachments: [],
                 style: {
                   backgroundColor: '#FFD700',
                 },
@@ -285,6 +289,7 @@ function _createBoards() {
               {
                 id: 't203',
                 title: 'Press release creation',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
@@ -299,6 +304,7 @@ function _createBoards() {
               {
                 id: 't301',
                 title: 'Prospecting',
+                attachments: [],
                 style: {
                   backgroundColor: '#FF4500',
                 },
@@ -309,6 +315,7 @@ function _createBoards() {
               {
                 id: 't302',
                 title: 'Client meetings',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -317,6 +324,7 @@ function _createBoards() {
               {
                 id: 't303',
                 title: 'Sales strategy planning',
+                attachments: [],
                 style: {
                   backgroundColor: '#DC143C',
                 },
@@ -334,6 +342,7 @@ function _createBoards() {
               {
                 id: 't401',
                 title: 'Interview coordination',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg',
@@ -342,6 +351,7 @@ function _createBoards() {
               {
                 id: 't402',
                 title: 'Employee onboarding',
+                attachments: [],
                 style: {
                   backgroundColor: '#228B22',
                 },
@@ -353,6 +363,7 @@ function _createBoards() {
               {
                 id: 't403',
                 title: 'Team building activities',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg',
@@ -362,6 +373,7 @@ function _createBoards() {
               {
                 id: 't404',
                 title: 'Policy updates',
+                attachments: [],
                 style: {
                   backgroundColor: '#7B68EE',
                 },
@@ -376,6 +388,7 @@ function _createBoards() {
               {
                 id: 't501',
                 title: 'Inventory check',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
@@ -385,6 +398,7 @@ function _createBoards() {
               {
                 id: 't502',
                 title: 'Maintenance scheduling',
+                attachments: [],
                 style: {
                   backgroundColor: '#8B4513',
                 },
@@ -392,6 +406,7 @@ function _createBoards() {
               {
                 id: 't503',
                 title: 'Vendor negotiation',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1556742393-d75f468bfcb0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -479,6 +494,7 @@ function _createBoards() {
         members: [
           {
             _id: 'u104',
+            attachments: [],
             fullname: 'Steve',
             imgUrl: 'http://https://robohash.org/steve',
           },
@@ -501,6 +517,7 @@ function _createBoards() {
               {
                 id: 't101',
                 title: 'Product Ideation',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -517,6 +534,7 @@ function _createBoards() {
               {
                 id: 't102',
                 title: 'Market Research',
+                attachments: [],
                 style: {
                   backgroundColor: '#9370DB',
                 },
@@ -524,6 +542,7 @@ function _createBoards() {
               {
                 id: 't103',
                 title: 'Prototyping',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -539,6 +558,8 @@ function _createBoards() {
               {
                 id: 't104',
                 title: 'User testing',
+                attachments: [],
+                attachments: [],
                 style: {
                   backgroundColor: '#6A5ACD',
                 },
@@ -554,6 +575,7 @@ function _createBoards() {
               {
                 id: 't201',
                 title: 'Product Launch Planning',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -562,6 +584,7 @@ function _createBoards() {
               {
                 id: 't202',
                 title: 'Brand Development',
+                attachments: [],
                 style: {
                   backgroundColor: '#FFD700',
                 },
@@ -570,6 +593,7 @@ function _createBoards() {
               {
                 id: 't203',
                 title: 'Advertisement Design',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
@@ -584,6 +608,7 @@ function _createBoards() {
               {
                 id: 't301',
                 title: 'Sales Training',
+                attachments: [],
                 style: {
                   backgroundColor: '#FF4500',
                 },
@@ -591,6 +616,7 @@ function _createBoards() {
               {
                 id: 't302',
                 title: 'Lead Generation',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -599,6 +625,7 @@ function _createBoards() {
               {
                 id: 't303',
                 title: 'Customer Relations',
+                attachments: [],
                 style: {
                   backgroundColor: '#DC143C',
                 },
@@ -613,6 +640,7 @@ function _createBoards() {
               {
                 id: 't401',
                 title: 'Technical Support',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg',
@@ -621,6 +649,7 @@ function _createBoards() {
               {
                 id: 't402',
                 title: 'Customer Service Training',
+                attachments: [],
                 style: {
                   backgroundColor: '#228B22',
                 },
@@ -629,6 +658,7 @@ function _createBoards() {
               {
                 id: 't403',
                 title: 'Customer Satisfaction Survey',
+                attachments: [],
                 style: {
                   backgroundImage:
                     'https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg',

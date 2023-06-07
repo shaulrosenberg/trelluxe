@@ -29,7 +29,7 @@ export function AttachImage({ task }) {
      return (
           <div className='img-attachment-container'>
                {console.log('loop of attach')}
-               {task.attachments.length >= 1 && <p>Attachments</p>}
+               {task.attachments && <p>Attachments</p>}
                {task.attachments
                     ? task.attachments.map((imgObject, index) => (
                            <div key={index} className='attachment-container'>
@@ -50,10 +50,7 @@ export function AttachImage({ task }) {
                                      </div>
                                      <div>
                                           <h3>
-                                               {imgObject.created_at.substring(
-                                                    0,
-                                                    10
-                                               )}
+                                               {imgObject.created_at}
                                           </h3>
                                           <h3 className='attachment-underline'>
                                                Comment

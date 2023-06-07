@@ -88,7 +88,7 @@ export function TaskDetails() {
                     </div>
 
                     {/* need to render Attachment cmp here */}
-                    {task.attachments.length >= 1 && (
+                    {task.attachments && (
                          <>
                               <ImAttachment className='icon-attachment' />
                               <div className='div-img'>
