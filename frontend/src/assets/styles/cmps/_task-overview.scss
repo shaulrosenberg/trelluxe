@@ -22,11 +22,15 @@
             margin-block: 4px;
             border-radius: 50%;
             // outline: red solid 1px;
+            &:hover{
+                //TODO - add hover effect
+             
+            }
          }
 
          .task-members-list{
             display: flex;
-            // outline: red solid 1px;
+          
             gap: -1px;
          }
     }

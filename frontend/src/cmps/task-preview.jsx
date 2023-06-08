@@ -8,8 +8,10 @@ import { useSelector } from "react-redux"
 import { boardService } from "../services/board.service"
 
 export function TaskPreview(props) {
+    const board = useSelector(storeState => storeState.boardModule.selectedBoard)
     const { task } = props
-    
+    const taskMembers = boardService.getTaskMembers(board.members, task.memberIds)
+
     function getTodosRatio() {
         let todos = 0;
         let done = 0;
@@ -26,7 +28,6 @@ export function TaskPreview(props) {
 
     }
 
-    const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     const hasBackgroundImage = task.style?.backgroundImage
     const hasBackgroundColor = task.style?.backgroundColor
@@ -55,6 +56,7 @@ export function TaskPreview(props) {
                     <div className="title-container"><p>{task.title}</p></div>
                     <div className="task-preview-badges">
                         {/* due date badge */}
+                        {/* TODO: when shaul finishes? */}
                         {/* description badge */}
                         {task.description?.length > 0 && (
                             <div title="This task has a description" className="badge-btn description">
@@ -83,6 +85,19 @@ export function TaskPreview(props) {
                             </div>
                         )}
                         {/* members badge */}
+                        {taskMembers && (
+                            <ul className="task-member-badges clean-list">
+
+                                {taskMembers.map(taskMember => <li className='task-member-badge'> <img key={taskMember.id} src={taskMember.imgUrl} alt="" />
+                                </li>
+
+                                )}
+                            </ul>
+
+                        )}
+
+
+
                     </div>
                 </section>
                 <div className="quick-edit"></div>
