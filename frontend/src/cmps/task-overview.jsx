@@ -12,7 +12,7 @@ export function TaskOverview({ task, groupId, boardId }) {
 
     const taskMembers = boardService.getTaskMembers(board.members, task.memberIds)
 
-    function onToggleModal (ev){
+    function onToggleModal(ev) {
         eventRef.current = ev
         setModalType('members')
     }
@@ -33,25 +33,28 @@ export function TaskOverview({ task, groupId, boardId }) {
             {taskMembers &&
 
                 <>
-                    <h3>Members</h3>
-                    <ul className='clean-list'>
-                        {taskMembers.map(taskMember => <li key={taskMember._id}>
+                    <div className="task-members-container">
+                        <h4>Members</h4>
+                        <ul className='clean-list task-members-list'>
+                            {taskMembers.map(taskMember => <li className='task-member-icon' key={taskMember._id}>
 
-                            <img src={taskMember.imgUrl} alt="" />
+                                <img src={taskMember.imgUrl} alt="" />
 
-                        </li>)}
+                            </li>)}
 
-                        <li key="" className='' >
-                            <FiPlus onClick={onToggleModal}/>
-                        </li>
-                    </ul>
-                    {modalType && <DynamicActionModal 
-                    cmpType={modalType} 
-                    event={eventRef.current} 
-                    task={task} 
-                    groupId={groupId} 
-                    boardId={boardId}
-                    onCloseModal={onCloseModal}
+                            <li key="" className='' >
+                                <button className='add-member-btn' onClick={onToggleModal}><FiPlus /></button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {modalType && <DynamicActionModal
+                        cmpType={modalType}
+                        event={eventRef.current}
+                        task={task}
+                        groupId={groupId}
+                        boardId={boardId}
+                        onCloseModal={onCloseModal}
                     />}
                 </>
 
