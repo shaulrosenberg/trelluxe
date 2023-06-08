@@ -107,3 +107,27 @@
 .title-container p {
   margin: 0;
 }
+
+
+// for full cover 
+.task-preview-container-full{
+  width: rem(248px);
+  height: rem(56px);
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0.5rem;
+  color: #172b4d;
+  border-radius: rem(8px);
+
+  .title-container-full{
+    font-size: rem(16px);
+    font-weight: 500;
+
+    p{
+      margin: 0;
+      padding: 0 0.5rem;
+    }
+  }
+}
