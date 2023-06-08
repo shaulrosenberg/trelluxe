@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { boardService } from '../../services/board.service'
 import { useSelector } from 'react-redux'
-import { updateBoard } from '../../store/board.actions'
+import { filterBoard } from '../../store/board.actions'
 
 export function FilterContent() {
      const [selectedLabels, setSelectedLabels] = useState([])
      const [selectedMembers, setSelectedMembers] = useState([])
+     const [originalBoard, setOriginalBoard] = useState()
+     const [filteredBoard, setFilteredBoard] = useState()
 
      const board = useSelector(
           (storeState) => storeState.boardModule.selectedBoard
      )
-     const members = board?.members || []
-     const labels = board?.labels || []
+
+     useEffect(() => {
+          setOriginalBoard(board)
+          setFilteredBoard(board)
+     }, [board])
+
+     const members = filteredBoard?.members || []
+     const labels = filteredBoard?.labels || []
 
      function handleLabelChange(labelId) {
           const isSelected = selectedLabels.includes(labelId)
@@ -34,40 +40,38 @@ export function FilterContent() {
           }
      }
 
-    async function handleFilter() {
-          const filter = {
-               labels: selectedLabels,
-               members: selectedMembers,
-          }
-          console.log('filter', filter)
+     function resetFilter() {
+          console.log('original board:',originalBoard)
+          setSelectedLabels([])
+          setSelectedMembers([])
+          filterBoard(originalBoard)
+          setFilteredBoard(originalBoard)
+     }
 
-          const filteredBoard = {
-               ...board,
-               groups: board.groups.map((group) => ({
+     function handleFilter() {
+          const newFilteredBoard = {
+               ...originalBoard,
+               groups: originalBoard.groups.map((group) => ({
                     ...group,
                     tasks: group.tasks.filter((task) => {
-                         const hasLabels = task.labelIds
-                              ? filter.labels.some((labelId) =>
-                                     task.labelIds.includes(labelId)
-                                )
-                              : true // Include the task if no labels are selected
-
-                         const hasMembers = task.members
-                              ? filter.members.some((memberId) =>
-                                     task.members.includes(memberId)
-                                )
-                              : true // Include the task if no members are selected
-
+                         const hasLabels = selectedLabels.length
+                              ? task.labelIds
+                                   ? task.labelIds.some((labelId) => selectedLabels.includes(labelId))
+                                   : false
+                              : true
+                         const hasMembers = selectedMembers.length
+                              ? task.memberIds
+                                   ? task.memberIds.some((memberId) => selectedMembers.includes(memberId))
+                                   : false
+                              : true
                          return hasLabels && hasMembers
                     }),
                })),
           }
 
-          console.log('Filtered Board:', filteredBoard)
-          // Update the state or perform any necessary actions with the filtered board
-          // ...
-          await updateBoard(filteredBoard)
-
+          console.log('Filtered Board:', newFilteredBoard)
+          filterBoard(newFilteredBoard)
+          setFilteredBoard(newFilteredBoard)
      }
 
      return (
@@ -104,6 +108,7 @@ export function FilterContent() {
                     ))}
                </div>
                <button onClick={handleFilter}>Apply Filter</button>
+               <button onClick={resetFilter}>Reset Filter</button>
           </div>
      )
 }

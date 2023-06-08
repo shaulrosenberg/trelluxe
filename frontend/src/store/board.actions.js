@@ -107,18 +107,26 @@ export async function addTask(task, boardId, groupId) {
   }
 }
 
+// TODO: make a filtering function that will not save the filtered board and overwrite the original board
+// it should only effec the selectedBoard global state.
 export function updateBoard(board) {
   return boardService
     .save(board)
     .then(savedBoard => {
       console.log('Updated Board:', savedBoard)
       store.dispatch(getActionUpdateBoard(savedBoard))
+      store.dispatch({ type: SET_SELECTED_BOARD, board: savedBoard })
       return savedBoard
     })
     .catch(err => {
       console.log('Cannot save board', err)
       throw err
     })
+}
+
+export function filterBoard(board) {
+  // write this
+  store.dispatch({ type: SET_SELECTED_BOARD, board: board })
 }
 
 // Demo for Optimistic Mutation

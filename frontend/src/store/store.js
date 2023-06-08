@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
     boardModule: boardReducer,
     userModule: userReducer,
     systemModule: systemReducer,
-    
 })
 
 

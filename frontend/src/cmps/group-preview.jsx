@@ -8,7 +8,7 @@ export function GroupPreview({ board, group }) {
      const { boardId } = useParams()
 
      useEffect(() => {
-          console.log('group', group)
+          
      }, [])
 
      return (
