@@ -83,7 +83,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 0.4rem;
-            max-height: 28px;
+            max-height: 22px;
             input[type="checkbox"] {
                 margin-right: 0.5rem;
             }
@@ -96,6 +96,10 @@
                 color: #5e6c84;
                 cursor: pointer;
             }
+        }
+        span{
+            font-size: rem(14px);
+            color: $primaryColor;
         }
     }
 
