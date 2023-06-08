@@ -236,11 +236,11 @@ function _createBoards() {
                 title: 'Market analysis',
                 style: {
                   backgroundColor: '#9370DB',
+                  isFullyCover: true,
                 },
                 attachments: [],
                 description: 'life is good',
                 comments: ['bla', 'no'],
-                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't103',
@@ -285,7 +285,6 @@ function _createBoards() {
                 labelIds: ['l105', 'l107'],
                 description: 'life is good',
                 comments: ['bla', 'no'],
-                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't203',
@@ -311,7 +310,6 @@ function _createBoards() {
                 },
                 description: 'life is good',
                 comments: ['bla', 'no'],
-                attachments: [{ bla: 'an attachment' }],
               },
               {
                 id: 't302',
@@ -333,8 +331,6 @@ function _createBoards() {
                 },
                 labelIds: ['l108', 'l10ffdsfsaf432'],
                 description: 'life is good',
-
-                attachments: [{ bla: 'an attachment' }],
               },
             ],
           },
