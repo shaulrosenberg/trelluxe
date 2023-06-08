@@ -15,16 +15,23 @@
     margin-inline-start: 3em;
 
         .task-member-icon{
-            cursor: pointer;
-            width: 32px;
+            border-radius: 50%;
             height: 32px;
+            width: 32px;
             margin-right: 8px;
             margin-block: 4px;
-            border-radius: 50%;
+            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #172b4d;
+            font-weight: 600;
+            background-color: #ebecf0;
             // outline: red solid 1px;
             &:hover{
                 //TODO - add hover effect
-             
+                background-color: #091E4224;
+                cursor: pointer;
             }
          }
 
