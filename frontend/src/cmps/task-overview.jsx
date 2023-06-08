@@ -43,57 +43,53 @@ export function TaskOverview({ task, groupId, boardId }) {
                 <div className="btn-txt">Watch</div>
             </button> */}
 
+            {/* Task members */}
             {taskMembers &&
+                <div className="task-members-container">
+                    <h4>Members</h4>
+                    <ul className='clean-list task-members-list'>
+                        {taskMembers.map(taskMember => <li className='task-member-icon' key={taskMember._id}>
 
-                <>
-                    {/* Members overview */}
-                    <div className="task-members-container">
-                        <h4>Members</h4>
-                        <ul className='clean-list task-members-list'>
-                            {taskMembers.map(taskMember => <li className='task-member-icon' key={taskMember._id}>
+                            <img src={taskMember.imgUrl} alt="" />
 
-                                <img src={taskMember.imgUrl} alt="" />
+                        </li>)}
 
-                            </li>)}
+                        <li key="" className='' >
+                            <button className='add-member-btn' onClick={(ev) => onToggleModal(ev, 'members')}><FiPlus /></button>
+                        </li>
+                    </ul>
+                </div>
+            }
 
-                            <li key="" className='' >
-                                <button className='add-member-btn' onClick={(ev) => onToggleModal(ev, 'members')}><FiPlus /></button>
-                            </li>
-                        </ul>
-                    </div>
+            {/* Task labels */}
+            {taskLabels &&
 
-                    {/* Labels overview */}
-                    {taskLabels && <>
-
-                        <div className="task-labels-container">
-                            <h4>Labels</h4>
-                            <ul className='clean-list task-labels-list'>
-                                {taskLabels.map(taskLabel => <li className='task-label-button' onClick={(ev) => onToggleModal(ev, 'labels')} key={taskLabel.id}
-                                    style={{ backgroundColor: taskLabel.color }}
-                                >{taskLabel.title}</li>)}
-                            </ul>
-                        </div>
-
-                    </>}
-
-
-
-
-                    {/* Dynamic modal    */}
-                    {modalType && <DynamicActionModal
-                        cmpType={modalType}
-                        event={eventRef.current}
-                        task={task}
-                        groupId={groupId}
-                        boardId={boardId}
-                        onCloseModal={onCloseModal}
-                    />}
-
-
-                </>
+                <div className="task-labels-container">
+                    <h4>Labels</h4>
+                    <ul className='clean-list task-labels-list'>
+                        {taskLabels.map(taskLabel => <li className='task-label-button' onClick={(ev) => onToggleModal(ev, 'labels')} key={taskLabel.id}
+                            style={{ backgroundColor: taskLabel.color }}
+                        >{taskLabel.title}</li>)}
+                    </ul>
+                </div>
 
 
             }
+            {/* Dynamic modal */}
+            {modalType && <DynamicActionModal
+                cmpType={modalType}
+                event={eventRef.current}
+                task={task}
+                groupId={groupId}
+                boardId={boardId}
+                onCloseModal={onCloseModal}
+            />}
+
+
+
+
+
+
 
 
         </section>

@@ -17,7 +17,7 @@
     } 
 
     .task-labels-container{
-       
+       margin-block-end:0.5em;
         .task-labels-list{
             display: flex;
             flex-wrap: wrap;
@@ -40,6 +40,7 @@
             line-height: 32px;
             min-width: 48px;
             max-width: 100%;
+            color: $primaryColor;
             cursor: pointer;
 
             &:hover{
