@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react"
-import DatePicker from "react-datepicker"
+import DatePicker, { CalendarContainer, registerLocale, setDefaultLocale } from "react-datepicker"
+import enGB from 'date-fns/locale/en-GB';
 import { parseISO, format, isValid } from 'date-fns'
 import "react-datepicker/dist/react-datepicker.css"
+
+registerLocale('en', enGB)
+setDefaultLocale('en')
 
 export function DatesContent({ task, boardId, groupId, updateTask }) {
     const [selectedDate, setSelectedDate] = useState(new Date())
@@ -10,7 +14,7 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
     const [reminder, setReminder] = useState('None')
 
     useEffect(() => {
-        if(task?.dueDate && isValid(parseISO(task.dueDate))) {
+        if (task?.dueDate && isValid(parseISO(task.dueDate))) {
             setSelectedDate(parseISO(task.dueDate))
         } else {
             setSelectedDate(new Date())
@@ -51,15 +55,20 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
 
     return (
         <section className="dates-content">
-            <DatePicker
-                selected={selectedDate}
-                onChange={handleDateChange}
-                dateFormat="MM/dd/yyyy"
-                inline
-                minDate={new Date()}
-                highlightDates={[new Date()]}
-                className="date-picker"
-            />
+
+            <div className="datepicker-wrapper">
+                <DatePicker
+                    selected={selectedDate}
+                    onChange={handleDateChange}
+                    dateFormat="MM/dd/yyyy"
+                    inline
+                    minDate={new Date()}
+                    highlightDates={[new Date()]}
+                    className="date-picker"
+                />
+            </div>
+
+
             <div className="date-inputs">
                 <div className="date-input-group">
                     <label className="date-checkbox-label">
