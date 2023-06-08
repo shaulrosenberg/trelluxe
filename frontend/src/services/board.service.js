@@ -195,6 +195,11 @@ function getTaskLabels(boardLabels, labelIds) {
   }, [])
 }
 
+// filter function
+function onFilterOptions(){
+  
+}
+
 function _createBoards() {
   let boards = utilService.loadFromStorage(STORAGE_KEY)
   if (!boards || !boards.length) {
