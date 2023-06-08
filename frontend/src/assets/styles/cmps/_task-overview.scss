@@ -1,6 +1,11 @@
+.task-details-overview-container{
+    grid-column: 2;
+}
 .task-overview{
 
     display: flex;
+    flex-wrap: wrap;
+
     gap:14px;
     h4{
    
@@ -12,10 +17,10 @@
     } 
 
     .task-labels-container{
-        outline: red solid 1px; 
        
         .task-labels-list{
             display: flex;
+            flex-wrap: wrap;
             gap: 5px;
            
         }
@@ -44,8 +49,7 @@
     }
 
     .task-members-container{
-    margin-inline-start: 3em;
-
+    
         .task-member-icon{
             border-radius: 50%;
             height: 32px;
