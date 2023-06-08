@@ -93,7 +93,7 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
                     {calculateProgress().toFixed(0)}%
                 </div>
                 <div className="sublist-progress-bar">
-                    <div className="progress-bar-foreground" style={{ width: `${calculateProgress()}%`, backgroundColor: calculateProgress() === 100 ? 'green' : 'blue' }}></div>
+                    <div className="progress-bar-foreground" style={{ width: `${calculateProgress()}%`, backgroundColor: calculateProgress() === 100 ? '#1F845A' : '#579DFF' }}></div>
                 </div>
             </div>
 
@@ -114,10 +114,12 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
             {!isEditable && <button onClick={() => setIsEditable(true)}>Add an item</button>}
             {isEditable &&
                 <section>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" ref={inputRef} value={todoTitle} onChange={e => setTodoTitle(e.target.value)} />
-                        <button>Add</button>
-                        <button onClick={() => setIsEditable(false)}>Cancel</button>
+                    <form className="add-new-item-container" onSubmit={handleSubmit}>
+                        <input placeholder='Add an item' type="text" ref={inputRef} value={todoTitle} onChange={e => setTodoTitle(e.target.value)} />
+                        <div>
+                            <button>Add</button>
+                            <button onClick={() => setIsEditable(false)}>Cancel</button>
+                        </div>
                     </form>
                 </section>
             }
