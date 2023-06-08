@@ -1,135 +1,172 @@
+// Styles for the parent container
 .dates-content {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #f5f5f5;
+    align-items: stretch;
+
+    .date-inputs {
+        padding-inline: 1rem;
+    }
+
+    .reminder-label {
+         font-size: rem(12px);   
+         font-weight: 700;
+    }
+
+    .reminder-description {
+        font-size: rem(14px);
+        
+    }
+
+    .date-checkbox-label {
+        font-size: rem(12px);
+        font-weight: 700;
+    }
+}
+
+.datepicker-wrapper {
     width: 100%;
+    position: relative;
 
-    .date-picker {
-        margin-bottom: 2rem;
-        color: #4a4a4a;
+    .react-datepicker-wrapper,
+    .react-datepicker__input-container,
+    .react-datepicker__input-container input {
+        width: 100%;
+    }
 
-        .react-datepicker {
-            font-size: 0.8rem;
+    .react-datepicker {
+        border: none;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+    }
+}
 
-            &__header {
-                background-color: #f5f5f5;
-                border-bottom: none;
-            }
+.react-datepicker__header {
+    background-color: #ebecf0;
+    border-bottom: none;
+}
 
-            &__current-month {
-                font-size: 1rem;
-            }
+.react-datepicker__current-month {
+    font-size: 1em;
+    color: #5e6c84;
+}
 
-            &__day {
-                width: 1.5rem;
-                height: 1.5rem;
-                line-height: 1.5rem;
-                margin: 0.2rem;
-                border-radius: 50%;
-                color: #333;
+.react-datepicker__day {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    margin: 0.175em;
+}
 
-                &:hover {
-                    background-color: #eee;
-                    color: #333;
-                }
+.react-datepicker__day-names {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
-                &--selected,
-                &--selected:hover {
-                    background-color: #007bff;
-                    color: #fff;
-                }
-            }
+.react-datepicker__day-name {
+    width: 2em;
+    margin: 0.175em;
+    color: #5e6c84;
+    font-size: 0.75em;
+}
+
+.react-datepicker__day--outside-month {
+    color: #dcdcdc;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day:hover {
+    border-radius: 50%;
+    background-color: #0079bf;
+    color: #fff;
+}
+
+.react-datepicker__navigation {
+    top: 1.5em;
+}
+
+.react-datepicker__navigation--previous {
+    left: 1em;
+    border-right-color: #5e6c84;
+}
+
+.react-datepicker__navigation--next {
+    right: 1em;
+    border-left-color: #5e6c84;
+}
+
+// Checkbox styling
+.date-checkbox-input {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    appearance: none;
+    background-color: #fafbfc;
+    border: 2px solid #dfe1e6;
+    border-radius: 0.2em;
+    color: #172b4d;
+    position: relative;
+
+    &:checked {
+        background-color: #5aac44;
+        border-color: #5aac44;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0.25em;
+            top: 0.1em;
+            border: solid white;
+            border-width: 0 0.2em 0.2em 0;
+            height: 0.6em;
+            width: 0.3em;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+// Buttons styling
+.buttons-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .save-button,
+    .remove-button {
+        padding: 0.5em 1em;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: 0.3em;
+        margin-top: 1em;
+        width: 48%;
+    }
+
+    .save-button {
+        background-color: $clr1;
+        border: none;
+        color: #fff;
+        font-weight: 700;
+
+        &:hover {
+            background-color: #519839;
         }
     }
 
-    .date-inputs {
-        display: flex;
-        flex-direction: column;
+    .remove-button {
+        background-color: #ebecf0;
+        border: none;
+        color: #6b778c;
 
-        .checkbox-input-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .date-checkbox-input {
-                margin-right: 0.5rem;
-            }
-
-            .date-input {
-                flex: 1;
-                margin-left: 0.5rem;
-            }
-        }
-
-        .date-input-group,
-        .reminder-input-group {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 1rem;
-
-            label {
-                margin-bottom: 0.5rem;
-                font-size: rem(12px);
-                font-weight: 600;
-            }
-
-            .date-checkbox-input {
-                margin-right: 0.5rem;
-            }
-
-            .date-input,
-            .reminder-select {
-                padding: 0.5rem;
-                border-radius: 0.5rem;
-                border: 1px solid #ced4da;
-                color: #495057;
-            }
-
-            .reminder-description {
-                margin-top: 0.5rem;
-                font-size: 0.8rem;
-                color: #6c757d;
-            }
-        }
-
-        .buttons-group {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            justify-content: flex-start;
-
-            .save-button,
-            .remove-button {
-                margin-block-end: rem(3px);
-                width: 100%;
-                border: none;
-                border-radius: 0.5rem;
-                font-size: 1rem;
-                cursor: pointer;
-            }
-
-            .save-button {
-                color: white;
-                background-color: #007bff;
-
-                &:hover {
-                    background-color: #0069d9;
-                }
-            }
-
-            .remove-button {
-                color: #dc3545;
-                background-color: white;
-                border: 1px solid #dc3545;
-
-                &:hover {
-                    color: white;
-                    background-color: #dc3545;
-                }
-            }
+        &:hover {
+            background-color: #dfe1e6;
         }
     }
 }
