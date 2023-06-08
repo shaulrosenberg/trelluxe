@@ -1,5 +1,38 @@
 .task-overview{
+
+    display: flex;
+    flex-wrap: wrap;
+    h4{
+   
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 16px;
+        margin-top: 16px;
+        color:#44546F
+    } 
+
+    .task-members-container{
+    margin-inline-start: 3em;
+
+        .task-member-icon{
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            margin-block: 4px;
+            border-radius: 50%;
+            // outline: red solid 1px;
+         }
+
+         .task-members-list{
+            display: flex;
+            // outline: red solid 1px;
+            gap: -1px;
+         }
+    }
     
+ 
+
 .subscribe-btn {
     display: flex;
     align-items: center;
@@ -26,4 +59,18 @@
       color: #333;
     }
   }
+}
+
+.add-member-btn{
+    display: flex;
+    align-items: center;
+    background-color: #E3E6EA;
+    border-radius: 50%;
+    width:32px;
+    height: 32px;
+
+    &:hover{
+        background-color: #091E4224
+    }
+
 }
