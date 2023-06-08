@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { boardService } from '../../services/board.service'
 import { useSelector } from 'react-redux'
+import { updateBoard } from '../../store/board.actions'
 
 export function FilterContent() {
      const [selectedLabels, setSelectedLabels] = useState([])
@@ -33,12 +34,12 @@ export function FilterContent() {
           }
      }
 
-     function handleFilter() {
+    async function handleFilter() {
           const filter = {
                labels: selectedLabels,
                members: selectedMembers,
           }
-          console.log('members', filter)
+          console.log('filter', filter)
 
           const filteredBoard = {
                ...board,
@@ -65,6 +66,8 @@ export function FilterContent() {
           console.log('Filtered Board:', filteredBoard)
           // Update the state or perform any necessary actions with the filtered board
           // ...
+          await updateBoard(filteredBoard)
+
      }
 
      return (
