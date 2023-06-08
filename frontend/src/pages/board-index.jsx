@@ -3,6 +3,7 @@ import { Outlet, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { GroupList } from "../cmps/group-list"
 import { BoardHeader } from "../cmps/board-header"
+import { Loader } from "../cmps/loader"
 
 import { boardService } from "../services/board.service"
 import { setSelectedBoard } from "../store/board.actions"
@@ -48,7 +49,7 @@ export function BoardIndex() {
         return articleStyle
     }
 
-    if (!board) return <h1>Loading...</h1>
+    if (!board) return <Loader />
     return (
         // render a list of groups
         // in each group -> render a list of tasks

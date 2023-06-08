@@ -1,12 +1,17 @@
 import { useSelector } from "react-redux"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { RxPencil1 } from "react-icons/rx";
 import { updateTask } from "../../store/board.actions";
+import { DynamicActionModal } from '../dynamic-modal/dynamic-action-modal'
 
-export function LabelsContent({ boardId, groupId, task }) {
+
+export function LabelsContent({ boardId, groupId, task, onToggleModal, }) {
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
     const taskLabelIds = task.labelIds
     const [displayedLabels, setDisplayedLabels] = useState(board.labels)
+
+
+
 
     async function toggleLabel(id) {
         let updatedLabelIds = []
@@ -57,7 +62,7 @@ export function LabelsContent({ boardId, groupId, task }) {
                         />
 
                         <label title={`Label Title: ${label.title}`} htmlFor={label.id} className="label-block" style={{ backgroundColor: label.color }}>{label.title}</label>
-                        <button className="clean-btn label-edit-icon"><RxPencil1 /></button>
+                        <button className="clean-btn label-edit-icon" onClick={(ev) => onToggleModal(ev, 'editLabel')} ><RxPencil1 /></button>
 
 
 

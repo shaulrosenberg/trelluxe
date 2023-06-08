@@ -36,10 +36,6 @@ a {
      text-decoration: none;
 }
 
-section,
-main,
-footer {
-}
 
 img {
      width: 100%;
@@ -52,31 +48,16 @@ p {
      margin: 0 0 1em;
 }
 
-//links
-//  TODO add after i explain to dor and shaul
-// a {
-//     text-decoration: none;
-//     &.active {
-//         background-color: $clr4;
-//         font-weight: bold;
-//         color: $clr3;
-//     }
-// }
-// a:hover {
+.loader{
 
-// }
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100vw;
+          z-index: 1000;
 
-// buttons
-//TODO: customize to my needs with asi
-
-.btn {
-     @include btn;
-
-     &-dark {
-          @include btn($type: dark);
-     }
-
-     &-round {
-          @include btn($type: round);
-     }
 }

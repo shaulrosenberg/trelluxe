@@ -33,6 +33,7 @@ export function TaskControls({ task, boardId, groupId }) {
         'attachment': 'Attachment',
         'archive': 'Archive',
         'cover': 'Cover',
+
     }
 
     return (

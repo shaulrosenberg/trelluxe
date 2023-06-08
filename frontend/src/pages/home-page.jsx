@@ -1,5 +1,7 @@
 import React from 'react'
 import heroImg from '../assets/img/hero-trello.png'
+import { Link } from 'react-router-dom'
+
 
 export function HomePage() {
      return (
@@ -15,7 +17,7 @@ export function HomePage() {
                               team isn’t.
                          </p>
                          <button className='btn-style-cta'>Sign Up</button>
-                         <button className='btn-style-cta'>Try Demo</button>
+                         <Link to={'/workspace'} className='btn-style-cta'>Try Demo</Link>
                     </div>
                     <div className='div-hero-img'>
                          <img src={heroImg} className='hero-img' alt='Hero' />

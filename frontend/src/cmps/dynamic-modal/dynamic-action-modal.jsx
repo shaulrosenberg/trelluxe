@@ -3,6 +3,7 @@ import { GrClose } from "react-icons/gr"
 
 // Import different cmps based on type
 import { DatesContent } from "./dates-content"
+import { EditLabel } from "./edit-label"
 import { LabelsContent } from "./labels-content"
 import { ChecklistContent } from "./checklist-content"
 import { MembersContent } from "./members-content"
@@ -39,9 +40,10 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         attachment: AttachContent,
         createBoard: CreateBoardContent,
         editAttach: EditAttachment,
-        // editLabels: editLabels
+        editLabel: EditLabel,
         cover: CoverContent,
         filter: FilterContent,
+
     }
 
     // Get the component from the map
