@@ -7,13 +7,29 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { GrAdd, GrClose } from 'react-icons/gr'
 import { AiOutlinePlus } from "react-icons/ai";
 
+
+
 export function AddTask({ group, boardId }) {
      const [isEditable, setIsEditable] = useState(false)
      const [cardTitle, setCardTitle] = useState('')
 
+     function handleBlur(ev) {
+          ev.preventDefault()
+          if (cardTitle !== '') { onAddTask(ev) }
+          else { setIsEditable(false) }
+
+     }
+
      function handleInputChange(ev) {
           ev.preventDefault()
           setCardTitle(ev.target.value)
+     }
+
+     const handleKeyDown = (event) => {
+          if (event.key === 'Enter') {
+               event.preventDefault();
+               onAddTask(event)
+          }
      }
 
      async function onAddTask(ev) {
@@ -24,11 +40,13 @@ export function AddTask({ group, boardId }) {
           try {
                newTask = await addTask(newTask, boardId, group.id)
                setCardTitle('')
-               showSuccessMsg(`Task added (id: ${newTask.id})`)
+               showSuccessMsg(`Card added (id: ${newTask.id})`)
           } catch (err) {
-               showErrorMsg('Cannot add car')
+               showErrorMsg('Cannot add card')
           }
      }
+
+
 
      return (
           <>
@@ -40,6 +58,9 @@ export function AddTask({ group, boardId }) {
                                    placeholder='Enter a title for this card...'
                                    value={cardTitle}
                                    onChange={handleInputChange}
+                                   onBlur={handleBlur}
+                                   onKeyDown={handleKeyDown}
+                                   autoFocus={true}
                               />
 
                               <div className='add-task-btns'>
