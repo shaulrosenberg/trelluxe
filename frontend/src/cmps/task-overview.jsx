@@ -12,9 +12,22 @@ export function TaskOverview({ task, groupId, boardId }) {
 
     const taskMembers = boardService.getTaskMembers(board.members, task.memberIds)
 
-    function onToggleModal(ev) {
+    const taskLabels = boardService.getTaskLabels(board.labels, task.labelIds)
+
+    function onToggleModal(ev, type) {
         eventRef.current = ev
-        setModalType('members')
+        switch (type) {
+            case 'members':
+                setModalType('members')
+                break;
+            case 'labels':
+                setModalType('labels')
+                break;
+
+            default:
+                break;
+        }
+
     }
 
     function onCloseModal() {
@@ -33,6 +46,7 @@ export function TaskOverview({ task, groupId, boardId }) {
             {taskMembers &&
 
                 <>
+                    {/* Members overview */}
                     <div className="task-members-container">
                         <h4>Members</h4>
                         <ul className='clean-list task-members-list'>
@@ -43,11 +57,29 @@ export function TaskOverview({ task, groupId, boardId }) {
                             </li>)}
 
                             <li key="" className='' >
-                                <button className='add-member-btn' onClick={onToggleModal}><FiPlus /></button>
+                                <button className='add-member-btn' onClick={(ev) => onToggleModal(ev, 'members')}><FiPlus /></button>
                             </li>
                         </ul>
                     </div>
 
+                    {/* Labels overview */}
+                    {taskLabels && <>
+
+                        <div className="task-labels-container">
+                            <h4>Labels</h4>
+                            <ul className='clean-list task-labels-list'>
+                                {taskLabels.map(taskLabel => <li className='task-label-button' onClick={(ev) => onToggleModal(ev, 'labels')} key={taskLabel.id}
+                                    style={{ backgroundColor: taskLabel.color }}
+                                >{taskLabel.title}</li>)}
+                            </ul>
+                        </div>
+
+                    </>}
+
+
+
+
+                    {/* Dynamic modal    */}
                     {modalType && <DynamicActionModal
                         cmpType={modalType}
                         event={eventRef.current}
@@ -56,6 +88,8 @@ export function TaskOverview({ task, groupId, boardId }) {
                         boardId={boardId}
                         onCloseModal={onCloseModal}
                     />}
+
+
                 </>
 
 

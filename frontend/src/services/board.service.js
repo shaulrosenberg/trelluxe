@@ -22,6 +22,7 @@ export const boardService = {
   findLabelStyleById,
   findGroupById,
   getTaskMembers,
+  getTaskLabels,
 }
 
 _createBoards()
@@ -166,15 +167,29 @@ function findGroupById(groupId, board) {
   return groupTitle
 }
 
-function getTaskMembers(boardMembers, taskIds) {
+function getTaskMembers(boardMembers, memberIds) {
   // This is a service for the front so understand it is only updated as long as the front is updated which we should insure by always working through the store which updates the back
 
-  if (!taskIds?.length) return null
+  if (!memberIds?.length) return null
 
-  return taskIds.reduce((result, taskId) => {
+  return memberIds.reduce((result, taskId) => {
     const matchingMember = boardMembers.find(member => member._id === taskId)
     if (matchingMember) {
       result.push(matchingMember)
+    }
+    return result
+  }, [])
+}
+
+function getTaskLabels(boardLabels, labelIds) {
+  // This is a service for the front so understand it is only updated as long as the front is updated which we should insure by always working through the store which updates the back
+
+  if (!labelIds?.length) return null
+
+  return labelIds.reduce((result, taskId) => {
+    const matchingLabel = boardLabels.find(label => label.id === taskId)
+    if (matchingLabel) {
+      result.push(matchingLabel)
     }
     return result
   }, [])

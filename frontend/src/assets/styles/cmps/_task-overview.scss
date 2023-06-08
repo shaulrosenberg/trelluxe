@@ -1,7 +1,7 @@
 .task-overview{
 
     display: flex;
-    flex-wrap: wrap;
+    gap:14px;
     h4{
    
         font-size: 12px;
@@ -10,6 +10,38 @@
         margin-top: 16px;
         color:#44546F
     } 
+
+    .task-labels-container{
+        outline: red solid 1px; 
+       
+        .task-labels-list{
+            display: flex;
+            gap: 5px;
+           
+        }
+
+        .task-label-button{
+            font-weight: 500;
+            height: 32px;
+           padding: 0 12px;
+          display: inline-block;
+          font-size: 14px;
+          text-align: left;
+          margin-bottom: 0;
+          overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border-radius: 3px;
+            line-height: 32px;
+            min-width: 48px;
+            max-width: 100%;
+            cursor: pointer;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
 
     .task-members-container{
     margin-inline-start: 3em;
@@ -38,7 +70,7 @@
          .task-members-list{
             display: flex;
           
-            gap: -1px;
+            gap: 1px;
          }
     }
     
