@@ -6,6 +6,7 @@ import { useState } from 'react'
 
 // icons
 import { MdSubtitles } from 'react-icons/md'
+import { BsCardHeading } from 'react-icons/bs'
 import { TfiAlignLeft } from 'react-icons/tfi'
 import { TfiMenuAlt } from 'react-icons/tfi'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -82,7 +83,9 @@ export function TaskDetails() {
                          ></div>
                     )}
 
-                    <MdSubtitles className='icon-title' />
+                    <BsCardHeading style={{ color: '#43546F' }} className='icon-title' />
+
+
                     <div className='div-task-title'>
                          {task ? <h2>{task.title}</h2> : 'Loading'}
                          <p>
