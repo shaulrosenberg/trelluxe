@@ -147,6 +147,7 @@
           padding-left: 0.5rem;
           border-radius: 0.1rem;
           border: 2px solid #388bff;
+
           &:focus {
                border: none;
                outline-color: #388bff;
@@ -158,15 +159,25 @@
                background-color: $clr1;
                padding: 0.6rem;
                border-radius: 0.3rem;
+
+               &:hover{
+                    background-color: darken($color: $clr1, $amount: 5);
+               }
           }
           button:last-child {
                background-color: transparent;
                color: $primaryColor;
+
+               &:hover{
+                    background-color: darken($color: #E4E6EA, $amount: 1);
+               }
           }
+
           padding: 0 0.9rem;
           margin: 0.2rem 0;
           margin-left: 1rem;
      }
+     
 }
 
 .checklist-content {
@@ -203,5 +214,9 @@
         width: fit-content;
         padding: 0.7rem;
         border-radius: 0.5rem;
+
+        &:hover{
+          background-color: darken($color: $clr1, $amount: 5);
+        }
     }
 }
