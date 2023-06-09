@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css"
 registerLocale('en', enGB)
 setDefaultLocale('en')
 
-export function DatesContent({ task, boardId, groupId, updateTask }) {
+export function DatesContent({ task, boardId, groupId, updateTask, onCloseModal }) {
     const [selectedDate, setSelectedDate] = useState(new Date())
     const [dueDate, setDueDate] = useState("")
     const [dueCheckbox, setDueCheckbox] = useState(false)
@@ -44,13 +44,16 @@ export function DatesContent({ task, boardId, groupId, updateTask }) {
         // Save changes
         const updatedTask = JSON.parse(JSON.stringify(task))
         updatedTask.dueDate = selectedDate
-
         await updateTask(updatedTask, boardId, groupId)
+        // close modal - trello behavior
+        onCloseModal()
     }
 
     async function handleRemove() {
         // Remove due date
         await updateTask({ ...task, dueDate: null }, boardId, groupId)
+        // close modal - trello behavior
+        onCloseModal()
     }
 
     return (

@@ -6,7 +6,7 @@ import { utilService } from "../../services/util.service"
 
 
 // pass task, groupId & boardId to these cmps from dynamic action modal
-export function ChecklistContent({ task, boardId, groupId }) {
+export function ChecklistContent({ task, boardId, groupId, onCloseModal }) {
 
     const [title, setTitle] = useState('Checklist')
     const inputRef = useRef()
@@ -33,6 +33,7 @@ export function ChecklistContent({ task, boardId, groupId }) {
         if (!updatedTask.checklists) updatedTask.checklists = []
         updatedTask.checklists.push(checklist)
         await updateTask(updatedTask, boardId, groupId)
+        onCloseModal()
     }
 
     return (
