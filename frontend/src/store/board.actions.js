@@ -10,6 +10,7 @@ import {
   SET_SELECTED_BOARD,
   UNDO_REMOVE_BOARD,
   UPDATE_BOARD,
+  TOGGLE_LABEL,
 } from './board.reducer.js'
 import { SET_SCORE } from './user.reducer.js'
 
@@ -93,6 +94,10 @@ export async function updateTask(task, boardId, groupId) {
     console.log('failed to update task', err)
     throw new Error(err)
   }
+}
+
+export function toggleLabels(){
+  store.dispatch({type: TOGGLE_LABEL})
 }
 
 export async function addTask(task, boardId, groupId) {
