@@ -33,7 +33,6 @@ export function TaskPreview(props) {
     const hasBackgroundColor = task.style?.backgroundColor
     const isFullyCover = task.style?.isFullyCover ? 'fullCover' : '';
 
-    console.log('isfullyCover1', isFullyCover)
     return (
         !isFullyCover ? (
             <div className="task-preview-container">
