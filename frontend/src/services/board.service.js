@@ -607,7 +607,6 @@ function _createBoards() {
                 labelIds: ['l107', 'l105', 'l103'],
                 description: 'life is good',
                 comments: ['bla', 'no'],
-                attachments: [{ bla: 'an attachment' }, { fsdaf: 'bibibib' }],
               },
               {
                 id: 't403',

@@ -1,0 +1,19 @@
+.attachment-add-container{
+
+    .item-attach-img-style{
+        border: none;
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        align-self: flex-start;
+        justify-self: flex-start;
+        color: $primaryColor;
+        font-size: rem(14px);
+        margin: 0;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        &:hover{
+            background-color: #DCDFE4;
+        }
+    }
+}

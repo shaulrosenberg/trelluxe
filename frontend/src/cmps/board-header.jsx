@@ -22,9 +22,9 @@ export function BoardHeader({ board}) {
 
      const eventRef = useRef()
 
-     function onToggleModal(ev) {
+     function onToggleModal(type = null, ev = null) {
           eventRef.current = ev
-          setModalType('filter')
+          setModalType(type)
       }
 
 
@@ -97,7 +97,7 @@ export function BoardHeader({ board}) {
                     <IconButton
                          Icon={BsFilter}
                          text='Filter'
-                         onClick={(ev) => onToggleModal(ev)}
+                         onClick={(ev) => onToggleModal('filter', ev)}
                     />
                     <IconButton
                          Icon={IoPersonAddOutline}
@@ -108,7 +108,7 @@ export function BoardHeader({ board}) {
                     <IconButton
                          Icon={IoEllipsisHorizontalSharp}
                          text=''
-                         onClick={() => console.log('Clicked!')}
+                         onClick={(ev) => onToggleModal('activity', ev)}
                     />
                </div>
 

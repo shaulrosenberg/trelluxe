@@ -54,7 +54,7 @@ export function MembersContent({ task, boardId, groupId }) {
                             </li>
 
                         )}
-                        {displayedMembers.length ? null : <li className="">Looks like that person isn't a member yet. </li>}
+                        {displayedMembers && displayedMembers.length ? null : <li className="">Looks like that person isn't a member yet. </li>}
 
 
                     </ul>
