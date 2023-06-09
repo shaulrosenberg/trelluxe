@@ -19,7 +19,6 @@ export function FilterContent() {
      useEffect(() => {
           originalBoard.current = board
           setCopyBoard(originalBoard.current)
-          console.log('from effect original board current',originalBoard.current)
      }, [])
 
      const members = board?.members || []
@@ -48,7 +47,6 @@ export function FilterContent() {
      function resetFilter() {
           setSelectedLabels([])
           setSelectedMembers([])
-          console.log('from reset filter', copyBoard)
           filterBoard(copyBoard)
      }
 
@@ -79,7 +77,6 @@ export function FilterContent() {
                })),
           }
           dispatch({ type: SET_SELECTED_BOARD, board: filteredBoard })
-          console.log('copyBoard', copyBoard)
      }
 
      return (
