@@ -23,6 +23,8 @@ export function RootCmp() {
                     </Route>
                     <Route path='/workspace' element={<Workspace />} />
                     <Route path='/login' element={<LoginSignup />} />
+                    <Route path="user/:id" element={<UserDetails />} />
+
                 </Routes>
             </main>
             {/* <AppFooter /> */}

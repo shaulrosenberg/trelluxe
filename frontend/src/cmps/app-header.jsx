@@ -16,7 +16,7 @@ import TrelloIconWork from '../assets/img/trello-ic.png'
 // icons
 import { MdDarkMode } from 'react-icons/md'
 import { WiMoonAltWaningCrescent4 } from 'react-icons/wi'
-import {FaAdjust} from "react-icons/fa";
+import { FaAdjust } from "react-icons/fa";
 import { FaInfoCircle } from 'react-icons/fa'
 import { FaRocket } from 'react-icons/fa'
 import { BsTrello } from 'react-icons/bs'
@@ -28,7 +28,7 @@ export function AppHeader() {
 
      const [navColor, setNavColor] = useState(null)
      const boardId = location.pathname.split('/board/')[1]
-     
+
      useEffect(() => {
           fetchBoardStyle()
      }, [location])
@@ -52,30 +52,30 @@ export function AppHeader() {
           }
      }
 
-     // async function onLogin(credentials) {
-     //      try {
-     //           const user = await login(credentials)
-     //           showSuccessMsg(`Welcome: ${user.fullname}`)
-     //      } catch (err) {
-     //           showErrorMsg('Cannot login')
-     //      }
-     // }
-     // async function onSignup(credentials) {
-     //      try {
-     //           const user = await signup(credentials)
-     //           showSuccessMsg(`Welcome new user: ${user.fullname}`)
-     //      } catch (err) {
-     //           showErrorMsg('Cannot signup')
-     //      }
-     // }
-     // async function onLogout() {
-     //      try {
-     //           await logout()
-     //           showSuccessMsg(`Bye now`)
-     //      } catch (err) {
-     //           showErrorMsg('Cannot logout')
-     //      }
-     // }
+     async function onLogin(credentials) {
+          try {
+               const user = await login(credentials)
+               showSuccessMsg(`Welcome: ${user.fullname}`)
+          } catch (err) {
+               showErrorMsg('Cannot login')
+          }
+     }
+     async function onSignup(credentials) {
+          try {
+               const user = await signup(credentials)
+               showSuccessMsg(`Welcome new user: ${user.fullname}`)
+          } catch (err) {
+               showErrorMsg('Cannot signup')
+          }
+     }
+     async function onLogout() {
+          try {
+               await logout()
+               showSuccessMsg(`Bye now`)
+          } catch (err) {
+               showErrorMsg('Cannot logout')
+          }
+     }
 
      return location.pathname !== '/' ? (
           <header
@@ -125,8 +125,8 @@ export function AppHeader() {
                <nav className='main-nav-bar'>
                     <div className='nav-dropdown'>
                          <Link to='/' className='homepage-logo'>
-                         <BsTrello className='logo-workspace' />
-                         <h2 className='logo-work'>Trelux </h2>
+                              <BsTrello className='logo-workspace' />
+                              <h2 className='logo-work'>Trelux </h2>
                          </Link>
 
                          <NavLink to='/workspace' className='nav-link'>

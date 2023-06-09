@@ -3,7 +3,6 @@ import { GrClose } from "react-icons/gr"
 
 // Import different cmps based on type
 import { DatesContent } from "./dates-content"
-import { EditLabel } from "./edit-label"
 import { LabelsContent } from "./labels-content"
 import { ChecklistContent } from "./checklist-content"
 import { MembersContent } from "./members-content"
@@ -11,7 +10,6 @@ import { AttachContent } from "./attach-content"
 import { CreateBoardContent } from "./create-board-content"
 import { useSelector } from "react-redux"
 import { EditAttachment } from './edit-attachment'
-// import {EditLabelsContent} from './'
 import { CoverContent } from "./task-cover"
 import { FilterContent } from "./filter-content"
 
@@ -40,7 +38,6 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         attachment: AttachContent,
         createBoard: CreateBoardContent,
         editAttach: EditAttachment,
-        editLabel: EditLabel,
         cover: CoverContent,
         filter: FilterContent,
 
