@@ -6,7 +6,7 @@ import { utilService } from '../services/util.service'
 
 // renders the todos + add , toggle todo
 export function TaskSublist({ checklist, task, boardId, groupId }) {
-    const [isEditable, setIsEditable] = useState(true)
+    const [isEditable, setIsEditable] = useState(false)
     const [todoTitle, setTodoTitle] = useState('')
     const [isDone, setIsDone] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
