@@ -32,11 +32,19 @@ export function AttachContent({ onCloseModal }) {
      }, [])
 
      return (
-          <section>
-               <p>Attach File</p>
-               <input type='file' onChange={saveImg} />
-               <p>Attach Pic</p>
-               <p>Attach Whatever</p>
+          <section className='attachment-add-container'>
+               <label className='item-attach-img-style' htmlFor='fileInput'>
+                    Choose File
+                    <input
+                         id='fileInput'
+                         type='file'
+                         onChange={saveImg}
+                         style={{ display: 'none' }}
+                    />
+               </label>
+               {/* <input type='file' onChange={saveImg} /> */}
+               <p className='item-attach-img-style'>Attach Pic</p>
+               <p className='item-attach-img-style'>Attach Whatever</p>
           </section>
      )
 }

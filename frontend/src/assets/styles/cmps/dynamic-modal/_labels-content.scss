@@ -25,10 +25,12 @@
            background-color: #F7F8F9;
         }
         &:focus {
-        box-shadow:inset 0 0 0 2px #388bff}
-      &::placeholder{
+        box-shadow:inset 0 0 0 2px #388bff;
+        outline: none;
+        border: none;
+      }
+        &::placeholder{
         color: #43546F;
-        
       }  
     }
     
