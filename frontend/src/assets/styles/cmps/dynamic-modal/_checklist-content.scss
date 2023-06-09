@@ -8,6 +8,10 @@
             width: 100%;
         }
     }
+
+    .add-item-btn{
+        margin-left: 2.3rem;
+    }
 }
 
 
@@ -41,15 +45,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-       
         h3 {
-            color: #5e6c84;
+            color: $primaryColor;
             display: flex;
             align-items: center;
             font-size: rem(16px);
             font-weight: 600;
             svg {
-                margin-right: 0.3rem;
+                margin-right: 1.1rem;
+                margin-left: 0.25rem;
             }
         }
 
@@ -66,6 +70,7 @@
         text-align: center;
         font-size: rem(11px);
         margin-bottom: 0.4rem;
+        margin-right: 0.6rem;
     }
 
     .sublist-progress-bar {
@@ -78,6 +83,8 @@
     }
 
     .sublist-todos {
+
+        
         
         div {
             display: flex;
@@ -85,7 +92,8 @@
             margin-bottom: 0.4rem;
             max-height: 22px;
             input[type="checkbox"] {
-                margin-right: 0.5rem;
+                margin-right: 1.1rem;
+                margin-left: 0.5rem;
             }
 
             button {
@@ -96,6 +104,7 @@
                 color: #5e6c84;
                 cursor: pointer;
             }
+            
         }
         span{
             font-size: rem(14px);
@@ -131,8 +140,8 @@
     flex-direction: column;
 
     input{
-        width: 98%;
-        margin-left: 2.2rem;
+        width: 95%;
+        margin-left: 3.5rem;
         height: 56px;
         align-self: center;
         padding-bottom: 1.5rem;
@@ -146,6 +155,7 @@
     }
 
     div{
+        
         button:first-child{
             background-color: $clr1;
             padding: 0.6rem;
@@ -157,5 +167,6 @@
         }
         padding: 0 0.9rem;
         margin: 0.2rem 0;
+        margin-left: 1rem;
     }
 }

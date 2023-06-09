@@ -85,7 +85,6 @@ export function TaskDetails() {
 
                     <BsCardHeading style={{ color: '#43546F' }} className='icon-title' />
 
-
                     <div className='div-task-title'>
                          {task ? <h2>{task.title}</h2> : 'Loading'}
                          <p>
@@ -95,11 +94,13 @@ export function TaskDetails() {
                               </span>
                          </p>
                     </div>
+
                     <div className="task-details-overview-container">
                          <TaskOverview task={task}
                               boardId={boardId}
                               groupId={groupId} />
                     </div>
+
                     <div className='div-task-controls'>
                          <TaskControls
                               task={task}
@@ -107,6 +108,7 @@ export function TaskDetails() {
                               groupId={groupId}
                          />
                     </div>
+
                     <TfiAlignLeft className='icon-desc' />
                     <div className='div-desc'>
                          <p>Description</p>
@@ -119,6 +121,7 @@ export function TaskDetails() {
                               <a
                                    className='a-desc'
                                    onClick={() => setIsDescEdit(true)}
+                                   style={{backgroundColor: task.description ? '#F4F5F7' : '#EDEDEF'}}
                               >
                                    {!task.description &&
                                         'Add a more detailed description...'}
@@ -127,12 +130,8 @@ export function TaskDetails() {
                          )}
                     </div>
 
-
                     {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId} />}
 
-
-
-                    {/* need to render Attachment cmp here */}
                     {task.attachments && (
                          <>
                               <ImAttachment className='icon-attachment' />
@@ -150,6 +149,7 @@ export function TaskDetails() {
                               placeholder='Write a comment...'
                          ></input>
                     </div>
+
                </div>
 
                {/* Overlay element */}
