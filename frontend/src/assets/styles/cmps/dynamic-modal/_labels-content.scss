@@ -133,6 +133,13 @@ padding-inline:12px;
 }
 
 .edit-label-content{
+  hr{
+    background-color: #091E4224;
+      height: 1px;
+      margin: 16px 0;
+      padding: 0;
+      width: 100%;
+  }
   h4{
     font-size: 12px;
     font-weight: 600;
@@ -169,13 +176,7 @@ padding-inline:12px;
 
 
 
-hr{
-  background-color: #091E4224;
-    height: 1px;
-    margin: 16px 0;
-    padding: 0;
-    width: 100%;
-}
+
 
 
 

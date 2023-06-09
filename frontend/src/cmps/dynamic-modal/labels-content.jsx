@@ -141,11 +141,15 @@ export function LabelsContent(props) {
 
                     />
                 </div>
-                <div className="edit-label-color-select"></div>
-                <h4>Select a color</h4>
-                <ColorPalette selectedLabel={selectedLabel} setSelectedLabel=
-                    {setSelectedLabel} />
+                <div className="edit-label-color-select">
+                    <h4>Select a color</h4>
+                    <ColorPalette selectedLabel={selectedLabel} setSelectedLabel=
+                        {setSelectedLabel} />
+                </div>
+
+
                 <hr />
+
                 <div className="edit-label-controls ">
                     <button onClick={onEditLabel} className="save-button">Save</button>
                     <button className="delete-button">Delete</button>
