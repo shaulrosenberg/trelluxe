@@ -95,11 +95,14 @@ export function TaskDetails() {
                          </p>
                     </div>
 
+                    {/* {task.memberIds || task.labelsIds && */}
                     <div className="task-details-overview-container">
                          <TaskOverview task={task}
                               boardId={boardId}
                               groupId={groupId} />
                     </div>
+                     {/* }  */}
+                    
 
                     <div className='div-task-controls'>
                          <TaskControls
