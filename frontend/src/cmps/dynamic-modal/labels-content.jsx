@@ -25,6 +25,7 @@ export function LabelsContent(props) {
 
     async function onEditLabel() {
 
+
         const labelToEdit = { id: selectedLabel.id, color: selectedLabel.color, title: selectedLabel.title }
 
         const boardLabelIndex = board.labels.findIndex(boardLabel =>

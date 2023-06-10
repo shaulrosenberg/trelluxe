@@ -1,21 +1,28 @@
 import { GrTextAlignFull, GrAttachment } from 'react-icons/gr'
 import { SlBubble } from 'react-icons/sl'
 import { IoMdCheckboxOutline } from 'react-icons/io'
+import { IoTimeOutline } from 'react-icons/io5';
+import { GrCheckboxSelected } from 'react-icons/gr';
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { boardService } from '../services/board.service'
+import { updateTask } from '../store/board.actions';
 
 export function TaskPreview(props) {
-     const board = useSelector(
-          (storeState) => storeState.boardModule.selectedBoard
-     )
-     const { task } = props
+
+     const { task, board, boardId, groupId } = props
      const taskMembers = boardService.getTaskMembers(
           board.members,
           task.memberIds
      )
+     const dueDateInfo = task.dueDate ? boardService.getDueDateInfo(task) : null
      const [isLabelClick, setIsLabelClick] = useState(false)
+     const [isDateBadgeHovered, setIsDateBadgeHovered] = useState(false)
+     function toggleIsDone(ev) {
+          ev.stopPropagation()
+          updateTask({ ...task, isDone: !task.isDone }, boardId, groupId)
+     }
 
      function getTodosRatio() {
           let todos = 0
@@ -119,7 +126,21 @@ export function TaskPreview(props) {
 
                     <div className='task-preview-badges'>
                          {/* due date badge */}
-                         {/* TODO: when shaul finishes? */}
+                         {task.dueDate &&
+                              <>
+                                   <div title={dueDateInfo.title} className={`due-date-badge ${dueDateInfo.class}`} onMouseEnter={() => setIsDateBadgeHovered(true)}
+                                        onMouseLeave={() => setIsDateBadgeHovered(false)}>
+
+                                        <span className="due-icon">
+                                             {!isDateBadgeHovered ? <IoTimeOutline /> : task.isDone ? <GrCheckboxSelected className="" onClick={(ev) => toggleIsDone(ev)} /> : <MdCheckBoxOutlineBlank onClick={(ev) => toggleIsDone(ev)} />}
+
+                                        </span>
+                                        <span className="due-date-txt">{new Date(task.dueDate).toLocaleDateString('en-US', {
+                                             month: "short",
+                                             day: "numeric",
+                                        })}</span>
+                                   </div>
+                              </>}
                          {/* description badge */}
                          {task.description?.length > 0 && (
                               <div

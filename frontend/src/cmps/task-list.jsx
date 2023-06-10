@@ -50,7 +50,7 @@ export function TaskList({ tasks, groupId, boardId }) {
                                         ref={provided.innerRef}
                                         onClick={() => navigate(`group/${groupId}/task/${task.id}`)}
                                     >
-                                        <TaskPreview task={task} />
+                                        <TaskPreview board={board} task={task} groupId={groupId} boardId={boardId} />
                                     </section>
                                 )}
                             </Draggable>
