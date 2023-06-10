@@ -1,8 +1,11 @@
 import { FiPlus } from 'react-icons/fi'
 import { boardService } from '../services/board.service'
+import { IoIosArrowDown } from "react-icons/io";
 import { useSelector } from 'react-redux'
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 import { useEffect, useRef, useState } from 'react'
+import { utilService } from '../services/util.service'
+import { updateTask } from '../store/board.actions';
 export function TaskOverview({ task, groupId, boardId }) {
 
     const [modalType, setModalType] = useState(null)
@@ -13,6 +16,7 @@ export function TaskOverview({ task, groupId, boardId }) {
     const taskMembers = boardService.getTaskMembers(board.members, task.memberIds)
 
     const taskLabels = boardService.getTaskLabels(board.labels, task.labelIds)
+    const dueDateInfo = task.dueDate ? boardService.getDueDateInfo(task) : null
 
     function onToggleModal(ev, type) {
         eventRef.current = ev
@@ -22,6 +26,9 @@ export function TaskOverview({ task, groupId, boardId }) {
                 break;
             case 'labels':
                 setModalType('labels')
+                break;
+            case 'dates':
+                setModalType('dates')
                 break;
 
             default:
@@ -74,6 +81,32 @@ export function TaskOverview({ task, groupId, boardId }) {
                 </div>
 
 
+            }
+
+            {task.dueDate &&
+                (<div className="task-due-date-wrapper">
+                    <h4>Due date</h4>
+                    <div className="task-due-date-container">
+                        <input
+                            onChange={async (ev) => {
+                                ev.preventDefault()
+                                await updateTask({ ...task, isDone: !task.isDone }, boardId, groupId)
+                            }}
+                            checked={task.isDone}
+                            className="task-due-date-checkbox"
+                            type="checkbox"
+
+                        />
+                        <div className="due-date-display">
+                            <span className='date-display' >{boardService.getDueDateTimeFormat(task.dueDate)}</span>
+                            <span className={`due-date-status ${dueDateInfo.class}`} >{dueDateInfo.status}</span>
+                            <IoIosArrowDown onClick={(ev) => onToggleModal(ev, 'dates')} />
+                        </div>
+                    </div>
+
+
+
+                </div>)
             }
             {/* Dynamic modal */}
             {modalType && <DynamicActionModal

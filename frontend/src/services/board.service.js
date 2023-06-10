@@ -24,6 +24,8 @@ export const boardService = {
   getTaskMembers,
   getTaskLabels,
   getAppColors,
+  getDueDateInfo,
+  getDueDateTimeFormat,
 }
 
 _createBoards()
@@ -415,6 +417,60 @@ function getAppColors() {
 // filter function
 function onFilterOptions() {}
 
+// dueDate and date
+
+function getDueDateTimeFormat(dueDate) {
+  const currYear = new Date().getFullYear()
+  const dueYear = new Date(dueDate).getFullYear()
+  let strDate = ''
+  strDate += `${new Date(dueDate).toLocaleString('en-US', { day: 'numeric' })} `
+  strDate += `${new Date(dueDate).toLocaleString('en-US', {
+    month: 'short',
+  })} at `
+  if (dueYear !== currYear) {
+    strDate += `${dueYear} `
+  }
+  strDate += `${new Date(dueDate)
+    .toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    })
+    .toLocaleUpperCase()}`
+  return strDate
+}
+
+function getDueDateInfo(task) {
+  if (!task) return null
+  const twentyFourHoursMs = 24 * 60 * 60 * 1000
+
+  if (task.isDone) {
+    return {
+      class: 'task-done',
+      title: 'This card is complete',
+      status: 'complete',
+    }
+  } else if (Date.now() > task.dueDate) {
+    return {
+      class: 'task-overdue',
+      title: 'This card is past due',
+      status: 'overdue',
+    }
+  } else if (task.dueDate - Date.now() < twentyFourHoursMs) {
+    return {
+      class: 'due-soon',
+      title: 'This card is due in less than twenty-four hours.',
+      status: 'due soon',
+    }
+  } else {
+    return {
+      class: 'due-later',
+      title: 'This card is due later',
+      status: '',
+    }
+  }
+}
+
 function _createBoards() {
   let boards = utilService.loadFromStorage(STORAGE_KEY)
   if (!boards || !boards.length) {
@@ -565,7 +621,7 @@ function _createBoards() {
                 id: 't302',
                 title: 'Client meetings',
                 attachments: [],
-                dueDate: null,
+                dueDate: new Date() - 1,
                 checklists: [],
                 style: {
                   backgroundImage:

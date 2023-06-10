@@ -1,6 +1,7 @@
 .task-details-overview-container{
     grid-column: 2;
 }
+
 .task-overview{
 
     display: flex;
@@ -82,8 +83,84 @@
             gap: 1px;
          }
     }
+
+    .task-due-date-container{
+        align-items: center;
+        margin-block-end:0.5em;
+        display: flex;
+        flex-direction: row;
+        margin: 0 8px 8px 0;
+        gap: 4px;
+        .task-due-date-checkbox {
+            background-color: #FAFBFC;
+            border-radius: 2px;
+            box-shadow: inset 0 0 0 2px #DFE1E6;
+            flex-shrink: 0;
+            height: 16px;
+            margin: auto 4px auto 0;
+            overflow: hidden;
+            position: relative;
+            transition: all .2s ease-in-out;
+            white-space: nowrap;
+            width: 16px;
     
- 
+            &:hover{
+                cursor: pointer;
+            }
+            &:focus {
+                // box-shadow: none;
+            }
+    
+            &:checked {
+                box-shadow: none;
+            }
+    
+            &:active {
+                border: none;
+            }
+        }
+
+        .due-date-display{
+            display: flex;
+            gap:3px;
+            background-color: #E3E6E9;
+            color:rgb(23, 43, 77);
+            font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", sans-serif;
+            font-size: em(12px);
+            padding: 6px 12px;
+            border-radius: 3px;
+
+
+            &:hover{
+                cursor: pointer;
+                background-color: #091E4224;
+            }
+        }
+        .due-date-status{
+            &.task-overdue, &.task-done, &.due-soon{
+                font-size: 12px;
+                line-height: 16px;
+                padding: 0 4px;
+                border-radius: 2px;
+                margin: auto 0 auto 8px;
+            }
+
+            &.task-overdue{
+                background-color: #CA3521;
+                color: #ffff
+            }
+
+            &.task-done{
+               background-color:  rgb(31, 132, 90);
+               color:#ffff;
+            }
+
+
+        }
+        
+    }
+    
+   
 
 .subscribe-btn {
     display: flex;
