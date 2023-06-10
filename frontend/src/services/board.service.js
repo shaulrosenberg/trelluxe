@@ -751,7 +751,7 @@ function _createBoards() {
           {
             id: 'l103',
             title: 'High Priority',
-            color: '#CA3520',
+            color: '#FAA53D',
           },
           {
             id: 'l104',
