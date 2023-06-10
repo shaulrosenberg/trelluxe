@@ -90,8 +90,9 @@ export function FilterContent() {
                   <div
                      className='labels-filter-area'
                      style={{ backgroundColor: label.color }}
+                     key={label.id}
                   >
-                     <label key={label.id}>
+                     <label>
                         <input
                            type='checkbox'
                            checked={selectedLabels.includes(label.id)}
@@ -108,8 +109,8 @@ export function FilterContent() {
             <h4 className='filter-text-style'>Members</h4>
             <div className='filter-members filter-align'>
                {members.map((member) => (
-                  <div className='members-filter-area'>
-                     <label key={member._id}>
+                  <div className='members-filter-area' key={member._id}>
+                     <label>
                         <input
                            type='checkbox'
                            checked={selectedMembers.includes(member._id)}

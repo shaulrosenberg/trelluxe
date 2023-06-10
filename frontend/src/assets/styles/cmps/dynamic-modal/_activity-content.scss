@@ -1,9 +1,9 @@
 .activity-actions-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.7rem;
-    margin-block-end: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 0.7rem;
+   margin-block-end: 2rem;
 
    .background-img {
       background-image: url(https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/rainbow.svg);
@@ -27,23 +27,86 @@
    }
 }
 
-.activity-text-style{
-    font-size: rem(14px);
-    font-weight: 600;
-    color: $primaryColor;
-    padding: 0.4rem 0.1rem;
+.activity-text-style {
+   font-size: rem(14px);
+   font-weight: 600;
+   color: $primaryColor;
+   padding: 0.4rem 0.1rem;
 }
 
-.activity-hover-effect{
-
-    &:hover{
-        background-color: #E4E6EA;
-    }
+.activity-hover-effect {
+   &:hover {
+      background-color: #e4e6ea;
+   }
 }
 
-.curser-pointer{
-    
-    &:hover{
-        cursor: pointer;
-    }
+.curser-pointer {
+   &:hover {
+      cursor: pointer;
+   }
+}
+
+// colors background container
+.activity-colors-main {
+   h2 {
+      color: $primaryColor;
+      text-align: center;
+      margin-block-end: 1rem;
+   }
+}
+
+.activity-background-section {
+   width: rem(152px);
+   height: rem(96px);
+   background-color: #0270b2;
+   border-radius: 0.4rem;
+   position: relative;
+
+   div:first-child {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 25%;
+      background-color: #bd7fd0;
+      border-radius: 0.5rem;
+   }
+
+   div:last-child {
+      position: absolute;
+      top: 15%;
+      left: 10%;
+      width: 80%;
+      height: 25%;
+      background-color: #e54c80;
+      border-radius: 0.5rem;
+   }
+
+   &:hover {
+      background-color: darken($color: #0270b2, $amount: 2);
+   }
+}
+
+.activity-background-container {
+   display: flex;
+   flex-direction: column;
+   width: fit-content;
+
+   h2 {
+      align-self: center;
+      justify-self: center;
+   }
+}
+
+.activity-main-colors-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+
+   .activity-colors-container {
+      width: rem(130px);
+      height: rem(96px);
+      border-radius: 0.5rem;
+      cursor: pointer;
+   }
 }
