@@ -10,149 +10,119 @@ import { useEffect, useState } from 'react'
 import { darken } from 'polished'
 
 //img
-// import TrelloIconWork from '../assets/img/trello-icon-work-removebg-preview.png'
-import TrelloIconWork from '../assets/img/trello-ic.png'
 
 // icons
-import { MdDarkMode } from 'react-icons/md'
-import { WiMoonAltWaningCrescent4 } from 'react-icons/wi'
-import { FaAdjust } from "react-icons/fa";
+import { FaAdjust } from 'react-icons/fa'
 import { FaInfoCircle } from 'react-icons/fa'
 import { FaRocket } from 'react-icons/fa'
 import { BsTrello } from 'react-icons/bs'
 
 export function AppHeader() {
-     const user = useSelector((storeState) => storeState.userModule.user)
-     const location = useLocation()
-     const demoUser = boardService.demoUser()
+   const user = useSelector((storeState) => storeState.userModule.user)
+   const location = useLocation()
+   const demoUser = boardService.demoUser()
 
-     const [navColor, setNavColor] = useState(null)
-     const boardId = location.pathname.split('/board/')[1]
+   const [navColor, setNavColor] = useState(null)
+   const boardId = location.pathname.split('/board/')[1]
+   const board = useSelector(
+      (storeState) => storeState.boardModule.selectedBoard
+   )
 
-     useEffect(() => {
-          fetchBoardStyle()
-     }, [location])
+   useEffect(() => {
+      console.log('board', board)
+      fetchBoardStyle()
+   }, [location])
 
-     function fetchBoardStyle() {
-          if (boardId) {
-               boardService
-                    .getById(boardId)
-                    .then((board) => {
-                         let boardStyleColor = board.style.backgroundColor
-                         if (!boardStyleColor) return
-                         boardStyleColor = darken(0.2, boardStyleColor)
+   function fetchBoardStyle() {
+      if (boardId) {
+         boardService
+            .getById(boardId)
+            .then((board) => {
+               let boardStyleColor = board.style.backgroundColor
+               if (!boardStyleColor) return
+               boardStyleColor = darken(0.2, boardStyleColor)
 
-                         setNavColor(boardStyleColor)
-                    })
-                    .catch((err) =>
-                         console.log('failed to change nav color', err)
-                    )
-          } else {
-               setNavColor('#026AA7')
-          }
-     }
+               setNavColor(boardStyleColor)
+            })
+            .catch((err) => console.log('failed to change nav color', err))
+      } else {
+         setNavColor('#026AA7')
+      }
+   }
 
-     async function onLogin(credentials) {
-          try {
-               const user = await login(credentials)
-               showSuccessMsg(`Welcome: ${user.fullname}`)
-          } catch (err) {
-               showErrorMsg('Cannot login')
-          }
-     }
-     async function onSignup(credentials) {
-          try {
-               const user = await signup(credentials)
-               showSuccessMsg(`Welcome new user: ${user.fullname}`)
-          } catch (err) {
-               showErrorMsg('Cannot signup')
-          }
-     }
-     async function onLogout() {
-          try {
-               await logout()
-               showSuccessMsg(`Bye now`)
-          } catch (err) {
-               showErrorMsg('Cannot logout')
-          }
-     }
+   return location.pathname !== '/' ? (
+      <header className='app-header-work' style={{ backgroundColor: navColor }}>
+         <nav className='main-nav-bar-work'>
+            <div className='nav-dropdown-work'>
+               <div>
+                  <Link to='/'>
+                     <div className='div-workspace'>
+                        <BsTrello className='logo-workspace' />
 
-     return location.pathname !== '/' ? (
-          <header
-               className='app-header-work'
-               style={{ backgroundColor: navColor }}
-          >
-               <nav className='main-nav-bar-work'>
-                    <div className='nav-dropdown-work'>
-                         <div>
-                              <Link to='/'>
-                                   <div className='div-workspace'>
-                                        <BsTrello className='logo-workspace' />
+                        <h2 className='logo-work'>Trelux </h2>
+                     </div>
+                  </Link>
+               </div>
 
-                                        <h2 className='logo-work'>Trelux </h2>
-                                   </div>
-                              </Link>
-                         </div>
+               <NavLink className='nav-link-work' to='/workspace'>
+                  {' '}
+                  Workspace
+               </NavLink>
 
-                         <NavLink className='nav-link-work' to='/workspace'>
-                              {' '}
-                              Workspace
-                         </NavLink>
+               <NavLink className='nav-link-work' to='/recent'>
+                  Recent
+               </NavLink>
 
-                         <NavLink className='nav-link-work' to='/recent'>
-                              Recent
-                         </NavLink>
+               <NavLink className='nav-link-work' to='/starred'>
+                  Starred
+               </NavLink>
+               <NavLink className='nav-link-work' to='/templates'>
+                  Templates
+               </NavLink>
+            </div>
 
-                         <NavLink className='nav-link-work' to='/starred'>
-                              Starred
-                         </NavLink>
-                         <NavLink className='nav-link-work' to='/templates'>
-                              Templates
-                         </NavLink>
-                    </div>
+            <div className='div-user'>
+               <input type='text' placeholder='Search' />
+               <FaRocket className='icon-rocket hover' />
+               <FaInfoCircle className='icon-info hover' />
+               <FaAdjust className='dark-theme hover' />
+               <div>{!user && <h2>{demoUser}</h2>}</div>
+            </div>
+         </nav>
+      </header>
+   ) : (
+      <header className='app-header-homepage'>
+         <nav className='main-nav-bar'>
+            <div className='nav-dropdown'>
+               <Link to='/' className='homepage-logo'>
+                  <BsTrello className='logo-workspace' />
+                  <h2 className='logo-work'>Trelux </h2>
+               </Link>
 
-                    <div className='div-user'>
-                         <input type='text' placeholder='Search' />
-                         <FaRocket className='icon-rocket hover' />
-                         <FaInfoCircle className='icon-info hover' />
-                         <FaAdjust className='dark-theme hover' />
-                         <div>{!user && <h2>{demoUser}</h2>}</div>
-                    </div>
-               </nav>
-          </header>
-     ) : (
-          <header className='app-header-homepage'>
-               <nav className='main-nav-bar'>
-                    <div className='nav-dropdown'>
-                         <Link to='/' className='homepage-logo'>
-                              <BsTrello className='logo-workspace' />
-                              <h2 className='logo-work'>Trelux </h2>
-                         </Link>
+               <NavLink to='/workspace' className='nav-link'>
+                  Workspace
+               </NavLink>
 
-                         <NavLink to='/workspace' className='nav-link'>
-                              Workspace
-                         </NavLink>
+               <NavLink to='/board' className='nav-link'>
+                  Boards
+               </NavLink>
+            </div>
 
-                         <NavLink to='/board' className='nav-link'>
-                              Boards
-                         </NavLink>
-                    </div>
-
-                    <div className='nav-buttons'>
-                         <a className='a-login'>Log in</a>
-                         <button className='btn-demo'>Try Demo</button>
-                    </div>
-               </nav>
-          </header>
-     )
+            <div className='nav-buttons'>
+               <a className='a-login'>Log in</a>
+               <button className='btn-demo'>Try Demo</button>
+            </div>
+         </nav>
+      </header>
+   )
 }
 
 // was inside the nav
 {
-     /* {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */
+   /* {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */
 
-     {
-          /* {user && (
+   {
+      /* {user && (
                          <span className='user-info'>
                               <Link to={`user/${user._id}`}>
                                    {user.imgUrl && <img src={user.imgUrl} />}
@@ -172,5 +142,30 @@ export function AppHeader() {
                               />
                          </section>
                     )}  */
-     }
+   }
+
+   // async function onLogin(credentials) {
+   //      try {
+   //           const user = await login(credentials)
+   //           showSuccessMsg(`Welcome: ${user.fullname}`)
+   //      } catch (err) {
+   //           showErrorMsg('Cannot login')
+   //      }
+   // }
+   // async function onSignup(credentials) {
+   //      try {
+   //           const user = await signup(credentials)
+   //           showSuccessMsg(`Welcome new user: ${user.fullname}`)
+   //      } catch (err) {
+   //           showErrorMsg('Cannot signup')
+   //      }
+   // }
+   // async function onLogout() {
+   //      try {
+   //           await logout()
+   //           showSuccessMsg(`Bye now`)
+   //      } catch (err) {
+   //           showErrorMsg('Cannot logout')
+   //      }
+   // }
 }

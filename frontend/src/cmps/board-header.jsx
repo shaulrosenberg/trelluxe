@@ -55,9 +55,7 @@ export function BoardHeader({ board}) {
                } catch (err) {
                     console.log('failed to change nav color', err)
                }
-          } else {
-               setNavColor('#026AA7')
-          }
+          } 
      }
 
      async function onStarredClick() {
