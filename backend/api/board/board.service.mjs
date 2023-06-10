@@ -63,19 +63,18 @@ async function add(board) {
 
 async function update(board) {
     try {
-        const boardToSave = {
-            vendor: board.vendor,
-            price: board.price
-        }
+        const boardToSave = board
+        // boardToSave
         const collection = await dbService.getCollection('board')
         await collection.updateOne({ _id: ObjectId(board._id) }, { $set: boardToSave })
         return board
     } catch (err) {
-        logger.error(`cannot update board ${boardId}`, err)
+        logger.error(`cannot update board ${board._id}`, err)
         throw err
     }
 }
 
+// activity?
 async function addBoardMsg(boardId, msg) {
     try {
         msg.id = utilService.makeId()

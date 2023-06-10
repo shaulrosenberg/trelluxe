@@ -35,7 +35,7 @@ export function AppHeader() {
    function fetchBoardStyle() {
       if(board && board.style)   return {backgroundColor: `${darken(0.2, board.style.backgroundColor)}`}
       else return {backgroundColor: '#026AA7'}
-   }
+   } 
 
    return location.pathname !== '/' ? (
       <header className='app-header-work' style={fetchBoardStyle()}>
