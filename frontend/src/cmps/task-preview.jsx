@@ -77,10 +77,10 @@ export function TaskPreview(props) {
                          className='task-preview-labels'
                          onClick={(ev) => onLabelClick(ev)}
                     >
-                        {!isLabelClick ? (   
-                         task.labelIds &&
+                         {!isLabelClick ? (
+                              task.labelIds &&
                               task.labelIds.map((labelId) => {
-                                   const label = boardService.findLabelStyleById(labelId,board)
+                                   const label = boardService.findLabelStyleById(labelId, board)
                                    return (
                                         <div
                                              key={labelId}
@@ -91,26 +91,26 @@ export function TaskPreview(props) {
                                         ></div>
                                    )
                               })
-                              ) : (
-                                task.labelIds.map((labelId) => {
-                                    const label = boardService.findLabelStyleById(labelId,board)
-                                    
-                                    return (
+                         ) : (
+                              task.labelIds.map((labelId) => {
+                                   const label = boardService.findLabelStyleById(labelId, board)
+
+                                   return (
                                         <div className='labels-names-container'>
-                                            <div
-                                              key={labelId}
-                                              className='labels-with-names'
-                                              style={{
-                                                   backgroundColor: label?.color,
-                                              }}>
-                                                <p className='label-text'>
-                                            {label.title} 
-                                            </p>
-                                            </div>
-                                         </div>
-                                    )
-                               })
-                              )}
+                                             <div
+                                                  key={labelId}
+                                                  className='labels-with-names'
+                                                  style={{
+                                                       backgroundColor: label?.color,
+                                                  }}>
+                                                  <p className='label-text'>
+                                                       {label.title}
+                                                  </p>
+                                             </div>
+                                        </div>
+                                   )
+                              })
+                         )}
                     </div>
 
                     <div className='title-container'>
@@ -159,9 +159,8 @@ export function TaskPreview(props) {
                          {/* check list badge */}
                          {task.checklists?.length > 0 && (
                               <div
-                                   className={`badge-btn ${
-                                        getTodosRatio().status
-                                   }`}
+                                   className={`badge-btn ${getTodosRatio().status
+                                        }`}
                               >
                                    <div className='icon'>
                                         <IoMdCheckboxOutline />
@@ -175,8 +174,8 @@ export function TaskPreview(props) {
                          {/* members badge */}
                          {taskMembers && (
                               <ul className='task-member-badges clean-list'>
-                                   {taskMembers.map((taskMember) => (
-                                        <li className='task-member-badge'>
+                                   {taskMembers.map((taskMember, index) => (
+                                        <li key={index} className='task-member-badge'>
                                              {' '}
                                              <img
                                                   key={taskMember.id}

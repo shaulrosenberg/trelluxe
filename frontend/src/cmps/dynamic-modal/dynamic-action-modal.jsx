@@ -3,7 +3,6 @@ import { GrClose } from "react-icons/gr"
 
 // Import different cmps based on type
 import { DatesContent } from "./dates-content"
-import { EditLabel } from "./edit-label"
 import { LabelsContent } from "./labels-content"
 import { ChecklistContent } from "./checklist-content"
 import { MembersContent } from "./members-content"
@@ -11,7 +10,6 @@ import { AttachContent } from "./attach-content"
 import { CreateBoardContent } from "./create-board-content"
 import { useSelector } from "react-redux"
 import { EditAttachment } from './edit-attachment'
-// import {EditLabelsContent} from './'
 import { CoverContent } from "./task-cover"
 import { FilterContent } from "./filter-content"
 
@@ -19,9 +17,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
     // Get window width
     const [width, setWidth] = useState(window.innerWidth)
 
-    useSelector(storeState => storeState.boardModule.selectedBoard)
-
-
+    // maybe use global state for toggling modal??
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth)
@@ -40,10 +36,9 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         attachment: AttachContent,
         createBoard: CreateBoardContent,
         editAttach: EditAttachment,
-        editLabel: EditLabel,
         cover: CoverContent,
         filter: FilterContent,
-
+        // activity: ActivityContent
     }
 
     // Get the component from the map
@@ -54,16 +49,46 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         if (props.onCloseModal) props.onCloseModal()
     }
 
-    function getModalPositionStyle(event, type, isDetails, width) {
+    function getModalPositionStyle() {
         const padding = 10
-        const { top, left, height, right } = event.target.getBoundingClientRect()
-        return { top: top + height + padding, left: left }
+        const modalWidth = 300 
+        const modalHeight = 200 // not 200
+
+        const { top, left, height, width } = event.target.getBoundingClientRect()
+
+        // initial position
+        let calculatedLeft = left
+        let calculatedTop = top + height + padding
+
+        if (left + modalWidth > window.innerWidth) {
+            calculatedLeft = window.innerWidth - modalWidth - padding
+        }
+
+        if (top + height + modalHeight > window.innerHeight) {
+            calculatedTop = top - modalHeight - padding
+        }
+
+        if (calculatedTop < 0) {
+            calculatedTop = top + height + padding
+        }
+
+        if (calculatedLeft < 0) {
+            calculatedLeft = left + width + padding
+        }
+
+        if (cmpType === 'activity') {
+            return { top: calculatedTop, right: 0, height: '100vh' }
+        }
+
+        return { top: calculatedTop, left: calculatedLeft }
     }
+
+
 
     const modalStyle = getModalPositionStyle(event, cmpType, isDetails, width)
 
     return (
-        <section style={modalStyle} className="dynamic-action-modal">
+        <section style={modalStyle} className={`dynamic-action-modal ${cmpType === 'activity' ? 'activity-modal' : ''}`}>
             <section className="dynamic-modal-header">
                 <span>{modalTitle}</span>
                 <button onClick={handleClose}><GrClose className='btn-content' /></button>

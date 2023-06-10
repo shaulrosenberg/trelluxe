@@ -23,6 +23,7 @@ export const boardService = {
   findGroupById,
   getTaskMembers,
   getTaskLabels,
+  getAppColors,
 }
 
 _createBoards()
@@ -195,10 +196,224 @@ function getTaskLabels(boardLabels, labelIds) {
   }, [])
 }
 
-// filter function
-function onFilterOptions(){
-  
+// labels
+function getAppColors() {
+  return [
+    {
+      subtleGreen: {
+        style: {
+          backgroundColor: '#BAF3DB',
+        },
+      },
+    },
+    {
+      subtleYellow: {
+        style: {
+          backgroundColor: '#F8E6A1',
+        },
+      },
+    },
+    {
+      subtleOrange: {
+        style: {
+          backgroundColor: '#FFE2BE',
+        },
+      },
+    },
+    {
+      subtleRed: {
+        style: {
+          backgroundColor: '#FFD2CC',
+        },
+      },
+    },
+    {
+      subtlePurple: {
+        style: {
+          backgroundColor: '#DFD8FD',
+        },
+      },
+    },
+    {
+      green: {
+        style: {
+          backgroundColor: '#4BCE97',
+        },
+      },
+    },
+    {
+      yellow: {
+        style: {
+          backgroundColor: '#E2B204',
+        },
+      },
+    },
+    {
+      orange: {
+        style: {
+          backgroundColor: '#FAA53D',
+        },
+      },
+    },
+    {
+      red: {
+        style: {
+          backgroundColor: '#F87462',
+        },
+      },
+    },
+    {
+      purple: {
+        style: {
+          backgroundColor: '#A08FEF',
+        },
+      },
+    },
+    {
+      boldGreen: {
+        style: {
+          backgroundColor: '#20845A',
+        },
+      },
+    },
+    {
+      boldYellow: {
+        style: {
+          backgroundColor: '#956F00',
+        },
+      },
+    },
+    {
+      boldOrange: {
+        style: {
+          backgroundColor: '#B75C01',
+        },
+      },
+    },
+    {
+      boldPurple: {
+        style: {
+          backgroundColor: '#CA3520',
+        },
+      },
+    },
+    {
+      subtleBlue: {
+        style: {
+          backgroundColor: '#6D5DC6',
+        },
+      },
+    },
+    {
+      subtleBlue: {
+        style: {
+          backgroundColor: '#CCE0FF',
+        },
+      },
+    },
+    {
+      subtleSky: {
+        style: {
+          backgroundColor: '#C1F0F5',
+        },
+      },
+    },
+    {
+      subtleLime: {
+        style: {
+          backgroundColor: '#D3F1A7',
+        },
+      },
+    },
+    {
+      subtlePink: {
+        style: {
+          backgroundColor: '#FDD0EC',
+        },
+      },
+    },
+    {
+      subtleBlack: {
+        style: {
+          backgroundColor: '#DCDFE4',
+        },
+      },
+    },
+    {
+      blue: {
+        style: {
+          backgroundColor: '#579EFF',
+        },
+      },
+    },
+    {
+      sky: {
+        style: {
+          backgroundColor: '#60C6D2',
+        },
+      },
+    },
+    {
+      lime: {
+        style: {
+          backgroundColor: '#94C749',
+        },
+      },
+    },
+    {
+      pink: {
+        style: {
+          backgroundColor: '#E774BB',
+        },
+      },
+    },
+    {
+      black: {
+        style: {
+          backgroundColor: '#8590A3',
+        },
+      },
+    },
+    {
+      boldBlue: {
+        style: {
+          backgroundColor: '#0D66E4',
+        },
+      },
+    },
+    {
+      boldSky: {
+        style: {
+          backgroundColor: '#1E7F8C',
+        },
+      },
+    },
+    {
+      boldLime: {
+        style: {
+          backgroundColor: '#5B7F24',
+        },
+      },
+    },
+    {
+      boldPink: {
+        style: {
+          backgroundColor: '#AE4787',
+        },
+      },
+    },
+    {
+      boldBlack: {
+        style: {
+          backgroundColor: '#626F86',
+        },
+      },
+    },
+  ]
 }
+
+// filter function
+function onFilterOptions() {}
 
 function _createBoards() {
   let boards = utilService.loadFromStorage(STORAGE_KEY)
@@ -470,42 +685,42 @@ function _createBoards() {
           {
             id: 'l101',
             title: 'Done',
-            color: '#FFB6C1',
+            color: '#4BCE97',
           },
           {
             id: 'l1jfsdfsd02',
             title: 'Progress',
-            color: '#579DFF',
+            color: '#F8E6A1',
           },
           {
             id: 'l103',
             title: 'High Priority',
-            color: '#AE4787',
+            color: '#CA3520',
           },
           {
             id: 'l104',
             title: 'Low Priority',
-            color: '#F87462',
+            color: '#DFD8FD',
           },
           {
             id: 'l105',
             title: 'Review Needed',
-            color: '#9F8FEF',
+            color: '#E774BB',
           },
           {
             id: 'l106',
             title: 'Bug',
-            color: '#0C66E4',
+            color: '#E774BB',
           },
           {
             id: 'l107',
             title: 'Improvement',
-            color: '#E2B203',
+            color: '#0F65E4',
           },
           {
             id: 'l108',
             title: 'New Feature',
-            color: '#4BCE97',
+            color: '#1E7F8C',
           },
         ],
       },
