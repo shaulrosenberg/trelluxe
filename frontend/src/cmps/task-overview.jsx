@@ -37,6 +37,10 @@ export function TaskOverview({ task, groupId, boardId }) {
 
     }
 
+    const modalTitles = {
+        'dates': 'Dates'
+    }
+
     function onCloseModal() {
         setModalType(null)
     }
@@ -111,6 +115,7 @@ export function TaskOverview({ task, groupId, boardId }) {
             {/* Dynamic modal */}
             {modalType && <DynamicActionModal
                 cmpType={modalType}
+                modalTitle={modalTitles[modalType]}
                 event={eventRef.current}
                 task={task}
                 groupId={groupId}
