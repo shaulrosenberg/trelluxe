@@ -87,7 +87,10 @@ export function FilterContent() {
             <h4 className='filter-text-style'>Labels</h4>
             <div className='filter-labels filter-align'>
                {labels.map((label) => (
-                  <div style={{backgroundColor: label.color}}>
+                  <div
+                     className='labels-filter-area'
+                     style={{ backgroundColor: label.color }}
+                  >
                      <label key={label.id}>
                         <input
                            type='checkbox'
@@ -105,14 +108,16 @@ export function FilterContent() {
             <h4 className='filter-text-style'>Members</h4>
             <div className='filter-members filter-align'>
                {members.map((member) => (
-                  <label key={member._id}>
-                     <input
-                        type='checkbox'
-                        checked={selectedMembers.includes(member._id)}
-                        onChange={() => handleMemberChange(member._id)}
-                     />
-                     {member.fullname}
-                  </label>
+                  <div className='members-filter-area'>
+                     <label key={member._id}>
+                        <input
+                           type='checkbox'
+                           checked={selectedMembers.includes(member._id)}
+                           onChange={() => handleMemberChange(member._id)}
+                        />
+                        {member.fullname}
+                     </label>
+                  </div>
                ))}
             </div>
          </div>
