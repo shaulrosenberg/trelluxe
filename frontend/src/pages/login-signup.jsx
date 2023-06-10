@@ -1,117 +1,107 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
+import { useDispatch } from 'react-redux'
+import { useLocation } from 'react-router-dom';
+import { ImTrello } from 'react-icons/im'
+import { useNavigate } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
+
+import leftHero from '../assets/img/left-hero.svg'
+import rightHero from '../assets/img/right-hero.svg'
+import { login, signup } from '../store/user.actions'
 
 export function LoginSignup(props) {
-    const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
-    const [isSignup, setIsSignup] = useState(false)
-    const [users, setUsers] = useState([])
+    let navigate = useNavigate()
 
-    useEffect(() => {
-        loadUsers()
-    }, [])
+    const dispatch = useDispatch();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [fullname, setFullname] = useState('');
 
-    async function loadUsers() {
-        const users = await userService.getUsers()
-        setUsers(users)
-    }
+    let location = useLocation()
+    const isLoginMode = location.pathname.includes('login');
+    async function handleSubmit(ev) {
+        ev.preventDefault();
+        if (username.trim() && password.trim()) {
+            if (!isLoginMode) {
+                await dispatch(
+                    await signup({
+                        username,
+                        password,
+                        fullname,
+                        imgUrl: 'https://robohash.org/adam',
+                    })
+                )
 
-    function clearState() {
-        setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
-        setIsSignup(false)
-    }
+                try {
+                    await dispatch(login({ username, password }))
+                    navigate('/workspace')
+                }
+                catch (err) {
+                    console.log(err, 'cannot signup')
 
-    function handleChange(ev) {
-        const field = ev.target.name
-        const value = ev.target.value
-        setCredentials({ ...credentials, [field]: value })
-    }
+                }
 
-    function onLogin(ev = null) {
-        if (ev) ev.preventDefault()
-        if (!credentials.username) return
-        props.onLogin(credentials)
-        clearState()
-    }
-
-    function onSignup(ev = null) {
-        if (ev) ev.preventDefault()
-        if (!credentials.username || !credentials.password || !credentials.fullname) return
-        props.onSignup(credentials)
-        clearState()
-    }
-
-    function toggleSignup() {
-        setIsSignup(!isSignup)
-    }
-
-    function onUploaded(imgUrl) {
-        setCredentials({ ...credentials, imgUrl })
+            } else {
+                await dispatch(login({ username, password }))
+                navigate('/workspace')
+            }
+        }
     }
 
     return (
-        <div className="login-page">
-            <p>
-                <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
-            </p>
-            {!isSignup && <form className="login-form" onSubmit={onLogin}>
-                <select
-                    name="username"
-                    value={credentials.username}
-                    onChange={handleChange}
-                >
-                    <option value="">Select User</option>
-                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
-                </select>
-                {/* <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    /> */}
-                <button>Login!</button>
-            </form>}
-            <div className="signup-section">
-                {isSignup && <form className="signup-form" onSubmit={onSignup}>
-                    <input
-                        type="text"
-                        name="fullname"
-                        value={credentials.fullname}
-                        placeholder="Fullname"
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="username"
-                        value={credentials.username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={credentials.password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    />
-                    <ImgUploader onUploaded={onUploaded} />
-                    <button >Signup!</button>
-                </form>}
+        <section className="login-signup-container">
+
+            <div className="login-signup-header">
+                <ImTrello className="trello-logo" />
+                <h1 className="logo">Trelux</h1>
             </div>
-        </div>
-    )
+
+
+            <div className="login-signup-body">
+                <div className="login-registration-modal">
+                    <h1>{isLoginMode ? 'Login to Trelux' : 'sign up for your account'}</h1>
+                    <form className="registration-form" onSubmit={handleSubmit}>
+                        {!isLoginMode && (
+                            <input
+                                required
+                                type="txt"
+                                value={fullname}
+                                onChange={ev => setFullname(ev.target.value)}
+                                placeholder="Enter Full Name"
+                            />
+                        )}
+                        <input
+                            required
+                            type="txt"
+                            value={username}
+                            onChange={ev => setUsername(ev.target.value)}
+                            placeholder="Enter Username"
+                        />
+                        <input
+                            required
+                            type="password"
+                            value={password}
+                            onChange={ev => setPassword(ev.target.value)}
+                            placeholder="Enter Password"
+                            autoComplete="off"
+                        />
+                        <button type="submit" className={`submit-btn ${isLoginMode ? 'login' : 'signup'}`}>
+                            {isLoginMode ? 'Log in' : 'Sign up'}
+                        </button>
+                    </form>
+
+
+                </div>
+            </div>
+
+            <img src={leftHero} className="left-hero" />
+            <img src={rightHero} className="right-hero" />
+
+
+        </section>
+    );
+
 }

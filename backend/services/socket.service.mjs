@@ -49,6 +49,21 @@ export function setupSocketAPI(server) {
             delete socket.userId
         })
 
+        // board
+        socket.on('join-board', boardId => {
+            if (socket.myBoardId === boardId) return
+            if (socket.myBoardId) {
+                socket.leave(socket.myBoardId)
+            }
+            socket.join(boardId)
+            socket.myBoardId = boardId
+        })
+
+        socket.on('board-change', updatedBoard => {
+            console.log('Emitting board change')
+            socket.broadcast.to(socket.myBoardId).emit('board-update', updatedBoard);
+        })
+
     })
 }
 

@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react'
 import { GroupList } from '../cmps/group-list'
 import { BoardHeader } from '../cmps/board-header'
 import { Loader } from '../cmps/loader'
+import { socketService } from '../services/socket.service'
 
 import { boardService } from '../services/board.service'
-import { setSelectedBoard } from '../store/board.actions'
+import { setSelectedBoard, updateBoard } from '../store/board.actions'
 
 
 
@@ -23,9 +24,19 @@ export function BoardIndex() {
    useEffect(() => {
       loadBoard()
       // add listeners
-      
+      try {
+         // socketService.setup() already happens in socket.service
+         socketService.emit('join-board', boardId)
+         socketService.on('board-update', async (updatedBoard) => {
+            await updateBoard(updatedBoard)
+         })
+      } catch(err) {
+
+      }
       return () => {
          // remove listeners
+         socketService.off('board-update')
+         socketService.terminate()
       }
    }, [])
 
