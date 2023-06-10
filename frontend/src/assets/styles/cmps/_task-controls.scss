@@ -1,42 +1,41 @@
 .task-controls {
-    padding: 1rem;
-    position: relative;
-    background-color: #F1F2F4;
-    border-radius: 0.3rem;
-    color: #172b4d;
+   padding: 1rem;
+   position: relative;
+   background-color: #f1f2f4;
+   border-radius: 0.3rem;
+   color: #172b4d;
 
-    .add-to-card {
-        .controls-title {
-            font-size: rem(12px);
-            font-weight: 600;
-            color: #5e6c84;
-            margin-bottom: 0.3rem;
-            margin-left: 0.4rem;
-        }
+   .add-to-card {
+      .controls-title {
+         font-size: rem(12px);
+         font-weight: 600;
+         color: #5e6c84;
+         margin-bottom: 0.3rem;
+         margin-left: 0.4rem;
+      }
 
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-        }
+      .btn-container {
+         display: flex;
+         flex-direction: column;
+      }
 
-        .btn-task-control {
-            display: flex;
-            align-items: center;
-            width: rem(158px);
-            gap: 0.625rem;
-            font-size: 0.875rem;
-            padding: 0.375rem 0.75rem;
-            border: none;
-            border-radius: 0.25rem;
-            background-color: #E4E6EA;
-            color: #5e6c84;
-            transition: background-color 0.2s ease-in-out;
-            cursor: pointer;
+      .btn-task-control {
+         display: flex;
+         align-items: center;
+         width: rem(158px);
+         gap: 0.625rem;
+         font-size: 0.875rem;
+         padding: 0.375rem 0.75rem;
+         border: none;
+         border-radius: 0.25rem;
+         background-color: #e4e6ea;
+         color: #5e6c84;
+         transition: background-color 0.2s ease-in-out;
+         cursor: pointer;
 
-            &:hover {
-                background-color: darken($color: #E4E6EA, $amount: 5);
-            }
-
-        }
-    }
+         &:hover {
+            background-color: darken($color: #e4e6ea, $amount: 5);
+         }
+      }
+   }
 }
