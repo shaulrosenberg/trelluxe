@@ -1,69 +1,67 @@
 .group-list-container {
-     display: flex;
-     overflow-y: hidden;
-     overflow-x: auto;
-     margin-top: 0.5rem;
-     padding-inline-end: 40px;
-    padding-bottom: 10px;
-     /* Custom scrollbar styles */
-     scrollbar-width: thin;
-     scrollbar-color: transparent transparent;
-   
-     &::-webkit-scrollbar {
-       height: rem(15px);
-     }
-   
-     &::-webkit-scrollbar-track {
-       background: rgba(0, 0, 0, 0.2); /* Adjust the transparency as desired */
-       max-width: 50%;
-     }
-   
-     &::-webkit-scrollbar-thumb {
-       background: rgba(0, 0, 0, 0.4); /* Adjust the transparency as desired */
-       border-radius: rem(52px);
-       max-width: 50%;
-     }
-   
-     &::-webkit-scrollbar-thumb:hover {
-       background: rgba(0, 0, 0, 0.6); /* Adjust the transparency as desired */
-       max-width: 50%;
-     }
+   display: flex;
+   overflow-y: hidden;
+   overflow-x: auto;
+   margin-top: 0.5rem;
+   padding-inline-end: 40px;
+   padding-bottom: 10px;
+   /* Custom scrollbar styles */
+   scrollbar-width: thin;
+   scrollbar-color: transparent transparent;
+
+   &::-webkit-scrollbar {
+      height: rem(15px);
    }
-   
-   
+
+   &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2); /* Adjust the transparency as desired */
+      max-width: 50%;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.4); /* Adjust the transparency as desired */
+      border-radius: rem(52px);
+      max-width: 50%;
+   }
+
+   &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.6); /* Adjust the transparency as desired */
+      max-width: 50%;
+   }
+}
 
 .add-group-btn {
-     display: flex;
-     align-items: center;
-     width: rem(260px);
-     max-height: rem(32px);
-     background-color: rgba(240, 248, 255, 0.317);
-     padding: 23px 15px;
-     transition: color 85ms ease-in;
-     margin-top: 0.4rem;
-     margin-left: 0.5rem;
-     border-radius: 0.6rem;
-     color: white;
-     min-width: rem(272px);
-     cursor: pointer;
+   display: flex;
+   align-items: center;
+   width: rem(260px);
+   max-height: rem(32px);
+   background-color: rgba(240, 248, 255, 0.317);
+   padding: 23px 15px;
+   transition: color 85ms ease-in;
+   margin-top: 0.4rem;
+   margin-left: 0.5rem;
+   border-radius: 0.6rem;
+   color: white;
+   min-width: rem(272px);
+   cursor: pointer;
 
-     &:hover {
-          background-color: rgba(213, 217, 220, 0.317);
-     }
+   &:hover {
+      background-color: rgba(213, 217, 220, 0.317);
+   }
 
-     p {
-          margin: 0;
-          padding: 0 0.5rem;
-          font-size: rem(14px);
-          font-weight: 600;
-     }
+   p {
+      margin: 0;
+      padding: 0 0.5rem;
+      font-size: rem(14px);
+      font-weight: 600;
+   }
 
-     .icon-add-group {
-          font-size: rem(14px);
-          color: white;
-     }
-     // .icon-add-group path,
-     // .icon-add-group svg {
-     //      fill: white;
-     // }
+   .icon-add-group {
+      font-size: rem(14px);
+      color: white;
+   }
+   // .icon-add-group path,
+   // .icon-add-group svg {
+   //      fill: white;
+   // }
 }

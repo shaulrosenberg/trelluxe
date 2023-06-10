@@ -47,6 +47,13 @@
 }
 
 // colors background container
+.activity-colors-container {
+    transition: 0.2s ease;
+   &:hover {
+      transform: scale(1.1);
+   }
+}
+
 .activity-colors-main {
    h2 {
       color: $primaryColor;
