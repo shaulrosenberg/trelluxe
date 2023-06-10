@@ -1,5 +1,6 @@
 import React from 'react'
 import heroImg from '../assets/img/hero-trello.png'
+import homepageImg from '../assets/img/img-3.png'
 import { Link } from 'react-router-dom'
 
 
@@ -23,6 +24,15 @@ export function HomePage() {
                          <img src={heroImg} className='hero-img' alt='Hero' />
                     </div>
                </div>
+
+               {/* <div className='info-section-homepage'>
+                    <div>
+                    <h2>Hi</h2>
+                    </div>
+                    <div>
+                    <img src={homepageImg} alt="homepage section" />
+                    </div>
+               </div> */}
           </section>
      )
 }
