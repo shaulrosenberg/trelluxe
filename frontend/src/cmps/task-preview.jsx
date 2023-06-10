@@ -3,6 +3,9 @@ import { SlBubble } from 'react-icons/sl'
 import { IoMdCheckboxOutline } from 'react-icons/io'
 import { IoTimeOutline } from 'react-icons/io5';
 import { GrCheckboxSelected } from 'react-icons/gr';
+import { IoCheckboxOutline } from "react-icons/io5";
+
+
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
 import { useEffect, useState } from 'react'
@@ -132,7 +135,7 @@ export function TaskPreview(props) {
                                         onMouseLeave={() => setIsDateBadgeHovered(false)}>
 
                                         <span className="due-icon">
-                                             {!isDateBadgeHovered ? <IoTimeOutline /> : task.isDone ? <GrCheckboxSelected className="" onClick={(ev) => toggleIsDone(ev)} /> : <MdCheckBoxOutlineBlank onClick={(ev) => toggleIsDone(ev)} />}
+                                             {!isDateBadgeHovered ? <IoTimeOutline /> : task.isDone ? <IoCheckboxOutline className="date-checkbox-done" onClick={(ev) => toggleIsDone(ev)} /> : <MdCheckBoxOutlineBlank onClick={(ev) => toggleIsDone(ev)} />}
 
                                         </span>
                                         <span className="due-date-txt">{new Date(task.dueDate).toLocaleDateString('en-US', {
