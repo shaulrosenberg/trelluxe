@@ -8,6 +8,8 @@ import { Loader } from '../cmps/loader'
 import { boardService } from '../services/board.service'
 import { setSelectedBoard } from '../store/board.actions'
 
+
+
 export function BoardIndex() {
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
@@ -21,7 +23,7 @@ export function BoardIndex() {
    useEffect(() => {
       loadBoard()
       // add listeners
-
+      
       return () => {
          // remove listeners
       }
