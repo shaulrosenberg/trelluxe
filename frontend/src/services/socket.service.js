@@ -19,7 +19,7 @@ const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
 const baseUrl = process.env.NODE_ENV === 'production' ? '' : '//localhost:3030'
 // export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
 
 // for debugging from console
 window.socketService = socketService
@@ -116,5 +116,5 @@ function createDummySocketService() {
 // socketService.on('baba', cb)
 // socketService.on('baba', cb)
 // socketService.on('mama', cb)
-// socketService.emit('baba', 'Puk')
+// socketService.emit('board-update', {})
 // socketService.off('baba', cb)

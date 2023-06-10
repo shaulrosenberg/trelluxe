@@ -12,11 +12,17 @@ export function CreateBoardContent({ onCloseModal }) {
 
    async function handleSubmit(event) {
       event.preventDefault()
+      // TODO: move this empty board template to service
       const newBoard = await addBoard({
          title: boardTitle,
          style: { backgroundColor: boardBackground },
          isStarred: false,
          groups: [],
+         members: [{
+            _id: 'u101',
+            fullname: 'Abi Abambi',
+            imgUrl: 'http://some-img.jpg'
+         }],
          activities: [],
       })
       onCloseModal()
@@ -24,7 +30,7 @@ export function CreateBoardContent({ onCloseModal }) {
    }
 
    useEffect(() => {
-      
+
    }, [boardTitle])
    const isAllow = !boardTitle ? 'not-allowed' : ''
    return (
