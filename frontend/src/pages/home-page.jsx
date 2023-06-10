@@ -1,7 +1,7 @@
 import React from 'react'
 import heroImg from '../assets/img/hero-trello.png'
 import homepageImg from '../assets/img/img-3.png'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 
 export function HomePage() {
@@ -17,7 +17,9 @@ export function HomePage() {
                               Keep everything in the same place—even if your
                               team isn’t.
                          </p>
-                         <button className='btn-style-cta'>Sign Up</button>
+                         <NavLink to="/signup">
+
+                              <button className='btn-style-cta'>Sign Up</button></NavLink>
                          <Link to={'/workspace'} className='btn-style-cta'>Try Demo</Link>
                     </div>
                     <div className='div-hero-img'>
