@@ -22,36 +22,23 @@ export function AppHeader() {
    const location = useLocation()
    const demoUser = boardService.demoUser()
 
-   const [navColor, setNavColor] = useState(null)
    const boardId = location.pathname.split('/board/')[1]
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
    )
 
    useEffect(() => {
-      console.log('board', board)
       fetchBoardStyle()
    }, [location])
 
+   // TODO: change color if style has backgroundImage
    function fetchBoardStyle() {
-      if (boardId) {
-         boardService
-            .getById(boardId)
-            .then((board) => {
-               let boardStyleColor = board.style.backgroundColor
-               if (!boardStyleColor) return
-               boardStyleColor = darken(0.2, boardStyleColor)
-
-               setNavColor(boardStyleColor)
-            })
-            .catch((err) => console.log('failed to change nav color', err))
-      } else {
-         setNavColor('#026AA7')
-      }
+      if(board && board.style)   return {backgroundColor: `${darken(0.2, board.style.backgroundColor)}`}
+      else return {backgroundColor: '#026AA7'}
    }
 
    return location.pathname !== '/' ? (
-      <header className='app-header-work' style={{ backgroundColor: navColor }}>
+      <header className='app-header-work' style={fetchBoardStyle()}>
          <nav className='main-nav-bar-work'>
             <div className='nav-dropdown-work'>
                <div>
