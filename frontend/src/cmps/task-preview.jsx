@@ -8,16 +8,23 @@ import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { useEffect, useState } from 'react'
 import { boardService } from '../services/board.service'
 import { updateTask } from '../store/board.actions';
+import { toggleLabels } from '../store/board.actions'
+import { useSelector } from 'react-redux';
 
 export function TaskPreview(props) {
 
      const { task, board, boardId, groupId } = props
+     const taskLabels = boardService.getTaskLabels(board.labels, task.labelIds)
+
      const taskMembers = boardService.getTaskMembers(
           board.members,
           task.memberIds
      )
      const dueDateInfo = task.dueDate ? boardService.getDueDateInfo(task) : null
-     const [isLabelClick, setIsLabelClick] = useState(false)
+     const labelExpanedStatus = useSelector(
+          (storeState) => storeState.boardModule.isLabelExpand
+     )
+
      const [isDateBadgeHovered, setIsDateBadgeHovered] = useState(false)
      function toggleIsDone(ev) {
           ev.stopPropagation()
@@ -45,7 +52,13 @@ export function TaskPreview(props) {
      function onLabelClick(ev) {
           ev.stopPropagation()
           console.log('label click')
-          setIsLabelClick(!isLabelClick)
+          toggleLabels()
+
+
+
+          // setIsLabelClick(!isLabelClick)
+
+
      }
 
      const hasBackgroundImage = task.style?.backgroundImage
@@ -83,41 +96,29 @@ export function TaskPreview(props) {
                     <div
                          className='task-preview-labels'
                          onClick={(ev) => onLabelClick(ev)}
-                    >
-                         {!isLabelClick ? (
-                              task.labelIds &&
-                              task.labelIds.map((labelId) => {
-                                   const label = boardService.findLabelStyleById(labelId, board)
-                                   return (
-                                        <div
-                                             key={labelId}
-                                             className='label'
-                                             style={{
-                                                  backgroundColor: label?.color,
-                                             }}
-                                        ></div>
-                                   )
-                              })
-                         ) : (
-                              task.labelIds.map((labelId) => {
-                                   const label = boardService.findLabelStyleById(labelId, board)
 
-                                   return (
-                                        <div className='labels-names-container'>
-                                             <div
-                                                  key={labelId}
-                                                  className='labels-with-names'
-                                                  style={{
-                                                       backgroundColor: label?.color,
-                                                  }}>
-                                                  <p className='label-text'>
-                                                       {label.title}
-                                                  </p>
-                                             </div>
+                    >
+
+                         {!labelExpanedStatus ? (
+                              taskLabels &&
+                              taskLabels.map(label =>
+                                   <div className="label" key={label.id} style={{ backgroundColor: label.color }}></div>
+                              )
+                         ) : (
+                              taskLabels &&
+                              taskLabels.map(label =>
+                                   <div className="labels-names-container">
+                                        <div className="labels-with-names"
+                                             key={label.id} style={{ backgroundColor: label.color }}
+                                        >
+                                             <p className='label-text'>{label.title}</p>
                                         </div>
-                                   )
-                              })
-                         )}
+
+                                   </div>
+                              )
+                         )
+                         }
+
                     </div>
 
                     <div className='title-container'>

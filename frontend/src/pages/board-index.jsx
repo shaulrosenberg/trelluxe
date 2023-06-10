@@ -12,6 +12,9 @@ export function BoardIndex() {
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
    )
+   const labelExpanedStatus = useSelector(
+      (storeState) => storeState.boardModule.isLabelExpand
+   )
 
    const { boardId } = useParams()
 
