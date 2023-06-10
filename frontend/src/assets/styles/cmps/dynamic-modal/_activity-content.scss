@@ -1,0 +1,49 @@
+.activity-actions-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    margin-block-end: 2rem;
+
+   .background-img {
+      background-image: url(https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/rainbow.svg);
+      width: rem(20px);
+      height: rem(20px);
+      border-radius: 0.2rem;
+      margin-left: 0.4rem;
+   }
+}
+
+.activity-container {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 1rem;
+
+   svg {
+      font-size: rem(16px);
+      color: $primaryColor;
+      margin-left: 0.4rem;
+   }
+}
+
+.activity-text-style{
+    font-size: rem(14px);
+    font-weight: 600;
+    color: $primaryColor;
+    padding: 0.4rem 0.1rem;
+}
+
+.activity-hover-effect{
+
+    &:hover{
+        background-color: #E4E6EA;
+    }
+}
+
+.curser-pointer{
+    
+    &:hover{
+        cursor: pointer;
+    }
+}
