@@ -14,7 +14,6 @@ export function DatesContent({ task, boardId, groupId, updateTask, onCloseModal 
     const [reminder, setReminder] = useState('None')
     const [dueTime, setDueTime] = useState("");
 
-
     useEffect(() => {
         if (task?.dueDate && isValid(parseISO(task.dueDate))) {
             setSelectedDate(parseISO(task.dueDate))
@@ -63,7 +62,6 @@ export function DatesContent({ task, boardId, groupId, updateTask, onCloseModal 
         onCloseModal();
     }
 
-
     async function handleRemove() {
         // Remove due date
         await updateTask({ ...task, dueDate: null }, boardId, groupId)
@@ -85,7 +83,6 @@ export function DatesContent({ task, boardId, groupId, updateTask, onCloseModal 
                     className="date-picker"
                 />
             </div>
-
 
             <div className="date-inputs">
                 <div className="date-input-group">
@@ -116,7 +113,8 @@ export function DatesContent({ task, boardId, groupId, updateTask, onCloseModal 
                     </div>
                 </div>
                 <div className="reminder-input-group">
-                    <label className="reminder-label">Set due date reminder</label>
+                    <label className="reminder-label">Set due date reminder
+                    </label>
                     <select value={reminder} onChange={handleReminderChange} className="reminder-select">
                         <option value="None">None</option>
                         <option value="At time of due date">At time of due date</option>
