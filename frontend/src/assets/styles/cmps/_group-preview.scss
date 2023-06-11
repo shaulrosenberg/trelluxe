@@ -68,8 +68,12 @@
 
 .add-task-opened {
    margin-top: 0.4rem;
+   box-shadow: 0 1px 0 rgba(8, 37, 85, 0.251);
    textarea {
       width: 242px;
+      box-shadow: 0 1px 0 #c0c6d0;
+      width: 247px;
+      border-radius: 3px;
       height: 70px;
       margin-left: 0.4rem;
       padding: 0.3rem;
@@ -77,6 +81,12 @@
       resize: none;
       border: none;
       border-radius: 0.5rem;
+line-height: 20px;
+      &::placeholder{
+         color:#43546F;
+         font-size: 14px;
+
+      }
 
       &:focus {
          outline: none;
@@ -88,7 +98,7 @@
       align-items: center;
 
       .add-card-btn {
-         background-color: #0c66e4;
+         background-color: #0D66E4;
          color: white;
          border-radius: 0.3rem;
          padding: 0.5rem 0.7rem;
