@@ -24,11 +24,10 @@
 }
 
 .sublist-progress-bar {
-   width: 100%;
+   width: 90%;
    height: 20px;
-   border-radius: 1rem;
-   margin-block-end: 7px;
-   margin-left: 0.5rem;
+
+   margin-left: 1.1rem;
    background-color: #ddd;
 }
 
@@ -46,6 +45,7 @@
    .checklist-progress {
       display: flex;
       align-items: center;
+      justify-self: center;
       gap: 3px;
    }
 
@@ -62,25 +62,31 @@
          font-weight: 600;
 
          svg {
-            margin-right: 1.1rem;
+            margin-right: 1.2rem;
             margin-left: 0.25rem;
          }
       }
 
       button {
-         padding: 0.3rem;
+         padding: 0.5rem;
+         border-radius: 0.3rem;
          border: none;
-         background-color: transparent;
+         background-color: #e4e6ea;
          color: #5e6c84;
          cursor: pointer;
+
+         &:hover {
+            background-color: darken($color: #e4e6ea, $amount: 3);
+         }
       }
    }
 
    .progress-percent {
       text-align: center;
       font-size: rem(11px);
-      margin-bottom: 0.4rem;
-      margin-right: 0.6rem;
+      // margin-bottom: 0.4rem;
+      // margin-right: 0.6rem;
+      padding-left: 0.3rem;
       color: $primaryColor;
    }
 
@@ -90,6 +96,7 @@
 
       .progress-bar-foreground {
          height: 100%;
+         border-radius: 0.1rem;
       }
    }
 
@@ -99,10 +106,11 @@
          align-items: center;
          margin-bottom: 0.4rem;
          max-height: 22px;
+         gap: 0.1rem;
 
          input[type='checkbox'] {
-            margin-right: 1.1rem;
-            margin-left: 0.5rem;
+            margin-right: 1.2rem;
+            margin-left: 0.3rem;
          }
 
          button {

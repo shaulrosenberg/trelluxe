@@ -35,7 +35,7 @@
 
 .div-task-deatils {
    position: relative;
-   border-radius: 1rem 1rem 0 0;
+   border-radius: 1rem 1rem;
    background-color: #f1f2f4;
    display: grid;
    z-index: 10000;
@@ -88,10 +88,11 @@
 
    .div-desc {
       grid-column: 2;
-
+      
       a {
          cursor: pointer;
          color: #606d85;
+         padding: 0.5rem;
       }
    }
 
@@ -104,6 +105,7 @@
       align-self: flex-start;
       justify-self: center;
       margin-top: 0.6rem;
+      margin-right: 0.4rem;
       position: relative;
       color: #172b4d;
    }
@@ -120,6 +122,7 @@
       align-self: flex-start;
       justify-self: center;
       margin-top: 0.4rem;
+      margin-right: 0.3rem;
       color: #172b4d;
    }
 }
