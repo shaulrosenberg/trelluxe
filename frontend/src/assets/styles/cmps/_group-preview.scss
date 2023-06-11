@@ -133,7 +133,7 @@
       margin-top: 0.5rem;
 
       button:first-child {
-         background-color: #0079bf;
+         background-color: #0C66E4;
          color: white;
          border-radius: 0.2rem;
          margin: 0.1rem;
@@ -141,7 +141,7 @@
          font-weight: 400;
 
          &:hover {
-            background-color: darken($color: #0079bf, $amount: 10);
+            background-color: darken($color: #0C66E4, $amount: 10);
          }
       }
    }
