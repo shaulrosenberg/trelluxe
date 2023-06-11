@@ -21,140 +21,136 @@ import { TaskOverview } from '../cmps/task-overview'
 import { TaskChecklists } from '../cmps/task-checklists'
 import { Loader } from '../cmps/loader'
 export function TaskDetails() {
-     const { taskId, groupId, boardId } = useParams()
-     const [task, setTask] = useState(null)
-     const [isDescEdit, setIsDescEdit] = useState(false)
-     const [gTitle, setGTitle] = useState('')
-     const board = useSelector(
-          (storeState) => storeState.boardModule.selectedBoard
-     )
-     const navigate = useNavigate()
-     const params = useParams()
+   const { taskId, groupId, boardId } = useParams()
+   const [task, setTask] = useState(null)
+   const [isDescEdit, setIsDescEdit] = useState(false)
+   const [gTitle, setGTitle] = useState('')
+   const board = useSelector(
+      (storeState) => storeState.boardModule.selectedBoard
+   )
+   const navigate = useNavigate()
+   const params = useParams()
 
-     useEffect(() => {
-          loadTask()
-     }, [board])
+   useEffect(() => {
+      loadTask()
+   }, [board])
 
+   const loadTask = async () => {
+      try {
+         getGroupTitle()
+         const currTask = await boardService.findTaskById(taskId)
+         setTask(currTask)
+      } catch (err) {
+         console.log('cannot load task in task-details', err)
+      }
+   }
 
-     const loadTask = async () => {
-          try {
-               getGroupTitle()
-               const currTask = await boardService.findTaskById(taskId)
-               setTask(currTask)
-          } catch (err) {
-               console.log('cannot load task in task-details', err)
-          }
-     }
+   function onTaskExit() {
+      navigate(`/board/${boardId}`)
+   }
 
-     function onTaskExit() {
-          navigate(`/board/${boardId}`)
-     }
+   function getGroupTitle() {
+      const groupTitle = boardService.findGroupById(params.groupId, board)
+      setGTitle(groupTitle)
+   }
 
-     function getGroupTitle() {
-          const groupTitle = boardService.findGroupById(params.groupId, board)
-          setGTitle(groupTitle)
-     }
+   function checkStyle() {
+      let coverStyle = null
 
-     function checkStyle() {
-          let coverStyle = null
+      if (task.style.backgroundImage) {
+         coverStyle = { backgroundImage: `url(${task.style.backgroundImage})` }
+      } else if (task.style.backgroundColor) {
+         coverStyle = { backgroundColor: task.style.backgroundColor }
+      }
+      return coverStyle
+   }
+   if (!task) return <></>
+   return (
+      <section className='section-task-deatils'>
+         <div className='div-task-deatils'>
+            <div className='btn-exit-task-container'>
+               <AiOutlineClose
+                  className='btn-exit-task'
+                  onClick={() => onTaskExit()}
+               />
+            </div>
+            {task.style && (
+               <div className='task-cover-container' style={checkStyle()}></div>
+            )}
 
-          if (task.style.backgroundImage) {
-               coverStyle = { backgroundImage: `url(${task.style.backgroundImage})` }
-          } else if (task.style.backgroundColor) {
-               coverStyle = { backgroundColor: task.style.backgroundColor }
-          }
-          return coverStyle
-     }
-     if (!task) return <></>
-     return (
-          <section className='section-task-deatils'>
-               <div className='div-task-deatils'>
-                    <AiOutlineClose
-                         className='btn-exit-task'
-                         onClick={() => onTaskExit()}
-                    />
+            <BsCardHeading
+               style={{ color: '#43546F' }}
+               className='icon-title'
+            />
 
-                    {task.style && (
-                         <div
-                              className='task-cover-container'
-                              style={checkStyle()}
-                         ></div>
-                    )}
+            <div className='div-task-title'>
+               {<h2>{task.title}</h2>}
+               <p>
+                  in list{' '}
+                  <span className='group-title-task-details'>{gTitle}</span>
+               </p>
+            </div>
 
-                    <BsCardHeading style={{ color: '#43546F' }} className='icon-title' />
+            {/* {task.memberIds || task.labelsIds && */}
+            <div className='task-details-overview-container'>
+               <TaskOverview task={task} boardId={boardId} groupId={groupId} />
+            </div>
+            {/* }  */}
 
-                    <div className='div-task-title'>
-                         {<h2>{task.title}</h2>}
-                         <p>
-                              in list{' '}
-                              <span className='group-title-task-details'>
-                                   {gTitle}
-                              </span>
-                         </p>
-                    </div>
+            <div className='div-task-controls'>
+               <TaskControls task={task} boardId={boardId} groupId={groupId} />
+            </div>
 
-                    {/* {task.memberIds || task.labelsIds && */}
-                    <div className="task-details-overview-container">
-                         <TaskOverview task={task}
-                              boardId={boardId}
-                              groupId={groupId} />
-                    </div>
-                    {/* }  */}
+            <TfiAlignLeft className='icon-desc' />
+            <div className='div-desc'>
+               <p>Description</p>
+               {isDescEdit ? (
+                  <DescEdit task={task} setIsDescEdit={setIsDescEdit} />
+               ) : (
+                  <a
+                     className='a-desc'
+                     onClick={() => setIsDescEdit(true)}
+                     style={{
+                        backgroundColor: task.description
+                           ? '#F1F2F4'
+                           : '#EDEDEF',
+                     }}
+                  >
+                     {!task.description && 'Add a more detailed description...'}
+                     {task !== null && task.description}
+                  </a>
+               )}
+            </div>
 
+            {task.checklists && (
+               <TaskChecklists
+                  task={task}
+                  boardId={boardId}
+                  groupId={groupId}
+               />
+            )}
 
-                    <div className='div-task-controls'>
-                         <TaskControls
-                              task={task}
-                              boardId={boardId}
-                              groupId={groupId}
-                         />
-                    </div>
+            {task.attachments && (
+               <>
+                  <ImAttachment className='icon-attachment' />
+                  <div className='div-img'>
+                     <AttachImage task={task} />
+                  </div>
+               </>
+            )}
 
-                    <TfiAlignLeft className='icon-desc' />
-                    <div className='div-desc'>
-                         <p>Description</p>
-                         {isDescEdit ? (
-                              <DescEdit
-                                   task={task}
-                                   setIsDescEdit={setIsDescEdit}
-                              />
-                         ) : (
-                              <a
-                                   className='a-desc'
-                                   onClick={() => setIsDescEdit(true)}
-                                   style={{ backgroundColor: task.description ? '#F1F2F4' : '#EDEDEF' }}
-                              >
-                                   {!task.description &&
-                                        'Add a more detailed description...'}
-                                   {task !== null && task.description}
-                              </a>
-                         )}
-                    </div>
+            <TfiMenuAlt className='icon-activitiy' />
+            <div className='div-activity'>
+               <p>Activity</p>
+               <input
+                  className='input-task-activity'
+                  placeholder='Write a comment...'
+               ></input>
+            </div>
+         </div>
 
-                    {task.checklists && <TaskChecklists task={task} boardId={boardId} groupId={groupId} />}
-
-                    {task.attachments && (
-                         <>
-                              <ImAttachment className='icon-attachment' />
-                              <div className='div-img'>
-                                   <AttachImage task={task} />
-                              </div>
-                         </>
-                    )}
-
-                    <TfiMenuAlt className='icon-activitiy' />
-                    <div className='div-activity'>
-                         <p>Activity</p>
-                         <input
-                              className='input-task-activity'
-                              placeholder='Write a comment...'
-                         ></input>
-                    </div>
-
-               </div>
-
-               {/* Overlay element */}
-               <div className='overlay' onClick={() => onTaskExit()} />
-          </section>
-     )
+         {/* Overlay element */}
+         <div className='overlay' onClick={() => onTaskExit()} />
+      </section>
+   )
 }

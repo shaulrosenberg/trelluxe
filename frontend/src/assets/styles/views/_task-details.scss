@@ -12,17 +12,33 @@
    overflow-y: auto;
 }
 // exit button
-.btn-exit-task {
+.btn-exit-task-container {
    position: absolute;
    right: 10px;
    top: 10px;
-   width: 20px;
-   height: 20px;
-   z-index: 1;
-   background-color: transparent;
-   color: $primaryColor;
-   &:hover {
-      background-color: #091E420F;
+   width: 40px;
+   height: 40px;
+
+   .btn-exit-task {
+      position: absolute;
+      right: 0;
+      left: 9px;
+      bottom: 9px;
+      width: 20px;
+      height: 20px;
+
+      z-index: 1;
+      background-color: transparent;
+      color: $primaryColor;
+      // &:hover {
+      //    background-color: #091e420f;
+      //    border-radius: 50%;
+      //    cursor: pointer;
+      // }
+   }
+
+   &:hover{
+      background-color: darken($color: #020c1c0f, $amount: 60);
       border-radius: 50%;
       cursor: pointer;
    }
@@ -88,7 +104,7 @@
 
    .div-desc {
       grid-column: 2;
-      
+
       a {
          cursor: pointer;
          color: #606d85;

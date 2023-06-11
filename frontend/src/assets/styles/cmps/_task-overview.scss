@@ -1,204 +1,196 @@
-.task-details-overview-container{
-    grid-column: 2;
+.task-details-overview-container {
+   grid-column: 2;
 }
 
-.task-overview{
+.task-overview {
+   display: flex;
+   flex-wrap: wrap;
 
-    display: flex;
-    flex-wrap: wrap;
+   gap: 14px;
+   h4 {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 16px;
+      margin-top: 16px;
+      color: #44546f;
+   }
 
-    gap:14px;
-    h4{
-   
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 16px;
-        margin-top: 16px;
-        color:#44546F
-    } 
+   .task-labels-container {
+      margin-block-end: 0.5em;
+      .task-labels-list {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 5px;
+      }
 
-    .task-labels-container{
-       margin-block-end:0.5em;
-        .task-labels-list{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-           
-        }
+      .task-label-button {
+         font-weight: 500;
+         height: 32px;
+         padding: 0 12px;
+         display: inline-block;
+         font-size: 14px;
+         text-align: left;
+         margin-bottom: 0;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         border-radius: 3px;
+         line-height: 32px;
+         min-width: 48px;
+         max-width: 100%;
+         color: $primaryColor;
+         cursor: pointer;
 
-        .task-label-button{
-            font-weight: 500;
-            height: 32px;
-           padding: 0 12px;
-          display: inline-block;
-          font-size: 14px;
-          text-align: left;
-          margin-bottom: 0;
-          overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            border-radius: 3px;
-            line-height: 32px;
-            min-width: 48px;
-            max-width: 100%;
-            color: $primaryColor;
+         &:hover {
             cursor: pointer;
+         }
+      }
 
-            &:hover{
-                cursor: pointer;
-            }
-        }
+      h4 {
+         margin-bottom: 0.2rem;
+      }
+   }
 
-        h4{
-            margin-bottom: 0.2rem;
-        }
-    }
+   .task-members-container {
+      .task-member-icon {
+         border-radius: 50%;
+         height: 32px;
+         width: 32px;
+         margin-right: rem(4px);
+         margin-block: 4px;
+         object-fit: cover;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: #172b4d;
+         font-weight: 600;
+         background-color: #ebecf0;
+         // outline: red solid 1px;
+         &:hover {
+            //TODO - add hover effect
+            background-color: #091e4224;
+            cursor: pointer;
+         }
+      }
 
-    .task-members-container{
-    
-        .task-member-icon{
-            border-radius: 50%;
-            height: 32px;
-            width: 32px;
-            margin-right: 8px;
-            margin-block: 4px;
-            object-fit: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #172b4d;
-            font-weight: 600;
-            background-color: #ebecf0;
-            // outline: red solid 1px;
-            &:hover{
-                //TODO - add hover effect
-                background-color: #091E4224;
-                cursor: pointer;
-            }
+      .task-members-list {
+         display: flex;
+         align-items: center;
+      }
+   }
+
+   .task-due-date-container {
+      align-items: center;
+      margin-block-end: 0.5em;
+      display: flex;
+      flex-direction: row;
+      margin: 0 8px 8px 0;
+      gap: 4px;
+      .task-due-date-checkbox {
+         background-color: #fafbfc;
+         border-radius: 2px;
+         box-shadow: inset 0 0 0 2px #dfe1e6;
+         flex-shrink: 0;
+         height: 16px;
+         margin: auto 4px auto 0;
+         overflow: hidden;
+         position: relative;
+         transition: all 0.2s ease-in-out;
+         white-space: nowrap;
+         width: 16px;
+
+         &:hover {
+            cursor: pointer;
+         }
+         &:focus {
+            // box-shadow: none;
          }
 
-         .task-members-list{
-            display: flex;
-            gap: 1px;
+         &:checked {
+            box-shadow: none;
          }
-    }
 
-    .task-due-date-container{
-        align-items: center;
-        margin-block-end:0.5em;
-        display: flex;
-        flex-direction: row;
-        margin: 0 8px 8px 0;
-        gap: 4px;
-        .task-due-date-checkbox {
-            background-color: #FAFBFC;
+         &:active {
+            border: none;
+         }
+      }
+
+      .due-date-display {
+         display: flex;
+         gap: 3px;
+         background-color: #e3e6e9;
+         color: rgb(23, 43, 77);
+         font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto,
+            'Noto Sans', Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+         font-size: em(12px);
+         padding: 6px 12px;
+         border-radius: 3px;
+
+         &:hover {
+            cursor: pointer;
+            background-color: #091e4224;
+         }
+      }
+      .due-date-status {
+         &.task-overdue,
+         &.task-done,
+         &.due-soon {
+            font-size: 12px;
+            line-height: 16px;
+            padding: 0 4px;
             border-radius: 2px;
-            box-shadow: inset 0 0 0 2px #DFE1E6;
-            flex-shrink: 0;
-            height: 16px;
-            margin: auto 4px auto 0;
-            overflow: hidden;
-            position: relative;
-            transition: all .2s ease-in-out;
-            white-space: nowrap;
-            width: 16px;
-    
-            &:hover{
-                cursor: pointer;
-            }
-            &:focus {
-                // box-shadow: none;
-            }
-    
-            &:checked {
-                box-shadow: none;
-            }
-    
-            &:active {
-                border: none;
-            }
-        }
+            margin: auto 0 auto 8px;
+         }
 
-        .due-date-display{
-            display: flex;
-            gap:3px;
-            background-color: #E3E6E9;
-            color:rgb(23, 43, 77);
-            font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", sans-serif;
-            font-size: em(12px);
-            padding: 6px 12px;
-            border-radius: 3px;
+         &.task-overdue {
+            background-color: #ca3521;
+            color: #ffff;
+         }
 
+         &.task-done {
+            background-color: rgb(31, 132, 90);
+            color: #ffff;
+         }
+      }
+   }
 
-            &:hover{
-                cursor: pointer;
-                background-color: #091E4224;
-            }
-        }
-        .due-date-status{
-            &.task-overdue, &.task-done, &.due-soon{
-                font-size: 12px;
-                line-height: 16px;
-                padding: 0 4px;
-                border-radius: 2px;
-                margin: auto 0 auto 8px;
-            }
+   .subscribe-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      background-color: #f1f1f1;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-            &.task-overdue{
-                background-color: #CA3521;
-                color: #ffff
-            }
+      &:hover {
+         background-color: #e1e1e1;
+      }
 
-            &.task-done{
-               background-color:  rgb(31, 132, 90);
-               color:#ffff;
-            }
+      .svg-icon {
+         margin-right: 10px;
+         font-size: 18px;
+         color: #333;
+      }
 
-
-        }
-        
-    }
-    
-   
-
-.subscribe-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background-color: #f1f1f1;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: #e1e1e1;
-    }
-  
-    .svg-icon {
-      margin-right: 10px;
-      font-size: 18px;
-      color: #333;
-    }
-  
-    .btn-txt {
-      font-size: 16px;
-      color: #333;
-    }
-  }
+      .btn-txt {
+         font-size: 16px;
+         color: #333;
+      }
+   }
 }
 
-.add-member-btn{
-    display: flex;
-    align-items: center;
-    background-color: #E3E6EA;
-    border-radius: 50%;
-    width:32px;
-    height: 32px;
-
-    &:hover{
-        background-color: #091E4224
-    }
-
+.add-member-btn {
+   display: flex;
+   align-items: center;
+   background-color: #e3e6ea;
+   border-radius: 50%;
+   width: 32px;
+   height: 32px;
+   margin: auto;
+   &:hover {
+      background-color: #091e4224;
+   }
 }

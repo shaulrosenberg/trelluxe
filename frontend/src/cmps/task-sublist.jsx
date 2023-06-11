@@ -129,6 +129,7 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
                      width: `${calculateProgress()}%`,
                      backgroundColor:
                         calculateProgress() === 100 ? '#1F845A' : '#579DFF',
+                        borderRadius: '4px',
                   }}
                ></div>
             </div>
