@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation, Route, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
@@ -20,6 +21,7 @@ import { FaRocket } from 'react-icons/fa'
 import { BsTrello } from 'react-icons/bs'
 
 export function AppHeader() {
+   const navigate = useNavigate()
    const user = useSelector((storeState) => storeState.userModule.user)
    const location = useLocation()
    const demoUser = boardService.demoUser()
@@ -52,6 +54,10 @@ export function AppHeader() {
       console.log(res)
    }
 
+   function onTryDemo(){
+      navigate('/workspace')
+   }
+
    return location.pathname !== '/' ? (
       <header className='app-header-work' style={fetchBoardStyle()}>
          <nav className='main-nav-bar-work'>
@@ -71,14 +77,12 @@ export function AppHeader() {
                   Workspace
                </NavLink>
 
-               <NavLink className='nav-link-work' to='/recent'>
-                  Recent
-               </NavLink>
+               <NavLink className='nav-link-work not-clickable'>Recent</NavLink>
 
-               <NavLink className='nav-link-work' to='/starred'>
+               <NavLink className='nav-link-work not-clickable'>
                   Starred
                </NavLink>
-               <NavLink className='nav-link-work' to='/templates'>
+               <NavLink className='nav-link-work not-clickable'>
                   Templates
                </NavLink>
                {/* <button onClick={() => getPrompt()}>use Ai</button>
@@ -86,10 +90,13 @@ export function AppHeader() {
             </div>
 
             <div className='div-user'>
-               <input type='text' placeholder='Search' />
-               <FaRocket className='icon-rocket hover' />
-               <FaInfoCircle className='icon-info hover' />
-               <FaAdjust className='dark-theme hover' />
+               <input
+                  type='text'
+                  placeholder='Search'
+                  className='not-clickable'
+               />
+               <FaRocket className='icon-rocket not-clickable ' />
+               <FaInfoCircle className='icon-info not-clickable ' />
                <div>{!user && <h2>{demoUser}</h2>}</div>
             </div>
          </nav>
@@ -107,14 +114,14 @@ export function AppHeader() {
                   Workspace
                </NavLink>
 
-               <NavLink to='/board' className='nav-link'>
+               <NavLink to='/workspace' className='nav-link'>
                   Boards
                </NavLink>
             </div>
 
             <div className='nav-buttons'>
                <a className='a-login'>Log in</a>
-               <button className='btn-demo'>Try Demo</button>
+               <button className='btn-demo' onClick={() => onTryDemo()}>Try Demo</button>
             </div>
          </nav>
       </header>

@@ -70,12 +70,13 @@
    margin-top: 0.4rem;
    box-shadow: 0 1px 0 rgba(8, 37, 85, 0.251);
    textarea {
+      width: 242px;
       box-shadow: 0 1px 0 #c0c6d0;
       width: 247px;
       border-radius: 3px;
       height: 70px;
-      margin-left: 0.8rem;
-      padding: 0.6rem;
+      margin-left: 0.4rem;
+      padding: 0.3rem;
       font-family: sans-serif;
       resize: none;
       border: none;
@@ -101,7 +102,7 @@ line-height: 20px;
          color: white;
          border-radius: 0.3rem;
          padding: 0.5rem 0.7rem;
-         margin-left: 0.8rem;
+         // margin-left: 0.8rem;
          margin-top: 0.5rem;
 
          &:hover {

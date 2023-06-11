@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux'
 
 export function ActivityContent() {
    const [isChangeBackground, setIsChangeBackground] = useState(false)
-   const board = useSelector(storeState => storeState.boardModule.selectedBoard)
+   const board = useSelector(
+      (storeState) => storeState.boardModule.selectedBoard
+   )
    const [activities, setActivities] = useState(board.activities)
 
    return (
@@ -24,11 +26,17 @@ export function ActivityContent() {
                      Change background
                   </h2>
                </div>
-               <div className='activity-container activity-hover-effect curser-pointer'>
-                  <RxActivityLog />
-                  <h2 className='activity-text-style'>Activity</h2>
-                  <ActivityList activities={activities} />
+
+               <div className='activity-container '>
+                  <div className='activity-hover-effect curser-pointer'>
+                     <RxActivityLog />
+                     <h2 className='activity-text-style'>Activity</h2>
+                  </div>
+                  <div>
+                     <ActivityList activities={activities} />
+                  </div>
                </div>
+               
             </div>
          )}
       </section>

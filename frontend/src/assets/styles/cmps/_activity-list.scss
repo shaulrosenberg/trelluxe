@@ -1,73 +1,24 @@
-// _activity.scss
+.activity-list{
 
-.activity-list {
-    display: flex;
-    flex-direction: column-reverse;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 10px;
-    background-color: #ebecf0;
-
-    &::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #888;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
 }
 
-.activity-preview {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: space-between;
-    border-bottom: 1px solid #dfe1e6;
-    padding: 10px 0;
-    margin-bottom: 10px;
+.activity-preview{
 
-    &:last-child {
-        border-bottom: none;
-    }
-
-    .activity-avatar {
+    div:first-child{
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #dfe1e6;
-        overflow: hidden;
-        margin-right: 10px;
-        img {
-            width: 100%;
-            height: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        p{
+            font-size: rem(14px);
+            color: $primaryColor;
         }
-    }
-
-    .activity-content {
-        flex-grow: 1;
-
-        .activity-text {
-            font-size: 0.875rem;
-            color: #172b4d;
-            line-height: 20px;
-            margin-bottom: 4px;
+        p:last-child{
+            font-size: rem(12px);
         }
-
-        .activity-time {
-            font-size: 0.75rem;
-            color: #5e6c84;
+        span{
+            font-weight: bold;
         }
     }
 }
+
+

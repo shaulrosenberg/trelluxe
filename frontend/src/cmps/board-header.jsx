@@ -22,6 +22,11 @@ export function BoardHeader({ board}) {
 
      const eventRef = useRef()
 
+     const modalTitles = {
+          'filter': 'Filter',
+          'activity': 'Menu'
+     }
+
      function onToggleModal(type = null, ev = null) {
           eventRef.current = ev
           setModalType(type)
@@ -47,7 +52,7 @@ export function BoardHeader({ board}) {
 
                     boardStyleColor = darken(0.1, boardStyleColor)
                     const transparentColor = transparentize(
-                         0.5,
+                         0.8,
                          boardStyleColor
                     )
 
@@ -112,6 +117,7 @@ export function BoardHeader({ board}) {
 
                {modalType && <DynamicActionModal
                         cmpType={modalType}
+                        modalTitle={modalTitles[modalType]}
                         event={eventRef.current}
                         boardId={params.boardId}
                         onCloseModal={onCloseModal}
