@@ -66,8 +66,6 @@ export function TaskDetails() {
           return coverStyle
      }
 
-     console.log('task:', task) // Check the value of task
-     if (!task) return <div className='loading-bar'>Loading...</div>
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
@@ -86,7 +84,7 @@ export function TaskDetails() {
                     <BsCardHeading style={{ color: '#43546F' }} className='icon-title' />
 
                     <div className='div-task-title'>
-                         {task ? <h2>{task.title}</h2> : 'Loading'}
+                         {<h2>{task.title}</h2>}
                          <p>
                               in list{' '}
                               <span className='group-title-task-details'>
@@ -101,8 +99,8 @@ export function TaskDetails() {
                               boardId={boardId}
                               groupId={groupId} />
                     </div>
-                     {/* }  */}
-                    
+                    {/* }  */}
+
 
                     <div className='div-task-controls'>
                          <TaskControls
@@ -124,7 +122,7 @@ export function TaskDetails() {
                               <a
                                    className='a-desc'
                                    onClick={() => setIsDescEdit(true)}
-                                   style={{backgroundColor: task.description ? '#F4F5F7' : '#EDEDEF'}}
+                                   style={{ backgroundColor: task.description ? '#F4F5F7' : '#EDEDEF' }}
                               >
                                    {!task.description &&
                                         'Add a more detailed description...'}

@@ -7,7 +7,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BoardList } from '../cmps/board-list.jsx'
 import { DynamicActionModal } from '../cmps/dynamic-modal/dynamic-action-modal.jsx'
 import { AiOutlineClockCircle, AiOutlineStar } from 'react-icons/ai'
-
+import { Loader } from '../cmps/loader.jsx'
 
 
 export function Workspace() {
@@ -43,7 +43,7 @@ export function Workspace() {
     }
 
 
-    if (!boards) return <h1>Loading boards...</h1>
+    // if (!boards) return <Loader />
     return (
         <section className='workspace-container'>
             <main>
