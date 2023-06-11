@@ -27,8 +27,8 @@ export function ActivityContent() {
                   </h2>
                </div>
 
-               <div className='activity-container activity-hover-effect curser-pointer'>
-                  <div>
+               <div className='activity-container '>
+                  <div className='activity-hover-effect curser-pointer'>
                      <RxActivityLog />
                      <h2 className='activity-text-style'>Activity</h2>
                   </div>

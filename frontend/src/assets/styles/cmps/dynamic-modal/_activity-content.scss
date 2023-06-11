@@ -1,10 +1,13 @@
+.modal-content{
+}
+
 .activity-actions-container {
    display: flex;
    align-items: center;
    justify-content: flex-start;
    gap: 0.4rem;
    margin-block-end: 1rem;
-
+   padding: 0.3rem 0;
    .background-img {
       background-image: url(https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/rainbow.svg);
       width: rem(20px);
@@ -18,6 +21,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 0.6rem;
+      padding: 0.3rem 0;
       h2{
          margin-left: 0.65rem;
       }
