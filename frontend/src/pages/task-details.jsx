@@ -19,7 +19,7 @@ import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
 import { TaskOverview } from '../cmps/task-overview'
 import { TaskChecklists } from '../cmps/task-checklists'
-
+import { Loader } from '../cmps/loader'
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
      const [task, setTask] = useState(null)
@@ -65,7 +65,7 @@ export function TaskDetails() {
           }
           return coverStyle
      }
-
+     if (!task) return <></>
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
