@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux'
 import { Outlet, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+// my cmps
 import { GroupList } from '../cmps/group-list'
 import { BoardHeader } from '../cmps/board-header'
 import { Loader } from '../cmps/loader'
-import { socketService } from '../services/socket.service'
-
+// services
 import { boardService } from '../services/board.service'
+import { socketService } from '../services/socket.service'
 import { setSelectedBoard, updateBoard } from '../store/board.actions'
 
 
