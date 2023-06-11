@@ -81,8 +81,8 @@ export function AppHeader() {
                <NavLink className='nav-link-work' to='/templates'>
                   Templates
                </NavLink>
-               <button onClick={() => getPrompt()}>use Ai</button>
-               <button onClick={() => getAiImage()}>use Ai image</button>
+               {/* <button onClick={() => getPrompt()}>use Ai</button>
+               <button onClick={() => getAiImage()}>use Ai image</button> */}
             </div>
 
             <div className='div-user'>

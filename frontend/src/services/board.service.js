@@ -513,11 +513,11 @@ function _createBoards() {
         groups: [
           {
             id: 'g101',
-            title: 'Product Development',
+            title: 'Backlog-client',
             tasks: [
               {
                 id: 't101',
-                title: 'Feature brainstorming',
+                title: 'Create backend services',
                 style: {
                   backgroundImage:
                     'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -553,7 +553,7 @@ function _createBoards() {
               },
               {
                 id: 't103',
-                title: 'Prototyping',
+                title: 'Routing Directory',
                 attachments: [],
                 style: {
                   backgroundImage:
@@ -562,7 +562,7 @@ function _createBoards() {
               },
               {
                 id: 't104',
-                title: 'User testing',
+                title: 'Data model approval',
                 attachments: [],
                 style: {
                   backgroundColor: '#6A5ACD',
