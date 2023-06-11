@@ -61,8 +61,8 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
     function handleBlur(ev) {
         ev.preventDefault()
         setTodoTitle('')
-        setIsEditable(false) 
-   }
+        setIsEditable(false)
+    }
 
     async function handleTodoDelete(todoId) {
         const updatedTask = { ...task }
@@ -116,11 +116,10 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
                 {checklist.todos.map((todo, idx) =>
                     <div key={todo.id} onMouseEnter={() => setIsHovered(todo.id)} onMouseLeave={() => setIsHovered(null)}>
                         <input type="checkbox" checked={todo.isDone} onChange={() => handleCheckboxChange(todo.id)} />
-                        <span>{todo.title}</span>
+                        <span className={todo.isDone ? 'strikethrough' : ''}>{todo.title}</span>
                         {isHovered === todo.id && <button onClick={() => handleTodoDelete(todo.id)}><BsTrash /></button>}
                     </div>
                 )}
-
             </div>
 
 

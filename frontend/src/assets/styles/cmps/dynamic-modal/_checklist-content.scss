@@ -6,12 +6,17 @@
 
       .task-details-sublist {
          width: 100%;
+
+         .strikethrough {
+            text-decoration: line-through;
+         }
       }
    }
 
    .add-item-btn {
-      margin-left: 2.3rem;
+      margin-inline-start: 2.3rem;
       color: $primaryColor;
+
       &:hover {
          background-color: darken($color: #f0f0f0, $amount: 5);
       }
@@ -48,12 +53,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       h3 {
          color: $primaryColor;
          display: flex;
          align-items: center;
          font-size: rem(16px);
          font-weight: 600;
+
          svg {
             margin-right: 1.1rem;
             margin-left: 0.25rem;
@@ -92,6 +99,7 @@
          align-items: center;
          margin-bottom: 0.4rem;
          max-height: 22px;
+
          input[type='checkbox'] {
             margin-right: 1.1rem;
             margin-left: 0.5rem;
@@ -106,6 +114,7 @@
             cursor: pointer;
          }
       }
+
       span {
          font-size: rem(14px);
          color: $primaryColor;
@@ -165,6 +174,7 @@
             background-color: darken($color: $clr1, $amount: 5);
          }
       }
+
       button:last-child {
          background-color: transparent;
          color: $primaryColor;
