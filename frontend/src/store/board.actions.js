@@ -89,7 +89,7 @@ export async function updateTask(task, boardId, groupId) {
     const updatedBoard = await boardService.updateTask(task, boardId, groupId)
     store.dispatch(getActionUpdateBoard(updatedBoard))
     store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
-    // TODO: add broadcast('board-update') ->  emit(change-board) client side -> server side listens to board-changes, 
+    // TODO: add broadcast('board-update') ->  emit(change-board) client side -> server side listens to board-changes,
     // and emits board-update to all connections except for the one who already has the updated version of the board(broadcast)
     return updatedBoard
   } catch (err) {
@@ -98,8 +98,8 @@ export async function updateTask(task, boardId, groupId) {
   }
 }
 
-export function toggleLabels(){
-  store.dispatch({type: TOGGLE_LABEL})
+export function toggleLabels() {
+  store.dispatch({ type: TOGGLE_LABEL })
 }
 
 export async function addTask(task, boardId, groupId) {
@@ -110,6 +110,17 @@ export async function addTask(task, boardId, groupId) {
     return updatedBoard
   } catch (err) {
     console.log('failed to add task', err)
+    throw err
+  }
+}
+
+export async function removeTask(taskId, groupId, boardId) {
+  try {
+    let savedBoard = await boardService.removeTask(taskId, groupId, boardId)
+    await updateBoard(savedBoard)
+    return taskId
+  } catch (err) {
+    console.log('Cannot remove task', err)
     throw err
   }
 }
