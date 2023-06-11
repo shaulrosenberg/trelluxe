@@ -40,7 +40,8 @@
                font-size: rem(14px);
                font-weight: 400;
                position: relative;
-               left: 37%;
+               left: calc(50% - 32px);
+               color: $primaryColor;
           }
      }
 }
