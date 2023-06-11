@@ -17,37 +17,18 @@ export function TaskList({ tasks, groupId, boardId }) {
         // eslint-disable-next-line
     }, [board])
 
-
-    async function onDragEnd(result) {
-        if (!result.destination) return
-        const items = Array.from(taskList)
-        const [reorderedItem] = items.splice(result.source.index, 1)
-        items.splice(result.destination.index, 0, reorderedItem)
-
-        const newBoard = JSON.parse(JSON.stringify(board))
-        const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
-        newBoard.groups[groupIdx].tasks = items
-        setTaskList(items)
-        await updateBoard(newBoard)
-    }
-
-
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="taskList">
+        <section className="task-list-container">
+            <Droppable droppableId={groupId} type="TASK">
                 {(provided) => (
-                    <section
-                        {...provided.droppableProps}
-                        ref={provided.innerRef}
-                        className="task-list-container"
-                    >
+                    <div ref={provided.innerRef} {...provided.droppableProps}>
                         {taskList.map((task, index) => (
                             <Draggable key={task.id} draggableId={task.id} index={index}>
                                 {(provided) => (
                                     <section
+                                        ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
-                                        ref={provided.innerRef}
                                         onClick={() => navigate(`group/${groupId}/task/${task.id}`)}
                                     >
                                         <TaskPreview board={board} task={task} groupId={groupId} boardId={boardId} />
@@ -56,9 +37,13 @@ export function TaskList({ tasks, groupId, boardId }) {
                             </Draggable>
                         ))}
                         {provided.placeholder}
-                    </section>
+                    </div>
                 )}
             </Droppable>
-        </DragDropContext>
+        </section>
     )
 }
+
+
+
+

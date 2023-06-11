@@ -6,6 +6,12 @@ export const utilService = {
   randomPastTime,
   saveToStorage,
   loadFromStorage,
+  reorder
+}
+
+function reorder(array, index1, index2) {
+  const [removed] = array.splice(index1, 1)
+  array.splice(index2, 0, removed)
 }
 
 function makeId(length = 6) {

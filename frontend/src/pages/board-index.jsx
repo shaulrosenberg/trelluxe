@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { Outlet, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { useEffect } from 'react'
+
 // my cmps
 import { GroupList } from '../cmps/group-list'
 import { BoardHeader } from '../cmps/board-header'
@@ -67,6 +67,7 @@ export function BoardIndex() {
 
       return articleStyle
    }
+
 
    if (!board) return <Loader />
    return (
