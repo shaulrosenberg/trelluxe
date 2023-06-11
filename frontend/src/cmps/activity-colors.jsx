@@ -44,6 +44,7 @@ export function ActivityColors() {
                      role='img'
                      aria-label='emoji'
                      style={{ color: 'white' }}
+                     className='activity-emoji'
                   >
                      {getEmojiForColor(color)}
                   </span>
