@@ -2,6 +2,20 @@
      border-radius: 3px;
      color: #172b4d;
      position: relative;
-     flex:1;
+     flex: 1;
      overflow: auto;
-}
+     
+     &::-webkit-scrollbar {
+         width: 10px;
+     }
+ 
+     &::-webkit-scrollbar-track {
+         background: #E4E6EA;
+     }
+ 
+     &::-webkit-scrollbar-thumb {
+         background: #C5C9D1;
+         border-radius: 5px;
+     }
+ }
+ 
