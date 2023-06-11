@@ -36,7 +36,8 @@
       color: $primaryColor;
       font-weight: 700;
       color-scheme: light;
-      margin: 0.5rem 0;
+      margin-bottom: rem(4px);
+      margin-top: rem(12px)
    }
 
    .workspace-board-input {
@@ -45,6 +46,7 @@
       border-radius: 0.3rem;
       border: none;
       outline: none;
+      padding: 0 0 0 0.6rem;
       box-shadow: inset 0 0 0 1px $clr1;
    }
 
@@ -53,7 +55,7 @@
       height: rem(32px);
       color: $primaryColor;
       border-radius: 0.3rem;
-
+      margin: 0.6rem 0;
       &:hover {
          background-color: darken($color: #f0f0f0, $amount: 3);
       }

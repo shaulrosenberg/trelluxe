@@ -58,7 +58,7 @@
       margin: 0.2rem 0;
       max-width: fit-content;
       max-height: rem(20px);
-      padding: rem(2px);
+      padding: rem(5px);
       gap: 0.3rem;
 
       &.task-done {
@@ -126,6 +126,7 @@
    img {
       width: 100%;
       height: auto;
+      min-height: 200px;
       border-radius: inherit;
       border-bottom-left-radius: 0%;
       border-bottom-right-radius: 0%;
@@ -154,7 +155,7 @@
 .task-preview-labels {
    display: flex;
    flex-wrap: wrap;
-
+   padding: 0.25rem 0;
    .label {
       width: rem(40px);
       height: rem(8px);
@@ -169,7 +170,7 @@
          font-size: rem(12px);
          width: fit-content;
          margin: 0.1rem 0.1rem;
-         padding: 0.5rem;
+         padding: 0.6rem;
          max-height: 16px;
          justify-content: center;
          align-items: center;

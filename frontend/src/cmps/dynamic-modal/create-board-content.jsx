@@ -20,8 +20,8 @@ export function CreateBoardContent({ onCloseModal }) {
          groups: [],
          members: [{
             _id: 'u101',
-            fullname: 'Abi Abambi',
-            imgUrl: 'http://some-img.jpg'
+            fullname: 'Adam G',
+            imgUrl: 'https://robohash.org/adam'
          }],
          activities: [],
       })

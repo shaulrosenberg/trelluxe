@@ -28,12 +28,13 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
         try {
             await updateTask(updatedTask, boardId, groupId)
             setTodoTitle('')
-            // TODO: chain add todos
-            setIsEditable(false)
+            setIsEditable(true)  // Keep input box open
+            inputRef.current.focus() // Auto focus to input field after adding todo
         } catch (err) {
             console.error('Failed to add todo', err)
         }
     }
+
 
     async function handleCheckboxChange(todoId) {
         const updatedTask = { ...task }
@@ -50,6 +51,18 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
             }
         }
     }
+
+    function handleKeyDown(e) {
+        if (e.key === 'Enter' && !todoTitle.trim()) {
+            e.preventDefault()
+        }
+    }
+
+    function handleBlur(ev) {
+        ev.preventDefault()
+        setTodoTitle('')
+        setIsEditable(false) 
+   }
 
     async function handleTodoDelete(todoId) {
         const updatedTask = { ...task }
@@ -115,7 +128,15 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
             {isEditable &&
                 <section>
                     <form className="add-new-item-container" onSubmit={handleSubmit}>
-                        <input placeholder='Add an item' type="text" ref={inputRef} value={todoTitle} onChange={e => setTodoTitle(e.target.value)} />
+                        <input
+                            onBlur={handleBlur}
+                            autoFocus={true}
+                            onKeyDown={handleKeyDown}
+                            placeholder='Add an item'
+                            type="text" ref={inputRef}
+                            value={todoTitle}
+                            onChange={e => setTodoTitle(e.target.value)}
+                        />
                         <div>
                             <button>Add</button>
                             <button onClick={() => setIsEditable(false)}>Cancel</button>
