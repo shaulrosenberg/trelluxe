@@ -92,7 +92,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         <section style={modalStyle} className={`dynamic-action-modal ${cmpType === 'activity' ? 'activity-modal' : ''}`}>
             <section className="dynamic-modal-header">
                 <span>{modalTitle}</span>
-                <button onClick={handleClose}><GrClose className='btn-content' /></button>
+                <button className='btn-modal-close' onClick={handleClose}><GrClose className='btn-content' /></button>
             </section>
             <section className="modal-content">
                 {ComponentToRender && <ComponentToRender {...props} />}
