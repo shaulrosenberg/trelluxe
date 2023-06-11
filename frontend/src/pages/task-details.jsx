@@ -124,7 +124,7 @@ export function TaskDetails() {
                               <a
                                    className='a-desc'
                                    onClick={() => setIsDescEdit(true)}
-                                   style={{backgroundColor: task.description ? '#F4F5F7' : '#EDEDEF'}}
+                                   style={{backgroundColor: task.description ? '#F1F2F4' : '#EDEDEF'}}
                               >
                                    {!task.description &&
                                         'Add a more detailed description...'}

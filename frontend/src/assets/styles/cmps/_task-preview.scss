@@ -1,11 +1,11 @@
 .task-preview-container {
-     background-color: #fff;
-     border-radius: 0.2rem;
-     box-shadow: 0 0.05rem 0 rgba(9, 30, 66, 0.25);
-     display: flex;
-     flex-direction: column;
-     margin: 0.5rem 0.5rem;
-     cursor: pointer;
+   background-color: #fff;
+   border-radius: 0.2rem;
+   box-shadow: 0 0.05rem 0 rgba(9, 30, 66, 0.25);
+   display: flex;
+   flex-direction: column;
+   margin: 0.5rem 0.5rem;
+   cursor: pointer;
    background-color: #fff;
    border-radius: 0.2rem;
    box-shadow: 0 0.05rem 0 rgba(9, 30, 66, 0.25);
@@ -20,6 +20,7 @@
    justify-content: flex-start;
    gap: rem(15px);
    padding-inline-start: 9px;
+   padding-bottom: 0.44rem;
    align-items: center;
 
    &:hover {
@@ -76,15 +77,14 @@
          background-color: #ffedeb;
          border-radius: 3px;
          color: rgb(174, 42, 25);
-        
       }
 
       &.due-soon {
          color: #e2b204;
       }
       .due-icon {
-          margin-top: 0.3rem;
-          font-size: 16px;
+         margin-top: 0.3rem;
+         font-size: 16px;
       }
 
       .due-date-txt {
@@ -155,7 +155,6 @@
 .task-preview-labels {
    display: flex;
    flex-wrap: wrap;
-   padding: 0.25rem 0;
    .label {
       width: rem(40px);
       height: rem(8px);
@@ -165,17 +164,19 @@
    }
 
    .labels-names-container {
+      margin-left: 0.3rem;
       .labels-with-names {
          display: flex;
          font-size: rem(12px);
          width: fit-content;
-         margin: 0.1rem 0.1rem;
-         padding: 0.6rem;
+         margin-top: 0.2rem;
+         margin-left: 0.2rem;
+         margin-bottom: 0.2rem;
+         padding: 0.59rem 0.3rem;
          max-height: 16px;
          justify-content: center;
          align-items: center;
-         border-radius: 1rem;
-
+         border-radius: rem(4px);
          transition-property: width, height;
          transition-duration: 0.3s;
          transition-timing-function: ease-in-out;
@@ -253,6 +254,10 @@
       opacity: 0;
    }
 
+   30% {
+      opacity: 1;
+   }
+
    100% {
       opacity: 1;
    }
@@ -261,11 +266,11 @@
 /* Apply the animations on label click */
 .labels-with-names {
    animation-name: expandWidth, expandHeight; /* Combine animations */
-   animation-duration: 1s, 3.3s; /* Set different durations for width and height */
+   animation-duration: 0.5s, 3.3s; /* Set different durations for width and height */
    animation-timing-function: ease;
 }
 
 .label-text {
    animation-name: textOpacity;
-   animation-duration: 7.5s;
+   animation-duration: 5.5s;
 }

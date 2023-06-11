@@ -764,7 +764,7 @@ function _createBoards() {
           {
             id: 'l105',
             title: 'Review Needed',
-            color: '#E774BB',
+            color: '#579DFF',
           },
           {
             id: 'l106',
@@ -774,12 +774,12 @@ function _createBoards() {
           {
             id: 'l107',
             title: 'Improvement',
-            color: '#0F65E4',
+            color: '#9F8FEF',
           },
           {
             id: 'l108',
             title: 'New Feature',
-            color: '#1E7F8C',
+            color: '#94C748',
           },
         ],
       },

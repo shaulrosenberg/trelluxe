@@ -42,9 +42,6 @@ export function AttachContent({ onCloseModal }) {
                          style={{ display: 'none' }}
                     />
                </label>
-               {/* <input type='file' onChange={saveImg} /> */}
-               <p className='item-attach-img-style'>Attach Pic</p>
-               <p className='item-attach-img-style'>Attach Whatever</p>
           </section>
      )
 }
