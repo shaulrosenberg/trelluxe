@@ -49,11 +49,14 @@
 // colors background container
 .activity-colors-container {
 	transition: 0.2s ease;
-
+	position: relative;
 	&:hover {
 		transform: scale(1.1);
 	}
 	.activity-emoji{
+		position: absolute;
+		bottom: rem(3px);
+		left: rem(3px);
 	}
 }
 

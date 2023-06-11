@@ -52,7 +52,7 @@ export function BoardHeader({ board}) {
 
                     boardStyleColor = darken(0.1, boardStyleColor)
                     const transparentColor = transparentize(
-                         0.5,
+                         0.8,
                          boardStyleColor
                     )
 
