@@ -16,9 +16,9 @@
    .add-item-btn {
       margin-inline-start: 2.3rem;
       color: $primaryColor;
-
+      background-color: #E4E6EA;
       &:hover {
-         background-color: darken($color: #f0f0f0, $amount: 5);
+         background-color: darken($color: #E4E6EA, $amount: 3);
       }
    }
 }
