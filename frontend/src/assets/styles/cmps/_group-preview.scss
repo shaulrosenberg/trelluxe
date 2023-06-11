@@ -69,9 +69,9 @@
 .add-task-opened {
    margin-top: 0.4rem;
    textarea {
-      width: 247px;
+      width: 242px;
       height: 70px;
-      margin-left: 0.8rem;
+      margin-left: 0.4rem;
       padding: 0.3rem;
       font-family: sans-serif;
       resize: none;
@@ -92,7 +92,7 @@
          color: white;
          border-radius: 0.3rem;
          padding: 0.5rem 0.7rem;
-         margin-left: 0.8rem;
+         // margin-left: 0.8rem;
          margin-top: 0.5rem;
 
          &:hover {
