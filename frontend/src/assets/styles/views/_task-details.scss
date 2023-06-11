@@ -1,271 +1,273 @@
 .section-task-deatils {
-     display: flex;
-     justify-content: center;
-     align-items: start;
-     padding: 45px 0 80px;
-     position: fixed;
-     z-index: 9999;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     overflow-y: auto;
+   display: flex;
+   justify-content: center;
+   align-items: start;
+   padding: 45px 0 80px;
+   position: fixed;
+   z-index: 9999;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow-y: auto;
 }
 // exit button
 .btn-exit-task {
-     position: absolute;
-     right: 5px;
-     top: 5px;
-     width: 30px;
-     height: 20px;
-     z-index: 1;
-     background-color: transparent;
-     &:hover {
-          background-color: #e2e4e9;
-          border-radius: 50%;
-          cursor: pointer;
-     }
+   position: absolute;
+   right: 5px;
+   top: 5px;
+   width: 30px;
+   height: 20px;
+   z-index: 1;
+   background-color: transparent;
+   &:hover {
+      background-color: #e2e4e9;
+      border-radius: 50%;
+      cursor: pointer;
+   }
 }
 
-.loading-bar{
-     position: fixed;
-     left: 50%;
+.loading-bar {
+   position: fixed;
+   left: 50%;
 }
 
 .div-task-deatils {
-     position: relative;
-     border-radius: 1rem 1rem 0 0;
-     background-color: #F1F2F4;
-     display: grid;
-     z-index: 10000;
-     grid-template-columns: 50px 1fr 192px;
-     width: 100%;
-     max-width: 768px;
-     margin: 0 20px;
+   position: relative;
+   border-radius: 1rem 1rem 0 0;
+   background-color: #f1f2f4;
+   display: grid;
+   z-index: 10000;
+   grid-template-columns: 50px 1fr 192px;
+   width: 100%;
+   max-width: 768px;
+   margin: 0 20px;
 
-     .group-title-task-details {
-          text-decoration: underline;
-     }
+   .group-title-task-details {
+      text-decoration: underline;
+   }
 
-     .task-cover-container {
-          grid-column: 1 / -1;
-          width: 100%;
-          height: 116px;
-          background-size: 100%;
-          border-radius: 1rem 1rem 0 0;
-          object-fit: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-     }
+   .task-cover-container {
+      grid-column: 1 / -1;
+      width: 100%;
+      height: 116px;
+      background-size: 100%;
+      border-radius: 1rem 1rem 0 0;
+      object-fit: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+   }
 
-     h2 {
-          font-size: rem(20px);
-          font-weight: 600;
-          margin-top: 0.4rem;
-     }
+   h2 {
+      font-size: rem(20px);
+      font-weight: 600;
+      margin-top: 0.4rem;
+   }
 
-     .div-task-controls {
-          grid-column: 3;
-          grid-row: 2 / span 3;
-     }
+   .div-task-controls {
+      grid-column: 3;
+      grid-row: 2 / span 3;
+   }
 
-     .icon-title {
-          align-self: flex-start;
-          justify-self: center;
-          margin-top: 0.55rem;
-          grid-column: 1;
-          color: #172b4d;
-     }
+   .icon-title {
+      align-self: flex-start;
+      justify-self: center;
+      margin-top: 0.55rem;
+      grid-column: 1;
+      color: #172b4d;
+   }
 
-     .icon-desc {
-          grid-column: 1;
-          align-self: flex-start;
-          justify-self: center;
-          color: #172b4d;
-          margin-top: 0.37rem; 
-     }
+   .icon-desc {
+      grid-column: 1;
+      align-self: flex-start;
+      justify-self: center;
+      color: #172b4d;
+      margin-top: 0.37rem;
+   }
 
-     .div-desc {
-          grid-column: 2;
+   .div-desc {
+      grid-column: 2;
 
-          a {
-               cursor: pointer;
-               color: #606d85;
-          }
-     }
+      a {
+         cursor: pointer;
+         color: #606d85;
+      }
+   }
 
-     .div-img {
-          grid-column: 2;
-     }
+   .div-img {
+      grid-column: 2;
+   }
 
-     .icon-activitiy {
-          grid-column: 1;
-          align-self: flex-start;
-          justify-self: center;
-          margin-top: 0.6rem;
-          position: relative;
-          color: #172b4d;
-     }
+   .icon-activitiy {
+      grid-column: 1;
+      align-self: flex-start;
+      justify-self: center;
+      margin-top: 0.6rem;
+      position: relative;
+      color: #172b4d;
+   }
 
-     .div-activity {
-          grid-column: 2;
-          input {
-               cursor: pointer;
-          }
-     }
+   .div-activity {
+      grid-column: 2;
+      input {
+         cursor: pointer;
+      }
+   }
 
-     .icon-attachment {
-          grid-column: 1;
-          align-self: flex-start;
-          justify-self: center;
-          margin-top: 0.4rem;
-          color: #172b4d;
-     }
+   .icon-attachment {
+      grid-column: 1;
+      align-self: flex-start;
+      justify-self: center;
+      margin-top: 0.4rem;
+      color: #172b4d;
+   }
 }
 
 // title section
 .div-task-title {
-     p {
-          font-size: rem(14px);
-          color: #172b4d;
-          margin-top: 0.3rem;
-          
-     }
+   p {
+      font-size: rem(14px);
+      color: #172b4d;
+      margin-top: 0.3rem;
+   }
 
-     h2 {
-          color: #172b4d;
-     }
+   h2 {
+      color: #172b4d;
+   }
 }
 
 // description section
 .div-desc {
-     p {
-          font-weight: 600;
-          font-size: rem(16px);
-          color: #172b4d;
-     }
-     a {
-          background-color: #ededef;
-          min-height: 60px;
-          padding: 8px 12px;
-          text-decoration: none;
-          box-shadow: none;
-          display: block;
-          border-radius: 0.2rem;
-          font-size: rem(14px);
-          &:hover {
-               background-color: #e4e5e6;
-          }
-     }
+   p {
+      font-weight: 600;
+      font-size: rem(16px);
+      color: #172b4d;
+   }
+   a {
+      background-color: #ededef;
+      min-height: 60px;
+      padding: 8px 12px;
+      text-decoration: none;
+      box-shadow: none;
+      display: block;
+      border-radius: 0.2rem;
+      font-size: rem(14px);
+      &:hover {
+         background-color: #e4e5e6;
+      }
+   }
 }
 
 // activity section
 .div-activity {
-     p {
-          margin-top: 0.2rem;
-          font-weight: 600;
-          font-size: rem(16px);
-          color: #172b4d;
-     }
+   p {
+      margin-top: 0.2rem;
+      font-weight: 600;
+      font-size: rem(16px);
+      color: #172b4d;
+   }
 
-     .input-task-activity {
-          padding: 0.7rem 0.7rem;
-          margin-bottom: 15px;
-          width: 100%;
-          border: none;
-          text-decoration: none;
-          border-radius: 1.0rem;
+   .input-task-activity {
+      padding: 0.7rem 0.7rem;
+      margin-bottom: 15px;
+      width: 100%;
+      border: none;
+      text-decoration: none;
+      border-radius: rem(8px);
 
-          &:hover {
-               background-color: #e4e5e6;
-          }
+      &:hover {
+         background-color: #e4e5e6;
+      }
 
-          &:focus{
-               outline: none;
-               border: none;
-               box-shadow:inset 0 0 0 2px #388bff;
-          }
-     }
+      &:focus {
+         outline: none;
+         border: none;
+         box-shadow: inset 0 0 0 2px #388bff;
+      }
+   }
 }
 
 // image attachment section
 .img-attachment-container {
-     .attachment-container {
-          display: flex;
+   .attachment-container {
+      display: flex;
 
-          .attachment-underline {
-               text-decoration: underline;
-          }
+      .attachment-underline {
+         text-decoration: underline;
+      }
 
-          .attachment-bold {
-               font-weight: bold;
-          }
+      .attachment-bold {
+         font-weight: bold;
+      }
 
-          .img-attach-actions {
-               justify-content: space-between;
-               .attachment-name {
-                    margin-bottom: 0.2rem;
-               }
+      .img-attach-actions {
+         justify-content: space-between;
+         .attachment-name {
+            margin-bottom: 0.2rem;
+         }
 
-               div:nth-child(2) {
-                    display: flex;
-               }
+         div:nth-child(2) {
+            display: flex;
+         }
 
-               div:last-child {
-                    position: relative;
-                    bottom: -35%;
-               }
-          }
-          h3 {
-               font-size: rem(14px);
-               margin-left: rem(5px);
-               margin-bottom: rem(2px);
-               color: $primaryColor;
-               font-weight: 400;
-               align-self: end;
-               cursor: pointer;
-          }
+         div:last-child {
+            position: relative;
+            bottom: -35%;
+         }
+      }
+      h3 {
+         font-size: rem(14px);
+         margin-left: rem(5px);
+         margin-bottom: rem(2px);
+         color: $primaryColor;
+         font-weight: 400;
+         align-self: end;
+         cursor: pointer;
+      }
 
-          .cover-icon {
-               position: relative;
-               top: 2px;
-          }
-     }
+      .cover-icon {
+         position: relative;
+         top: 2px;
+      }
+      
+   }
 
-     .img-attachment {
-          height: rem(80px);
-          width: auto;
-     }
-     p {
-          color: #172b4d;
-     }
+   .img-attachment {
+      height: rem(80px);
+      width: auto;
+   }
+   p {
+      color: #172b4d;
+      font-weight: 600;
+      font-size: rem(16px);
+   }
 }
 
 .edit-attachment-container {
-     button {
-          background-color: $clr1;
-          color: #fff;
-          padding: 0.5rem 1.3rem;
-          border-radius: 0.5rem;
-          align-self: flex-start;
-     }
-     input {
-          padding: 0.5rem;
-          margin-top: 0.3rem;
-     }
+   button {
+      background-color: $clr1;
+      color: #fff;
+      padding: 0.5rem 1.3rem;
+      border-radius: 0.5rem;
+      align-self: flex-start;
+   }
+   input {
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+   }
 
-     .edit-attachment-area {
-          display: flex;
-          flex-direction: column;
-     }
+   .edit-attachment-area {
+      display: flex;
+      flex-direction: column;
+   }
 }
 
 // overlay section
 .overlay {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(0, 0, 0, 0.5);
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
 }
