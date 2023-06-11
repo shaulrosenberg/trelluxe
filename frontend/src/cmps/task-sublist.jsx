@@ -16,29 +16,53 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
       if (inputRef.current) inputRef.current.focus()
    }, [])
 
-   async function handleSubmit(ev) {
-      ev.preventDefault()
-      const todo = {
-         id: utilService.makeId(),
-         title: todoTitle,
-         isDone: isDone,
-      }
-      const updatedTask = { ...task }
-      const checklistIndex = updatedTask.checklists.findIndex(
-         (c) => c.id === checklist.id
-      )
-      if (checklistIndex !== -1) {
-         updatedTask.checklists[checklistIndex].todos.push(todo)
-      }
-      try {
-         await updateTask(updatedTask, boardId, groupId)
-         setTodoTitle('')
-         setIsEditable(true) // Keep input box open
-         inputRef.current.focus() // Auto focus to input field after adding todo
-      } catch (err) {
-         console.error('Failed to add todo', err)
-      }
-   }
+
+    async function handleSubmit(ev) {
+        ev.preventDefault()
+        const todo = { id: utilService.makeId(), title: todoTitle, isDone: isDone }
+        const updatedTask = { ...task }
+        const checklistIndex = updatedTask.checklists.findIndex(c => c.id === checklist.id)
+        if (checklistIndex !== -1) {
+            updatedTask.checklists[checklistIndex].todos.push(todo)
+        }
+        try {
+            await updateTask(updatedTask, boardId, groupId)
+            setTodoTitle('')
+            setIsEditable(true)  // Keep input box open
+            inputRef.current.focus() // Auto focus to input field after adding todo
+        } catch (err) {
+            console.error('Failed to add todo', err)
+        }
+    }
+
+
+    async function handleCheckboxChange(todoId) {
+        const updatedTask = { ...task }
+        const checklistIndex = updatedTask.checklists.findIndex(c => c.id === checklist.id)
+        if (checklistIndex !== -1) {
+            const todoIndex = updatedTask.checklists[checklistIndex].todos.findIndex(t => t.id === todoId)
+            if (todoIndex !== -1) {
+                updatedTask.checklists[checklistIndex].todos[todoIndex].isDone = !updatedTask.checklists[checklistIndex].todos[todoIndex].isDone
+                try {
+                    await updateTask(updatedTask, boardId, groupId)
+                } catch (err) {
+                    console.error('Failed to update todo', err)
+                }
+            }
+        }
+    }
+
+    function handleKeyDown(e) {
+        if (e.key === 'Enter' && !todoTitle.trim()) {
+            e.preventDefault()
+        }
+    }
+
+    function handleBlur(ev) {
+        ev.preventDefault()
+        setTodoTitle('')
+        setIsEditable(false)
+    }
 
    async function handleCheckboxChange(todoId) {
       const updatedTask = { ...task }
@@ -156,36 +180,38 @@ export function TaskSublist({ checklist, task, boardId, groupId }) {
             ))}
          </div>
 
-         {!isEditable && (
-            <button
-               className='add-item-btn'
-               onClick={() => setIsEditable(true)}
-            >
-               Add an item
-            </button>
-         )}
-         {isEditable && (
-            <section>
-               <form className='add-new-item-container' onSubmit={handleSubmit}>
-                  <input
-                     onBlur={handleBlur}
-                     autoFocus={true}
-                     onKeyDown={handleKeyDown}
-                     placeholder='Add an item'
-                     type='text'
-                     ref={inputRef}
-                     value={todoTitle}
-                     onChange={(e) => setTodoTitle(e.target.value)}
-                  />
-                  <div>
-                     <button>Add</button>
-                     <button onClick={() => setIsEditable(false)}>
-                        Cancel
-                     </button>
-                  </div>
-               </form>
-            </section>
-         )}
-      </section>
-   )
+
+            <div className="sublist-todos">
+                {checklist.todos.map((todo, idx) =>
+                    <div key={todo.id} onMouseEnter={() => setIsHovered(todo.id)} onMouseLeave={() => setIsHovered(null)}>
+                        <input type="checkbox" checked={todo.isDone} onChange={() => handleCheckboxChange(todo.id)} />
+                        <span className={todo.isDone ? 'strikethrough' : ''}>{todo.title}</span>
+                        {isHovered === todo.id && <button onClick={() => handleTodoDelete(todo.id)}><BsTrash /></button>}
+                    </div>
+                )}
+            </div>
+
+
+            {!isEditable && <button className='add-item-btn' onClick={() => setIsEditable(true)}>Add an item</button>}
+            {isEditable &&
+                <section>
+                    <form className="add-new-item-container" onSubmit={handleSubmit}>
+                        <input
+                            onBlur={handleBlur}
+                            autoFocus={true}
+                            onKeyDown={handleKeyDown}
+                            placeholder='Add an item'
+                            type="text" ref={inputRef}
+                            value={todoTitle}
+                            onChange={e => setTodoTitle(e.target.value)}
+                        />
+                        <div>
+                            <button>Add</button>
+                            <button onClick={() => setIsEditable(false)}>Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            }
+        </section>
+    )
 }
