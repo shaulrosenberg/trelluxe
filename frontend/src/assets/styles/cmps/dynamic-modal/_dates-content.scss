@@ -5,9 +5,7 @@
     flex-direction: column;
     align-items: stretch;
 
-    .date-inputs {
-        
-    }
+    .date-inputs {}
 
     .reminder-label {
         font-size: rem(12px);
@@ -16,7 +14,12 @@
     }
 
     .reminder-select {
-
+        width: 100%;
+        margin: 0.5em 0;
+        padding: 0.5em;
+        border: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        border-radius: 3px;
     }
 
     .reminder-description {
@@ -30,7 +33,14 @@
     }
 
     .date-input-group {
-        
+        .time-input {
+            margin-inline: 1rem;
+
+        }
+
+        .date-input {
+            padding-block: 1px;
+        }
     }
 }
 
@@ -42,7 +52,7 @@
     .react-datepicker__input-container,
     .react-datepicker__input-container input {
         width: 100%;
-    } 
+    }
 
     .react-datepicker {
         border: none;
@@ -77,12 +87,14 @@
 
 .react-datepicker__week {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .react-datepicker__day-names {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .react-datepicker__day-name {
@@ -97,6 +109,21 @@
     height: 2em;
     line-height: 2em;
     margin: 0.175em;
+    position: relative;
+
+    &--highlighted {
+        color: #0C66E4;
+        background-color: #fff;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 3.5px;
+            width: 100%;
+            border-bottom: 2px solid #0C66E4;
+        }
+    }
 }
 
 .react-datepicker__day--outside-month {
@@ -106,9 +133,9 @@
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected,
 .react-datepicker__day:hover {
-    border-radius: 50%;
-    background-color: #0079bf;
-    color: #fff;
+    border-radius: 3px;
+    background-color: #E9F2FF;
+    color: #7CACF2;
 }
 
 .react-datepicker__navigation {
@@ -116,12 +143,12 @@
 }
 
 .react-datepicker__navigation--previous {
-    left: 1em;
+    left: 0;
     border-right-color: #5e6c84;
 }
 
 .react-datepicker__navigation--next {
-    right: 1em;
+    right: 0;
     border-left-color: #5e6c84;
 }
 
