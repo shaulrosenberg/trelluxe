@@ -1,5 +1,11 @@
+.filter-content{
+display: flex;
+}
+
 .labels-filter-area {
    padding: 0 1rem;
+   width: 100%;
+   height: rem(32px);
    label {
       color: $primaryColor;
       font-size: rem(14px);
@@ -9,15 +15,18 @@
 }
 
 .members-filter-area {
-   padding: 0 1rem;
    label {
       color: $primaryColor;
+      font-size: rem(14px);
+      display: flex;
+      align-items: center;
+      padding: 0.2rem 0rem;
    }
 }
 
 .filter-btns-container {
    display: flex;
-   justify-content: space-evenly;
+   justify-content: space-between;
    align-items: center;
    margin: 1rem 0;
    button:first-child {
@@ -44,6 +53,7 @@
    font-size: rem(12px);
    font-weight: 600;
    color: $primaryColor;
+   margin-bottom: 0.3rem;
 }
 
 .filter-align {

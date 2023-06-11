@@ -112,6 +112,7 @@ export function BoardHeader({ board}) {
 
                {modalType && <DynamicActionModal
                         cmpType={modalType}
+                        modalTitle='Filter'
                         event={eventRef.current}
                         boardId={params.boardId}
                         onCloseModal={onCloseModal}

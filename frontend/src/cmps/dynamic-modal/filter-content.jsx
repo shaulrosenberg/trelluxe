@@ -87,19 +87,21 @@ export function FilterContent() {
             <h4 className='filter-text-style'>Labels</h4>
             <div className='filter-labels filter-align'>
                {labels.map((label) => (
-                  <div
-                     className='labels-filter-area'
-                     style={{ backgroundColor: label.color }}
-                     key={label.id}
-                  >
-                     <label>
+                  <div className='filter-content'>
+                     <div>
                         <input
                            type='checkbox'
                            checked={selectedLabels.includes(label.id)}
                            onChange={() => handleLabelChange(label.id)}
                         />
-                        {label.title}
-                     </label>
+                     </div>
+                     <div
+                        className='labels-filter-area'
+                        style={{ backgroundColor: label.color }}
+                        key={label.id}
+                     >
+                        <label>{label.title}</label>
+                     </div>
                   </div>
                ))}
             </div>
