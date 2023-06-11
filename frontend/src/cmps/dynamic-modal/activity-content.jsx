@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { RxActivityLog } from 'react-icons/rx'
 import { ActivityBackgroundColor } from '../activity-background'
+import { ActivityList } from '../activity-list'
+import { useSelector } from 'react-redux'
 
 export function ActivityContent() {
    const [isChangeBackground, setIsChangeBackground] = useState(false)
+   const board = useSelector(storeState => storeState.boardModule.selectedBoard)
+   const [activities, setActivities] = useState(board.activities)
 
    return (
       <section>
@@ -23,6 +27,7 @@ export function ActivityContent() {
                <div className='activity-container activity-hover-effect curser-pointer'>
                   <RxActivityLog />
                   <h2 className='activity-text-style'>Activity</h2>
+                  <ActivityList activities={activities} />
                </div>
             </div>
          )}

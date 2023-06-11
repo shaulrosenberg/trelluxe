@@ -17,7 +17,6 @@ export function AddTask({ group, boardId }) {
           ev.preventDefault()
           if (cardTitle !== '') { onAddTask(ev) }
           else { setIsEditable(false) }
-
      }
 
      function handleInputChange(ev) {
@@ -27,7 +26,7 @@ export function AddTask({ group, boardId }) {
 
      const handleKeyDown = (event) => {
           if (event.key === 'Enter') {
-               event.preventDefault();
+               event.preventDefault()
                onAddTask(event)
           }
      }

@@ -26,26 +26,17 @@ export function LoginSignup(props) {
         ev.preventDefault();
         if (username.trim() && password.trim()) {
             if (!isLoginMode) {
-                await dispatch(
-                    await signup({
-                        username,
-                        password,
-                        fullname,
-                        imgUrl: 'https://robohash.org/adam',
-                    })
-                )
-
-                try {
-                    await dispatch(login({ username, password }))
-                    navigate('/workspace')
-                }
-                catch (err) {
-                    console.log(err, 'cannot signup')
-
-                }
+                signup({
+                    username,
+                    password,
+                    fullname,
+                    imgUrl: 'https://robohash.org/adam',
+                })
+                login({ username, password })
+                navigate('/workspace')
 
             } else {
-                await dispatch(login({ username, password }))
+                login({ username, password })
                 navigate('/workspace')
             }
         }
