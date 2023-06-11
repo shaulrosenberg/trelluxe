@@ -81,7 +81,6 @@ export function FilterContent() {
 
    return (
       <div className='main-filter-container'>
-         <h3 className='filter-text-style'>Filter</h3>
 
          <div className='filter-labels-container'>
             <h4 className='filter-text-style'>Labels</h4>
