@@ -71,14 +71,12 @@ export function AppHeader() {
                   Workspace
                </NavLink>
 
-               <NavLink className='nav-link-work' to='/recent'>
-                  Recent
-               </NavLink>
+               <NavLink className='nav-link-work not-clickable'>Recent</NavLink>
 
-               <NavLink className='nav-link-work' to='/starred'>
+               <NavLink className='nav-link-work not-clickable'>
                   Starred
                </NavLink>
-               <NavLink className='nav-link-work' to='/templates'>
+               <NavLink className='nav-link-work not-clickable'>
                   Templates
                </NavLink>
                {/* <button onClick={() => getPrompt()}>use Ai</button>
@@ -86,10 +84,9 @@ export function AppHeader() {
             </div>
 
             <div className='div-user'>
-               <input type='text' placeholder='Search' />
-               <FaRocket className='icon-rocket hover' />
-               <FaInfoCircle className='icon-info hover' />
-               <FaAdjust className='dark-theme hover' />
+               <input type='text' placeholder='Search' className='not-clickable'/>
+               <FaRocket className='icon-rocket not-clickable ' />
+               <FaInfoCircle className='icon-info not-clickable ' />
                <div>{!user && <h2>{demoUser}</h2>}</div>
             </div>
          </nav>

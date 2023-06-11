@@ -42,7 +42,7 @@ export function EditAttachment() {
                          type='text'
                          name=''
                          id=''
-                         placeholder='Enter name name'
+                         placeholder='Enter new name'
                          onChange={(ev) => setInputVal(ev.target.value)}
                     />
                     <button onClick={onUpdateTitle}>Update</button>
