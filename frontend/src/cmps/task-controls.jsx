@@ -1,18 +1,22 @@
 import { useState, useRef } from 'react'
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
-import { updateTask } from '../store/board.actions'
+import { updateTask, removeTask } from '../store/board.actions'
 
 import { AiOutlineTags, AiOutlineMinus, AiOutlineCheckSquare, AiOutlineFieldTime, AiOutlineCopy } from "react-icons/ai"
 import { BsPersonPlus, BsArrowRight, BsArchive, BsSquareHalf } from "react-icons/bs"
 import { MdOutlineAttachment } from "react-icons/md"
 import { useSelector } from 'react-redux'
 import { BsWindowDesktop } from "react-icons/bs";
-
+import { useNavigate } from 'react-router-dom'
 
 
 export function TaskControls({ task, boardId, groupId }) {
     const [modalType, setModalType] = useState(null)
     const eventRef = useRef(null)
+    const [isArchive, setIsArchive] = useState(false)
+    const navigate = useNavigate()
+
+
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
 
     function onToggleModal(type = null, ev = null) {
@@ -35,6 +39,17 @@ export function TaskControls({ task, boardId, groupId }) {
         'cover': 'Cover',
 
     }
+    async function onRemoveTask() {
+
+        try {
+            console.log('remove:')
+            await removeTask(task.id, groupId, boardId)
+            navigate(`/board/${boardId}`)
+        } catch (err) {
+            console.log('Cannot remove task ', err)
+        }
+
+    }
 
     return (
         <section className="task-controls">
@@ -46,7 +61,11 @@ export function TaskControls({ task, boardId, groupId }) {
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('checklist', ev)}><AiOutlineCheckSquare />Checklist</button>
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('dates', ev)}><AiOutlineFieldTime />Dates</button>
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('attachment', ev)}><MdOutlineAttachment />Attachment</button>
-                    <button className='btn-task-control' onClick={(ev) => onToggleModal('archive', ev)}><BsArchive />Archive</button>
+
+                    {!isArchive ?
+                        <button className='btn-task-control' onClick={(ev) => setIsArchive(true)}><BsArchive />Archive</button> :
+                        (<button className='btn-task-control remove-task' onClick={onRemoveTask} onBlur={() => setIsArchive(false)} >Delete</button>)}
+                    {/* TODO  implement archive as well is delete*/}
                     <button className='btn-task-control' onClick={(ev) => onToggleModal('cover', ev)}><BsWindowDesktop />Cover</button>
                 </section>
             </section>

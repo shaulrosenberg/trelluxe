@@ -84,22 +84,22 @@ export async function addGroup(groupTitle, boardId) {
 
 //tasks
 export async function updateTask(task, boardId, groupId) {
-	try {
-		console.log(task)
-		const updatedBoard = await boardService.updateTask(task, boardId, groupId)
-		store.dispatch(getActionUpdateBoard(updatedBoard))
-		store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
-		// TODO: add broadcast('board-update') ->  emit(change-board) client side -> server side listens to board-changes, 
-		// and emits board-update to all connections except for the one who already has the updated version of the board(broadcast)
-		return updatedBoard
-	} catch (err) {
-		console.log('failed to update task', err)
-		throw new Error(err)
-	}
+  try {
+    console.log(task)
+    const updatedBoard = await boardService.updateTask(task, boardId, groupId)
+    store.dispatch(getActionUpdateBoard(updatedBoard))
+    store.dispatch({ type: SET_SELECTED_BOARD, board: updatedBoard })
+    // TODO: add broadcast('board-update') ->  emit(change-board) client side -> server side listens to board-changes,
+    // and emits board-update to all connections except for the one who already has the updated version of the board(broadcast)
+    return updatedBoard
+  } catch (err) {
+    console.log('failed to update task', err)
+    throw new Error(err)
+  }
 }
 
 export function toggleLabels() {
-	store.dispatch({ type: TOGGLE_LABEL })
+  store.dispatch({ type: TOGGLE_LABEL })
 }
 
 export async function addTask(task, boardId, groupId) {
@@ -112,6 +112,17 @@ export async function addTask(task, boardId, groupId) {
 		console.log('failed to add task', err)
 		throw err
 	}
+}
+
+export async function removeTask(taskId, groupId, boardId) {
+  try {
+    let savedBoard = await boardService.removeTask(taskId, groupId, boardId)
+    await updateBoard(savedBoard)
+    return taskId
+  } catch (err) {
+    console.log('Cannot remove task', err)
+    throw err
+  }
 }
 
 // TODO: make a filtering function that will not save the filtered board and overwrite the original board

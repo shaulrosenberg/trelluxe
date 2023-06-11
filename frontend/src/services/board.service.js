@@ -26,6 +26,7 @@ export const boardService = {
   getAppColors,
   getDueDateInfo,
   getDueDateTimeFormat,
+  removeTask,
 }
 
 _createBoards()
@@ -102,6 +103,21 @@ async function updateTask(taskToUpdate, boardId, groupId) {
     return save(board)
   } catch (err) {
     console.log('could not update task', err)
+  }
+}
+
+async function removeTask(taskToRemoveId, groupId, boardId) {
+  try {
+    const board = await getById(boardId)
+    const groupIdx = board.groups.findIndex(group => group.id === groupId)
+    const taskIdx = board.groups[groupIdx].tasks.findIndex(
+      currTask => currTask.id === taskToRemoveId
+    )
+
+    board.groups[groupIdx].tasks.splice(taskIdx, 1)
+    return save(board)
+  } catch (err) {
+    console.log('could not remove task', err)
   }
 }
 

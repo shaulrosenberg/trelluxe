@@ -36,6 +36,11 @@
          &:hover {
             background-color: darken($color: #e4e6ea, $amount: 5);
          }
+
+         &.remove-task{
+            background-color: rgb(202,53,32);
+            color: white;
+         }
       }
    }
 }
