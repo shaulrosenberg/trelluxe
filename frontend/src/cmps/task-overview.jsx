@@ -62,9 +62,9 @@ export function TaskOverview({ task, groupId, boardId }) {
                <h4>Members</h4>
                <ul className='clean-list task-members-list'>
                   {taskMembers.map((taskMember) => (
-                     <li className='task-member-icon' key={taskMember._id}>
-                        <img src={taskMember.imgUrl} alt='' />
-                     </li>
+
+                     <img key={taskMember._id} className='task-member-icon' src={taskMember.imgUrl} alt='' />
+
                   ))}
 
                   <li key='' className=''>

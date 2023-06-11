@@ -201,8 +201,8 @@ export function TaskPreview(props) {
                               <ul className='task-member-badges clean-list'>
                                    {taskMembers.map((taskMember, index) => (
                                         <li key={index} className='task-member-badge'>
-                                             {' '}
-                                             <img
+
+                                             <img className='task-member-badge'
                                                   key={taskMember.id}
                                                   src={taskMember.imgUrl}
                                                   alt=''

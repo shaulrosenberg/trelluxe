@@ -486,25 +486,28 @@ function _createBoards() {
         },
         style: {
           backgroundImage:
-            'https://images.unsplash.com/photo-1682685795557-976f03aca7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80',
+            'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686462277/trelux/luke-chesser-pJadQetzTkI-unsplash_n53kai.jpg',
           color: '',
-          backgroundColor: '#FFB6C1',
+          backgroundColor: '#322674',
         },
         members: [
           {
             _id: 'u101',
             fullname: 'Adam Gertzkin',
-            imgUrl: 'https://robohash.org/adam',
+            imgUrl:
+              'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686456867/trelux/adam_nxymb1.jpg',
           },
           {
             _id: 'u102',
             fullname: 'Shaul Rosenberg',
-            imgUrl: 'https://robohash.org/shaul',
+            imgUrl:
+              'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686458436/trelux/shaul_kkex5s.jpg',
           },
           {
             _id: 'u103',
             fullname: 'Dor Cohen',
-            imgUrl: 'https://robohash.org/dor',
+            imgUrl:
+              'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686458417/trelux/dor_invx37.jpg',
           },
         ],
         groups: [
