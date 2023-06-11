@@ -19,7 +19,7 @@ import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
 import { TaskOverview } from '../cmps/task-overview'
 import { TaskChecklists } from '../cmps/task-checklists'
-
+import { Loader } from '../cmps/loader'
 export function TaskDetails() {
      const { taskId, groupId, boardId } = useParams()
      const [task, setTask] = useState(null)
@@ -65,9 +65,7 @@ export function TaskDetails() {
           }
           return coverStyle
      }
-
-     console.log('task:', task) // Check the value of task
-     if (!task) return <div className='loading-bar'>Loading...</div>
+     if (!task) return <></>
      return (
           <section className='section-task-deatils'>
                <div className='div-task-deatils'>
@@ -86,7 +84,7 @@ export function TaskDetails() {
                     <BsCardHeading style={{ color: '#43546F' }} className='icon-title' />
 
                     <div className='div-task-title'>
-                         {task ? <h2>{task.title}</h2> : 'Loading'}
+                         {<h2>{task.title}</h2>}
                          <p>
                               in list{' '}
                               <span className='group-title-task-details'>
@@ -101,8 +99,8 @@ export function TaskDetails() {
                               boardId={boardId}
                               groupId={groupId} />
                     </div>
-                     {/* }  */}
-                    
+                    {/* }  */}
+
 
                     <div className='div-task-controls'>
                          <TaskControls
@@ -124,7 +122,7 @@ export function TaskDetails() {
                               <a
                                    className='a-desc'
                                    onClick={() => setIsDescEdit(true)}
-                                   style={{backgroundColor: task.description ? '#F1F2F4' : '#EDEDEF'}}
+                                   style={{ backgroundColor: task.description ? '#F1F2F4' : '#EDEDEF' }}
                               >
                                    {!task.description &&
                                         'Add a more detailed description...'}
