@@ -23,7 +23,7 @@ export function ActivityColors() {
       console.log('board', board)
       const updatedBoard = {
          ...board,
-         style: { backgroundColor: color, color: color},
+         style: { backgroundColor: color, color: color },
       }
 
       updateBoard(updatedBoard)
@@ -31,7 +31,6 @@ export function ActivityColors() {
 
    return (
       <section className='activity-colors-main'>
-         <h2>Colors</h2>
          <section className='activity-main-colors-container'>
             {pastelColors.map((color) => (
                <div
