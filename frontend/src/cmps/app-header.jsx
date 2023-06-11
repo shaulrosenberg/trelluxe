@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation, Route, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
@@ -20,6 +21,7 @@ import { FaRocket } from 'react-icons/fa'
 import { BsTrello } from 'react-icons/bs'
 
 export function AppHeader() {
+   const navigate = useNavigate()
    const user = useSelector((storeState) => storeState.userModule.user)
    const location = useLocation()
    const demoUser = boardService.demoUser()
@@ -50,6 +52,10 @@ export function AppHeader() {
    async function getAiImage() {
       const res = await aiService.aiImage()
       console.log(res)
+   }
+
+   function onTryDemo(){
+      navigate('/workspace')
    }
 
    return location.pathname !== '/' ? (
@@ -84,7 +90,11 @@ export function AppHeader() {
             </div>
 
             <div className='div-user'>
-               <input type='text' placeholder='Search' className='not-clickable'/>
+               <input
+                  type='text'
+                  placeholder='Search'
+                  className='not-clickable'
+               />
                <FaRocket className='icon-rocket not-clickable ' />
                <FaInfoCircle className='icon-info not-clickable ' />
                <div>{!user && <h2>{demoUser}</h2>}</div>
@@ -104,14 +114,14 @@ export function AppHeader() {
                   Workspace
                </NavLink>
 
-               <NavLink to='/board' className='nav-link'>
+               <NavLink to='/workspace' className='nav-link'>
                   Boards
                </NavLink>
             </div>
 
             <div className='nav-buttons'>
                <a className='a-login'>Log in</a>
-               <button className='btn-demo'>Try Demo</button>
+               <button className='btn-demo' onClick={() => onTryDemo()}>Try Demo</button>
             </div>
          </nav>
       </header>
