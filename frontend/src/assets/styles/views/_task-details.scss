@@ -72,7 +72,7 @@
    .icon-title {
       align-self: flex-start;
       justify-self: center;
-      margin-top: 0.55rem;
+      margin-top: rem(20px);
       grid-column: 1;
       color: #172b4d;
    }
@@ -133,6 +133,7 @@
 
    h2 {
       color: #172b4d;
+      padding: rem(12px) 0 0;
    }
 }
 
@@ -229,7 +230,6 @@
          position: relative;
          top: 2px;
       }
-      
    }
 
    .img-attachment {
