@@ -16,7 +16,7 @@ export function ActivityPreview({ activity }) {
          <div>
             <p>
                <span> {activity.byMember.fullname} </span> {activity.txt}{' '}
-               {activity.task.title}
+               {activity?.task?.title ? activity.task.title : null}
             </p>
             <p className='timestamp'>{formattedTime}</p>
          </div>

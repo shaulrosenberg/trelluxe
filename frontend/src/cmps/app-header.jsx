@@ -54,7 +54,7 @@ export function AppHeader() {
       console.log(res)
    }
 
-   function onTryDemo(){
+   function onTryDemo() {
       navigate('/workspace')
    }
 
