@@ -87,9 +87,9 @@ function getLoggedinUser() {
 
 
 // ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+//     await userService.signup({fullname: 'Shaul Rosenberg', username: 'shaulr', password:'123',imgUrl: 'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686458436/trelux/shaul_kkex5s.jpg' ,isAdmin: true})
+//     await userService.signup({fullname: 'Dor Cohen', username: 'dorc', password:'123',imgUrl:'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686458417/trelux/dor_invx37.jpg', isAdmin: true})
+//     await userService.signup({fullname: 'Adam Gertzkin', username: 'adamg', password:'123',imgUrl: 'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686456867/trelux/adam_nxymb1.jpg', isAdmin: true})
 // })()
 
 
