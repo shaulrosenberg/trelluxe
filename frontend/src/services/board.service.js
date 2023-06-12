@@ -150,7 +150,7 @@ function getDefaultFilter() {
 function demoUser() {
   const user = {
     _id: 'u101',
-    fullname: 'Abi Abambi',
+    fullname: 'Guest user',
     username: 'abi@ababmi.com',
     password: 'aBambi123',
     imgUrl: 'http://some-img.jpg',

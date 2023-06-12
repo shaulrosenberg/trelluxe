@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { updateBoard } from '../store/board.actions'
+import { updateBoard, updateTask} from '../store/board.actions'
 // icon
 import { ImAttachment } from 'react-icons/im'
 import { MdSubtitles } from 'react-icons/md'
-import { updateTask } from '../store/board.actions'
 
 // dynamic modal
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
@@ -29,14 +28,22 @@ export function AttachImage({ task }) {
       setModalType(type)
    }
 
-//    async function onCoverClick(imgUrl) {
-//       console.log('imgUrl', imgUrl)
-//       const updatedBoard = {
-//          ...board,
-         
-//       }
-//       await updateBoard(updatedBoard)
-//    }
+      async function onCoverClick(imgUrl) {
+         console.log('imgUrl', imgUrl)
+         // console.log('board', board)
+         const currGroup = board.groups.find((group) => group.id === params.groupId)
+         const currTask = currGroup.tasks.find((task) => task.id === params.taskId)
+         // console.log('currGroup', currGroup)
+         // console.log('currTask', currTask)
+
+         const newTask = {
+            ...currTask,
+            style: {backgroundImage: imgUrl}
+         }
+
+         console.log('newTask', newTask)
+         await updateTask(newTask, params.boardId, params.groupId)
+      }
 
    return (
       <div className='img-attachment-container'>
@@ -86,7 +93,7 @@ export function AttachImage({ task }) {
                           )}
                        </div>
                        <div>
-                          <h3>
+                          <h3 onClick={() => onCoverClick(imgObject.url)}>
                              <span>
                                 <MdSubtitles className='cover-icon' />
                              </span>
