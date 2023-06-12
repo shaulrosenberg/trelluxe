@@ -1,0 +1,100 @@
+.login-signup-container {
+   color: $primaryColor;
+   background-color: #f9fafc;
+
+   .login-signup-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      h1 {
+         font-size: rem(50px);
+         color: $primaryColor;
+      }
+      svg {
+         color: $primaryColor;
+         font-size: rem(36px);
+         margin-right: 12px;
+         margin-top: 0.5rem;
+      }
+   }
+
+   .login-registration-modal {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      width: 400px;
+      height: 450px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+      background-color: #fff;
+      margin-top: 2rem;
+      h1 {
+         font-size: rem(16px);
+         margin: 1.5rem auto;
+      }
+      .registration-form {
+         margin: 0 auto;
+
+         input {
+            width: rem(320px);
+            height: rem(40px);
+            padding: 0 1rem;
+            font-size: 14px;
+            background-color: #fafbfc;
+            border: 2px solid #dfe1e6;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 3px;
+            height: 40px;
+            margin: 1rem;
+         }
+
+         .submit-btn {
+            width: rem(320px);
+            height: rem(35px);
+            margin: 0 auto;
+            padding: 0;
+            background-color: #5aac44;
+            color: #fff;
+            font-weight: bold;
+         }
+
+         h3 {
+            font-size: rem(14px);
+            width: fit-content;
+            margin: 1rem auto;
+         }
+         .btn-google {
+            background-color: #fff;
+            color: #505f79;
+            font-weight: bold;
+            margin: 0 auto;
+            color: rgba(0, 0, 0, 0.54);
+            box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0;
+            border-color: transparent;
+            border-radius: 3px;
+            width: rem(320px);
+            height: 39px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            span {
+               img {
+                  height: 30px;
+                  width: auto;
+               }
+            }
+         }
+      }
+   }
+
+   .login-imgs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: auto;
+      img {
+         height: rem(330px);
+         max-width: rem(470px);
+      }
+   }
+}

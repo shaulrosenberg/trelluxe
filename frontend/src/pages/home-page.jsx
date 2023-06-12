@@ -10,7 +10,7 @@ export function HomePage() {
             <div className='div-hero-section'>
                <div className='div-hero-details'>
                   <h1>
-                     Trelux brings all your tasks, teammates, and tools together
+                  Trelluxe brings all your tasks, teammates, and tools together
                   </h1>
                   <p>
                      Keep everything in the same place—even if your team isn’t.
@@ -43,7 +43,7 @@ export function HomePage() {
                   <div>
                      <h2>Boards</h2>
                      <p>
-                        Trelux boards keep tasks organized and work moving
+                     Trelluxe boards keep tasks organized and work moving
                         forward. In a glance, see everything from “things to do”
                         to “aww yeah, we did it!”
                      </p>
@@ -53,7 +53,7 @@ export function HomePage() {
                      <p>
                         The different stages of a task. Start as simple as To
                         Do, Doing or Done—or build a workflow custom fit to your
-                        team’s needs. There’s no wrong way to Trelux.
+                        team’s needs. There’s no wrong way to Trelluxe.
                      </p>
                   </div>
                   <div>

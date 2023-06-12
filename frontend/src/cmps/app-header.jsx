@@ -67,7 +67,7 @@ export function AppHeader() {
                      <div className='div-workspace'>
                         <BsTrello className='logo-workspace' />
 
-                        <h2 className='logo-work'>Trelux </h2>
+                        <h2 className='logo-work'>Trelluxe </h2>
                      </div>
                   </Link>
                </div>
@@ -107,7 +107,7 @@ export function AppHeader() {
             <div className='nav-dropdown'>
                <Link to='/' className='homepage-logo'>
                   <BsTrello className='logo-workspace' />
-                  <h2 className='logo-work'>Trelux </h2>
+                  <h2 className='logo-work'>Trelluxe </h2>
                </Link>
 
                <NavLink to='/workspace' className='nav-link'>
