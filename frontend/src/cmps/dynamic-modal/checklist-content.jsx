@@ -32,7 +32,7 @@ export function ChecklistContent({ task, boardId, groupId, onCloseModal }) {
         const updatedTask = JSON.parse(JSON.stringify(task))
         if (!updatedTask.checklists) updatedTask.checklists = []
         updatedTask.checklists.push(checklist)
-        await updateTask(updatedTask, boardId, groupId)
+        await updateTask(updatedTask, boardId, groupId, 'added a check list')
         onCloseModal()
     }
 

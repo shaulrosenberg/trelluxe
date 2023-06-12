@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { useNavigate } from 'react-router-dom'
 import { boardService } from '../services/board.service'
 import { useState } from 'react'
+import { utilService } from '../services/util.service'
 
 // icons
 import { MdSubtitles } from 'react-icons/md'
@@ -28,8 +29,10 @@ export function TaskDetails() {
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
    )
+
    const navigate = useNavigate()
    const params = useParams()
+   const taskActivities = boardService.getTaskActivities(board, taskId)
 
    useEffect(() => {
       loadTask()
@@ -40,6 +43,8 @@ export function TaskDetails() {
          getGroupTitle()
          const currTask = await boardService.findTaskById(taskId)
          setTask(currTask)
+
+
       } catch (err) {
          console.log('cannot load task in task-details', err)
       }
@@ -146,11 +151,41 @@ export function TaskDetails() {
                   className='input-task-activity'
                   placeholder='Write a comment...'
                ></input>
+               {taskActivities && (
+                  <section className="activity-list">
+                     {taskActivities.map((activity) => (
+                        <ActivityPreview key={activity.id} activity={activity} />
+                     ))}                   </section>
+               )}
             </div>
          </div>
 
          {/* Overlay element */}
          <div className='overlay' onClick={() => onTaskExit()} />
+      </section>
+   )
+}
+
+
+function ActivityPreview({ activity }) {
+   console.log('activite:', activity)
+   return (
+      <section className="activity-preview">
+         <div className="member-img">
+            <img src={activity.byMember.imgUrl} referrerPolicy="no-referrer" alt="member" />
+         </div>
+         <section className="activity-description">
+            {
+               <>
+                  <p>
+                     <span className="username">{activity.byMember.fullname}</span>
+                     <span className="activity-txt">{activity.txt}</span>
+                  </p>
+                  <p className="time">{utilService.timeSince(activity.createdAt)}</p>
+               </>
+            }
+
+         </section>
       </section>
    )
 }
