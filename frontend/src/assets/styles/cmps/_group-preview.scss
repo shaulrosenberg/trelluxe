@@ -71,16 +71,16 @@
    box-shadow: 0 1px 0 rgba(8, 37, 85, 0.251);
    textarea {
       box-shadow: 0 1px 0 #c0c6d0;
-      width: rem(247px);
-      border-radius: 3px;
+      width: rem(250px);
+      border-radius: rem(3px);
       height: rem(70px);
       margin-left: 0.4rem;
-      padding: 0.3rem 0 0 8px;
+      padding: 0.3rem 0 0 rem(8px);
       font-family: sans-serif;
       resize: none;
       border: none;
       border-radius: 0.5rem;
-      line-height: 20px;
+      line-height: rem(20px);
 
       &::placeholder {
          color: #172b4d;
