@@ -9,52 +9,53 @@ import { BiItalic } from 'react-icons/bi'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { AiOutlineLink } from 'react-icons/ai'
 import { BiImageAlt } from 'react-icons/bi'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function DescEdit({ task, setIsDescEdit }) {
-     const params = useParams()
+   const params = useParams()
 
-     const [newDesc, setNewDesc] = useState('')
+   const [newDesc, setNewDesc] = useState(task.description || '')
 
-     async function onSaveDesc() {
-          const taskToUpdate = { ...task }
-          taskToUpdate.description = newDesc
+   async function onSaveDesc() {
+      const taskToUpdate = { ...task }
+      taskToUpdate.description = newDesc
 
-          try {
-               await updateTask(taskToUpdate, params.boardId, params.groupId)
-               console.log('description saved')
-               setIsDescEdit(false)
-          } catch (err) {
-               console.log('err saving description', err)
-          }
-     }
+      try {
+         await updateTask(taskToUpdate, params.boardId, params.groupId)
+         console.log('description saved')
+         setIsDescEdit(false)
+      } catch (err) {
+         console.log('err saving description', err)
+      }
+   }
 
-     return (
-          <section className='section-edit-desc'>
-               <div className='div-desc-edit'>
-                    <div className='div-desc-edit-icons'>
-                         <IoText className='desc-edit-icon' />
-                         <BsTypeBold className='desc-edit-icon' />
-                         <BiItalic className='desc-edit-icon' />
-                         <AiOutlineUnorderedList className='desc-edit-icon' />
-                         <AiOutlineLink className='desc-edit-icon' />
-                         <BiImageAlt className='desc-edit-icon' />
-                    </div>
-               </div>
-               <textarea
-                    className='desc-textarea'
-                    placeholder='Enter new description...'
-                    onChange={(ev) => setNewDesc(ev.target.value)}
-               ></textarea>
-               <button className='desc-btn-save' onClick={() => onSaveDesc()}>
-                    Save
-               </button>
-               <button
-                    className='desc-btn-cancel'
-                    onClick={() => setIsDescEdit(false)}
-               >
-                    Cancel
-               </button>
-          </section>
-     )
+   return (
+      <section className='section-edit-desc'>
+         <div className='div-desc-edit'>
+            <div className='div-desc-edit-icons'>
+               <IoText className='desc-edit-icon' />
+               <BsTypeBold className='desc-edit-icon' />
+               <BiItalic className='desc-edit-icon' />
+               <AiOutlineUnorderedList className='desc-edit-icon' />
+               <AiOutlineLink className='desc-edit-icon' />
+               <BiImageAlt className='desc-edit-icon' />
+            </div>
+         </div>
+         <textarea
+            className='desc-textarea'
+            placeholder='Enter new description...'
+            onChange={(ev) => setNewDesc(ev.target.value)}
+            value={newDesc}
+         ></textarea>
+         <button className='desc-btn-save' onClick={() => onSaveDesc()}>
+            Save
+         </button>
+         <button
+            className='desc-btn-cancel'
+            onClick={() => setIsDescEdit(false)}
+         >
+            Cancel
+         </button>
+      </section>
+   )
 }
