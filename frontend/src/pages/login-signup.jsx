@@ -55,7 +55,7 @@ export function LoginSignup(props) {
                 <div className="login-registration-modal">
                     <h1>{isLoginMode ? 'Login to Trelux' : 'sign up for your account'}</h1>
                     <form className="registration-form" onSubmit={handleSubmit}>
-                        {!isLoginMode && (
+                        {!isLoginMode ? (
                             <input
                                 required
                                 type="txt"
@@ -63,7 +63,7 @@ export function LoginSignup(props) {
                                 onChange={ev => setFullname(ev.target.value)}
                                 placeholder="Enter Full Name"
                             />
-                        )}
+                        ) : (<p>fuckshaul</p>)}
                         <input
                             required
                             type="txt"
