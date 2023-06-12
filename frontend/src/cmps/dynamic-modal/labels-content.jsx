@@ -7,6 +7,7 @@ import { ReactComponent as EditPencilIcon } from '../../assets/img/edit-pencil.s
 import { boardService } from '../../services/board.service'
 import { ColorPalette } from '../color-pallette'
 import { updateBoard } from '../../store/board.actions'
+import { utilService } from '../../services/util.service'
 
 export function LabelsContent(props) {
    const { boardId, groupId, task } = props
@@ -103,7 +104,7 @@ export function LabelsContent(props) {
                               title={`Label Title: ${label.title}`}
                               htmlFor={label.id}
                               className='label-block'
-                              style={{ backgroundColor: label.color }}
+                              style={{ backgroundColor: label.color, color: utilService.getContrast(label.color) }}
                            >
                               {label.title}
                            </label>

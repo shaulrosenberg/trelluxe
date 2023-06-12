@@ -13,6 +13,7 @@ import { boardService } from '../services/board.service'
 import { updateTask } from '../store/board.actions';
 import { toggleLabels } from '../store/board.actions'
 import { useSelector } from 'react-redux';
+import { utilService } from '../services/util.service';
 
 export function TaskPreview(props) {
 
@@ -112,7 +113,7 @@ export function TaskPreview(props) {
                               taskLabels.map(label =>
                                    <div className="labels-names-container">
                                         <div className="labels-with-names"
-                                             key={label.id} style={{ backgroundColor: label.color }}
+                                             key={label.id} style={{ backgroundColor: label.color, color: utilService.getContrast(label.color) }}
                                         >
                                              <p className='label-text'>{label.title}</p>
                                         </div>

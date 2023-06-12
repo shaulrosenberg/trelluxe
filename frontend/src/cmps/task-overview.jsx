@@ -6,6 +6,7 @@ import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 import { useEffect, useRef, useState } from 'react'
 import { utilService } from '../services/util.service'
 import { updateTask } from '../store/board.actions'
+
 export function TaskOverview({ task, groupId, boardId }) {
    const [modalType, setModalType] = useState(null)
    const eventRef = useRef()
@@ -13,6 +14,8 @@ export function TaskOverview({ task, groupId, boardId }) {
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
    )
+
+
 
    const taskMembers = boardService.getTaskMembers(
       board.members,
@@ -89,7 +92,10 @@ export function TaskOverview({ task, groupId, boardId }) {
                         className='task-label-button'
                         onClick={(ev) => onToggleModal(ev, 'labels')}
                         key={taskLabel.id}
-                        style={{ backgroundColor: taskLabel.color }}
+                        style={{
+                           backgroundColor: taskLabel.color,
+                           color: utilService.getContrast(taskLabel.color)
+                        }}
                      >
                         {taskLabel.title}
                      </li>
