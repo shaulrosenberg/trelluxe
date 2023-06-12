@@ -21,7 +21,6 @@
             align-items: flex-start;
             justify-content: space-between;
 
-
             &:hover {
                 background-color: #dfe1e6;
             }
@@ -48,7 +47,6 @@
             z-index: 9999;
 
             .star-icon {
-                // font-size: 0.875rem;
                 font-size: rem(18px);
                 color: white;
                 transition: transform 0.3s ease;
@@ -58,16 +56,25 @@
                 }
             }
 
-            .starred {
+            &.starred {
                 .star-icon {
                     color: #f2d600;
                 }
+
+                right: 1.2rem;
+                opacity: 1;
             }
         }
+
 
         &:hover .starred-container {
             opacity: 1;
             right: 1.2rem;
+        }
+
+        .starred .starred-container {
+            right: 1.2rem;
+            opacity: 1;
         }
 
         h2 {
@@ -81,7 +88,6 @@
             white-space: nowrap;
             z-index: 9999;
         }
-
 
         &.add-board {
             article {
