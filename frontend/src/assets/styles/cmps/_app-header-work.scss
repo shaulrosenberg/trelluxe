@@ -1,117 +1,119 @@
 // this header will display while in other pages not in Homepage
 .app-header-work {
-     position: static;
+   position: static;
 }
 
 .main-nav-bar-work {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 0 0.5rem;
-     margin-left: 0.3rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 0.5rem;
+   margin-left: 0.3rem;
 }
 
 .nav-dropdown-work {
-     display: flex;
-     align-items: center;
+   display: flex;
+   align-items: center;
 
-     .logo-work {
-          color: white;
-          font-weight: bold;
-     }
+   .logo-work {
+      color: white;
+      font-weight: bold;
+   }
 
-     > .nav-link-work {
-          background-color: transparent;
-          color: white;
-          padding: 0.5rem 1rem;
+   > .nav-link-work {
+      background-color: transparent;
+      color: white;
+      padding: 0.5rem 1rem;
 
-          &:hover {
-               background-color: #014b752b;
-               border-radius: 0.2rem;
-          }
-     }
+      &:hover {
+         background-color: #014b752b;
+         border-radius: 0.2rem;
+      }
+   }
 
-     .nav-link-work {
-          color: white;
-          font-size: rem(14px);
-          margin: 0.2rem 0.6rem;
-     }
+   .nav-link-work {
+      color: white;
+      font-size: rem(14px);
+      margin: 0.2rem 0.6rem;
+   }
 
-     .logo-workspace {
-          color: white;
-          align-self: center;
-     }
+   .logo-workspace {
+      color: white;
+      align-self: center;
+      margin-top: 0.23rem;
+      
+   }
 
-     .div-workspace {
-          display: flex;
-          gap: 5px;
-     }
+   .div-workspace {
+      display: flex;
+      gap: 5px;
+   }
 }
 
 // display the user in header
 .div-user {
-     display: flex;
-     align-items: center;
-     gap: rem(15px);
+   display: flex;
+   align-items: center;
+   gap: rem(15px);
 
-     .dark-theme {
-          cursor: pointer;
-          font-size: rem(18px);
-          color: white;
-     }
-     .icon-rocket {
-          color: white;
-     }
+   .dark-theme {
+      cursor: pointer;
+      font-size: rem(18px);
+      color: white;
+   }
+   .icon-rocket {
+      color: white;
+   }
 
-     .icon-info path {
-          fill: white;
-     }
+   .icon-info path {
+      fill: white;
+   }
 
-     .hover {
-          &:hover {
-               cursor: pointer;
-               transform: scale(1.2);
-          }
-     }
+   .hover {
+      &:hover {
+         cursor: pointer;
+         transform: scale(1.2);
+      }
+   }
 
-     div {
-          background-color: rgb(99, 69, 137);
-          padding: rem(10px);
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          width: rem(25px);
-          height: rem(25px);
-          transition: border-color 0.3s;
-          box-sizing: border-box;
-          border: 2px solid transparent;
+   div {
+      background-color: rgb(99, 69, 137);
+      padding: rem(10px);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: rem(25px);
+      height: rem(25px);
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+      border: 2px solid transparent;
 
-          &:hover {
-               cursor: pointer;
-               border-color: rgba(255, 255, 255, 0.878);
-          }
+      &:hover {
+         cursor: pointer;
+         border-color: rgba(255, 255, 255, 0.878);
+      }
 
-          h2 {
-               font-size: 0.6rem;
-          }
-     }
-     .search-bar-header {
-          margin-right: 55rem;
-     }
+      h2 {
+         font-size: 0.6rem;
+      }
+   }
+   .search-bar-header {
+      margin-right: 55rem;
+   }
 
-     input {
-          color: black;
-          height: rem(32px);
-          padding: 1rem;
-          border-radius: 0.3rem;
-          border: none;
-          outline: none;
-          background-color: rgba(245, 245, 245, 0.261);
-          caret-color: white;
-          &::placeholder {
-               color: white;
-          }
-     }
+   input {
+      color: black;
+      height: rem(32px);
+      padding: 1rem;
+      border-radius: 0.3rem;
+      border: none;
+      outline: none;
+      background-color: rgba(245, 245, 245, 0.261);
+      caret-color: white;
+      &::placeholder {
+         color: white;
+      }
+   }
 }
