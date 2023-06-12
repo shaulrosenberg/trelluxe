@@ -59,16 +59,16 @@ export function FilterContent() {
                const hasLabels = selectedLabels.length
                   ? task.labelIds
                      ? task.labelIds.some((labelId) =>
-                          selectedLabels.includes(labelId)
-                       )
+                        selectedLabels.includes(labelId)
+                     )
                      : false
                   : true
 
                const hasMembers = selectedMembers.length
                   ? task.memberIds
                      ? task.memberIds.some((memberId) =>
-                          selectedMembers.includes(memberId)
-                       )
+                        selectedMembers.includes(memberId)
+                     )
                      : false
                   : true
 
@@ -90,6 +90,7 @@ export function FilterContent() {
                      <div>
                         <input
                            type='checkbox'
+                           className='filter-checkbox'
                            checked={selectedLabels.includes(label.id)}
                            onChange={() => handleLabelChange(label.id)}
                         />
