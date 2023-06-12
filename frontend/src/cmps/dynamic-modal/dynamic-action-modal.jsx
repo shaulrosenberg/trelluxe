@@ -53,7 +53,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
     function getModalPositionStyle() {
         const padding = 10
         const modalWidth = 300 
-        const modalHeight = 200 // not 200
+        const modalHeight = 550 // not 200
 
         const { top, left, height, width } = event.target.getBoundingClientRect()
 

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { loadBoards, addBoard, updateBoard } from '../store/board.actions.js'
-
+// my cmps
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BoardList } from '../cmps/board-list.jsx'
 import { DynamicActionModal } from '../cmps/dynamic-modal/dynamic-action-modal.jsx'
@@ -43,23 +43,28 @@ export function Workspace() {
     }
 
 
-    // if (!boards) return <Loader />
+    if (!boards) return <Loader />
+    const starredBoards = boards.filter(board => board.isStarred)
     return (
         <section className='workspace-container'>
             <main>
-                <div className="header-with-icon">
-                    <AiOutlineStar className="header-icon star-icon" />
-                    <h2>Starred boards</h2>
-                </div>
+                {starredBoards.length > 0 && (
+                    <>
+                        <div className="header-with-icon">
+                            <AiOutlineStar className="header-icon star-icon" />
+                            <h2>Starred boards</h2>
+                        </div>
 
-                <BoardList
-                    boards={boards.filter(board => board.isStarred)}
-                    onUpdateBoard={onUpdateBoard}
-                />
+                        <BoardList
+                            boards={starredBoards}
+                            onUpdateBoard={onUpdateBoard}
+                        />
+                    </>
+                )}
 
                 <div className='header-with-icon'>
                     <AiOutlineClockCircle className="header-icon recent-icon" />
-                    <h2>Recently viewed</h2>
+                    <h2>Your boards</h2>
                 </div>
 
                 <BoardList

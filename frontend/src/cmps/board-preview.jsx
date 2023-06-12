@@ -41,7 +41,7 @@ export function BoardPreview({ board, onUpdateBoard }) {
         >
             {isHovered && <span className="darken-background"></span>}
             <h2 className="board-title">{board.title}</h2>
-            <div className="starred-container" onClick={onToggleStarred}>
+            <div className={`starred-container ${board.isStarred ? 'starred' : ''}`} onClick={onToggleStarred}>
                 <span className={board.isStarred ? 'starred' : ''} >
                     {board.isStarred ? <AiFillStar className="star-icon" /> : <AiOutlineStar className="star-icon" />}
                 </span>

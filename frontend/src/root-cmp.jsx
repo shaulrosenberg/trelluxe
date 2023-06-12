@@ -11,25 +11,31 @@ import { Workspace } from './pages/workspace'
 import { TaskDetails } from './pages/task-details'
 
 export function RootCmp() {
-
-    return (
-        <div className='main-component'>
+   return (
+      <div className='homepage-root-section'>
+         <Routes>
+            <Route path='/' element={<HomePage />} />
+         </Routes>
+         <div className='main-component'>
             <AppHeader />
             <main className='main-container'>
-                <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/board/:boardId' element={<BoardIndex />}>
-                        <Route path='group/:groupId/task/:taskId' element={<TaskDetails />} />
-                    </Route>
-                    <Route path='/workspace' element={<Workspace />} />
-                    <Route path='/login' element={<LoginSignup />} />
-                    <Route path='/signup' element={<LoginSignup />} />
+               <Routes>
+                  {/* <Route path='/' element={<HomePage />} /> */}
+                  <Route path='/board/:boardId' element={<BoardIndex />}>
+                     <Route
+                        path='group/:groupId/task/:taskId'
+                        element={<TaskDetails />}
+                     />
+                  </Route>
+                  <Route path='/workspace' element={<Workspace />} />
+                  <Route path='/login' element={<LoginSignup />} />
+                  <Route path='/signup' element={<LoginSignup />} />
 
-                    <Route path="user/:id" element={<UserDetails />} />
-
-                </Routes>
+                  <Route path='user/:id' element={<UserDetails />} />
+               </Routes>
             </main>
             {/* <AppFooter /> */}
-        </div>
-    )
+         </div>
+      </div>
+   )
 }

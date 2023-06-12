@@ -2,6 +2,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { httpService } from './http.service.js'
+import { socketService } from './socket.service.js'
 
 const STORAGE_KEY = 'boardDB'
 const BASE_URL = 'board/'
@@ -36,22 +37,34 @@ _createBoards()
 // TODO: add sortBy as 2nd parameter for query and support sorting
 function query(filterBy = {}) {
   // TODO : add query params to address
-  // return httpService.get(BASE_URL, filterBy)
-  return storageService.query(STORAGE_KEY).then(boards => boards)
+  return httpService.get(BASE_URL, filterBy)
+  // return storageService.query(STORAGE_KEY).then(boards => boards)
 }
 function getById(boardId) {
-  console.log('entered get by id')
-  // return httpService.get(BASE_URL + boardId)
-  return storageService.get(STORAGE_KEY, boardId)
+  return httpService.get(BASE_URL + boardId)
+  // return storageService.get(STORAGE_KEY, boardId)
 }
 function remove(boardId) {
-  return storageService.remove(STORAGE_KEY, boardId)
-  // return httpService.delete(BASE_URL + boardId)
+  // return storageService.remove(STORAGE_KEY, boardId)
+  return httpService.delete(BASE_URL + boardId)
 }
-function save(board) {
-  const method = board._id ? 'put' : 'post'
-  // return httpService[method](BASE_URL, board)
-  return storageService[method](STORAGE_KEY, board)
+
+async function save(board) {
+  try {
+    let updatedBoard
+    if (board._id) {
+      updatedBoard = await httpService.put(BASE_URL + board._id, board)
+    } else {
+      updatedBoard = await httpService.post(BASE_URL, board)
+    }
+    // turn off after users added
+    socketService.emit('board-change', updatedBoard)
+    return updatedBoard
+  } catch (err) {
+    console.error('Failed to save board:', err)
+    throw err
+  }
+  // return storageService[method](STORAGE_KEY, board)
 }
 
 //groups
@@ -83,8 +96,7 @@ function getEmptyTask() {
       fullname: 'demo user',
       username: 'abi@ababmi.com',
       password: 'aBambi123',
-      imgUrl:
-        'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686565215/trelux/Brad_Pitt_2019_by_Glenn_Francis_gfskaw.jpg',
+      imgUrl: 'http://some-img.jpg',
     },
     checklists: [],
     labelIds: [],
@@ -92,6 +104,61 @@ function getEmptyTask() {
     attachments: [],
     comments: [],
   }
+}
+
+function getEmptyBoard(title, style) {
+  const loggedUser = userService.getLoggedinUser()
+  const board = {
+    isStarred: false,
+    title,
+    createdAt: Date.now(),
+    createdBy: loggedUser,
+    style,
+    archive: [],
+    labels: [
+      // green
+      {
+        id: 'l101',
+        title: '',
+        color: '#61bd4f',
+      },
+      // yellow
+      {
+        id: 'l102',
+        title: '',
+        color: '#f2d600',
+      },
+      // orange
+      {
+        id: 'l103',
+        title: '',
+        color: '#ff9f1a',
+      },
+      // red
+      {
+        id: 'l104',
+        title: '',
+        color: '#eb5a46',
+      },
+      // purple
+      {
+        id: 'l105',
+        title: '',
+        color: '#c377e0',
+      },
+      // blue
+      {
+        id: 'l106',
+        title: '',
+        color: '#0079bf',
+      },
+    ],
+    members: [{ ...loggedUser }],
+    groups: [],
+    activities: [],
+  }
+
+  return board
 }
 
 async function updateTask(taskToUpdate, boardId, groupId, activityTxt) {
@@ -145,15 +212,6 @@ async function addTask(newTask, boardId, groupId) {
   }
 }
 
-function getEmptyBoard() {
-  return {
-    name: '',
-    price: '',
-    inStock: true,
-    labels: [],
-  }
-}
-
 function getDefaultFilter() {
   return { txt: '', labels: [], sortBy: '', sortOrder: '' }
 }
@@ -161,7 +219,7 @@ function getDefaultFilter() {
 function demoUser() {
   const user = {
     _id: 'u101',
-    fullname: 'Abi Abambi',
+    fullname: 'Guest user',
     username: 'abi@ababmi.com',
     password: 'aBambi123',
     imgUrl:
@@ -180,8 +238,8 @@ function findLabelStyleById(labelId, board) {
   return currLabel
 }
 
-function findTaskById(taskId) {
-  return storageService.query(STORAGE_KEY).then(boards => {
+async function findTaskById(taskId) {
+  return await query().then(boards => {
     for (const board of boards) {
       for (const group of board.groups) {
         const task = group.tasks.find(task => task.id === taskId)

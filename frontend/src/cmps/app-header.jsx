@@ -77,24 +77,24 @@ export function AppHeader() {
                   Workspace
                </NavLink>
 
-               <NavLink className='nav-link-work not-clickable'>Recent</NavLink>
+               {/* <NavLink className='nav-link-work not-clickable'>Recent</NavLink>
 
                <NavLink className='nav-link-work not-clickable'>
                   Starred
                </NavLink>
                <NavLink className='nav-link-work not-clickable'>
                   Templates
-               </NavLink>
+               </NavLink> */}
                {/* <button onClick={() => getPrompt()}>use Ai</button>
                <button onClick={() => getAiImage()}>use Ai image</button> */}
             </div>
 
             <div className='div-user'>
-               <input
+               {/* <input
                   type='text'
                   placeholder='Search'
                   className='not-clickable'
-               />
+               /> */}
                <FaRocket className='icon-rocket not-clickable ' />
                <FaInfoCircle className='icon-info not-clickable ' />
                <div>{!user && <h2>{demoUser}</h2>}</div>
