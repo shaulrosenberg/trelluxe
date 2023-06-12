@@ -1,0 +1,75 @@
+.add-member-board {
+    background-color: #f4f5f7;
+    padding: 16px;
+    border-radius: 4px;
+    width: 300px;
+  
+    &__title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+  
+    &__user-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  
+      &__user-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+  
+        &.selected {
+          background-color: #f4f5f7;
+        }
+  
+        &:hover {
+          background-color: #f9fafc;
+        }
+  
+        &__user-info {
+          display: flex;
+          align-items: center;
+        }
+  
+        &__user-avatar {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+  
+        &__user-name {
+          font-size: 14px;
+        }
+  
+        &__user-icon {
+          color: #6b7280;
+        }
+      }
+    }
+  
+    &__save-btn {
+      padding: 8px 16px;
+      background-color: #5aac44;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+  
+      &:hover {
+        background-color: #4c9641;
+      }
+    }
+  }
+  

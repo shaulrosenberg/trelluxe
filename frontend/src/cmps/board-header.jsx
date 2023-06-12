@@ -24,7 +24,8 @@ export function BoardHeader({ board}) {
 
      const modalTitles = {
           'filter': 'Filter',
-          'activity': 'Menu'
+          'activity': 'Menu',
+          'addMember': 'Add Member'
      }
 
      function onToggleModal(type = null, ev = null) {
@@ -106,7 +107,7 @@ export function BoardHeader({ board}) {
                          Icon={IoPersonAddOutline}
                          text='Share'
                          className='share-board-btn '
-                         onClick={() => console.log(currTask)}
+                         onClick={(ev) => onToggleModal('addMember', ev)}
                     />
                     <IconButton
                          Icon={IoEllipsisHorizontalSharp}
