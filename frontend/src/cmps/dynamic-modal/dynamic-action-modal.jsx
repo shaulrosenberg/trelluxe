@@ -13,6 +13,7 @@ import { EditAttachment } from './edit-attachment'
 import { CoverContent } from "./task-cover"
 import { FilterContent } from "./filter-content"
 import { ActivityContent } from "./activity-content"
+import { AddMemberBoard } from "./add-member-board"
 
 export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...props }) {
     // Get window width
@@ -39,7 +40,8 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         editAttach: EditAttachment,
         cover: CoverContent,
         filter: FilterContent,
-        activity: ActivityContent
+        activity: ActivityContent,
+        addMember: AddMemberBoard
     }
 
     // Get the component from the map

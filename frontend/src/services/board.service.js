@@ -1,7 +1,8 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
-// import { userService } from './user.service.js'
+import { userService } from './user.service.js'
 import { httpService } from './http.service.js'
+import { socketService } from './socket.service.js'
 
 const STORAGE_KEY = 'boardDB'
 const BASE_URL = 'board/'
@@ -27,6 +28,8 @@ export const boardService = {
   getDueDateInfo,
   getDueDateTimeFormat,
   removeTask,
+  addActivity,
+  getTaskActivities,
 }
 
 _createBoards()
@@ -45,11 +48,21 @@ function remove(boardId) {
   // return storageService.remove(STORAGE_KEY, boardId)
   return httpService.delete(BASE_URL + boardId)
 }
-function save(board) {
-  if (board._id) {
-    return httpService.put(BASE_URL + board._id, board)
-  } else {
-    return httpService.post(BASE_URL, board)
+
+async function save(board) {
+  try {
+    let updatedBoard
+    if (board._id) {
+      updatedBoard = await httpService.put(BASE_URL + board._id, board)
+    } else {
+      updatedBoard = await httpService.post(BASE_URL, board)
+    }
+    // turn off after users added
+    socketService.emit('board-change', updatedBoard)
+    return updatedBoard
+  } catch (err) {
+    console.error('Failed to save board:', err)
+    throw err
   }
   // return storageService[method](STORAGE_KEY, board)
 }
@@ -93,7 +106,62 @@ function getEmptyTask() {
   }
 }
 
-async function updateTask(taskToUpdate, boardId, groupId) {
+function getEmptyBoard(title, style) {
+  const loggedUser = userService.getLoggedinUser()
+  const board = {
+    isStarred: false,
+    title,
+    createdAt: Date.now(),
+    createdBy: loggedUser,
+    style,
+    archive: [],
+    labels: [
+      // green
+      {
+        id: 'l101',
+        title: '',
+        color: '#61bd4f',
+      },
+      // yellow
+      {
+        id: 'l102',
+        title: '',
+        color: '#f2d600',
+      },
+      // orange
+      {
+        id: 'l103',
+        title: '',
+        color: '#ff9f1a',
+      },
+      // red
+      {
+        id: 'l104',
+        title: '',
+        color: '#eb5a46',
+      },
+      // purple
+      {
+        id: 'l105',
+        title: '',
+        color: '#c377e0',
+      },
+      // blue
+      {
+        id: 'l106',
+        title: '',
+        color: '#0079bf',
+      },
+    ],
+    members: [{ ...loggedUser }],
+    groups: [],
+    activities: [],
+  }
+
+  return board
+}
+
+async function updateTask(taskToUpdate, boardId, groupId, activityTxt) {
   try {
     const board = await getById(boardId)
     const groupIdx = board.groups.findIndex(group => group.id === groupId)
@@ -102,6 +170,9 @@ async function updateTask(taskToUpdate, boardId, groupId) {
     )
     // const updatedTask = { ...currTask, ...task }
     board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
+    if (activityTxt) {
+      addActivity(activityTxt, taskToUpdate, board, null, demoUser())
+    }
     return save(board)
   } catch (err) {
     console.log('could not update task', err)
@@ -128,18 +199,16 @@ async function addTask(newTask, boardId, groupId) {
     const board = await getById(boardId)
     const groupIdx = board.groups.findIndex(group => group.id === groupId)
     board.groups[groupIdx].tasks.push(newTask)
+    addActivity(
+      `added ${newTask.title}, to ${board.groups[groupIdx].title}`,
+      null,
+      board,
+      null,
+      demoUser()
+    )
     return save(board)
   } catch (err) {
     console.log('could not update task', err)
-  }
-}
-
-function getEmptyBoard() {
-  return {
-    name: '',
-    price: '',
-    inStock: true,
-    labels: [],
   }
 }
 
@@ -153,7 +222,8 @@ function demoUser() {
     fullname: 'Guest user',
     username: 'abi@ababmi.com',
     password: 'aBambi123',
-    imgUrl: 'http://some-img.jpg',
+    imgUrl:
+      'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686565215/trelux/Brad_Pitt_2019_by_Glenn_Francis_gfskaw.jpg',
   }
 
   const name = user.fullname
@@ -433,7 +503,7 @@ function getAppColors() {
 }
 
 // filter function
-function onFilterOptions() { }
+function onFilterOptions() {}
 
 // dueDate and date
 
@@ -487,6 +557,36 @@ function getDueDateInfo(task) {
       status: '',
     }
   }
+}
+
+// activities
+
+function addActivity(txt, task, board, comment, user) {
+  const miniUser = user || userService.getLoggedInUser()
+
+  const miniTask = task ? { id: task.id, title: task.title } : null
+
+  const activity = {
+    id: utilService.makeId(),
+    txt,
+    createdAt: Date.now(),
+    byMember: miniUser,
+    task: miniTask,
+  }
+
+  if (comment) activity.comment = comment
+
+  if (board.activities) board.activities.unshift(activity)
+  else board.activities = [activity]
+
+  return board
+}
+
+function getTaskActivities(board, taskId) {
+  if (!board.activities || !board.activities.length) return null
+  return board.activities.filter(activity => {
+    return activity.task?.id === taskId
+  })
 }
 
 function _createBoards() {
