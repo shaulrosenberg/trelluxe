@@ -34,22 +34,24 @@ _createBoards()
 // TODO: add sortBy as 2nd parameter for query and support sorting
 function query(filterBy = {}) {
   // TODO : add query params to address
-  // return httpService.get(BASE_URL, filterBy)
-  return storageService.query(STORAGE_KEY).then(boards => boards)
+  return httpService.get(BASE_URL, filterBy)
+  // return storageService.query(STORAGE_KEY).then(boards => boards)
 }
 function getById(boardId) {
-  console.log('entered get by id')
-  // return httpService.get(BASE_URL + boardId)
-  return storageService.get(STORAGE_KEY, boardId)
+  return httpService.get(BASE_URL + boardId)
+  // return storageService.get(STORAGE_KEY, boardId)
 }
 function remove(boardId) {
-  return storageService.remove(STORAGE_KEY, boardId)
-  // return httpService.delete(BASE_URL + boardId)
+  // return storageService.remove(STORAGE_KEY, boardId)
+  return httpService.delete(BASE_URL + boardId)
 }
 function save(board) {
-  const method = board._id ? 'put' : 'post'
-  // return httpService[method](BASE_URL, board)
-  return storageService[method](STORAGE_KEY, board)
+  if (board._id) {
+    return httpService.put(BASE_URL + board._id, board)
+  } else {
+    return httpService.post(BASE_URL, board)
+  }
+  // return storageService[method](STORAGE_KEY, board)
 }
 
 //groups
@@ -166,8 +168,8 @@ function findLabelStyleById(labelId, board) {
   return currLabel
 }
 
-function findTaskById(taskId) {
-  return storageService.query(STORAGE_KEY).then(boards => {
+async function findTaskById(taskId) {
+  return await query().then(boards => {
     for (const board of boards) {
       for (const group of board.groups) {
         const task = group.tasks.find(task => task.id === taskId)
@@ -431,7 +433,7 @@ function getAppColors() {
 }
 
 // filter function
-function onFilterOptions() {}
+function onFilterOptions() { }
 
 // dueDate and date
 
