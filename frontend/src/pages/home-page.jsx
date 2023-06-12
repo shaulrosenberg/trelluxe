@@ -37,6 +37,34 @@ export function HomePage() {
                   what needs to get done.
                </p>
             </div>
+         </div>
+         <div className='homepage-inner-info'>
+            <div className='homepage-info-container'>
+               <div>
+                  <h2>Boards</h2>
+                  <p>
+                     Trelux boards keep tasks organized and work moving forward.
+                     In a glance, see everything from “things to do” to “aww
+                     yeah, we did it!”
+                  </p>
+               </div>
+               <div>
+                  <h2>Lists</h2>
+                  <p>
+                     The different stages of a task. Start as simple as To Do,
+                     Doing or Done—or build a workflow custom fit to your team’s
+                     needs. There’s no wrong way to Trelux.
+                  </p>
+               </div>
+               <div>
+                  <h2>Cards</h2>
+                  <p>
+                     Cards represent tasks and ideas and hold all the
+                     information to get the job done. As you make progress, move
+                     cards across lists to show their status.
+                  </p>
+               </div>
+            </div>
             <div>
                <img src={homepageImg} alt='homepage section' />
             </div>

@@ -77,14 +77,14 @@ export function AppHeader() {
                   Workspace
                </NavLink>
 
-               <NavLink className='nav-link-work not-clickable'>Recent</NavLink>
+               {/* <NavLink className='nav-link-work not-clickable'>Recent</NavLink>
 
                <NavLink className='nav-link-work not-clickable'>
                   Starred
                </NavLink>
                <NavLink className='nav-link-work not-clickable'>
                   Templates
-               </NavLink>
+               </NavLink> */}
                {/* <button onClick={() => getPrompt()}>use Ai</button>
                <button onClick={() => getAiImage()}>use Ai image</button> */}
             </div>
