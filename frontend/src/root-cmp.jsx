@@ -12,7 +12,7 @@ import { TaskDetails } from './pages/task-details'
 
 export function RootCmp() {
    return (
-      <div>
+      <div className='homepage-root-section'>
          <Routes>
             <Route path='/' element={<HomePage />} />
          </Routes>

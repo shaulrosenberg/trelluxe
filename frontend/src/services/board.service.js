@@ -206,13 +206,13 @@ function getDefaultFilter() {
 }
 // demo user to display in header
 function demoUser() {
-	const user = {
-		_id: 'u101',
-		fullname: 'Abi Abambi',
-		username: 'abi@ababmi.com',
-		password: 'aBambi123',
-		imgUrl: 'http://some-img.jpg',
-	}
+  const user = {
+    _id: 'u101',
+    fullname: 'Guest user',
+    username: 'abi@ababmi.com',
+    password: 'aBambi123',
+    imgUrl: 'http://some-img.jpg',
+  }
 
 	const name = user.fullname
 	const initials = name.substring(0, 2).toUpperCase()
