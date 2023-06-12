@@ -65,10 +65,16 @@ export function GroupList({ board, groups, boardId }) {
         utilService.reorder(updatedGroups, source.index, destination.index)
 
         // Create an updated board object with the reordered groups
+
+
         const updatedBoard = {
             ...board,
             groups: updatedGroups,
         }
+
+        // optimistic rendering
+        dispatch({type: 'UPDATE_BOARD', board: updatedBoard})
+        dispatch({ type: 'SET_SELECTED_BOARD', board: updatedBoard })
 
         // Dispatch the UpdateBoard action to update the state in Redux
         await updateBoard(updatedBoard)

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { boardService } from '../../services/board.service'
 import { addBoard } from '../../store/board.actions'
 import boardPreview from '../../assets/img/board-preview.svg'
 
@@ -13,18 +14,7 @@ export function CreateBoardContent({ onCloseModal }) {
    async function handleSubmit(event) {
       event.preventDefault()
       // TODO: move this empty board template to service
-      const newBoard = await addBoard({
-         title: boardTitle,
-         style: { backgroundColor: boardBackground },
-         isStarred: false,
-         groups: [],
-         members: [{
-            _id: 'u101',
-            fullname: 'Adam G',
-            imgUrl: 'https://robohash.org/adam'
-         }],
-         activities: [],
-      })
+      const newBoard = await addBoard(boardService.getEmptyBoard(boardTitle, { backgroundColor: boardBackground }))
       onCloseModal()
       navigate(`/board/${newBoard._id}`)
    }

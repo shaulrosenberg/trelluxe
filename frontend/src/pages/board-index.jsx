@@ -1,52 +1,55 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Outlet, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 // my cmps
 import { GroupList } from '../cmps/group-list'
 import { BoardHeader } from '../cmps/board-header'
 import { Loader } from '../cmps/loader'
 // services
-import { boardService } from '../services/board.service'
 import { socketService } from '../services/socket.service'
+import { boardService } from '../services/board.service'
 import { setSelectedBoard, updateBoard } from '../store/board.actions'
 
 
 
 export function BoardIndex() {
+   const [isLoading, setIsLoading] = useState(true)
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
    )
    const labelExpanedStatus = useSelector(
       (storeState) => storeState.boardModule.isLabelExpand
    )
-
+   
+   const dispatch = useDispatch()
    const { boardId } = useParams()
 
    useEffect(() => {
       loadBoard()
       // add listeners
       try {
-         // socketService.setup() already happens in socket.service
          socketService.emit('join-board', boardId)
-         socketService.on('board-update', async (updatedBoard) => {
-            await updateBoard(updatedBoard)
+         socketService.on('board-update', (updatedBoard) => {
+            dispatch({type: 'UPDATE_BOARD',board: updatedBoard})
+            dispatch({ type: 'SET_SELECTED_BOARD', board: updatedBoard })
          })
-      } catch(err) {
+      } catch (err) {
 
       }
       return () => {
          // remove listeners
          socketService.off('board-update')
-         socketService.terminate()
+         // clear board to fix bug
       }
    }, [])
 
    async function loadBoard() {
       try {
+         setIsLoading(true)
          const board = await boardService.getById(boardId)
-         console.log(board.groups)
          setSelectedBoard(board)
+         setIsLoading(false)
       } catch (err) {
          console.log('cannot load board', err)
       }
