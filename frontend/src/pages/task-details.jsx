@@ -167,27 +167,3 @@ export function TaskDetails() {
       </section>
    )
 }
-
-
-// function ActivityPreview({ activity }) {
-//    console.log('activite:', activity)
-//    return (
-//       <section className="activity-preview">
-         // <div className="member-img">
-         //    <img src={activity.byMember.imgUrl} referrerPolicy="no-referrer" alt="member" />
-         // </div>
-//          <section className="activity-description">
-//             {
-//                <>
-//                   <p>
-//                      <span className="username">{activity.byMember.fullname}</span>
-//                      <span className="activity-txt">{activity.txt}</span>
-//                   </p>
-//                   <p className="time">{utilService.timeSince(activity.createdAt)}</p>
-//                </>
-//             }
-
-//          </section>
-//       </section>
-//    )
-// }
