@@ -9,6 +9,7 @@ config()
 // open ai
 export async function processCommand(req, res) {
 	const commandText = req.body.commandText
+	console.log(process.env.OPENAI_API_KEY)
 	try {
 		const response = await axios.post('https://api.openai.com/v4/engines/davinci-codex/completions',
 			{
