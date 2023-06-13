@@ -1,4 +1,5 @@
 .activity-list {
+    overflow-y: scroll;
    .member-img {
       height: 32px;
 
@@ -52,6 +53,12 @@
       .timestamp {
          font-size: rem(12px);
          margin-left: 1.6rem;
+
+         &.inTaskDetails{
+            margin-left: 2.3rem;
+         }
       }
+
+      
    }
 }

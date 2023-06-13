@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import moment from 'moment' // moment.js for nice formatting of dates
 
-export function ActivityPreview({ activity }) {
+export function ActivityPreview({ activity, isInControls }) {
    const [formattedTime, setFormattedTime] = useState('')
 
    useEffect(() => {
@@ -12,6 +12,9 @@ export function ActivityPreview({ activity }) {
    }, [activity.createdAt])
    console.log('activity.byMember?.imgUrl', activity.byMember?.imgUrl)
    console.log('activity', activity)
+
+   const isControl = isInControls === 'true' ? 'inTaskDetails' : ''
+   console.log('isInControls', isInControls)
    return (
       <div className='activity-preview'>
          <div>
@@ -29,7 +32,7 @@ export function ActivityPreview({ activity }) {
             </p>
          </div>
          <div className='activity-timestamp-container'>
-            <p className='timestamp'>{formattedTime}</p>
+            <p className={`timestamp ${isControl}`}>{formattedTime}</p>
          </div>
       </div>
    )

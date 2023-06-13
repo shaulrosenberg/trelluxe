@@ -153,7 +153,7 @@ export function TaskDetails() {
                   placeholder='Write a comment...'
                ></input>
                {taskActivities && (
-                  <ActivityList activities={taskActivities} />
+                  <ActivityList activities={taskActivities} isInControls = {'true'} />
                   // <section className="activity-list">
                   //    {taskActivities.map((activity) => (
                   //       <ActivityPreview key={activity.id} activity={activity} />
