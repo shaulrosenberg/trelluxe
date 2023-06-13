@@ -54,6 +54,7 @@
    div:first-child {
       h2 {
          font-size: rem(32px);
+         margin-bottom: 1.9rem;
       }
 
       p {
@@ -67,7 +68,8 @@
 
 .homepage-inner-info {
    display: flex;
-   justify-content: space-around;
+   justify-content: flex-start;
+   gap: rem(120px);
    img {
       max-height: 500px;
       max-width: 100%;
