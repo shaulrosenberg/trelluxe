@@ -1,4 +1,4 @@
-.modal-content{
+.modal-content {
 }
 
 .activity-actions-container {
@@ -22,10 +22,10 @@
       align-items: center;
       // margin-bottom: 0.6rem;
       padding: 0.3rem 0;
-      h2{
+      h2 {
          margin-left: 0.65rem;
       }
-      p{
+      p {
          margin: 0;
       }
    }
@@ -109,7 +109,7 @@
    }
 }
 
-.activity-background-images{
+.activity-background-images {
    width: rem(142px);
    height: rem(96px);
    border-radius: 0.4rem;
@@ -140,17 +140,33 @@
    }
 }
 
-.activity-style-container{
+.activity-style-container {
    display: flex;
-   gap:3px;
+   gap: 3px;
 }
 
-.activity-style-info{
+.activity-style-info {
    display: flex;
    justify-content: space-around;
    align-items: center;
 }
 
-.cursor-pointer{
+.cursor-pointer {
    cursor: pointer;
+}
+
+// background images container
+.main-activity-images-section {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+   gap: 10px;
+   
+   .activity-images-container {
+      img {
+         max-width: auto;
+         max-height: rem(96px);
+         object-fit: cover;
+         border-radius: 0.5rem;
+      }
+   }
 }
