@@ -1,4 +1,5 @@
 import { storageService } from './async-storage.service'
+import { boardService } from './board.service'
 import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -87,7 +88,7 @@ function saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || boardService.demoUser()
 }
 
 
