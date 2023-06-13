@@ -33,6 +33,7 @@ export function AppHeader() {
 
    useEffect(() => {
       fetchBoardStyle()
+      
    }, [location])
 
    // TODO: change color if style has backgroundImage

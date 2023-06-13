@@ -217,10 +217,10 @@ function demoUser() {
       username: 'abi@ababmi.com',
       password: 'aBambi123',
       imgUrl:
-         'https://res.cloudinary.com/dp2xkwxbk/image/upload/v1686565215/trelux/Brad_Pitt_2019_by_Glenn_Francis_gfskaw.jpg',
+         'https://www.thenews.com.pk/assets/uploads/updates/2021-09-02/886889_5671594_brad-pitt-kick-ass_updates.jpg',
    }
    if (user.imgUrl) {
-      return user.imgUrl
+      return user
    } else {
       const name = user.fullname
       const initials = name.substring(0, 2).toUpperCase()
