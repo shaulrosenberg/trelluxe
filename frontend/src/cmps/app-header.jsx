@@ -120,7 +120,7 @@ export function AppHeader() {
             </div>
 
             <div className='nav-buttons'>
-               <a className='a-login'>Log in</a>
+               <Link className='a-login' to={'/login'}>Log in</Link>
                <button className='btn-demo' onClick={() => onTryDemo()}>Try Demo</button>
             </div>
          </nav>
