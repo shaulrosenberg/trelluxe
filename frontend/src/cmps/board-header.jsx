@@ -73,7 +73,7 @@ export function BoardHeader({ board }) {
          console.log('failed to starred board', err)
       }
    }
-   console.log('board from header', board)
+   console.log('board members', board.members)
    return (
       <header className='board-header' style={{ backgroundColor: navColor }}>
          <div className='left'>
@@ -101,8 +101,8 @@ export function BoardHeader({ board }) {
                onClick={(ev) => onToggleModal('filter', ev)}
             />
             <div className='board-header-members-container'>
-               {board.members.map((member) => {
-                  return <img key={member._id} src={member.imgUrl} />
+               {board.members.map((member, index) => {
+                  return <img key={index} src={member.imgUrl} />
                })}
             </div>
             <IconButton
