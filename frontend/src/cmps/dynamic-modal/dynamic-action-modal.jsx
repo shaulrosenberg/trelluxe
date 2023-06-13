@@ -14,6 +14,7 @@ import { CoverContent } from "./task-cover"
 import { FilterContent } from "./filter-content"
 import { ActivityContent } from "./activity-content"
 import { AddMemberBoard } from "./add-member-board"
+import { AiContent } from "./ai-content"
 
 export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...props }) {
     // Get window width
@@ -41,7 +42,8 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         cover: CoverContent,
         filter: FilterContent,
         activity: ActivityContent,
-        addMember: AddMemberBoard
+        addMember: AddMemberBoard,
+        assistant: AiContent
     }
 
     // Get the component from the map
@@ -54,7 +56,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
 
     function getModalPositionStyle() {
         const padding = 10
-        const modalWidth = 300 
+        const modalWidth = 300
         const modalHeight = 550 // not 200
 
         const { top, left, height, width } = event.target.getBoundingClientRect()
