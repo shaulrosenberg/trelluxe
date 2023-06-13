@@ -69,9 +69,10 @@
 .add-task-opened {
    margin-top: 0.4rem;
    box-shadow: 0 1px 0 rgba(8, 37, 85, 0.251);
+
    textarea {
       box-shadow: 0 1px 0 #c0c6d0;
-      width: rem(275px);
+      width: 92.50%;
       border-radius: rem(3px);
       height: rem(70px);
       margin-left: 0.4rem;

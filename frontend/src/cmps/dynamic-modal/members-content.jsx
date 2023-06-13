@@ -27,7 +27,6 @@ export function MembersContent({ task, boardId, groupId }) {
             console.error(error)
         }
     }
-
     return (
         <>
             <section className='members-modal'>
