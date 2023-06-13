@@ -43,7 +43,7 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         filter: FilterContent,
         activity: ActivityContent,
         addMember: AddMemberBoard,
-        assistant: AiContent,
+        assistant: AiContent
     }
 
     // Get the component from the map

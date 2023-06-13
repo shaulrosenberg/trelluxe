@@ -1,43 +1,37 @@
-// import { updateBoard } from "../../store/board.actions";
-// export function AiContent({ boardId }) {
-//     async function addGroupFromVoiceCommand(voiceCommand) {
-//         try {
-//             // Convert the voice command to text
-//             const commandText = await speechToTextService.transcribe(voiceCommand);
+import { updateBoard } from "../../store/board.actions"
+import { gpt4Service } from "../../services/gpt.service"
+import { addGroup } from "../../store/board.actions"
+import { speechToTextService } from "../../services/stt.service"
 
-//             // Process the text command using GPT-4
-//             const command = await gpt4Service.processCommand(commandText);
 
-//             // Check if the command is to create a list
-//             if (command.action === 'createList') {
-//                 const groupTitle = command.parameters.listName;
+export function AiContent({ boardId }) {
 
-//                 // Assume the user's board ID is stored in the session
-//                 const boardId = sessionService.getCurrentUser().boardId;
+    async function addGroupFromVoiceCommand() {
+        try {
+            // Convert the voice command to text
+            const commandText = await speechToTextService.transcribe()
 
-//                 // Create the new list
-//                 await addGroup(groupTitle, boardId);
-//             }
-//         } catch (err) {
-//             console.log('Failed to process voice command', err);
-//             throw err;
-//         }
-//     }
+            // Process the text command using GPT-4
+            const command = await gpt4Service.processCommand(commandText)
 
-//     const recognition = new window.webkitSpeechRecognition();
+            // Check if the command is to create a list
+            if (command.action.includes('createList')) {
+                const groupTitle = command.parameters.listName
 
-//     recognition.onstart = function () {
-//         console.log('Voice recognition started. Try speaking into the microphone.');
-//     }
+                // Create the new list
+                await addGroup({title: groupTitle, boardId})
+            }
+        } catch (err) {
+            console.log('Failed to process voice command', err)
+            throw err
+        }
+    }
 
-//     recognition.onresult = function (event) {
-//         const transcript = event.results[0][0].transcript;
-//         console.log(transcript);
-//         // Now you have the transcribed text, you can process it further
-//     }
-
-//     recognition.start();
-//     return (<p>hi i'm the assistant</p>)
-// }
+    return (
+      <div>
+        <button onClick={addGroupFromVoiceCommand}>Add Group with Voice Command</button>
+      </div>
+    )
+}
 
 

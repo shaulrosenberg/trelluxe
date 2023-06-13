@@ -1,4 +1,4 @@
 export default {
-  dbURL: 'mongodb+srv://shaul:shaul123@cluster0.qhknq9y.mongodb.net/?retryWrites=true&w=majority',
+  dbURL: process.env.DB_URL,
   dbName : 'board_db'
 }
