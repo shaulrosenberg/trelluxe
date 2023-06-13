@@ -11,7 +11,7 @@ export function ActivityImages() {
 
    useEffect(() => {
       const fetchData = async () => {
-         const images = await unsplashService.searchPhotos('fantasy', 1, 8)
+         const images = await unsplashService.searchPhotos('nature', 2, 8)
          setImagesObj(images)
       }
 
