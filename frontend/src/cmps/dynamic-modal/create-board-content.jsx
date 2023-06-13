@@ -10,7 +10,7 @@ export function CreateBoardContent({ onCloseModal }) {
 	const [boardBackgroundColor, setBoardBackgroundColor] = useState('#0079bf') // default Trello board color
 	const [boardBackgroundImage, setBoardBackgroundImage] = useState('') // new state variable for image background
 	const [unsplashImages, setUnsplashImages] = useState([])
-	const [backgroundType, setBackgroundType] = useState('color');
+	const [backgroundType, setBackgroundType] = useState('color')
 	const navigate = useNavigate()
 
 	const backgrounds = ['#0079bf', '#d29034', '#89609e', '#00aecc', '#838c91', '#F1813A', '#B86BBF', '#b2d8d8']
@@ -27,9 +27,9 @@ export function CreateBoardContent({ onCloseModal }) {
 	const setBoardBackground = (background, type) => {
 		setBackgroundType(type);
 		if (type === 'color') {
-			setBoardBackgroundColor(background);
+			setBoardBackgroundColor(background)
 		} else if (type === 'image') {
-			setBoardBackgroundImage(background);
+			setBoardBackgroundImage(background)
 		}
 	}
 
