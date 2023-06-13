@@ -17,6 +17,7 @@ export function LoginSignup(props) {
    let navigate = useNavigate()
 
    const dispatch = useDispatch()
+   // add image upload
    const [username, setUsername] = useState('')
    const [password, setPassword] = useState('')
    const [fullname, setFullname] = useState('')
@@ -31,7 +32,8 @@ export function LoginSignup(props) {
                username,
                password,
                fullname,
-               imgUrl: 'https://robohash.org/adam',
+               // add image upload from input
+               imgUrl: '',
             })
             login({ username, password })
             navigate('/workspace')
