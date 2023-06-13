@@ -91,13 +91,7 @@ function getEmptyTask() {
       description: '',
       dueDate: null,
       archiveAt: null,
-      byMember: {
-         _id: 'u101',
-         fullname: 'demo user',
-         username: 'abi@ababmi.com',
-         password: 'aBambi123',
-         imgUrl: 'http://some-img.jpg',
-      },
+      byMember: demoUser(),
       checklists: [],
       labelIds: [],
       members: [],
@@ -118,37 +112,37 @@ function getEmptyBoard(title, style) {
       labels: [
          // green
          {
-            id: 'l101',
+            id: utilService.makeId(),
             title: '',
             color: '#61bd4f',
          },
          // yellow
          {
-            id: 'l102',
+            id: utilService.makeId(),
             title: '',
             color: '#f2d600',
          },
          // orange
          {
-            id: 'l103',
+            id: utilService.makeId(),
             title: '',
             color: '#ff9f1a',
          },
          // red
          {
-            id: 'l104',
+            id: utilService.makeId(),
             title: '',
             color: '#eb5a46',
          },
          // purple
          {
-            id: 'l105',
+            id: utilService.makeId(),
             title: '',
             color: '#c377e0',
          },
          // blue
          {
-            id: 'l106',
+            id: utilService.makeId(),
             title: '',
             color: '#0079bf',
          },
@@ -507,7 +501,7 @@ function getAppColors() {
 }
 
 // filter function
-function onFilterOptions() {}
+function onFilterOptions() { }
 
 // dueDate and date
 

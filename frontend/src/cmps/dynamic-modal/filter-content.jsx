@@ -85,8 +85,8 @@ export function FilterContent() {
          <div className='filter-labels-container'>
             <h4 className='filter-text-style'>Labels</h4>
             <div className='filter-labels filter-align'>
-               {labels.map((label) => (
-                  <div key={label.id} className='filter-content'>
+               {labels.map((label,index ) => (
+                  <div key={label.id || index} className='filter-content'>
                      <div>
                         <input
                            type='checkbox'
@@ -110,8 +110,8 @@ export function FilterContent() {
          <div className='filter-members-container'>
             <h4 className='filter-text-style'>Members</h4>
             <div className='filter-members filter-align'>
-               {members.map((member) => (
-                  <div className='members-filter-area' key={member._id}>
+               {members.map((member, index) => (
+                  <div className='members-filter-area' key={member._id || index}>
                      <label>
                         <input
                            type='checkbox'
