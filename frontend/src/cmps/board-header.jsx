@@ -102,7 +102,7 @@ export function BoardHeader({ board }) {
             />
             <div className='board-header-members-container'>
                {board.members.map((member) => {
-                  return <img src={member.imgUrl} />
+                  return <img key={member._id} src={member.imgUrl} />
                })}
             </div>
             <IconButton

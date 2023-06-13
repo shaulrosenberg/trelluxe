@@ -3,6 +3,34 @@
    flex-direction: column;
    border-radius: 3px;
 
+   .image-selector {
+      margin-block-start: rem(8px);
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 0.4rem;
+
+      div {
+         width: 62px;
+         height: 40px;
+         border-radius: 0.5rem;
+         cursor: pointer;
+         overflow: hidden;
+         /* ensure image corners don't exceed div's border-radius */
+
+         img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* adjust as needed to fit your design */
+         }
+
+         &:hover {
+            opacity: 0.8;
+         }
+      }
+   }
+
    .board-preview {
       width: rem(200px);
       height: rem(120px);
@@ -19,14 +47,16 @@
       flex-wrap: wrap;
       width: 100%;
       gap: 0.4rem;
+
       .color-option {
          width: 62px;
          height: 40px;
          border-radius: 0.5rem;
          cursor: pointer;
 
-         &:hover{
-            opacity: 0.8; /* Set the desired opacity value */
+         &:hover {
+            opacity: 0.8;
+            /* Set the desired opacity value */
          }
       }
    }
@@ -56,6 +86,7 @@
       color: $primaryColor;
       border-radius: 0.3rem;
       margin: 0.6rem 0;
+
       &:hover {
          background-color: darken($color: #f0f0f0, $amount: 3);
       }
