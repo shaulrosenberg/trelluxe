@@ -8,6 +8,7 @@ import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 
 //icons
 import { BsFilter } from 'react-icons/bs'
+import { FcAssistant } from 'react-icons/fc'
 import {
    IoStarOutline,
    IoPersonAddOutline,
@@ -30,6 +31,7 @@ export function BoardHeader({ board }) {
       filter: 'Filter',
       activity: 'Menu',
       addMember: 'Add Member',
+      assistant: 'AI Assistant'
    }
 
    function onToggleModal(type = null, ev = null) {
@@ -92,6 +94,13 @@ export function BoardHeader({ board }) {
                   onClick={() => onStarredClick()}
                />
             )}
+
+            <button onClick={(ev) => onToggleModal('assistant', ev)}><  FcAssistant /></button>
+            {/* <IconButton
+               icon={FcAssistant}
+               text='AiAssistant'
+               onClick={(ev) => onToggleModal('assistant', ev)}
+            /> */}
          </div>
 
          <div className='right'>
