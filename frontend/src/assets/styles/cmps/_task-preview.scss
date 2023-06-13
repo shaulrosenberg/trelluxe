@@ -228,6 +228,13 @@
    }
 }
 
+.task-preview-body{
+   transition: background-color 0.1s ease;
+   &:hover{
+      background-color: #EBECF0;
+   }
+}
+
 // labels animation
 
 /* labels animation */
