@@ -1,3 +1,4 @@
+import { boardService } from '../services/board.service.js'
 import { userService } from '../services/user.service.js'
 
 export const INCREMENT = 'INCREMENT'
@@ -11,7 +12,7 @@ export const SET_SCORE = 'SET_SCORE'
 
 const initialState = {
     count: 10,
-    user: userService.getLoggedinUser(),
+    user: userService.getLoggedinUser() || boardService.demoUser(),
     users: [],
     watchedUser : null
 }

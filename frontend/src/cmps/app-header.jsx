@@ -57,7 +57,7 @@ export function AppHeader() {
    function onTryDemo() {
       navigate('/workspace')
    }
-
+   console.log('user', user)
    return location.pathname !== '/' ? (
       <header className='app-header-work' style={fetchBoardStyle()}>
          <nav className='main-nav-bar-work'>
@@ -97,7 +97,7 @@ export function AppHeader() {
                /> */}
                <FaRocket className='icon-rocket not-clickable ' />
                <FaInfoCircle className='icon-info not-clickable ' />
-               <div>{!user && <h2>{demoUser}</h2>}</div>
+               <div className='user-container'>{user && <img src={user.imgUrl}/>}</div>
             </div>
          </nav>
       </header>

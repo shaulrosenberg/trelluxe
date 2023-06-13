@@ -9,6 +9,10 @@ export function MembersContent({ task, boardId, groupId }) {
 
     const [displayedMembers, setDisplayedMembers] = useState(board.members)
 
+    useEffect(() => {
+        console.log('board from mm', board)
+    }, [])
+
     async function onMemberToggle(id) {
         let updatedMembersIds = []
         let updatedTask

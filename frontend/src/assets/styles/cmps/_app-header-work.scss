@@ -41,7 +41,6 @@
       color: white;
       align-self: center;
       margin-top: 0.23rem;
-      
    }
 
    .div-workspace {
@@ -76,9 +75,8 @@
       }
    }
 
-   div {
-      background-color: rgb(99, 69, 137);
-      padding: rem(10px);
+   .user-container {
+      border-radius: 50%;
       color: white;
       display: flex;
       align-items: center;
@@ -90,9 +88,19 @@
       box-sizing: border-box;
       border: 2px solid transparent;
 
-      &:hover {
+      img {
          cursor: pointer;
-         border-color: rgba(255, 255, 255, 0.878);
+         width: 32px;
+         height: 32px;
+         border-radius: 50%;
+         margin-right: 8px;
+         margin-block: 4px;
+         transition: transform 0.2s ease-in;
+         &:hover {
+            cursor: pointer;
+            border: solid 1px whitesmoke;
+            transform: scale(1.2);
+         }
       }
 
       h2 {
