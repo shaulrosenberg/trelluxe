@@ -20,6 +20,7 @@ import { AttachImage } from '../cmps/task-attachment'
 import { useSelector } from 'react-redux'
 import { TaskOverview } from '../cmps/task-overview'
 import { TaskChecklists } from '../cmps/task-checklists'
+import { ActivityList } from '../cmps/activity-list'
 import { Loader } from '../cmps/loader'
 export function TaskDetails() {
    const { taskId, groupId, boardId } = useParams()
@@ -152,10 +153,11 @@ export function TaskDetails() {
                   placeholder='Write a comment...'
                ></input>
                {taskActivities && (
-                  <section className="activity-list">
-                     {taskActivities.map((activity) => (
-                        <ActivityPreview key={activity.id} activity={activity} />
-                     ))}                   </section>
+                  <ActivityList activities={taskActivities} />
+                  // <section className="activity-list">
+                  //    {taskActivities.map((activity) => (
+                  //       <ActivityPreview key={activity.id} activity={activity} />
+                  //    ))}                   </section>
                )}
             </div>
          </div>
@@ -167,25 +169,25 @@ export function TaskDetails() {
 }
 
 
-function ActivityPreview({ activity }) {
-   console.log('activite:', activity)
-   return (
-      <section className="activity-preview">
-         <div className="member-img">
-            <img src={activity.byMember.imgUrl} referrerPolicy="no-referrer" alt="member" />
-         </div>
-         <section className="activity-description">
-            {
-               <>
-                  <p>
-                     <span className="username">{activity.byMember.fullname}</span>
-                     <span className="activity-txt">{activity.txt}</span>
-                  </p>
-                  <p className="time">{utilService.timeSince(activity.createdAt)}</p>
-               </>
-            }
+// function ActivityPreview({ activity }) {
+//    console.log('activite:', activity)
+//    return (
+//       <section className="activity-preview">
+         // <div className="member-img">
+         //    <img src={activity.byMember.imgUrl} referrerPolicy="no-referrer" alt="member" />
+         // </div>
+//          <section className="activity-description">
+//             {
+//                <>
+//                   <p>
+//                      <span className="username">{activity.byMember.fullname}</span>
+//                      <span className="activity-txt">{activity.txt}</span>
+//                   </p>
+//                   <p className="time">{utilService.timeSince(activity.createdAt)}</p>
+//                </>
+//             }
 
-         </section>
-      </section>
-   )
-}
+//          </section>
+//       </section>
+//    )
+// }

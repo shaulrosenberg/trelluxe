@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { updateTask, updateBoard } from '../../store/board.actions'
 import { loadUsers } from '../../store/user.actions';
 import curriedAdjustHue from 'polished/lib/color/adjustHue';
+import { userService } from '../../services/user.service';
 
 export function AddMemberBoard() {
     const board = useSelector(storeState => storeState.boardModule.selectedBoard)
@@ -25,6 +26,7 @@ export function AddMemberBoard() {
     async function onMemberToggle(id) {
 
         let updatedBoard = { ...board }
+        let activityTxt
         console.log('boardmembers:', board)
         let currUser
         if (board && board.members) {
@@ -37,11 +39,12 @@ export function AddMemberBoard() {
             updatedBoard.members.splice(userToRemoveIdx, 1)
         }
         else {
+            let userToAdd = users.find(user => user._id === id)
+            activityTxt = `${userService.getLoggedinUser.fullname} added ${userToAdd.fullname}`
             updatedBoard.members.push(users.find(user => user._id === id))
         }
         try {
-            let shaulUsers = await updateBoard(updatedBoard)
-            console.log('shaulUsers.members:', shaulUsers.members)
+            await updateBoard(updatedBoard, activityTxt)
         } catch (err) {
             console.log('err:', err)
         }
@@ -54,7 +57,6 @@ export function AddMemberBoard() {
     // if (!users.current) return <p>loading!!</p>
     return (
         <>
-
             <section className='add-members-board'>
                 <div className='members-modal-search'>
                     {/* <input

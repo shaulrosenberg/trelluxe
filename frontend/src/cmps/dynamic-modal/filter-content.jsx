@@ -86,7 +86,7 @@ export function FilterContent() {
             <h4 className='filter-text-style'>Labels</h4>
             <div className='filter-labels filter-align'>
                {labels.map((label) => (
-                  <div className='filter-content'>
+                  <div key={label.id} className='filter-content'>
                      <div>
                         <input
                            type='checkbox'
@@ -98,7 +98,7 @@ export function FilterContent() {
                      <div
                         className='labels-filter-area'
                         style={{ backgroundColor: label.color }}
-                        key={label.id}
+
                      >
                         <label>{label.title}</label>
                      </div>

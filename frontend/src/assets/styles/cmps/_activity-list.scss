@@ -1,5 +1,15 @@
 .activity-list{
-
+    .member-img {
+             height: 32px;
+             width: 32px;
+             object-fit: cover;
+             padding-bottom: px;
+         
+             img {
+               width: 100%;
+               border-radius: 25em;
+             }
+           }
 }
 
 .activity-preview{

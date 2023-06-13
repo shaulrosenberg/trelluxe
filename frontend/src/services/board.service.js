@@ -32,7 +32,7 @@ export const boardService = {
   getTaskActivities,
 }
 
-_createBoards()
+// _createBoards()
 
 // TODO: add sortBy as 2nd parameter for query and support sorting
 function query(filterBy = {}) {
@@ -161,7 +161,7 @@ function getEmptyBoard(title, style) {
   return board
 }
 
-async function updateTask(taskToUpdate, boardId, groupId, activityTxt) {
+async function updateTask(taskToUpdate, boardId, groupId, activityTxt = null) {
   try {
     const board = await getById(boardId)
     const groupIdx = board.groups.findIndex(group => group.id === groupId)
@@ -171,7 +171,7 @@ async function updateTask(taskToUpdate, boardId, groupId, activityTxt) {
     // const updatedTask = { ...currTask, ...task }
     board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
     if (activityTxt) {
-      addActivity(activityTxt, taskToUpdate, board, null, demoUser())
+      addActivity(activityTxt, taskToUpdate, board, null, null)
     }
     return save(board)
   } catch (err) {
@@ -562,8 +562,8 @@ function getDueDateInfo(task) {
 // activities
 
 function addActivity(txt, task, board, comment, user) {
-  const miniUser = user || userService.getLoggedInUser()
-
+  const miniUser = user || userService.getLoggedinUser()
+  console.log('miniUser', miniUser)
   const miniTask = task ? { id: task.id, title: task.title } : null
 
   const activity = {

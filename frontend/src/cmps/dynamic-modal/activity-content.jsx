@@ -32,11 +32,11 @@ export function ActivityContent() {
                      <RxActivityLog />
                      <h2 className='activity-text-style'>Activity</h2>
                   </div>
-                  <div>
-                     <ActivityList activities={activities} />
-                  </div>
+                  <ActivityList activities={activities} />
+
+
                </div>
-               
+
             </div>
          )}
       </section>

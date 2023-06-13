@@ -132,7 +132,8 @@ export async function removeTask(taskId, groupId, boardId) {
 
 // TODO: make a filtering function that will not save the filtered board and overwrite the original board
 // it should only effec the selectedBoard global state.
-export function updateBoard(board) {
+export function updateBoard(board, activityTxt) {
+  boardService.addActivity(activityTxt, null, board, null, null)
   return boardService
     .save(board)
     .then(savedBoard => {

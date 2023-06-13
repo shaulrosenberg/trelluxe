@@ -12,14 +12,17 @@ export function ActivityPreview({ activity }) {
    }, [activity.createdAt])
 
    return (
+
       <div className='activity-preview'>
          <div>
-            <p>
-               <span> {activity.byMember.fullname} </span> {activity.txt}{' '}
-               {activity?.task?.title ? activity.task.title : null}
-            </p>
-            <p className='timestamp'>{formattedTime}</p>
+            <div className="member-img">
+               <img src={activity.byMember?.imgUrl} referrerPolicy="no-referrer" alt="member" />
+            </div>
+            <span> {activity?.byMember?.fullname} </span> {activity?.txt}{' '}
+            {activity?.task?.title ? activity.task.title : null}
          </div>
+         <p className='timestamp'>{formattedTime}</p>
+
       </div>
    )
 }
