@@ -4,6 +4,8 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { addGroup, updateBoard } from '../store/board.actions.js'
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { utilService } from '../services/util.service.js'
+import { addActivity } from '../services/board.service.js'
+import { userService } from '../services/user.service.js'
 import { GroupPreview } from './group-preview.jsx'
 
 //icons
@@ -16,6 +18,17 @@ export function GroupList({ board, groups, boardId }) {
     const [groupTitle, setGroupTitle] = useState('')
 
     const dispatch = useDispatch()
+
+    const createActivityTxt = (action, sourceGroup, destinationGroup = null, sourceIndex, destinationIndex) => {
+        switch (action) {
+            case 'DRAG_TASK':
+                return `Task moved from ${sourceGroup.title} to ${destinationGroup.title}`
+            case 'DRAG_GROUP':
+                return `Group moved from position ${sourceIndex + 1} to position ${destinationIndex + 1}`
+            default:
+                return ''
+        }
+    }
 
     const handleDragEnd = (result) => {
 
@@ -65,19 +78,19 @@ export function GroupList({ board, groups, boardId }) {
         utilService.reorder(updatedGroups, source.index, destination.index)
 
         // Create an updated board object with the reordered groups
-
-
         const updatedBoard = {
             ...board,
             groups: updatedGroups,
         }
 
+        const activityTxt = createActivityTxt('DRAG_GROUP', null, null, source.index, destination.index)
+
         // optimistic rendering
-        dispatch({type: 'UPDATE_BOARD', board: updatedBoard})
+        dispatch({ type: 'UPDATE_BOARD', board: updatedBoard })
         dispatch({ type: 'SET_SELECTED_BOARD', board: updatedBoard })
 
         // Dispatch the UpdateBoard action to update the state in Redux
-        await updateBoard(updatedBoard)
+        await updateBoard(updatedBoard, activityTxt)
     }
 
     const toGroup = (groupId) => {
@@ -125,7 +138,9 @@ export function GroupList({ board, groups, boardId }) {
             groups: updatedGroups,
         }
 
-        await updateBoard(updatedBoard)
+        const activityTxt = createActivityTxt('DRAG_TASK', sourceGroup, destinationGroup, sourceIndex, destinationIndex)
+
+        await updateBoard(updatedBoard, activityTxt)
         return
     }
 
