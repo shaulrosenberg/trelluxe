@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { boardService } from '../services/board.service'
 import { addTask } from '../store/board.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { userService } from '../services/user.service'
+
 
 // icons
 import { GrAdd, GrClose } from 'react-icons/gr'
@@ -36,6 +38,8 @@ export function AddTask({ group, boardId }) {
       ev.preventDefault()
       if (!cardTitle) return
       let newTask = boardService.getEmptyTask()
+      // update createdBy and title
+      newTask.createdBy = userService.getLoggedinUser() || userService.demoUser()
       newTask.title = cardTitle
       try {
          newTask = await addTask(newTask, boardId, group.id)
