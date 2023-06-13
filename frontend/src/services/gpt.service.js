@@ -1,6 +1,9 @@
+import { httpService } from './http.service'
 const axios = require('axios')
 
-const API_URL = '/api/board/gpt4'
+
+// /api/
+const API_URL = 'board/gpt4'
 
 export const gpt4Service = {
 	processCommand,
@@ -8,7 +11,7 @@ export const gpt4Service = {
 
 async function processCommand(commandText) {
 	// Send a POST request to your server-side route
-	const response = await axios.post(API_URL, { commandText: commandText })
+	const response = await httpService.post(API_URL, { commandText: commandText })
 
 	// Process the response to get the action and parameters
 	let action = response.data.choices[0].text.trim().split('\n')[0]

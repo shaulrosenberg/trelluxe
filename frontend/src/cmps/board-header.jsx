@@ -45,7 +45,6 @@ export function BoardHeader({ board }) {
 
    useEffect(() => {
       fetchBoardStyle()
-      console.log(params)
    }, [])
 
    async function fetchBoardStyle() {

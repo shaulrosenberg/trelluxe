@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.41dc09d1.css",
-    "main.js": "/static/js/main.fbad778e.js",
+    "main.js": "/static/js/main.c7649727.js",
     "static/media/hero-trello.png": "/static/media/hero-trello.f9b4fcddcc2fe4d8f0d9.png",
     "static/media/img-3.png": "/static/media/img-3.710e4ee6d0e1effb24dc.png",
     "static/media/left-hero.svg": "/static/media/left-hero.47238298680cf64177bdb1faa64d3804.svg",
@@ -14,10 +14,10 @@
     "static/media/edit-pencil.svg": "/static/media/edit-pencil.77842f61cccac45fec91d05b8f708441.svg",
     "static/media/checklistIcon.svg": "/static/media/checklistIcon.8f6811c21b64628b3144e38fed3b5d2a.svg",
     "main.41dc09d1.css.map": "/static/css/main.41dc09d1.css.map",
-    "main.fbad778e.js.map": "/static/js/main.fbad778e.js.map"
+    "main.c7649727.js.map": "/static/js/main.c7649727.js.map"
   },
   "entrypoints": [
     "static/css/main.41dc09d1.css",
-    "static/js/main.fbad778e.js"
+    "static/js/main.c7649727.js"
   ]
 }
