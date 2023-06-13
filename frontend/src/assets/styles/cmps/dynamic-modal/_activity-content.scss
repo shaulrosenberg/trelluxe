@@ -78,7 +78,7 @@
 }
 
 .activity-background-section {
-   width: rem(152px);
+   width: rem(142px);
    height: rem(96px);
    background-color: #0270b2;
    border-radius: 0.4rem;
@@ -109,6 +109,13 @@
    }
 }
 
+.activity-background-images{
+   width: rem(142px);
+   height: rem(96px);
+   border-radius: 0.4rem;
+   background-color: blue;
+}
+
 .activity-background-container {
    display: flex;
    flex-direction: column;
@@ -131,4 +138,15 @@
       border-radius: 0.5rem;
       cursor: pointer;
    }
+}
+
+.activity-style-container{
+   display: flex;
+   gap:3px;
+}
+
+.activity-style-info{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
 }
