@@ -13,6 +13,7 @@ export function AiContent({ boardId }) {
 
             // Process the text command using GPT-4
             const command = await gpt4Service.processCommand(commandText)
+            
 
             // Check if the command is to create a list
             if (command.action.includes('createList')) {

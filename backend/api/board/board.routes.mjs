@@ -1,13 +1,15 @@
 import express from 'express'
 import { requireAuth } from '../../middlewares/requireAuth.middleware.mjs'
 import { log } from '../../middlewares/logger.middleware.mjs'
-import { getBoards, getBoardById, addBoard, updateBoard, removeBoard, addBoardMsg, removeBoardMsg } from './board.controller.mjs'
+import { getBoards, getBoardById, addBoard, updateBoard, removeBoard, addBoardMsg, removeBoardMsg, processCommand } from './board.controller.mjs'
+
 
 const router = express.Router()
 
 // We can add a middleware for the entire router:
 // router.use(requireAuth)
 
+router.post('/gpt4', processCommand)
 router.get('/', log, getBoards)
 router.get('/:id', getBoardById)
 router.post('/',  addBoard)

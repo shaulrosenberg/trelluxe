@@ -1,7 +1,34 @@
+import axios from 'axios'
+import { config } from 'dotenv'
 import { boardService } from './board.service.mjs'
 import { logger } from '../../services/logger.service.mjs'
 import { socketService } from '../../services/socket.service.mjs'
 import { asyncLocalStorage } from '../../services/als.service.mjs'
+config()
+
+// open ai
+export async function processCommand(req, res) {
+	const commandText = req.body.commandText
+	try {
+		const response = await axios.post('https://api.openai.com/v4/engines/davinci-codex/completions',
+			{
+				prompt: `Translate the following English command to a task: ${commandText}`,
+				max_tokens: 60,
+				temperature: 0.5,
+			},
+			{
+				headers: {
+					'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+					'Content-Type': 'application/json',
+				},
+			}
+		);
+
+		res.json(response.data);
+	} catch (error) {
+		res.status(500).json({ error: 'Error processing command' });
+	}
+}
 
 export async function getBoards(req, res) {
 	try {
