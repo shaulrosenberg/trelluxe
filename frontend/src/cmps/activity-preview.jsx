@@ -22,13 +22,15 @@ export function ActivityPreview({ activity }) {
                   alt='member'
                />
             </div>
-            <span> {activity?.byMember?.fullname} </span>{' '}
             <p>
+            <span> {activity?.byMember?.fullname} </span>{' '}
                {activity?.txt}{' '}
                {activity?.task?.title ? activity.task.title : null}
             </p>
          </div>
-         <p className='timestamp'>{formattedTime}</p>
+         <div className='activity-timestamp-container'>
+            <p className='timestamp'>{formattedTime}</p>
+         </div>
       </div>
    )
 }
