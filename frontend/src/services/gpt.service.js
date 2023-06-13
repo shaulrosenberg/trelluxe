@@ -13,6 +13,8 @@ async function processCommand(commandText) {
 	// Send a POST request to your server-side route
 	const response = await httpService.post(API_URL, { commandText: commandText })
 
+	console.log(response.data)
+
 	// Process the response to get the action and parameters
 	let action = response.data.choices[0].text.trim().split('\n')[0]
 
