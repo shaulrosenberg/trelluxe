@@ -94,7 +94,7 @@ export function BoardHeader({ board }) {
                />
             )}
 
-            <button onClick={(ev) => onToggleModal('assistant', ev)}><  FcAssistant /></button>
+            {/* <button onClick={(ev) => onToggleModal('assistant', ev)}><  FcAssistant /></button> */}
             {/* <IconButton
                icon={FcAssistant}
                text='AiAssistant'

@@ -10,10 +10,6 @@ import { boardService } from '../services/board.service'
 import { useEffect, useState } from 'react'
 import { darken } from 'polished'
 
-// ai
-import { aiService } from '../services/ai.service'
-//img
-
 // icons
 import { FaAdjust } from 'react-icons/fa'
 import { FaInfoCircle } from 'react-icons/fa'
@@ -43,16 +39,6 @@ export function AppHeader() {
             backgroundColor: `${darken(0.2, board.style.backgroundColor)}`,
          }
       else return { backgroundColor: '#026AA7' }
-   }
-
-   async function getPrompt() {
-      const data = await aiService.useAi()
-      console.log('data', data)
-   }
-
-   async function getAiImage() {
-      const res = await aiService.aiImage()
-      console.log(res)
    }
 
    function onTryDemo() {
