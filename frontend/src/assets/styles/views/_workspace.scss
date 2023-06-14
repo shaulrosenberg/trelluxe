@@ -9,7 +9,7 @@ $starColorInactive: gray;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	padding: 2rem;
+	padding: rem(45px);
 
 
 	main {
@@ -35,6 +35,7 @@ $starColorInactive: gray;
 			align-items: center;
 			gap: 0.5rem;
 			/* Adjust this value to create more or less space between the icon and the text */
+			margin-block-start: rem(45px);
 
 			.header-icon {
 				width: rem(24px);
