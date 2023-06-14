@@ -3,7 +3,7 @@ const axios = require('axios')
 
 
 // /api/
-const API_URL = 'board/gpt4'
+const API_URL = '/api/board/gpt4'
 
 export const gpt4Service = {
 	processCommand,
@@ -11,12 +11,12 @@ export const gpt4Service = {
 
 async function processCommand(commandText) {
 	// Send a POST request to your server-side route
-	const response = await httpService.post(API_URL, { commandText: commandText })
-
-	console.log(response)
+	const response = await axios.post(API_URL, { commandText: commandText })
+	// 
+	console.log(response.data)
 
 	// Process the response to get the action and parameters
-	let action = response.choices[0].text.trim().split('\n')[0]
+	let action = response.data.choices[0].message.content.trim().split('\n')[0]
 
 	const parameters = extractParameters(action)
 
