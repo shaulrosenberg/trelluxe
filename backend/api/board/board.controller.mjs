@@ -10,12 +10,12 @@ config()
 // open ai
 export async function processCommand(req, res) {
 	const commandText = req.body.commandText
-	
+
 	try {
 		const response = await axios.post('https://api.openai.com/v1/chat/completions',
 			{
 				"model": "gpt-3.5-turbo",
-				"messages": [`Translate the following English command to a task: ${commandText}`],
+				"messages": [{ "role": "user", "content": `Translate the following English command to a task: ${commandText}` }],
 				"temperature": 0.7
 			},
 			{
