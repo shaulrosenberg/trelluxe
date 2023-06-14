@@ -9,11 +9,16 @@
    background-color: $clr30;
    border-radius: rem(12px);
    max-height: 100%;
+   position: relative;
 
    .group-preview-controls-btn {
       position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
+      top: 0.5em;
+      right: 0.5em;
+      border-radius: 3px;
+      height: 2rem;
+      width: 2rem;
+      padding: 0.3rem;
 
       &:hover {
          background-color: rgb(208, 212, 220);
