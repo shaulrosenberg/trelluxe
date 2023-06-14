@@ -13,10 +13,23 @@ export async function processCommand(req, res) {
 
 	try {
 		const response = await axios.post('https://api.openai.com/v1/chat/completions',
+			// {
+			// 	"model": "gpt-3.5-turbo",
+			// 	"messages": [{ "role": "user", "content": `Translate the following English command to a task: ${commandText}` }],
+			// 	"temperature": 0.7
+			// },
 			{
 				"model": "gpt-3.5-turbo",
-				"messages": [{ "role": "user", "content": `Translate the following English command to a task: ${commandText}` }],
-				"temperature": 0.7
+				"messages": [
+					{
+						"role": "system",
+						"content": "You are a helpful assistant."
+					},
+					{
+						"role": "user",
+						"content": "What is the best tool for API testing?"
+					}
+				]
 			},
 			{
 				headers: {
