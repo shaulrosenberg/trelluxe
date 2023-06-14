@@ -3,7 +3,7 @@ const axios = require('axios')
 
 
 // /api/
-const API_URL = 'board/gpt4'
+const API_URL = 'board/gpt4/'
 
 export const gpt4Service = {
 	processCommand,
