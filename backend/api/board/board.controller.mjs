@@ -14,9 +14,9 @@ export async function processCommand(req, res) {
 	try {
 		const response = await axios.post('https://api.openai.com/v1/chat/completions',
 			{
-				prompt: `Translate the following English command to a task: ${commandText}`,
-				max_tokens: 60,
-				temperature: 0.5,
+				"model": "gpt-3.5-turbo",
+				"messages": [`Translate the following English command to a task: ${commandText}`],
+				"temperature": 0.7
 			},
 			{
 				headers: {
@@ -24,7 +24,7 @@ export async function processCommand(req, res) {
 					'Content-Type': 'application/json',
 				},
 			}
-		);
+		)
 
 		console.log(response.data)
 		res.json(response.data)
@@ -55,7 +55,7 @@ export async function processCommand(req, res) {
 
 //     const request = https.request(options, (response) => {
 //         let data = ''
-        
+
 //         response.on('data', (chunk) => {
 //             data += chunk
 //         })
