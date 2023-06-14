@@ -1,3 +1,14 @@
+.group-preview-content{
+   .group-preview-delete{
+      color: $primaryColor;
+      font-size: rem(14px);
+      &:hover{
+         cursor: pointer;
+         background-color:#091e420a;
+      }
+   }
+}
+
 .group-preview {
    display: flex;
    justify-content: flex-start;
@@ -9,16 +20,27 @@
    background-color: $clr30;
    border-radius: rem(12px);
    max-height: 100%;
-   position: relative;
 
+   
+   
+
+
+  .title-wrapper{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-block-end: 5px;
+  }
    .group-preview-controls-btn {
-      position: absolute;
-      top: 0.5em;
-      right: 0.5em;
       border-radius: 3px;
+      margin-top: 7px;
+      margin-right: 16px;
       height: 2rem;
       width: 2rem;
       padding: 0.3rem;
+      color: $primaryColor;
+      cursor: pointer;
+
 
       &:hover {
          background-color: rgb(208, 212, 220);
@@ -31,7 +53,7 @@
       margin-block-start: 0.5em;
 
       height: 28px;
-      width: 80%;
+      width: 90%;
       color: #172b4d;
       background: #0000;
       border-radius: 3px;

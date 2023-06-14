@@ -21,7 +21,7 @@ export function GroupPreviewContent({ groupId }) {
 
     return (
         <section className="group-preview-content">
-            <div onClick={onDeleteList}>Delete list</div>
+            <div className="group-preview-delete" onClick={onDeleteList}>Delete list</div>
         </section>
     )
 

@@ -22,8 +22,9 @@ export function GroupPreview({ board, group }) {
 
      return (
           <article className='group-preview'>
-               <TitleAdd board={board} group={group} />
-               <AiOutlineEllipsis className='group-preview-controls-btn' onClick={ev => onToggleModal('groupPreviewContent', ev)} />
+               <div className='title-wrapper'><TitleAdd board={board} group={group} />
+                    <AiOutlineEllipsis className='group-preview-controls-btn' onClick={ev => onToggleModal('groupPreviewContent', ev)} /></div>
+
                <TaskList tasks={group.tasks} groupId={group.id} boardId={boardId} />
                <AddTask group={group} boardId={boardId} />
 
