@@ -13,10 +13,10 @@ async function processCommand(commandText) {
 	// Send a POST request to your server-side route
 	const response = await axios.post(API_URL, { commandText: commandText })
 	// 
-	console.log(response.data)
+	console.log(response)
 
 	// Process the response to get the action and parameters
-	let action = response.data.choices[0].message.content.trim().split('\n')[0]
+	let action = response.choices[0].message.content.trim().split('\n')[0]
 
 	const parameters = extractParameters(action)
 
