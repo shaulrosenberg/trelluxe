@@ -1,21 +1,23 @@
 .task-list-container {
-     border-radius: 3px;
-     color: #172b4d;
-     position: relative;
-     flex: 1;
-     overflow: auto;
-     margin-right: 0.4rem;
-     &::-webkit-scrollbar {
-         width: 10px;
-     }
- 
-     &::-webkit-scrollbar-track {
-         background: #E4E6EA;
-     }
- 
-     &::-webkit-scrollbar-thumb {
-         background: #C5C9D1;
-         border-radius: 5px;
-     }
- }
- 
+    border-radius: 3px;
+    color: #172b4d;
+    position: relative;
+    padding: 5px 0px 2px; // this is new
+    margin: 0 4px; // this is new
+    //  margin-right: 0.4rem -> original
+    flex: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #E4E6EA;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #C5C9D1;
+        border-radius: 5px;
+    }
+}
