@@ -15,6 +15,7 @@ import { FilterContent } from "./filter-content"
 import { ActivityContent } from "./activity-content"
 import { AddMemberBoard } from "./add-member-board"
 import { AiContent } from "./ai-content"
+import { GroupPreviewContent } from "./group-preview-content"
 
 export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...props }) {
     // Get window width
@@ -43,7 +44,8 @@ export function DynamicActionModal({ cmpType, modalTitle, event, isDetails, ...p
         filter: FilterContent,
         activity: ActivityContent,
         addMember: AddMemberBoard,
-        assistant: AiContent
+        assistant: AiContent,
+        groupPreviewContent: GroupPreviewContent
     }
 
     // Get the component from the map
