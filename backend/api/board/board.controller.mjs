@@ -40,7 +40,7 @@ export async function processCommand(req, res) {
 		)
 
 		console.log(response.data)
-		res.json(response.data)
+		res.send(response.data)
 	} catch (error) {
 		res.status(500).json({ error: 'Error processing command' })
 	}

@@ -14,6 +14,7 @@ async function processCommand(commandText) {
 	const response = await axios.post(API_URL, { commandText: commandText })
 	// 
 	console.log(response)
+	console.log(response.data)
 
 	// Process the response to get the action and parameters
 	let action = response.choices[0].message.content.trim().split('\n')[0]
