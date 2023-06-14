@@ -34,7 +34,6 @@ config()
 
 export async function processCommand(req, res) {
     const commandText = req.body.commandText
-    console.log(process.env.OPENAI_API_KEY)
     const postData = JSON.stringify({
         prompt: `Translate the following English command to a task: ${commandText}`,
         max_tokens: 60,
@@ -54,13 +53,14 @@ export async function processCommand(req, res) {
     };
 
     const request = https.request(options, (response) => {
-        let data = '';
+        let data = ''
         
         response.on('data', (chunk) => {
             data += chunk
         })
 
         response.on('end', () => {
+			console.log(data)
             res.json(JSON.parse(data))
         })
     })
