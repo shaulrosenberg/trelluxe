@@ -12,7 +12,7 @@ export async function processCommand(req, res) {
 	const commandText = req.body.commandText
 	
 	try {
-		const response = await axios.post('https://api.openai.com/v4/engines/davinci-codex/completions',
+		const response = await axios.post('https://api.openai.com/v1/chat/completions',
 			{
 				prompt: `Translate the following English command to a task: ${commandText}`,
 				max_tokens: 60,
@@ -29,7 +29,7 @@ export async function processCommand(req, res) {
 		console.log(response.data)
 		res.json(response.data)
 	} catch (error) {
-		res.status(500).json({ error: 'Error processing command' });
+		res.status(500).json({ error: 'Error processing command' })
 	}
 }
 
