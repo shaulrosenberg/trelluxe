@@ -2,14 +2,12 @@
     border-radius: 3px;
     color: #172b4d;
     position: relative;
-    padding: 5px 0px 2px; // this is new
-    margin: 0 4px; // this is new
-    //  margin-right: 0.4rem -> original
+    margin-inline: 0.3rem; 
     flex: 1;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 8px;
+        width: 10px;
     }
 
     &::-webkit-scrollbar-track {
