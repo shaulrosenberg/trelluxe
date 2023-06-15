@@ -5,6 +5,7 @@ import { darken, transparentize } from 'polished'
 import { boardService } from '../services/board.service'
 import { updateBoard } from '../store/board.actions'
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
+import { Dashboard } from './dashboard'
 
 //icons
 import { BsFilter } from 'react-icons/bs'
@@ -14,13 +15,14 @@ import {
    IoPersonAddOutline,
    IoEllipsisHorizontalSharp,
 } from 'react-icons/io5'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { AiFillStar, AiOutlineDashboard, AiOutlineStar } from 'react-icons/ai'
 import PropTypes, { func } from 'prop-types'
 
 export function BoardHeader({ board }) {
    const params = useParams()
    const [currTask, setCurrTask] = useState(null)
    const [navColor, setNavColor] = useState(null)
+   const [dashboard, setDashboard] = useState(false)
 
    const [currBoard, setCurrboard] = useState(null)
    const [modalType, setModalType] = useState(null)
@@ -32,6 +34,13 @@ export function BoardHeader({ board }) {
       activity: 'Menu',
       addMember: 'Add Member',
       assistant: 'AI Assistant'
+   }
+
+   function onToggleDashboard() {
+      if(dashboard) setDashboard(false)
+      else {
+         setDashboard(true)
+      }
    }
 
    function onToggleModal(type = null, ev = null) {
@@ -100,6 +109,13 @@ export function BoardHeader({ board }) {
                text='AiAssistant'
                onClick={(ev) => onToggleModal('assistant', ev)}
             /> */}
+            <IconButton
+                  Icon={AiOutlineDashboard}
+                  text='Dashboard'
+                  onClick={onToggleDashboard}
+               />
+            {/* <button onClick={onToggleDashboard}><  AiOutlineDashboard /> Dashboard</button> */}
+            {dashboard && <Dashboard onCloseDash={onToggleDashboard}/>}
          </div>
 
          <div className='right'>
