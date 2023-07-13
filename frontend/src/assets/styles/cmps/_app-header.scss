@@ -1,214 +1,223 @@
 .app-header-homepage {
-  background-color: rgb(255, 255, 255);
-  cursor: default;
-  position: fixed;
-  top: 0px;
-  transition: background-color 0.5s ease 0s, box-shadow 0.5s ease 0s;
-  width: 100vw;
-  z-index: 100;
+    background-color: rgb(255, 255, 255);
+    cursor: default;
+    position: fixed;
+    top: 0px;
+    transition: background-color 0.5s ease 0s, box-shadow 0.5s ease 0s;
+    width: 100vw;
+    z-index: 100;
 
-  &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+    &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 }
 
 .main-nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-buttons {
+    display: flex;
 }
 
 .nav-dropdown {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 35%;
-
-  button {
-    background-color: transparent;
-  }
-
-  .nav-link {
-    font-size: 1rem;
-    background-color: $clr6;
-    color: rgb(23, 43, 77);
-    padding: 0 1rem;
-    &:hover {
-      color: $clr1;
-    }
-  }
-
-  .homepage-logo {
     display: flex;
     align-items: center;
-    margin-right: 0.8rem;
-    gap: rem(5px);
-    .logo-workspace {
-      color: $clr1;
+    gap: 10px;
+    min-width: 35%;
+
+    button {
+        background-color: transparent;
     }
-    h2 {
-      color: $primaryColor;
+
+    .nav-link {
+        font-size: 1rem;
+        background-color: $clr6;
+        color: rgb(23, 43, 77);
+        padding: 0 1rem;
+
+        &:hover {
+            color: $clr1;
+        }
     }
-    svg {
-      margin-top: 0.3rem;
+
+    .homepage-logo {
+        display: flex;
+        align-items: center;
+        margin-right: 0.8rem;
+        gap: rem(5px);
+
+        .logo-workspace {
+            color: $clr1;
+        }
+
+        h2 {
+            color: $primaryColor;
+        }
+
+        svg {
+            margin-top: 0.3rem;
+        }
     }
-  }
 }
 
 .a-login {
-  font-size: 1.2rem;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
 }
 
 .btn-demo {
-  height: 60px;
-  margin: 0;
-  font-size: 1.2rem;
-  padding: 0.5rem 1.5rem;
-  text-decoration: none;
-  background-color: $clr1;
-  color: $clr6;
+    height: 60px;
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    background-color: $clr1;
+    color: $clr6;
 }
+
 $box-size: 15;
 $duration: 0.4s;
 $height-limit: #{$box-size - 5}px;
 
 .trello {
-  display: inline-block;
-  width: #{$box-size}px;
-  height: #{$box-size}px;
-  border-radius: 3px;
-  position: relative;
-  margin: 5px;
+    display: inline-block;
+    width: #{$box-size}px;
+    height: #{$box-size}px;
+    border-radius: 3px;
+    position: relative;
+    margin: 5px;
 
-  &:after,
-  &:before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    width: #{$box-size / 2 - 2}px;
-    background: #fff;
-    border-radius: 2px;
-  }
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        width: #{$box-size / 2 - 2}px;
+        background: #fff;
+        border-radius: 2px;
+    }
 
-  &:before {
-    left: 2px;
-    height: $height-limit;
-  }
-  &:after {
-    right: 2px;
-    height: 5px;
-  }
+    &:before {
+        left: 2px;
+        height: $height-limit;
+    }
 
-  &:hover:before {
-    animation: first-animation $duration infinite linear alternate;
-  }
+    &:after {
+        right: 2px;
+        height: 5px;
+    }
 
-  &:hover:after {
-    animation: second-animation $duration infinite linear alternate;
-  }
+    &:hover:before {
+        animation: first-animation $duration infinite linear alternate;
+    }
 
-  &.default {
-    background-color: transparent;
-  }
-  &.gray {
-    background-color: #ccc;
-  }
-  &.black {
-    background-color: #000;
-  }
+    &:hover:after {
+        animation: second-animation $duration infinite linear alternate;
+    }
+
+    &.default {
+        background-color: transparent;
+    }
+
+    &.gray {
+        background-color: #ccc;
+    }
+
+    &.black {
+        background-color: #000;
+    }
 }
 
 .not-clickable {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 @keyframes first-animation {
-  from {
-    height: $height-limit;
-  }
+    from {
+        height: $height-limit;
+    }
 
-  to {
-    height: 2px;
-  }
+    to {
+        height: 2px;
+    }
 }
 
 @keyframes second-animation {
-  from {
-    height: 1px;
-  }
+    from {
+        height: 1px;
+    }
 
-  to {
-    height: $height-limit;
-  }
+    to {
+        height: $height-limit;
+    }
 }
 
 .hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  .bar {
-    width: 100%;
-    height: 0.2rem;
-    background-color: $clr1;
-  }
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+
+    .bar {
+        width: 100%;
+        height: 0.2rem;
+        background-color: $clr1;
+    }
 }
 
-// @media (max-width: 768px) {
-//   .nav-dropdown,
-//   .nav-buttons {
-//     display: none;
-//   }
-
-//   .hamburger {
-//     display: flex;
-//   }
-// }
-
 .menu {
-  max-height: 0;
-  opacity: 0;
-
-  overflow: hidden;
-  transition: max-height 0.4s ease-out, opacity 0.2s ease-out;
+    max-height: 500px;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    transition: max-height 0.4s ease-out, opacity 0.2s ease-out;
 }
 
 @media (max-width: 768px) {
-  .main-nav-bar {
-    flex-direction: column;
-    text-align: center;
-  }
+    .main-nav-bar {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .nav-dropdown,
-  .nav-buttons {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 100%;
-  }
+    .nav-dropdown,
+    .nav-buttons {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        min-width: 100%;
+    }
 
-  .a-login {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
+    .a-login {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
 
-  .btn-demo {
-    height: 50px;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
+    .btn-demo {
+        height: 50px;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
 
-  .hamburger {
-    display: flex;
-  }
+    .hamburger {
+        display: flex;
+    }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.open .nav-dropdown,
+    .menu.open .nav-buttons {
+        display: flex; /* they become visible when the menu is open in mobile view */
+    }
 }
