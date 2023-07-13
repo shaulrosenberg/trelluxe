@@ -9,170 +9,169 @@ import { Dashboard } from './dashboard'
 
 //icons
 import { BsFilter } from 'react-icons/bs'
-import { FcAssistant } from 'react-icons/fc'
+
 import {
-   IoStarOutline,
-   IoPersonAddOutline,
-   IoEllipsisHorizontalSharp,
+    IoPersonAddOutline,
+    IoEllipsisHorizontalSharp,
 } from 'react-icons/io5'
 import { AiFillStar, AiOutlineDashboard, AiOutlineStar } from 'react-icons/ai'
-import PropTypes, { func } from 'prop-types'
+import PropTypes from 'prop-types'
 
 export function BoardHeader({ board }) {
-   const params = useParams()
-   const [currTask, setCurrTask] = useState(null)
-   const [navColor, setNavColor] = useState(null)
-   const [dashboard, setDashboard] = useState(false)
+    const params = useParams()
+    const [navColor, setNavColor] = useState(null)
+    const [dashboard, setDashboard] = useState(false)
 
-   const [currBoard, setCurrboard] = useState(null)
-   const [modalType, setModalType] = useState(null)
+    const [currBoard, setCurrBoard] = useState(null)
+    const [modalType, setModalType] = useState(null)
 
-   const eventRef = useRef()
+    const eventRef = useRef()
 
-   const modalTitles = {
-      filter: 'Filter',
-      activity: 'Menu',
-      addMember: 'Add Member',
-      assistant: 'AI Assistant'
-   }
+    const modalTitles = {
+        filter: 'Filter',
+        activity: 'Menu',
+        addMember: 'Add Member',
+        assistant: 'AI Assistant'
+    }
 
-   function onToggleDashboard() {
-      if(dashboard) setDashboard(false)
-      else {
-         setDashboard(true)
-      }
-   }
+    function onToggleDashboard() {
+        if (dashboard) setDashboard(false)
+        else {
+            setDashboard(true)
+        }
+    }
 
-   function onToggleModal(type = null, ev = null) {
-      eventRef.current = ev
-      setModalType(type)
-   }
+    function onToggleModal(type = null, ev = null) {
+        eventRef.current = ev
+        setModalType(type)
+    }
 
-   function onCloseModal() {
-      setModalType(null)
-   }
+    function onCloseModal() {
+        setModalType(null)
+    }
 
-   useEffect(() => {
-      fetchBoardStyle()
-   }, [])
+    useEffect(() => {
+        fetchBoardStyle()
+    }, [currBoard])
 
-   async function fetchBoardStyle() {
-      if (params.boardId) {
-         try {
-            const board = await boardService.getById(params.boardId)
-            setCurrboard(board)
-            let boardStyleColor = board.style.backgroundColor
-            if (!boardStyleColor) return
+    async function fetchBoardStyle() {
+        if (params.boardId) {
+            try {
+                // TODO: from REDUX STORE
+                const board = await boardService.getById(params.boardId)
+                setCurrBoard(board)
+                let boardStyleColor = board.style.backgroundColor
+                if (!boardStyleColor) return
 
-            boardStyleColor = darken(0.1, boardStyleColor)
-            const transparentColor = transparentize(0.8, boardStyleColor)
+                boardStyleColor = darken(0.1, boardStyleColor)
+                const transparentColor = transparentize(0.8, boardStyleColor)
 
-            setNavColor(transparentColor)
-         } catch (err) {
-            console.log('failed to change nav color', err)
-         }
-      }
-   }
+                setNavColor(transparentColor)
+            } catch (err) {
+                console.log('failed to change nav color', err)
+            }
+        }
+    }
 
-   async function onStarredClick() {
-      const boardCopy = { ...currBoard }
-      boardCopy.isStarred = true
-      try {
-         await updateBoard(boardCopy)
-      } catch (err) {
-         console.log('failed to starred board', err)
-      }
-   }
-   console.log('board members', board.members)
-   return (
-      <header className='board-header' style={{ backgroundColor: navColor }}>
-         <div className='left'>
-            <h1 className='board-title'>{board?.title}</h1>
+    async function onStarredClick() {
+        const boardCopy = { ...currBoard }
+        boardCopy.isStarred = !boardCopy.isStarred
+        try {
+            await updateBoard(boardCopy)
+        } catch (err) {
+            console.log('failed to star board', err)
+        }
+    }
+    
+    return (
+        <header className='board-header' style={{ backgroundColor: navColor }}>
+            <div className='left'>
+                <h1 className='board-title'>{board?.title}</h1>
 
-            {board.isStarred ? (
-               <IconButton
-                  Icon={AiFillStar}
-                  text=''
-                  onClick={() => console.log('Clicked!')}
-               />
-            ) : (
-               <IconButton
-                  Icon={AiOutlineStar}
-                  text=''
-                  onClick={() => onStarredClick()}
-               />
-            )}
+                {board.isStarred ? (
+                    <IconButton
+                        Icon={AiFillStar}
+                        text=''
+                        onClick={onStarredClick}
+                    />
+                ) : (
+                    <IconButton
+                        Icon={AiOutlineStar}
+                        text=''
+                        onClick={onStarredClick}
+                    />
+                )}
 
-            {/* <button onClick={(ev) => onToggleModal('assistant', ev)}><  FcAssistant /></button> */}
-            {/* <IconButton
+                {/* <button onClick={(ev) => onToggleModal('assistant', ev)}><  FcAssistant /></button> */}
+                {/* <IconButton
                icon={FcAssistant}
                text='AiAssistant'
                onClick={(ev) => onToggleModal('assistant', ev)}
             /> */}
-            <IconButton
-                  Icon={AiOutlineDashboard}
-                  text='Dashboard'
-                  onClick={onToggleDashboard}
-               />
-            {/* <button onClick={onToggleDashboard}><  AiOutlineDashboard /> Dashboard</button> */}
-            {dashboard && <Dashboard onCloseDash={onToggleDashboard}/>}
-         </div>
-
-         <div className='right'>
-            <IconButton
-               Icon={BsFilter}
-               text='Filter'
-               onClick={(ev) => onToggleModal('filter', ev)}
-            />
-            <div className='board-header-members-container'>
-               {board.members.map((member, index) => {
-                  return <img key={index} src={member.imgUrl} />
-               })}
+                <IconButton
+                    Icon={AiOutlineDashboard}
+                    text='Dashboard'
+                    onClick={onToggleDashboard}
+                />
+                {/* <button onClick={onToggleDashboard}><  AiOutlineDashboard /> Dashboard</button> */}
+                {dashboard && <Dashboard onCloseDash={onToggleDashboard} />}
             </div>
-            <IconButton
-               Icon={IoPersonAddOutline}
-               text='Share'
-               className='share-board-btn '
-               onClick={(ev) => onToggleModal('addMember', ev)}
-            />
 
-            <IconButton
-               Icon={IoEllipsisHorizontalSharp}
-               text=''
-               onClick={(ev) => onToggleModal('activity', ev)}
-            />
-         </div>
+            <div className='right'>
+                <IconButton
+                    Icon={BsFilter}
+                    text='Filter'
+                    onClick={(ev) => onToggleModal('filter', ev)}
+                />
+                <div className='board-header-members-container'>
+                    {board.members.map((member, index) => {
+                        return <img key={index} src={member.imgUrl} alt={member.fullname} />
+                    })}
+                </div>
+                <IconButton
+                    Icon={IoPersonAddOutline}
+                    text='Share'
+                    className='share-board-btn '
+                    onClick={(ev) => onToggleModal('addMember', ev)}
+                />
 
-         {modalType && (
-            <DynamicActionModal
-               cmpType={modalType}
-               modalTitle={modalTitles[modalType]}
-               event={eventRef.current}
-               boardId={params.boardId}
-               onCloseModal={onCloseModal}
-            />
-         )}
-      </header>
-   )
+                <IconButton
+                    Icon={IoEllipsisHorizontalSharp}
+                    text=''
+                    onClick={(ev) => onToggleModal('activity', ev)}
+                />
+            </div>
+
+            {modalType && (
+                <DynamicActionModal
+                    cmpType={modalType}
+                    modalTitle={modalTitles[modalType]}
+                    event={eventRef.current}
+                    boardId={params.boardId}
+                    onCloseModal={onCloseModal}
+                />
+            )}
+        </header>
+    )
 }
 
 const IconButton = ({
-   Icon,
-   text = '',
-   style = {},
-   className = 'svg-btn',
-   ...props
+    Icon,
+    text = '',
+    style = {},
+    className = 'svg-btn',
+    ...props
 }) => {
-   const defaultStyle = {}
-   IconButton.propTypes = {
-      Icon: PropTypes.elementType.isRequired,
-      text: PropTypes.string,
-      style: PropTypes.object,
-   }
-   return (
-      <button style={defaultStyle} className={className} {...props}>
-         <Icon style={{ marginRight: text ? '8px' : '0' }} />
-         {text}
-      </button>
-   )
+    const defaultStyle = {}
+    IconButton.propTypes = {
+        Icon: PropTypes.elementType.isRequired,
+        text: PropTypes.string,
+        style: PropTypes.object,
+    }
+    return (
+        <button style={defaultStyle} className={className} {...props}>
+            <Icon style={{ marginRight: text ? '8px' : '0' }} />
+            {text}
+        </button>
+    )
 }
