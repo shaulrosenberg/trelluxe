@@ -83,9 +83,8 @@ export function LoginSignup(props) {
                   />
                   <button
                      type='submit'
-                     className={`submit-btn ${
-                        isLoginMode ? 'login' : 'signup'
-                     }`}
+                     className={`submit-btn ${isLoginMode ? 'login' : 'signup'
+                        }`}
                   >
                      {isLoginMode ? 'Log in' : 'Sign up'}
                   </button>
@@ -99,6 +98,7 @@ export function LoginSignup(props) {
                </form>
             </div>
          </div>
+
          <div className='login-imgs'>
             <img src={leftHero} className='left-hero' />
             <img src={rightHero} className='right-hero' />

@@ -52,7 +52,3 @@ While this project is primarily a personal project for job applications, I'm ope
 ## About the Developer
 
 Trelluxe is developed by _your name_. A _background details_ looking to make a splash in the world of web development. Check out my [LinkedIn](your_linkedin_profile_link) and [GitHub](your_github_profile_link).
-
-## License
-
-This project is licensed under the terms of the _insert your license here_.

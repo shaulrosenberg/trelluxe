@@ -10,7 +10,7 @@ export function HomePage() {
             <div className='div-hero-section'>
                <div className='div-hero-details'>
                   <h1>
-                  Trelluxe brings all your tasks, teammates, and tools together
+                     Trelluxe brings all your tasks, teammates, and tools together
                   </h1>
                   <p>
                      Keep everything in the same place—even if your team isn’t.
@@ -27,6 +27,7 @@ export function HomePage() {
                </div>
             </div>
          </div>
+
          <div className='main-second-homepage-info-container'>
             <div className='info-section-homepage'>
                <div>
@@ -43,7 +44,7 @@ export function HomePage() {
                   <div>
                      <h2>Boards</h2>
                      <p>
-                     Trelluxe boards keep tasks organized and work moving
+                        Trelluxe boards keep tasks organized and work moving
                         forward. In a glance, see everything from “things to do”
                         to “aww yeah, we did it!”
                      </p>

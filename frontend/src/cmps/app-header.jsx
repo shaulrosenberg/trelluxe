@@ -7,7 +7,7 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from '../pages/login-signup.jsx'
 
 import { boardService } from '../services/board.service'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { darken } from 'polished'
 
 // icons
@@ -17,6 +17,9 @@ import { FaRocket } from 'react-icons/fa'
 import { BsTrello } from 'react-icons/bs'
 
 export function AppHeader() {
+   const navDropdownRef = useRef()
+   const navButtonsRef = useRef()
+   const [isMenuOpen, setMenuOpen] = useState(false)
    const navigate = useNavigate()
    const user = useSelector((storeState) => storeState.userModule.user)
    const location = useLocation()
@@ -29,7 +32,7 @@ export function AppHeader() {
 
    useEffect(() => {
       fetchBoardStyle()
-      
+
    }, [location])
 
    // TODO: change color if style has backgroundImage
@@ -44,7 +47,11 @@ export function AppHeader() {
    function onTryDemo() {
       navigate('/workspace')
    }
-   console.log('user', user)
+
+   const toggleMenu = () => {
+      setMenuOpen(!isMenuOpen);
+   }
+
    return location.pathname !== '/' ? (
       <header className='app-header-work' style={fetchBoardStyle()}>
          <nav className='main-nav-bar-work'>
@@ -84,86 +91,49 @@ export function AppHeader() {
                /> */}
                <FaRocket className='icon-rocket not-clickable ' />
                <FaInfoCircle className='icon-info not-clickable ' />
-               <div className='user-container'>{user && <img src={user.imgUrl}/>}</div>
+               <div className='user-container'>{user && <img src={user.imgUrl} />}</div>
             </div>
          </nav>
       </header>
    ) : (
       <header className='app-header-homepage'>
          <nav className='main-nav-bar'>
-            <div className='nav-dropdown'>
-               <Link to='/' className='homepage-logo'>
-                  <BsTrello className='logo-workspace' />
-                  <h2 className='logo-work'>Trelluxe </h2>
-               </Link>
 
-               <NavLink to='/workspace' className='nav-link'>
-                  Workspace
-               </NavLink>
+            <div className="menu" style={{ maxHeight: isMenuOpen ? "500px" : "0", opacity: isMenuOpen ? "1" : "0" }}>
 
-               <NavLink to='/workspace' className='nav-link'>
-                  Boards
-               </NavLink>
+               <div className='nav-dropdown' ref={navDropdownRef} style={{ display: isMenuOpen ? 'flex' : 'none' }}>
+                  <Link to='/' className='homepage-logo'>
+                     <BsTrello className='logo-workspace' />
+                     <h2 className='logo-work'>Trelluxe </h2>
+                  </Link>
+
+                  <NavLink to='/workspace' className='nav-link'>
+                     Workspace
+                  </NavLink>
+
+                  <NavLink to='/workspace' className='nav-link'>
+                     Boards
+                  </NavLink>
+               </div>
+
+               <div className='nav-buttons' ref={navButtonsRef} style={{ display: isMenuOpen ? 'flex' : 'none' }}>
+                  <Link className='a-login' to={'/login'}>Log in</Link>
+                  <button className='btn-demo' onClick={() => onTryDemo()}>Try Demo</button>
+               </div>
+
+
             </div>
 
-            <div className='nav-buttons'>
-               <Link className='a-login' to={'/login'}>Log in</Link>
-               <button className='btn-demo' onClick={() => onTryDemo()}>Try Demo</button>
+
+
+
+            <div className='hamburger' onClick={toggleMenu}>
+               <div className='bar'></div>
+               <div className='bar'></div>
+               <div className='bar'></div>
             </div>
          </nav>
       </header>
+
    )
-}
-
-// was inside the nav
-{
-   /* {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */
-
-   {
-      /* {user && (
-                         <span className='user-info'>
-                              <Link to={`user/${user._id}`}>
-                                   {user.imgUrl && <img src={user.imgUrl} />}
-                                   {user.fullname}
-                              </Link>
-                              <span className='score'>
-                                   {user.score?.toLocaleString()}
-                              </span>
-                              <button onClick={onLogout}>Logout</button>
-                         </span>
-                    )}
-                    {!user && (
-                         <section className='user-info'>
-                              <LoginSignup
-                                   onLogin={onLogin}
-                                   onSignup={onSignup}
-                              />
-                         </section>
-                    )}  */
-   }
-
-   // async function onLogin(credentials) {
-   //      try {
-   //           const user = await login(credentials)
-   //           showSuccessMsg(`Welcome: ${user.fullname}`)
-   //      } catch (err) {
-   //           showErrorMsg('Cannot login')
-   //      }
-   // }
-   // async function onSignup(credentials) {
-   //      try {
-   //           const user = await signup(credentials)
-   //           showSuccessMsg(`Welcome new user: ${user.fullname}`)
-   //      } catch (err) {
-   //           showErrorMsg('Cannot signup')
-   //      }
-   // }
-   // async function onLogout() {
-   //      try {
-   //           await logout()
-   //           showSuccessMsg(`Bye now`)
-   //      } catch (err) {
-   //           showErrorMsg('Cannot logout')
-   //      }
-   // }
 }
