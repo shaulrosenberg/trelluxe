@@ -4,6 +4,8 @@
 
 Trelluxe is a project management web application inspired by Trello. It provides a flexible and visual way to organize and manage projects. With a focus on simplicity and ease of use, Trelluxe helps teams to stay organized and productive.
 
+Check it out at: https://trelluxe.onrender.com/
+
 ![Trelluxe Overview](/assets/1.png)
 
 ## Features
@@ -14,27 +16,34 @@ Trelluxe is a project management web application inspired by Trello. It provides
 - **Task Management**: Assign tasks, set due dates, and track the status.
 - **Notifications**: Stay updated with email and in-app notifications.
 
-More features coming soon...
-
 ## Tech Stack
 
-**Frontend**: _technology used in the frontend_ (e.g. React, Vue, Angular)
+**Frontend**: React, Redux, Sass.
 
-**Backend**: _technology used in the backend_ (e.g. Node.js, Express, Django)
+**Backend**: Node.js, Express, WebSockets via Socket.io.
 
-**Database**: _type of database used_ (e.g. MongoDB, PostgreSQL)
+**Database**: MongoDB.
 
-## Installation & Usage
+<!-- ## Installation & Usage
 
-_Provide instructions on how to install and run your app. This will include steps like cloning the repo, installing necessary dependencies, setting up the database, and starting the server._
+_Provide instructions on how to install and run your app. This will include steps like cloning the repo, installing necessary dependencies, setting up the database, and starting the server._ -->
 
 ## Screenshots
 
-![Board View](/assets/board_view.png)
-_Caption for the image_
+![Homepage](/assets/2.png)
+_Trelluxe's homepage_
 
-![Card View](/assets/card_view.png)
-_Caption for the image_
+![Workspace view](/assets/3.png)
+_Screenshot of a workspace_
+
+![Adding a board](/assets/5.png)
+_Adding a new board_
+
+![Board view](/assets/1.png)
+_Screenshot of a board_
+
+![Task details view](/assets/4.png)
+_Task details_
 
 ## Contributing
 
