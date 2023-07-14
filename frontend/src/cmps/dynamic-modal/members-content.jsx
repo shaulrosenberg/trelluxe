@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { BiCheck } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
 import { updateTask } from '../../store/board.actions'

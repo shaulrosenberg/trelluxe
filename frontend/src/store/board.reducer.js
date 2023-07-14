@@ -9,7 +9,7 @@ export const TOGGLE_LABEL = 'TOGGLE_LABEL'
 
 const initialState = {
   selectedBoard: null,
-  boards: [],
+  boards: null,
   lastRemovedBoard: null,
   isLabelExpand: false,
 }

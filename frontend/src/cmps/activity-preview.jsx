@@ -10,11 +10,10 @@ export function ActivityPreview({ activity, isInControls }) {
          moment(activity.createdAt).format('MMMM Do YYYY, h:mm:ss a')
       )
    }, [activity.createdAt])
-   console.log('activity.byMember?.imgUrl', activity.byMember?.imgUrl)
-   console.log('activity', activity)
+   
 
    const isControl = isInControls === 'true' ? 'inTaskDetails' : ''
-   console.log('isInControls', isInControls)
+
    return (
       <div className='activity-preview'>
          <div>
