@@ -45,10 +45,6 @@ _Screenshot of a board_
 ![Task details view](/assets/4.png)
 _Task details_
 
-## Contributing
+<!-- ## Developers
 
-While this project is primarily a personal project for job applications, I'm open to collaborations. If you find any bugs or wish to propose new features, feel free to open an issue or send a pull request.
-
-## About the Developer
-
-Trelluxe is developed by _your name_. A _background details_ looking to make a splash in the world of web development. Check out my [LinkedIn](your_linkedin_profile_link) and [GitHub](your_github_profile_link).
+Trelluxe is developed by _your name_. A _background details_ looking to make a splash in the world of web development. Check out my [LinkedIn](your_linkedin_profile_link) and [GitHub](your_github_profile_link). -->
