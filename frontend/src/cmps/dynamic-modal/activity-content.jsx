@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RxActivityLog } from 'react-icons/rx'
-import { ActivityBackgroundColor } from '../activity-background'
-import { ActivityList } from '../activity-list'
+import { ActivityBackgroundColor } from '../activity/activity-background'
+import { ActivityList } from '../activity/activity-list'
 import { useSelector } from 'react-redux'
 
 export function ActivityContent() {

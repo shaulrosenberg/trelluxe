@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 // my cmps
 import { GroupList } from '../cmps/group-list'
-import { BoardHeader } from '../cmps/board-header'
+import { BoardHeader } from '../cmps/board/board-header'
 import { Loader } from '../cmps/loader'
 // services
 import { socketService } from '../services/socket.service'

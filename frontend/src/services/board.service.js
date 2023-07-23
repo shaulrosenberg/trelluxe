@@ -216,8 +216,10 @@ function demoUser() {
       fullname: 'Guest user',
       username: 'abi@ababmi.com',
       password: 'aBambi123',
+      // imgUrl:
+      //    'https://www.thenews.com.pk/assets/uploads/updates/2021-09-02/886889_5671594_brad-pitt-kick-ass_updates.jpg',
       imgUrl:
-         'https://www.thenews.com.pk/assets/uploads/updates/2021-09-02/886889_5671594_brad-pitt-kick-ass_updates.jpg',
+         'https://xsgames.co/randomusers/assets/avatars/male/0.jpg',
    }
    if (user.imgUrl) {
       return user

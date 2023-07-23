@@ -14,13 +14,13 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { ImAttachment } from 'react-icons/im'
 
 // dynamic cmps
-import { TaskControls } from '../cmps/task-controls'
-import { DescEdit } from '../cmps/task-desc'
-import { AttachImage } from '../cmps/task-attachment'
+import { TaskControls } from '../cmps/task/task-controls'
+import { DescEdit } from '../cmps/task/task-desc'
+import { AttachImage } from '../cmps/task/task-attachment'
 import { useSelector } from 'react-redux'
-import { TaskOverview } from '../cmps/task-overview'
-import { TaskChecklists } from '../cmps/task-checklists'
-import { ActivityList } from '../cmps/activity-list'
+import { TaskOverview } from '../cmps/task/task-overview'
+import { TaskChecklists } from '../cmps/task/task-checklists'
+import { ActivityList } from '../cmps/activity/activity-list'
 import { Loader } from '../cmps/loader'
 export function TaskDetails() {
    const { taskId, groupId, boardId } = useParams()

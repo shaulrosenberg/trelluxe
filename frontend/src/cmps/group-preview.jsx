@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
-import { AddTask } from './add-task'
-import { TaskList } from './task-list'
+import { AddTask } from './task/add-task'
+import { TaskList } from './task/task-list'
 import { useEffect, useRef, useState } from 'react'
 import TitleAdd from './title-add'
 import { DynamicActionModal } from "./dynamic-modal/dynamic-action-modal"

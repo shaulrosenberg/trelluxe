@@ -1,14 +1,12 @@
 .activity-list {
    .member-img {
-      height: 32px;
-
+      height: rem(32px);
       object-fit: contain;
-      padding-bottom: px;
-
       img {
          width: 100%;
-         border-radius: 25em;
-         width: auto;
+         border-radius: 50%;
+         width: rem(25px);
+         height: rem(25px);
       }
 
       span {
@@ -51,7 +49,7 @@
 
       .timestamp {
          font-size: rem(12px);
-         margin-left: 1.6rem;
+         margin-left: 1.9rem;
 
          &.inTaskDetails{
             margin-left: 2.3rem;
