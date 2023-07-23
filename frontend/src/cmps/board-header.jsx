@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 
 import { darken, transparentize } from 'polished'
-import { boardService } from '../services/board.service'
 import { updateBoard } from '../store/board.actions'
 import { DynamicActionModal } from './dynamic-modal/dynamic-action-modal'
 import { Dashboard } from './dashboard'
@@ -16,17 +15,18 @@ import {
 } from 'react-icons/io5'
 import { AiFillStar, AiOutlineDashboard, AiOutlineStar } from 'react-icons/ai'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 
 export function BoardHeader({ board }) {
     const params = useParams()
     const [navColor, setNavColor] = useState(null)
     const [dashboard, setDashboard] = useState(false)
 
-    const [currBoard, setCurrBoard] = useState(null)
+    // const [currBoard, setCurrBoard] = useState(null)
     const [modalType, setModalType] = useState(null)
 
     const eventRef = useRef()
-
+    const currBoard = useSelector((storeState) => storeState.boardModule.selectedBoard)
     const modalTitles = {
         filter: 'Filter',
         activity: 'Menu',
@@ -55,12 +55,9 @@ export function BoardHeader({ board }) {
     }, [currBoard])
 
     async function fetchBoardStyle() {
-        if (params.boardId) {
+        if (currBoard) {
             try {
-                // TODO: from REDUX STORE
-                const board = await boardService.getById(params.boardId)
-                setCurrBoard(board)
-                let boardStyleColor = board.style.backgroundColor
+                let boardStyleColor = currBoard.style.backgroundColor
                 if (!boardStyleColor) return
 
                 boardStyleColor = darken(0.1, boardStyleColor)

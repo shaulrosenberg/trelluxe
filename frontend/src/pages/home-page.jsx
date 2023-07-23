@@ -30,7 +30,7 @@ export function HomePage() {
 
          <div className='main-second-homepage-info-container'>
             <div className='info-section-homepage'>
-               <div>
+               <div className='info-item'>
                   <h2>A productivity powerhouse</h2>
                   <p>
                      Simple, flexible, and powerful. All it takes are boards,

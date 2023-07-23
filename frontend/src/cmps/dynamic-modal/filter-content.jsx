@@ -1,17 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { boardService } from '../../services/board.service'
 import { useSelector } from 'react-redux'
 import { filterBoard } from '../../store/board.actions'
-import { SET_SELECTED_BOARD } from '../../store/board.reducer'
+import { SET_SELECTED_BOARD, SAVE_UNFILTER_BOARD } from '../../store/board.reducer'
 import { useDispatch } from 'react-redux'
+
 
 export function FilterContent() {
    const dispatch = useDispatch()
    const board = useSelector(
       (storeState) => storeState.boardModule.selectedBoard
    )
-
+   const beforeFilterBoard = useSelector((storeState) => storeState.boardModule.boardBeforeFilter)
    const [selectedLabels, setSelectedLabels] = useState([])
    const [selectedMembers, setSelectedMembers] = useState([])
    const [copyBoard, setCopyBoard] = useState(null)
@@ -47,7 +46,9 @@ export function FilterContent() {
    function resetFilter() {
       setSelectedLabels([])
       setSelectedMembers([])
-      filterBoard(copyBoard)
+      // filterBoard(copyBoard)
+      console.log('beforeFilterBoard', beforeFilterBoard)
+      filterBoard(beforeFilterBoard)
    }
 
    function handleFilter() {
@@ -76,6 +77,8 @@ export function FilterContent() {
             }),
          })),
       }
+      console.log('originalBoard.current', originalBoard.current)
+      dispatch({type: SAVE_UNFILTER_BOARD, board: originalBoard.current} )
       dispatch({ type: SET_SELECTED_BOARD, board: filteredBoard })
    }
 

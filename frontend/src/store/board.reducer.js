@@ -6,12 +6,14 @@ export const UNDO_REMOVE_BOARD = 'UNDO_REMOVE_BOARD'
 export const UPDATE_TASK = 'UPDATE_TASK'
 export const SET_SELECTED_BOARD = 'SET_SELECTED_BOARD'
 export const TOGGLE_LABEL = 'TOGGLE_LABEL'
+export const SAVE_UNFILTER_BOARD = 'SAVE_UNFILTER_BOARD'
 
 const initialState = {
   selectedBoard: null,
   boards: null,
   lastRemovedBoard: null,
   isLabelExpand: false,
+  boardBeforeFilter: null,
 }
 
 export function boardReducer(state = initialState, action) {
@@ -53,7 +55,12 @@ export function boardReducer(state = initialState, action) {
     case TOGGLE_LABEL:
       newState = { ...state, isLabelExpand: !state.isLabelExpand }
       break
+      case SAVE_UNFILTER_BOARD:
+        console.log('action.board', action.board)
+        newState = {...state, boardBeforeFilter: action.board}
+        break
     default:
+    
       return state
   }
   return newState
