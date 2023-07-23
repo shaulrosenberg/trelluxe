@@ -16,7 +16,7 @@ export function Workspace() {
     const [modalEvent, setModalEvent] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-
+    // try {loadBoard, finally {isLoading = false}}
     useEffect(() => {
         loadBoards()
     }, [])

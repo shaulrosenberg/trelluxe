@@ -14,75 +14,76 @@ import { setSelectedBoard, updateBoard } from '../store/board.actions'
 
 
 export function BoardIndex() {
-   const [isLoading, setIsLoading] = useState(true)
-   const board = useSelector(
-      (storeState) => storeState.boardModule.selectedBoard
-   )
-   const labelExpanedStatus = useSelector(
-      (storeState) => storeState.boardModule.isLabelExpand
-   )
-   
-   const dispatch = useDispatch()
-   const { boardId } = useParams()
+    const [isLoading, setIsLoading] = useState(true)
+    const board = useSelector(
+        (storeState) => storeState.boardModule.selectedBoard
+    )
+    const labelExpanedStatus = useSelector(
+        (storeState) => storeState.boardModule.isLabelExpand
+    )
 
-   useEffect(() => {
-      loadBoard()
-      // add listeners
-      try {
-         socketService.emit('join-board', boardId)
-         socketService.on('board-update', (updatedBoard) => {
-            dispatch({type: 'UPDATE_BOARD',board: updatedBoard})
-            dispatch({ type: 'SET_SELECTED_BOARD', board: updatedBoard })
-         })
-      } catch (err) {
+    const dispatch = useDispatch()
+    const { boardId } = useParams()
 
-      }
-      return () => {
-         // remove listeners
-         socketService.off('board-update')
-         // clear board to fix bug
-      }
-   }, [])
+    useEffect(() => {
+        loadBoard()
+        // add listeners
+        try {
+            socketService.emit('join-board', boardId)
+            socketService.on('board-update', (updatedBoard) => {
+                dispatch({ type: 'UPDATE_BOARD', board: updatedBoard })
+                dispatch({ type: 'SET_SELECTED_BOARD', board: updatedBoard })
+            })
+        } catch (err) {
 
-   async function loadBoard() {
-      try {
-         setIsLoading(true)
-         const board = await boardService.getById(boardId)
-         setSelectedBoard(board)
-         setIsLoading(false)
-      } catch (err) {
-         console.log('cannot load board', err)
-      }
-   }
+        }
+        return () => {
+            // remove listeners
+            socketService.off('board-update')
+            // clear board to fix bug
+        }
+    }, [])
 
-   function getBoardStyle() {
-      let articleStyle = { ...board.style }
+    async function loadBoard() {
+        try {
+            setIsLoading(true)
+            const board = await boardService.getById(boardId)
+            setSelectedBoard(board)
+            // finally block
+            setIsLoading(false)
+        } catch (err) {
+            console.log('cannot load board', err)
+        }
+    }
 
-      // Check if backgroundImage exists, if not fallback to backgroundColor
-      if (board.style.backgroundImage) {
-         articleStyle.backgroundImage = `url(${board.style.backgroundImage})`
-         articleStyle.backgroundSize = 'cover'
-         articleStyle.backgroundPosition = 'center'
-         // articleStyle.backgroundRepeat = 'no-repeat'
-      } else {
-         articleStyle.backgroundColor = board.style.backgroundColor
-      }
+    function getBoardStyle() {
+        let articleStyle = { ...board.style }
 
-      return articleStyle
-   }
+        // Check if backgroundImage exists, if not fallback to backgroundColor
+        if (board.style.backgroundImage) {
+            articleStyle.backgroundImage = `url(${board.style.backgroundImage})`
+            articleStyle.backgroundSize = 'cover'
+            articleStyle.backgroundPosition = 'center'
+            // articleStyle.backgroundRepeat = 'no-repeat'
+        } else {
+            articleStyle.backgroundColor = board.style.backgroundColor
+        }
+
+        return articleStyle
+    }
 
 
-   if (!board) return <Loader />
-   return (
-      // render a list of groups
-      // in each group -> render a list of tasks
-      <section style={getBoardStyle()} className='board-index'>
-         {/* maybe app-header should be here in order to change the app-header style while changing color */}
-         <BoardHeader board={board} />
-         {board && (
-            <GroupList board={board} groups={board.groups} boardId={boardId} />
-         )}
-         <Outlet />
-      </section>
-   )
+    if (!board) return <Loader />
+    return (
+        // render a list of groups
+        // in each group -> render a list of tasks
+        <section style={getBoardStyle()} className='board-index'>
+            {/* maybe app-header should be here in order to change the app-header style while changing color */}
+            <BoardHeader board={board} />
+            {board && (
+                <GroupList board={board} groups={board.groups} boardId={boardId} />
+            )}
+            <Outlet />
+        </section>
+    )
 }

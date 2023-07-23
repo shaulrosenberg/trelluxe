@@ -8,13 +8,16 @@
     "service-worker.js": "/service-worker.js",
     "static/media/right-hero.svg": "/static/media/right-hero.3a2e83cef20d6bab2dbaf88d4a44819f.svg",
     "static/media/google-login-icon-24-removebg-preview.png": "/static/media/google-login-icon-24-removebg-preview.c2b0ed7e4148fd5fddeb.png",
-    "static/media/board-preview.svg": "/static/media/board-preview.14cda5dc635d1f13bc4828f5113d1e86.svg",
-    "static/media/loader.svg": "/static/media/loader.24976c46bbf8be9db6632d95684435f7.svg",
+    "static/media/board-preview.svg": "/static/media/board-preview.25c287ae7ad9fc2da090aeeddd284374.svg",
+    "static/media/loader.svg": "/static/media/loader.4ce56a5f125d91cf6f2023fde70ca3d0.svg",
     "index.html": "/index.html",
     "static/media/edit-pencil.svg": "/static/media/edit-pencil.77842f61cccac45fec91d05b8f708441.svg",
     "static/media/checklistIcon.svg": "/static/media/checklistIcon.8f6811c21b64628b3144e38fed3b5d2a.svg",
     "main.fcd2e0bc.css.map": "/static/css/main.fcd2e0bc.css.map",
     "main.4f719b08.js.map": "/static/js/main.4f719b08.js.map"
   },
-  "entrypoints": ["static/css/main.fcd2e0bc.css", "static/js/main.4f719b08.js"]
+  "entrypoints": [
+    "static/css/main.fcd2e0bc.css",
+    "static/js/main.4f719b08.js"
+  ]
 }
